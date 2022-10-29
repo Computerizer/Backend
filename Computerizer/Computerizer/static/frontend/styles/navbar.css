@@ -1,27 +1,13 @@
-:root {
-    --main: #FF9425;
-    --accent: #E8E8E8;
-    --link: #FF616F;
-    --text-normal: #12130F;
-    --text-light: #A1AEB7; 
-}
-
-* {
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-
-
 /* navbar */
+
+.b-nav {
+    background-color: var(--accent);
+}
 
 .nav-bar {
     display: flex;
     justify-content: space-between;
     background-color: var(--accent);
-    padding: 1rem 10%;
 }
 
 .logo {
@@ -57,14 +43,15 @@
     font-size: 0.9rem;
 }
 
-.menus i:hover, .pages a:hover {
+.menus i:hover,
+.pages a:hover {
     cursor: pointer;
     color: var(--main);
 }
 
 #active a {
     font-weight: 800;
-    
+
 }
 
 
@@ -100,21 +87,4 @@
 .pages__mobile li a {
     color: var(--text-normal);
     text-decoration: none;
-
-}
-
-@media only screen and (max-width: 920px) {
-    .menus {
-        display: none;
-    }
-
-    .mobile {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-        
-    .logo__name {
-        font-size: 1.2rem;
-    }
 }
