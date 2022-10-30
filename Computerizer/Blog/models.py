@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 from Oauth.models import CustomUser
 # Create your models here.
@@ -31,6 +32,15 @@ class Post(models.Model):
     def __str__(self):
         return f'{self.title}'
 
+
+class Sale(models.Model):
+    image = models.ImageField(upload_to = r'Computerizer/static/Blog/sales')
+    part = models.CharField(max_length = 60)
+    body = models.TextField()
+    link = models.URLField()
+
+    def __str__(self):
+        return f'{self.part}'
 class Comment(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=None)    
     body = models.TextField()
