@@ -1,11 +1,10 @@
-from re import S
 from sqlite3 import IntegrityError
 from turtle import title
 from django.shortcuts import render
 from rest_framework.response import Response
 from Oauth.models import CustomUser
-from .models import Author, Post, Comment, LikeComment, LikePost
-from .serializer import AuthorSerializer, LikePostSerializer, RecentPostSerializer, CommentSerializer, LikeCommentSerializer
+from .models import Author, Post, Comment, LikeComment, LikePost, Sale
+from .serializer import AuthorSerializer, LikePostSerializer, RecentPostSerializer, CommentSerializer, LikeCommentSerializer, SaleSerializer
 from django.core.files.storage import default_storage
 from rest_framework.permissions import IsAuthenticated,IsAdminUser,IsAuthenticatedOrReadOnly,AllowAny
 from rest_framework.authentication import TokenAuthentication
@@ -14,17 +13,25 @@ from rest_framework.views import APIView
 
 
 
-
-
 # Create your views here.
-class GetRecentPosts(APIView):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (AllowAny,)
-    
-    def get(self, request):
-        posts = Post.objects.all()
-        serializer = RecentPostSerializer(posts, many=True)
-        return Response(serializer.data)    
+@api_view(['GET'])
+def getSales(request, num_of_sales):
+    sales = Sale.objects.all()
+    serializer = SaleSerializer(sales, many = True)
+    return Response(serializer.data[0:num_of_sales])
+
+
+@api_view(["GET"])
+def getRecentPosts(request, num_of_posts):
+    posts = Post.objects.all().order_by('publish_date')
+    serializer = RecentPostSerializer(posts, many=True)
+    return Response(serializer.data[0:num_of_posts])    
+
+@api_view(["GET"])
+def getPostsOrdered(request, order, num_of_posts):
+    posts = Post.objects.all().order_by(order).reverse()    
+    serializer = RecentPostSerializer(posts, many=True)
+    return Response(serializer.data[0:num_of_posts])   
 
 @api_view(["GET"])
 def getPost(request, title):
@@ -42,6 +49,12 @@ def getPost(request, title):
         }
     return Response(data, status=200)
 
+@api_view(['GET'])
+def searchPost(request,title):
+    posts = Post.objects.filter(title__contains = title)
+    serializer = RecentPostSerializer(posts, many = True)
+    return Response(serializer.data)
+
 @api_view(["POST"])
 def viewPost(request):
     post = Post.objects.get(title = request.data['post'])
@@ -49,7 +62,7 @@ def viewPost(request):
     post.views += 1
     post.save()
     return Response("Post Viewed")
-
+    
 @api_view(['GET'])
 def getComments(request, post_title):
     post = Post.objects.get(title = post_title)

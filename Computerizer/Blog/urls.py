@@ -2,8 +2,11 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('sales/<int:num_of_sales>', views.getSales, name='sales-api'),
     #-------------------------------
-    path('recent-posts/', views.GetRecentPosts.as_view(), name='RecentPost-api'),
+    path('recent-posts/<int:num_of_posts>', views.getRecentPosts, name='RecentPost-api'),
+    path('posts/<str:order>/<int:num_of_posts>', views.getPostsOrdered, name='PostOrder-api'),
+    path('post/search/<str:title>', views.searchPost, name='search post-api'),
     path('post/<str:title>', views.getPost, name='post-api'),
     path('post/view/', views.viewPost, name='viewPost-api'),
     #-------------------------------

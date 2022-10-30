@@ -1,12 +1,15 @@
-from dataclasses import field, fields
 from rest_framework.serializers import ModelSerializer
-from .models import Author, Post, Comment, LikeComment, LikePost
+from .models import Author, Post, Comment, LikeComment, LikePost, Sale
 
 class AuthorSerializer(ModelSerializer):
     class Meta:
         model = Author
         fields = '__all__'
 
+class SaleSerializer(ModelSerializer):
+    class Meta:
+        model = Sale
+        fields = '__all__'
 class RecentPostSerializer(ModelSerializer):
     class Meta:
         model = Post
