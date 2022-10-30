@@ -1,0 +1,220 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'frontend/styles/index.css'%}">
+        <link rel="stylesheet" href="{% static 'frontend/styles/navbar.css'%}">
+    <title>Computerizer</title>
+</head>
+
+<body>
+    
+    <!-- Nav bar -->
+    <div class="body b-nav">
+        <nav class="nav-bar">
+            <div class="logo">
+                <img src="{% static 'frontend/media/logo.png'%}" width="55px" alt="logo">
+                <h2 class="logo__name">
+                    Computerizer
+                </h2>
+            </div>
+            <div class="menus">
+                <ul class="pages">
+                    <li id="active">
+                        <a href="">home</a>
+                    </li>
+                    <li>
+                        <a href="">recents</a>
+                    </li>
+                    <li>
+                        <a href="">subscribe</a>
+                    </li>
+                    <li>
+                        <a href="">about</a>
+                    </li>
+                </ul>
+                <i class="material-icons">
+                    search
+                </i>
+            </div>
+        
+            <div class="mobile">
+                <div class="menus__mobile hide">
+                    <ul class="pages__mobile">
+                        <li>
+                            <i class="material-icons close__menu">
+                                cancel
+                            </i>
+                        </li>
+                        <li id="active">
+                            <a href="">home</a>
+                        </li>
+                        <li>
+                            <a href="">recents</a>
+                        </li>
+                        <li>
+                            <a href="">subscribe</a>
+                        </li>
+                        <li>
+                            <a href="">about</a>
+                        </li>
+                        <li>
+                            <i class="material-icons">
+                                search
+                            </i>
+                        </li>
+                    </ul>
+                </div>
+                <i class="material-icons menu__btn">
+                    menu
+                </i>
+        
+        
+            </div>
+        
+        </nav>
+    </div>
+
+    <!-- slider -->
+    
+    <div class="body">
+        <div class="slider">
+            <div class="slider__main">
+                
+                    <div class="slider__main__left">
+                        
+                    </div>
+                    <a href="">
+                        <i class="material-icons">
+                            exit_to_app
+                        </i>
+                    </a>
+                
+            </div>
+            <div class="slider__nav">
+                
+            </div>
+        </div>
+    </div>
+    
+        <!-- parts grid -->
+    <div class="body b-grid">
+        <div class="parts-grid">
+        
+            <div class="part">
+                <div class="parts-grid-text">
+                    <h3 class="parts-grid-title">CPU</h3>
+                    <p class="parts-grid-info">sale 15%</p>
+                </div>
+                <img src="{% static 'frontend/media/logo.png'%}" alt="part">
+            </div>
+        
+            <div class="part">
+                <div class="parts-grid-text">
+                    <h3 class="parts-grid-title">GPU</h3>
+                    <p class="parts-grid-info">sale 15%</p>
+                </div>
+                <img src="{% static 'frontend/media/logo.png'%}" alt="part" width="100px">
+            </div>
+        
+            <div class="part grid-row-span-2">
+                <div class="parts-grid-text">
+                    <h3 class="parts-grid-title">Case</h3>
+                    <p class="parts-grid-info">sale 15%</p>
+                </div>
+                <img src="{% static 'frontend/media/logo.png'%}" alt="part" width="100px">
+            </div>
+        
+            <div class="part grid-col-span-2">
+                <div class="parts-grid-text">
+                    <h3 class="parts-grid-title">Cooler</h3>
+                    <p class="parts-grid-info">sale 15%</p>
+                </div>
+                <img src="{% static 'frontend/media/logo.png'%}" alt="part" width="100px">
+            </div>
+        
+        
+        
+        </div>
+    </div>
+        
+    
+        <!-- posts -->
+        <div class="body b-posts">
+            <div class="posts">
+                <h1 class="title">
+                    Recent Posts
+                </h1>
+            </div>
+            <div class="load-more">
+                <button>Load more</button>
+            </div>
+        </div>
+        
+    
+        <!-- form -->
+        <div class="body b-form">
+            <div class="subscribe">
+                <h3 class="subs__title">
+                    Subscribe with us
+                </h3>
+                <form action="">
+                    <div class="name">
+                        <input type="email" name="" id="">
+                        <input type="email" name="" id="">
+                    </div>
+                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <button type="submit" class="form-submit">Subsctibe</button>
+                </form>
+            </div>
+        </div>
+        
+    
+        <!-- footer -->
+        <div class="body b-footer">
+            <footer>
+                <div class="social">
+                    <div class="social__icons">
+                        <i class="material-icons">
+                            fact_check
+                        </i>
+                        <i class="material-icons">
+                            account_box
+                        </i>
+                        <i class="material-icons">
+                            supervised_user_circle
+                        </i>
+                        <i class="material-icons">
+                            contact_phone
+                        </i>
+                    </div>
+                    <p>2022 LTD | All rights reserved</p>
+                </div>
+            
+                <div class="footer__logo">
+                    <img src="{% static 'frontend/media/logo.png'%}" alt="logo">
+                </div>
+            
+                <h3 class="footer__name">COMPUTERIZER</h3>
+            </footer>
+        </div>
+        
+    
+    <script  src="{% static 'frontend/functions/navbar.js'%}"></script>
+    <script  src="{% static 'frontend/functions/main.js'%}"></script>
+   
+
+</body>
+</html>
