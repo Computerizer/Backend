@@ -1,0 +1,115 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'frontend/styles/post.css'%}">
+    <link rel="stylesheet" href="{% static 'frontend/styles/navbar.css'%}">
+    <title>Computerizer Post</title>
+</head>
+
+<body>
+
+    <!-- Nav bar -->
+    <div class="body b-nav">
+        <nav class="nav-bar">
+            <div class="logo">
+                <img src="{% static 'frontend/media/logo.png'%}" width="55px" alt="logo">
+                <h2 class="logo__name">
+                    Computerizer
+                </h2>
+            </div>
+            <div class="menus">
+                <ul class="pages">
+                    <li id="active">
+                        <a href="">home</a>
+                    </li>
+                    <li>
+                        <a href="">recents</a>
+                    </li>
+                    <li>
+                        <a href="">subscribe</a>
+                    </li>
+                    <li>
+                        <a href="">about</a>
+                    </li>
+                </ul>
+                <i class="material-icons">
+                    search
+                </i>
+            </div>
+    
+            <div class="mobile">
+                <div class="menus__mobile hide">
+                    <ul class="pages__mobile">
+                        <li>
+                            <i class="material-icons close__menu">
+                                cancel
+                            </i>
+                        </li>
+                        <li id="active">
+                            <a href="">home</a>
+                        </li>
+                        <li>
+                            <a href="">recents</a>
+                        </li>
+                        <li>
+                            <a href="">subscribe</a>
+                        </li>
+                        <li>
+                            <a href="">about</a>
+                        </li>
+                        <li>
+                            <i class="material-icons">
+                                search
+                            </i>
+                        </li>
+                    </ul>
+                </div>
+                <i class="material-icons menu__btn">
+                    menu
+                </i>
+    
+    
+            </div>
+    
+        </nav>
+    </div>
+
+    <div class="body">
+        <div class="post__details">
+            <h1 class="post__title">
+                This product is great for you!
+            </h1>
+            <h4 class="post__info">
+                <span class="author">by Omda</span> | <span class="date">june 18 ,2021, 2:15pm</span>
+            </h4>
+            <div class="social">
+                <img src="{% static 'frontend/media/reddit.svg'%}" alt="reddit logo" width="25px">
+
+                
+            </div>
+        </div>
+        <div class="post__body">
+            <div class="adds"></div>
+            <div class="post__text">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'frontend/functions/post.js'%}"></script>
+</body>
+
+</html>
