@@ -22,10 +22,10 @@
 <body>
     
     <!-- Nav bar -->
-    <div class="body b-nav">
+    <header class="body b-nav">
         <nav class="nav-bar">
             <div class="logo">
-                <img src="{% static 'frontend/media/logo.png'%}" width="55px" alt="logo">
+                <img src="{% static 'frontend/media/nLogo.png'%}" width="55px" alt="logo" class="logo__img">
                 <h2 class="logo__name">
                     Computerizer
                 </h2>
@@ -85,7 +85,7 @@
             </div>
         
         </nav>
-    </div>
+    </header>
 
     <!-- slider -->
     
@@ -113,36 +113,44 @@
     <div class="body b-grid">
         <div class="parts-grid">
         
-            <div class="part">
-                <div class="parts-grid-text">
-                    <h3 class="parts-grid-title">CPU</h3>
-                    <p class="parts-grid-info">sale 15%</p>
-                </div>
-                <img src="{% static 'frontend/media/logo.png'%}" alt="part">
+            <div class="part CPU">
+                <a href="">
+                    <div class="parts-grid-text ">
+                        <h3 class="parts-grid-title">CPU</h3>
+                        <p class="parts-grid-info"></p>
+                    </div>
+                    <img src="" alt="part">
+                </a>
             </div>
         
-            <div class="part">
-                <div class="parts-grid-text">
-                    <h3 class="parts-grid-title">GPU</h3>
-                    <p class="parts-grid-info">sale 15%</p>
-                </div>
-                <img src="{% static 'frontend/media/logo.png'%}" alt="part" width="100px">
+            <div class="part GPU">
+                <a href="">
+                    <div class="parts-grid-text ">
+                        <h3 class="parts-grid-title">GPU</h3>
+                        <p class="parts-grid-info"></p>
+                    </div>
+                    <img src="" alt="part" width="100px">
+                </a>
             </div>
         
-            <div class="part grid-row-span-2">
-                <div class="parts-grid-text">
-                    <h3 class="parts-grid-title">Case</h3>
-                    <p class="parts-grid-info">sale 15%</p>
-                </div>
-                <img src="{% static 'frontend/media/logo.png'%}" alt="part" width="100px">
+            <div class="part grid-row-span-2 Case">
+                <a href="">
+                    <div class="parts-grid-text">
+                        <h3 class="parts-grid-title">Case</h3>
+                        <p class="parts-grid-info"></p>
+                    </div>
+                    <img src="" alt="part" width="100px">
+                </a>
             </div>
         
-            <div class="part grid-col-span-2">
-                <div class="parts-grid-text">
-                    <h3 class="parts-grid-title">Cooler</h3>
-                    <p class="parts-grid-info">sale 15%</p>
-                </div>
-                <img src="{% static 'frontend/media/logo.png'%}" alt="part" width="100px">
+            <div class="part grid-col-span-2 Cooler">
+                <a href="">
+                    <div class="parts-grid-text">
+                        <h3 class="parts-grid-title">Cooler</h3>
+                        <p class="parts-grid-info"></p>
+                    </div>
+                    <img src="" alt="part" width="100px">
+                </a>
             </div>
         
         
@@ -204,7 +212,7 @@
                 </div>
             
                 <div class="footer__logo">
-                    <img src="{% static 'frontend/media/logo.png'%}" alt="logo">
+                    <img src="{% static 'frontend/media/nLogo.png'%}" alt="logo">
                 </div>
             
                 <h3 class="footer__name">COMPUTERIZER</h3>

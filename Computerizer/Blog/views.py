@@ -45,7 +45,8 @@ def getPost(request, title):
             'image':str(post.image),
             'author' : post.author.name,
             'likes' : post.likes,
-            'dislikes' : post.dislikes
+            'dislikes' : post.dislikes,
+            'views' : post.views
         }
     return Response(data, status=200)
 

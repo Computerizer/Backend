@@ -22,10 +22,10 @@
 <body>
 
     <!-- Nav bar -->
-    <div class="body b-nav">
+    <header class="body b-nav">
         <nav class="nav-bar">
             <div class="logo">
-                <img src="{% static 'frontend/media/logo.png'%}" width="55px" alt="logo">
+                <img src="{% static 'frontend/media/nLogo.png'%}" width="55px" alt="logo" class="logo__img">
                 <h2 class="logo__name">
                     Computerizer
                 </h2>
@@ -85,28 +85,84 @@
             </div>
     
         </nav>
-    </div>
+    </header>
 
     <div class="body">
-        <div class="post__details">
-            <h1 class="post__title">
-                This product is great for you!
+        <article>
+            <section class="post__details">
+                <h1 class="post__title">
+                </h1>
+                <h4 class="post__info">
+                    by  <em class="author"></em>  |  <span class="date"></span>
+                </h4>
+                <div class="social">
+    
+                    <a href="">
+                        <img src="{% static 'frontend/media/reddit.svg'%}" alt="reddit logo">
+                    </a>
+    
+                    <a href="">
+                        <img src="{% static 'frontend/media/twitter.svg'%}" alt="twitter 
+                        logo">
+                    </a>
+    
+                    <a href="">
+                        <img src="{% static 'frontend/media/github.svg'%}" alt="github logo">
+                    </a>
+    
+                </div>
+            </section>
+            <section class="container">
+                <div class="post__body">
+                    <img src="" alt="post hero" class="hero">
+                    <div class="post__text"></div>
+                </div>
+                <div class="adds">
+                    Hello
+                </div>
+            </section>
+        </article>
+
+        <!-- Recents -->
+        <section class="recents">
+            <h1 class="recents__title">
+                More great articles
             </h1>
-            <h4 class="post__info">
-                <span class="author">by Omda</span> | <span class="date">june 18 ,2021, 2:15pm</span>
-            </h4>
+            <div class="recents__nav">
+            </div>
+        </section>
+
+
+    </div>
+
+
+    <!-- footer -->
+    <div class="body b-footer">
+        <footer>
             <div class="social">
-                <img src="{% static 'frontend/media/reddit.svg'%}" alt="reddit logo" width="25px">
-
-                
+                <div class="social__icons">
+                    <i class="material-icons">
+                        fact_check
+                    </i>
+                    <i class="material-icons">
+                        account_box
+                    </i>
+                    <i class="material-icons">
+                        supervised_user_circle
+                    </i>
+                    <i class="material-icons">
+                        contact_phone
+                    </i>
+                </div>
+                <p>2022 LTD | All rights reserved</p>
             </div>
-        </div>
-        <div class="post__body">
-            <div class="adds"></div>
-            <div class="post__text">
-
+    
+            <div class="footer__logo">
+                <img src="{% static 'frontend/media/nLogo.png'%}" alt="logo">
             </div>
-        </div>
+    
+            <h3 class="footer__name">COMPUTERIZER</h3>
+        </footer>
     </div>
 
     <script src="{% static 'frontend/functions/post.js'%}"></script>
