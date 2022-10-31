@@ -1,3 +1,12 @@
+:root {
+    --main: #FF9425;
+    --accent: #E8E8E8;
+    --link: #FF616F;
+    --text-normal: #12130F;
+    --text-light: #A1AEB7;
+    --body-margin: 2.5rem;
+}
+
 /* navbar */
 
 .b-nav {
@@ -11,7 +20,7 @@
     display: flex;
     justify-content: space-between;
     background-color: var(--accent);
-    padding: 0.5rem 0;
+    padding: 0.4rem 0;
 }
 
 .logo {
@@ -21,7 +30,8 @@
 }
 
 .logo__img {
-    border-radius: 500px;
+    border-radius: 100%;
+    width: 50px;
 }
 
 .logo__name {
@@ -66,19 +76,25 @@
 
 .b-footer {
     background-color: var(--accent);
+    border-top: 2px solid var(--main);
 }
 
 footer {
     margin-top: 1rem 0;
     display: flex;
+    justify-content: space-between;
     width: 100%;
     align-items: center;
     background-color: var(--accent);
     padding: 1rem 0;
 }
 
-.social {
+.footer__social {
     width: 35%;
+}
+
+.footer__social__icons img {
+    width: 20px;
 }
 
 .footer__logo {
@@ -88,6 +104,7 @@ footer {
 
 .footer__logo img {
     width: 5rem;
+    border-radius: 100%;
 }
 
 .footer__name {
@@ -98,7 +115,7 @@ footer {
     margin: 1rem 0;
 }
 
-.social p {
+.footer__social p {
     font-weight: 400;
     font-size: 1rem;
     letter-spacing: 3px;
@@ -115,11 +132,12 @@ footer {
 
 .hide {
     display: none;
-    transition: 0.2s;
+    transition: dispaly 0.2s;
 }
 
 .menus__mobile {
-    position: absolute;
+    position: fixed;
+    overflow: visible;
     top: 0;
     right: 0;
     transition: ease;
@@ -159,23 +177,31 @@ footer {
 
     /* footer */
     footer {
-        flex-direction: column-reverse;
+        justify-content: space-between;
     }
 
-    .social {
-        width: fit-content;
+    .footer__social {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
-    }
-
-    .social p {
-        letter-spacing: normal;
+        width: 100%;
     }
 
     .footer__name {
-        width: 100%;
-        text-align: center;
+        display: none;
+    }
+
+    .footer__social__icons {
+        display: flex;
+        gap: 0.3rem;
+    }
+
+    .footer__social__icons img {
+        width: 15px;
+    }
+
+    .footer__social p {
+        letter-spacing: normal;
     }
 
     .footer__logo {

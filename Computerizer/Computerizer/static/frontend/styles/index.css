@@ -27,7 +27,8 @@ a {
 /* slider */
 
 .slider {
-    margin: 2.5rem 0;
+    margin-top: 5rem;
+    margin-bottom: 2.5rem;
 }
 
 .slider__main {

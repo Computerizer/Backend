@@ -44,7 +44,7 @@ a:active {
     font-size: 3.5rem;
 }
 
-.social img {
+.post__social img {
     margin-top: 0.5rem;
     width: 20px;
     margin-right: 10px;
@@ -148,16 +148,51 @@ a:active {
 /* Mobile */
 
 @media only screen and (max-width: 1000px) {
-    /* recents */
-    .card__img {
-        width: 30%;
+    .body {
+        padding: 0 5%;
     }
 
-    .card__text h3 {
-        position: absolute;
+    /* Post body */
+    .container {
+        flex-direction: column-reverse;
+    }
+
+    .post__title {
+        font-size: 2rem;
+    }
+
+    .post__info {
+        font-size: 1rem;
+    }
+
+    .post__body {
+        max-width: 100%;
+    }
+
+    /* recents */
+    .post-card {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .card__img {
+        width: 100%;
+    }
+
+    .card__text {
+        height: auto;
+        font-size: 0.8rem;
     }
 
     .card__text p {
         display: none;
     }
+
+    .card__text h3 {
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    
 }

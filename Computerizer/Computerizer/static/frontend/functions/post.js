@@ -13,7 +13,7 @@ const div = async () => {
     post = await response.json()
     addPost()
 
-    let response2 = await fetch(`http://127.0.0.1:8000/blog/recent-posts/5`)
+    let response2 = await fetch(`http://127.0.0.1:8000/blog/recent-posts/4`)
     posts = await response2.json()
     addRecents()
 }
@@ -25,14 +25,7 @@ function addPost() {
     let holder = ""
     let date = "";
 
-    for (let i of dateHolder) {
-        if (i !== "-") {
-            holder = holder + i
-        } else {
-            date = "/" + holder + date
-            holder = ""
-        }
-    }
+    date = dateHolder.slice(8, 10) + "/" + dateHolder.slice(5, 7) + "/" + dateHolder.slice(0, 4) 
 
     postTitle.innerText = post.title
     author.innerText = post.author
