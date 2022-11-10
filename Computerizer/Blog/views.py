@@ -3,8 +3,8 @@ from turtle import title
 from django.shortcuts import render
 from rest_framework.response import Response
 from Oauth.models import CustomUser
-from .models import Author, Post, Comment, LikeComment, LikePost, Sale
-from .serializer import AuthorSerializer, LikePostSerializer, RecentPostSerializer, CommentSerializer, LikeCommentSerializer, SaleSerializer
+from .models import Author, Post, Comment, LikeComment, LikePost, Sale, Category
+from .serializer import AuthorSerializer, LikePostSerializer, RecentPostSerializer, CommentSerializer, LikeCommentSerializer, SaleSerializer, CategorySerializer
 from django.core.files.storage import default_storage
 from rest_framework.permissions import IsAuthenticated,IsAdminUser,IsAuthenticatedOrReadOnly,AllowAny
 from rest_framework.authentication import TokenAuthentication
@@ -20,10 +20,24 @@ def getSales(request, num_of_sales):
     serializer = SaleSerializer(sales, many = True)
     return Response(serializer.data[0:num_of_sales])
 
+@api_view(['GET'])
+def getCategories(request):
+    categories = Category.objects.all()
+    serializer = CategorySerializer(categories, many = True)
+
+    posts = []
+    for category in serializer.data:
+        for postId in category["posts"]:
+            post = Post.objects.get(id = postId)
+            posts += [post.title]
+        category['posts'] = posts
+        posts = []      
+        
+    return Response(serializer.data)
 
 @api_view(["GET"])
 def getRecentPosts(request, num_of_posts):
-    posts = Post.objects.all().order_by('publish_date')
+    posts = Post.objects.filter(status = 'published').order_by('publish_date')
     serializer = RecentPostSerializer(posts, many=True)
     return Response(serializer.data[0:num_of_posts])    
 

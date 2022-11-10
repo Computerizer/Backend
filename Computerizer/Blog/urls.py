@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('categories/', views.getCategories, name='categories-api'),
+    #-------------------------------
     path('sales/<int:num_of_sales>', views.getSales, name='sales-api'),
     #-------------------------------
     path('recent-posts/<int:num_of_posts>', views.getRecentPosts, name='RecentPost-api'),
