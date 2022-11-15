@@ -19,11 +19,6 @@ a {
     color: var(--text-normal);
 }
 
-.body {
-    padding: 0 20%;
-    width: 100%;
-}
-
 /* slider */
 
 .slider {

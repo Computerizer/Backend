@@ -19,8 +19,6 @@ const div = async () => {
 }
 
 function addPost() {
-    console.log(post.publish_date)
-
     let dateHolder = post.publish_date.slice(0, 10)
     let holder = ""
     let date = "";

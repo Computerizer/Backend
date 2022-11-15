@@ -1,5 +1,6 @@
 let posts = ""
 let sales = ""
+let readMoreBtn = ""
 let fetchPostNum = 7
 const sliderDiv = document.querySelector(".slider")
 const sliderMainDiv = document.querySelector(".slider__main")
@@ -9,24 +10,34 @@ const loadMoreBtn = document.querySelector(".load-more")
 
 
 
-// Feching data
+// Feching data & main function
 let mainFunc = async () => {
     let response = await fetch(`http://127.0.0.1:8000/blog/recent-posts/${fetchPostNum}`)
     posts = await response.json()
 
     slider()
     addRecentPossts()
-
     let response2 = await fetch('http://127.0.0.1:8000/blog/sales/4')
     sales = await response2.json()
     addSales()
+    addListeners()
+}
 
+
+// listener functions
+function addListeners() {
+    sliderNavDiv.addEventListener("click", selectPsot)
+    loadMoreBtn.addEventListener('click', loadMore)
+    readMoreBtn = document.querySelectorAll(".read_more")
+    readMoreBtn.forEach(btn => {
+        btn.addEventListener("click", redirectUrl)
+    });
 }
 
 function selectPsot(e) {
     if (e.target.nodeName === 'H3') {
         sliderMainDiv.querySelector(".post-title").textContent = e.target.innerHTML
-        console.log(e.target.id)
+        sliderMainDiv.querySelector("button").value = e.target.innerText
         sliderMainDiv.style.backgroundImage = `url('${e.target.id}')`
     }
 }
@@ -37,6 +48,14 @@ function loadMore(e) {
     const loadMoreBtn = document.querySelector(".load-more")
     loadMoreBtn.style.display = "none"
 }
+
+function redirectUrl(e) {
+    e.preventDefault()
+    window.location.href = window.location.href + `/post/${e.target.value}`
+}
+
+
+// Components render
 
 function slider() {
     let fragmentDiv = document.createDocumentFragment()
@@ -62,12 +81,10 @@ function slider() {
     <h1 class="post-title">
         ${posts[0].title}
     </h1>
-    <button type="submit">Read More</button>
+    <button type="submit" value="${posts[0].title}" class="read_more">Read More</button>
     `
     sliderMainDiv.style.backgroundImage = `url('${posts[0].image}')`
 }
-
-sliderNavDiv.addEventListener("click", selectPsot)
 
 function addRecentPossts(n = 3) {
     let m = n - 3
@@ -94,8 +111,7 @@ function addRecentPossts(n = 3) {
                 </div>
                 <div class="post__action">
                     <span class="time">${posts[i].add_date.slice(0, 10)}</span>
-                    <button>Read more</button>
-
+                    <button class="read_more" value="${posts[i].title}">Read more</button>
                 </div>
             </div>
         </div>
@@ -104,8 +120,6 @@ function addRecentPossts(n = 3) {
     }
     postsDiv.appendChild(postsFrag)
 }
-
-loadMoreBtn.addEventListener('click', loadMore)
 
 function addSales() {
     console.log(sales[0].part)
