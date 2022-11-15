@@ -16,7 +16,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="{% static 'frontend/styles/post.css'%}">
     <link rel="stylesheet" href="{% static 'frontend/styles/navbar.css'%}">
-    <title>Computerizer Post</title>
+    <title>{{title}}</title>
 </head>
 
 <body>
@@ -33,7 +33,7 @@
             <div class="menus">
                 <ul class="pages">
                     <li id="active">
-                        <a href="">home</a>
+                        <a href="{% url 'home'%}">home</a>
                     </li>
                     <li>
                         <a href="">recents</a>
