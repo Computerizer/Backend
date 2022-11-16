@@ -54,7 +54,7 @@ a {
     border-radius: 20px;    
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .about__social__icons a img {
@@ -77,7 +77,7 @@ a {
         width: 90%;
     }
 
-    .contact {
+    .about__social__icons {
         padding: 1rem 2rem;
     }
 

@@ -31,6 +31,7 @@
     position: fixed;
     top: 0;
     color: white;
+    z-index: 100;
 }
 
 .nav-bar {
@@ -47,6 +48,7 @@
 
 .logo__img {
     width: 50px;
+    cursor: pointer;
 }
 
 .logo__name {
@@ -96,6 +98,11 @@
 .b-footer {
     background-color: var(--accent);
     border-top: 2px solid var(--main);
+    /* position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px; */
 }
 
 footer {

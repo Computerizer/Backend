@@ -19,6 +19,11 @@ a {
     color: var(--text-normal);
 }
 
+button,
+a:hover {
+    cursor: pointer;
+}
+
 /* slider */
 
 .slider {
@@ -271,13 +276,14 @@ form {
 .name {
     display: flex;
     justify-content: space-between;
+    gap: 1rem;
 }
 
-.name input {
+.input {
     border: none;
     border-radius: 5px;
     height: 2.5rem;
-    width: 48%;
+    width: 100%;
     background-color: var(--text-light);
     padding: 0 10px;
 }
@@ -345,38 +351,40 @@ textarea {
         }
 
     /* posts */
-        .post__info {
-            position: absolute;
-            flex-direction: column;
-            background-color: #a1aeb758;
-            margin: 0 5%;
-            padding: 1rem;
-            height: 90vw;
-        }
-    
-        .post__info__body {
-            min-width: 100%;
-        }
-    
-        .post__prev {
-            font-size: 1em;
-    
-            max-height: 20vh;
-            overflow: hidden;
-            font-weight: 400;
-        }
-    
-        .post__body {
-            justify-content: center;
-        }
-    
-        .post__body img {
-            min-width: 100%;
-        }
-    
-        .post__action {
-            flex-direction: row;
-        }
+    .post__body {
+        position: relative;
+    }
+
+    .post__info {
+        position: absolute;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.5);
+        margin: 0 5%;
+        padding: 1rem;
+        width: 100%;
+        height: 100%;
+        color: var(--accent);
+    }
+
+    .post__info__body {
+        min-width: 100%;
+    }
+
+    .post__prev {
+        display: none;
+    }
+
+    .post__body {
+        justify-content: center;
+    }
+
+    .post__body img {
+        min-width: 100%;
+    }
+
+    .post__action {
+        flex-direction: row;
+    }
 
     /* parts */
     .parts-grid {

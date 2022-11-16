@@ -119,6 +119,10 @@ function addRecentPossts(n = 3) {
         postsFrag.appendChild(postDiv)
     }
     postsDiv.appendChild(postsFrag)
+    readMoreBtn = document.querySelectorAll(".read_more")
+    readMoreBtn.forEach(btn => {
+        btn.addEventListener("click", redirectUrl)
+    });
 }
 
 function addSales() {

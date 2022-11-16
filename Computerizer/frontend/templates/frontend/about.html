@@ -25,23 +25,23 @@
         <nav class="nav-bar">
             <div class="logo">
                 <img src="{% static 'frontend/media/whiteLogo.png'%}" width="55px" alt="logo" class="logo__img">
-                <a href="" class="logo__name">
+                <h2 class="logo__name">
                     Blog
-                </a>
+                </h2>
             </div>
             <div class="menus">
                 <ul class="pages">
                     <li id="active">
-                        <a href="">home</a>
+                        <a href="{% url 'home'%}">home</a>
                     </li>
                     <li>
-                        <a href="">recents</a>
+                        <a href="{% url 'recents'%}">recents</a>
                     </li>
                     <li>
-                        <a href="">subscribe</a>
+                        <a href="{% url 'home'%}">subscribe</a>
                     </li>
                     <li>
-                        <a href="">about</a>
+                        <a href="{% url 'about'%}">about</a>
                     </li>
                 </ul>
                 <i class="material-icons">
@@ -97,7 +97,7 @@
             started Computerizer, feel free to ask questions or provide suggestions. Stay Computerizer ⚡️</p>
         </section>
 
-        <section class="contact">
+        <section class="body contact">
 
             <h1>Contact us</h1>
             <div class="about__social__icons">
