@@ -1,0 +1,2008 @@
+1658279413716	geckodriver	INFO	Listening on 127.0.0.1:51352
+1658279416802	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51353" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileCKfNMg"
+1658279417801	Marionette	INFO	Marionette enabled
+1658279417813	Marionette	INFO	Listening on port 51423
+WebDriver BiDi listening on ws://localhost:51353
+1658279418075	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileCKfNMg\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:51353/devtools/browser/31c357e9-751d-4390-9ced-417698af3543
+1658279433019	Marionette	INFO	Stopped listening on port 51423
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+remote-debugging-port" "51480" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilek6UNaf"
+1658279424851	Marionette	INFO	Marionette enabled
+1658279424861	Marionette	INFO	Listening on port 51499
+WebDriver BiDi listening on ws://localhost:51480
+1658279425072	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilek6UNaf\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:51480/devtools/browser/b4b3dc00-4f66-457b-b8c9-9e1f0324a5e8
+1658279592978	Marionette	INFO	Stopped listening on port 51499
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+remote-debugging-port" "51746" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileIe9LwI"
+1658279498296	Marionette	INFO	Marionette enabled
+1658279498303	Marionette	INFO	Listening on port 51753
+WebDriver BiDi listening on ws://localhost:51746
+1658279498907	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileIe9LwI\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:51746/devtools/browser/e94f7386-a7b4-4a75-8ec6-dfac85ed1b5c
+1658279506029	Marionette	INFO	Stopped listening on port 51753
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: C:\Users\OMDA\AppData\Local\Temp\rust_mozprofileIe9LwI\protections.sqlite
+1658279507108	geckodriver	INFO	Listening on 127.0.0.1:51837
+1658279510151	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51838" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileiUF1K0"
+1658279510632	Marionette	INFO	Marionette enabled
+1658279510640	Marionette	INFO	Listening on port 51866
+WebDriver BiDi listening on ws://localhost:51838
+1658279510896	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileiUF1K0\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:51838/devtools/browser/cd96c4f1-e456-44c0-96bc-d7924579a874
+1658279516602	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/ACi6DSqP1mWZFGCZU7-0gloc5gpOF9kOHjubX77D_HU.js line 2 > eval line 155 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658279532437	Marionette	INFO	Stopped listening on port 51866
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1658281070598	geckodriver	INFO	Listening on 127.0.0.1:53974
+1658281073711	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "53975" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofile08F8VB"
+1658281074212	Marionette	INFO	Marionette enabled
+1658281074220	Marionette	INFO	Listening on port 54004
+WebDriver BiDi listening on ws://localhost:53975
+1658281074502	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofile08F8VB\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:53975/devtools/browser/75c9b575-3a8b-4e87-9605-144b075da6bd
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281095578	Marionette	INFO	Stopped listening on port 54004
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+ file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilejTER4c\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:54041/devtools/browser/6e0c1fdc-4a75-4228-9422-af6f472f94ff
+1658281088018	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281094256	Marionette	INFO	Stopped listening on port 54059
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1109: Error: Sqlite.jsm has been shutdown. Cannot open connection to: C:\Users\OMDA\AppData\Local\Temp\rust_mozprofilejTER4c\protections.sqlite
+1658281136516	geckodriver	INFO	Listening on 127.0.0.1:54287
+1658281139586	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "54288" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilewELmfw"
+1658281140351	Marionette	INFO	Marionette enabled
+1658281140360	Marionette	INFO	Listening on port 54297
+WebDriver BiDi listening on ws://localhost:54288
+1658281141091	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilewELmfw\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:54288/devtools/browser/07c2cdad-747e-49b4-8ee6-12d9e9c5f027
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281152554	Marionette	INFO	Stopped listening on port 54297
+1658281153876	geckodriver	INFO	Listening on 127.0.0.1:54372
+1658281156948	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "54373" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilePNqYyb"
+1658281157437	Marionette	INFO	Marionette enabled
+1658281157444	Marionette	INFO	Listening on port 54399
+WebDriver BiDi listening on ws://localhost:54373
+1658281157671	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilePNqYyb\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:54373/devtools/browser/b0b125ec-2422-469c-9d11-cc556025a6ef
+1658281162461	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281172475	Marionette	INFO	Stopped listening on port 54399
+1658281272212	geckodriver	INFO	Listening on 127.0.0.1:54769
+1658281283595	geckodriver	INFO	Listening on 127.0.0.1:54863
+1658281286665	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "54864" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilesvvXXD"
+1658281287226	Marionette	INFO	Marionette enabled
+1658281287237	Marionette	INFO	Listening on port 54872
+WebDriver BiDi listening on ws://localhost:54864
+1658281288018	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilesvvXXD\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:54864/devtools/browser/46b691de-aaa6-472b-a67a-c68ce477d5dd
+JavaScript error: https://www.bestbuy.com/~assets/bby/_intl/landing_page/js/app.min.js, line 1: ReferenceError: error is not defined
+JavaScript error: https://www.bestbuy.com/~assets/bby/_com/gvp-d1d092b06cabb9a1a2dbb461886a561b.min.js, line 13: Error: Initializer failed to initialize component for pricing-price-29262680. Usually this is caused by an exception in your component's client init function.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/ACi6DSqP1mWZFGCZU7-0gloc5gpOF9kOHjubX77D_HU.js line 2 > eval line 7780 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281323021	Marionette	INFO	Stopped listening on port 54872
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+nette" "--remote-debugging-port" "51718" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileuwvJt9"
+1658281307495	Marionette	INFO	Marionette enabled
+1658281307503	Marionette	INFO	Listening on port 51724
+WebDriver BiDi listening on ws://localhost:51718
+1658281308133	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileuwvJt9\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:51718/devtools/browser/7a021b1d-5515-4c73-b91e-21db43b86af9
+1658281311957	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://49d4ac0cfb5c7f73d515a895496b316a.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html line 12 > injectedScript, line 13: ReferenceError: buildAttribution is not defined
+JavaScript error: https://49d4ac0cfb5c7f73d515a895496b316a.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html line 12 > injectedScript, line 13: ReferenceError: osdlfm is not defined
+JavaScript error: https://49d4ac0cfb5c7f73d515a895496b316a.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html line 12 > injectedScript, line 13: ReferenceError: googqscp is not defined
+1658281322251	Marionette	INFO	Stopped listening on port 51724
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1109: Error: Sqlite.jsm has been shutdown. Cannot open connection to: C:\Users\OMDA\AppData\Local\Temp\rust_mozprofileuwvJt9\protections.sqlite
+1658281426286	geckodriver	INFO	Listening on 127.0.0.1:52149
+1658281429348	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "52150" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilekmgKXd"
+1658281430131	Marionette	INFO	Marionette enabled
+1658281430143	Marionette	INFO	Listening on port 52157
+WebDriver BiDi listening on ws://localhost:52150
+1658281430726	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilekmgKXd\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:52150/devtools/browser/7920597c-e3f1-44ab-8704-dc62777b1bfd
+JavaScript warning: https://www.amazon.com/AMD-Ryzen-3600-12-Thread-Processor/dp/B07STGGQ18 line 10209 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281483119	Marionette	INFO	Stopped listening on port 52157
+8281447555	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "52324" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileK7kZAs"
+1658281448053	Marionette	INFO	Marionette enabled
+1658281448060	Marionette	INFO	Listening on port 52330
+WebDriver BiDi listening on ws://localhost:52324
+1658281448292	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileK7kZAs\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:52324/devtools/browser/576488b1-a4c4-44ed-b669-f7a461a522dc
+JavaScript error: https://www.bestbuy.com/~assets/bby/_intl/landing_page/js/app.min.js, line 1: ReferenceError: error is not defined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/ACi6DSqP1mWZFGCZU7-0gloc5gpOF9kOHjubX77D_HU.js line 2 > eval line 5968 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281482517	Marionette	INFO	Stopped listening on port 52330
+[Parent 9516, IPC I/O Parent] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:554
+ort" "52478" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileFjNkam"
+1658281465550	Marionette	INFO	Marionette enabled
+1658281465557	Marionette	INFO	Listening on port 52501
+WebDriver BiDi listening on ws://localhost:52478
+1658281466233	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileFjNkam\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:52478/devtools/browser/52239d39-022a-466c-955b-1886a61e2cad
+1658281471466	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281481835	Marionette	INFO	Stopped listening on port 52501
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 720: Error: Phase "Sqlite.jsm: wait until all connections are closed" is finished, it is too late to register completion condition "protections.sqlite#0: waiting for shutdown"
+1658281545901	geckodriver	INFO	Listening on 127.0.0.1:52813
+1658281548960	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "52814" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileGWd2jk"
+1658281549632	Marionette	INFO	Marionette enabled
+1658281549640	Marionette	INFO	Listening on port 52842
+WebDriver BiDi listening on ws://localhost:52814
+1658281550242	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileGWd2jk\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:52814/devtools/browser/13b2045b-77ba-41b0-92e4-f27f75b74663
+JavaScript warning: https://www.amazon.com/AMD-Ryzen-3600-12-Thread-Processor/dp/B07STGGQ18 line 7 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281569927	Marionette	INFO	Stopped listening on port 52842
+1658281572514	geckodriver	INFO	Listening on 127.0.0.1:52999
+1658281575568	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "53000" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilekjH6dF"
+1658281576117	Marionette	INFO	Marionette enabled
+1658281576125	Marionette	INFO	Listening on port 53027
+WebDriver BiDi listening on ws://localhost:53000
+1658281576852	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilekjH6dF\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:53000/devtools/browser/6676bcc8-383b-48cf-9d8b-743d68a302a6
+JavaScript error: https://www.bestbuy.com/~assets/bby/_intl/landing_page/js/app.min.js, line 1: ReferenceError: error is not defined
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/ACi6DSqP1mWZFGCZU7-0gloc5gpOF9kOHjubX77D_HU.js line 2 > eval line 6098 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281613608	Marionette	INFO	Stopped listening on port 53027
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+nette" "--remote-debugging-port" "53179" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileroCkFv"
+1658281597526	Marionette	INFO	Marionette enabled
+1658281597533	Marionette	INFO	Listening on port 53185
+WebDriver BiDi listening on ws://localhost:53179
+1658281597787	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileroCkFv\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:53179/devtools/browser/a8898bb4-0599-4907-9c5f-0857c3756364
+1658281602438	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281612761	Marionette	INFO	Stopped listening on port 53185
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1658281658149	geckodriver	INFO	Listening on 127.0.0.1:53507
+1658281661210	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "53508" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileujL7XU"
+1658281661695	Marionette	INFO	Marionette enabled
+1658281661703	Marionette	INFO	Listening on port 53537
+WebDriver BiDi listening on ws://localhost:53508
+1658281661913	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileujL7XU\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:53508/devtools/browser/6153b41d-7c06-4991-9cc3-cda4ab688f75
+JavaScript error: https://www.bestbuy.com/~assets/bby/_intl/landing_page/js/app.min.js, line 1: ReferenceError: error is not defined
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/ACi6DSqP1mWZFGCZU7-0gloc5gpOF9kOHjubX77D_HU.js line 2 > eval line 4320 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281696492	Marionette	INFO	Stopped listening on port 53537
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+!!! error running onStopped callback: TypeError: callback is not a function
+OMDA\\AppData\\Local\\Temp\\rust_mozprofileUQWsBF"
+1658281682991	Marionette	INFO	Marionette enabled
+1658281683000	Marionette	INFO	Listening on port 53698
+WebDriver BiDi listening on ws://localhost:53692
+1658281683244	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileUQWsBF\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:53692/devtools/browser/b3b27fe3-efd5-4a39-abd0-6ae7acaef2c1
+1658281687928	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281695748	Marionette	INFO	Stopped listening on port 53698
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1658281746774	geckodriver	INFO	Listening on 127.0.0.1:53975
+1658281749847	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "53976" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilekx7DfV"
+1658281750337	Marionette	INFO	Marionette enabled
+1658281750345	Marionette	INFO	Listening on port 53983
+WebDriver BiDi listening on ws://localhost:53976
+1658281750579	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilekx7DfV\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:53976/devtools/browser/7df5b41a-cf6d-4b27-9819-d51012b92228
+JavaScript error: https://www.bestbuy.com/~assets/bby/_intl/landing_page/js/app.min.js, line 1: ReferenceError: error is not defined
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/ACi6DSqP1mWZFGCZU7-0gloc5gpOF9kOHjubX77D_HU.js line 2 > eval line 6772 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281784711	Marionette	INFO	Stopped listening on port 53983
+8281769006	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "54131" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileIWbr2S"
+1658281769491	Marionette	INFO	Marionette enabled
+1658281769500	Marionette	INFO	Listening on port 54141
+WebDriver BiDi listening on ws://localhost:54131
+1658281769751	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileIWbr2S\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:54131/devtools/browser/7037ae0e-06f4-4359-90eb-b9b77c437920
+1658281775300	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281783728	Marionette	INFO	Stopped listening on port 54141
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1658281816655	geckodriver	INFO	Listening on 127.0.0.1:54365
+1658281819696	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "54366" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileFWguSf"
+1658281820165	Marionette	INFO	Marionette enabled
+1658281820172	Marionette	INFO	Listening on port 54373
+WebDriver BiDi listening on ws://localhost:54366
+1658281820433	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileFWguSf\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:54366/devtools/browser/be0e71ce-d1d9-48fd-bb2d-ffded7368350
+JavaScript error: https://www.bestbuy.com/~assets/bby/_intl/landing_page/js/app.min.js, line 1: ReferenceError: error is not defined
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/ACi6DSqP1mWZFGCZU7-0gloc5gpOF9kOHjubX77D_HU.js line 2 > eval line 6996 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281855304	Marionette	INFO	Stopped listening on port 54373
+8281841131	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "54530" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilefW05w2"
+1658281841628	Marionette	INFO	Marionette enabled
+1658281841636	Marionette	INFO	Listening on port 54536
+WebDriver BiDi listening on ws://localhost:54530
+1658281841882	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilefW05w2\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:54530/devtools/browser/407e10a9-c7ee-4774-a23b-21fd782054f2
+1658281846201	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281854692	Marionette	INFO	Stopped listening on port 54536
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1109: Error: Sqlite.jsm has been shutdown. Cannot open connection to: C:\Users\OMDA\AppData\Local\Temp\rust_mozprofilefW05w2\protections.sqlite
+1658281899857	geckodriver	INFO	Listening on 127.0.0.1:54861
+1658281902939	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "54862" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileySIkPz"
+1658281903442	Marionette	INFO	Marionette enabled
+1658281903451	Marionette	INFO	Listening on port 54889
+WebDriver BiDi listening on ws://localhost:54862
+1658281903671	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileySIkPz\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:54862/devtools/browser/58566905-dd1d-40f7-b620-8ed97d9bfb6e
+JavaScript error: https://www.bestbuy.com/~assets/bby/_intl/landing_page/js/app.min.js, line 1: ReferenceError: error is not defined
+JavaScript error: https://www.bestbuy.com/~assets/bby/_com/gvp-d1d092b06cabb9a1a2dbb461886a561b.min.js, line 13: Error: Initializer failed to initialize component for shop-primary-image-81326225. Usually this is caused by an exception in your component's client init function.
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/ACi6DSqP1mWZFGCZU7-0gloc5gpOF9kOHjubX77D_HU.js line 2 > eval line 6653 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281937704	Marionette	INFO	Stopped listening on port 54889
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+nette" "--remote-debugging-port" "55049" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileQfhSAr"
+1658281925196	Marionette	INFO	Marionette enabled
+1658281925203	Marionette	INFO	Listening on port 55057
+WebDriver BiDi listening on ws://localhost:55049
+1658281925437	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileQfhSAr\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:55049/devtools/browser/61c68fb1-a1d2-40fb-b3d9-cbadb2274a32
+1658281929931	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658281937090	Marionette	INFO	Stopped listening on port 55057
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 720: Error: Phase "Sqlite.jsm: wait until all connections are closed" is finished, it is too late to register completion condition "protections.sqlite#0: waiting for shutdown"
+1658281965119	geckodriver	INFO	Listening on 127.0.0.1:55249
+1658281968140	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "55250" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileiB3ygQ"
+1658281968603	Marionette	INFO	Marionette enabled
+1658281968609	Marionette	INFO	Listening on port 55258
+WebDriver BiDi listening on ws://localhost:55250
+1658281968833	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileiB3ygQ\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:55250/devtools/browser/ceefc614-72d9-4b7f-b3d9-2fbacd7765a8
+JavaScript error: https://www.bestbuy.com/~assets/bby/_intl/landing_page/js/app.min.js, line 1: ReferenceError: error is not defined
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/ACi6DSqP1mWZFGCZU7-0gloc5gpOF9kOHjubX77D_HU.js line 2 > eval line 2769 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658282002602	Marionette	INFO	Stopped listening on port 55258
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+!!! error running onStopped callback: TypeError: callback is not a function
+OMDA\\AppData\\Local\\Temp\\rust_mozprofileqbD3KV"
+1658281987855	Marionette	INFO	Marionette enabled
+1658281987861	Marionette	INFO	Listening on port 55424
+WebDriver BiDi listening on ws://localhost:55416
+1658281988109	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileqbD3KV\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:55416/devtools/browser/35bfd711-930b-44b6-8465-28f822b2ad16
+1658281992854	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658282002051	Marionette	INFO	Stopped listening on port 55424
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1109: Error: Sqlite.jsm has been shutdown. Cannot open connection to: C:\Users\OMDA\AppData\Local\Temp\rust_mozprofileqbD3KV\protections.sqlite
+1658282089576	geckodriver	INFO	Listening on 127.0.0.1:55739
+1658282092651	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "55740" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilek2ZBIS"
+1658282093152	Marionette	INFO	Marionette enabled
+1658282093162	Marionette	INFO	Listening on port 55747
+WebDriver BiDi listening on ws://localhost:55740
+1658282093361	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilek2ZBIS\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:55740/devtools/browser/f6e69785-3dbd-47da-ba4b-cf465bc8b14b
+JavaScript error: https://www.bestbuy.com/~assets/bby/_intl/landing_page/js/app.min.js, line 1: ReferenceError: error is not defined
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/ACi6DSqP1mWZFGCZU7-0gloc5gpOF9kOHjubX77D_HU.js line 2 > eval line 151 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658282130197	Marionette	INFO	Stopped listening on port 55747
+8282115294	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "55912" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileWi39TR"
+1658282115769	Marionette	INFO	Marionette enabled
+1658282115776	Marionette	INFO	Listening on port 55918
+WebDriver BiDi listening on ws://localhost:55912
+1658282116054	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileWi39TR\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:55912/devtools/browser/f3ed0622-5113-4d3d-ac5b-f2edb5b2b7f0
+1658282121165	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658282129457	Marionette	INFO	Stopped listening on port 55918
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1109: Error: Sqlite.jsm has been shutdown. Cannot open connection to: C:\Users\OMDA\AppData\Local\Temp\rust_mozprofileWi39TR\protections.sqlite
+1658282236994	geckodriver	INFO	Listening on 127.0.0.1:56284
+1658282240042	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "56285" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilepN121N"
+1658282240681	Marionette	INFO	Marionette enabled
+1658282240690	Marionette	INFO	Listening on port 56297
+WebDriver BiDi listening on ws://localhost:56285
+1658282241322	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilepN121N\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:56285/devtools/browser/3aa947e6-b9b6-4efa-aa7b-7d71743b0777
+JavaScript error: https://www.bestbuy.com/~assets/bby/_intl/landing_page/js/app.min.js, line 1: ReferenceError: error is not defined
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/ACi6DSqP1mWZFGCZU7-0gloc5gpOF9kOHjubX77D_HU.js line 2 > eval line 1769 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658282275661	Marionette	INFO	Stopped listening on port 56297
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+nette" "--remote-debugging-port" "56479" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofile2IHEQq"
+1658282262718	Marionette	INFO	Marionette enabled
+1658282262726	Marionette	INFO	Listening on port 56485
+WebDriver BiDi listening on ws://localhost:56479
+1658282262950	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofile2IHEQq\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:56479/devtools/browser/e5cd9eba-7ade-4e12-bbfa-664f9c245a5d
+1658282267425	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658282275096	Marionette	INFO	Stopped listening on port 56485
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1109: Error: Sqlite.jsm has been shutdown. Cannot open connection to: C:\Users\OMDA\AppData\Local\Temp\rust_mozprofile2IHEQq\protections.sqlite
+1658282600155	geckodriver	INFO	Listening on 127.0.0.1:57171
+1658282603228	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "57172" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileRL2Tsg"
+1658282603707	Marionette	INFO	Marionette enabled
+1658282603715	Marionette	INFO	Listening on port 57201
+WebDriver BiDi listening on ws://localhost:57172
+1658282603927	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofileRL2Tsg\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:57172/devtools/browser/f837fc1e-2161-4263-9bb2-9004ae7ebe82
+JavaScript error: https://www.bestbuy.com/~assets/bby/_intl/landing_page/js/app.min.js, line 1: ReferenceError: error is not defined
+JavaScript error: https://www.bestbuy.com/~assets/bby/_com/gvp-d1d092b06cabb9a1a2dbb461886a561b.min.js, line 13: Error: Initializer failed to initialize component for shop-primary-image-44919121. Usually this is caused by an exception in your component's client init function.
+JavaScript error: https://www.bestbuy.com/~assets/bby/_com/gvp-d1d092b06cabb9a1a2dbb461886a561b.min.js, line 13: Error: Initializer failed to initialize component for pricing-price-61817268. Usually this is caused by an exception in your component's client init function.
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658282616173	Marionette	INFO	Stopped listening on port 57201
+1658282617749	geckodriver	INFO	Listening on 127.0.0.1:57337
+1658282620790	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "57338" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofiley0pEkw"
+1658282621292	Marionette	INFO	Marionette enabled
+1658282621298	Marionette	INFO	Listening on port 57369
+WebDriver BiDi listening on ws://localhost:57338
+1658282621522	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofiley0pEkw\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:57338/devtools/browser/08a778fc-0627-4f84-8954-baf4942cbeba
+1658282625898	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/ACi6DSqP1mWZFGCZU7-0gloc5gpOF9kOHjubX77D_HU.js line 2 > eval line 7523 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1658282636861	Marionette	INFO	Stopped listening on port 57369
+1658282674970	geckodriver	INFO	Listening on 127.0.0.1:57601
+1658282678016	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "--marionette" "--remote-debugging-port" "57602" "-no-remote" "-profile" "C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilednea1r"
+1658282678532	Marionette	INFO	Marionette enabled
+1658282678541	Marionette	INFO	Listening on port 57609
+WebDriver BiDi listening on ws://localhost:57602
+1658282679292	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\OMDA\\AppData\\Local\\Temp\\rust_mozprofilednea1r\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:57602/devtools/browser/a23705a6-8d2f-4db9-b93a-8cd5d39d580b
+JavaScript error: https://www.bestbuy.com/~assets/bby/_intl/landing_page/js/app.min.js, line 1: ReferenceError: error is not defined
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: resource://devtools/client/framework/toolbox.js, line 2028: TypeError: can't access property "togglePicker", currentPanel is undefined
+JavaScript warning: https://www.bestbuy.com/aWxWY1jssLcW/o7cgXd0F1S/2U/wa9c8wQwGi/JSlObhhbAQ/DTZ/CLwQ9D3Y, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/ACi6DSqP1mWZFGCZU7-0gloc5gpOF9kOHjubX77D_HU.js line 2 > eval line 7648 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+Handler function threw an exception: TypeError: can't access property "documentPrincipal", browsingContext.currentWindowGlobal is null
+Stack: isChannelFromSystemPrincipal@resource://devtools/server/actors/network-monitor/utils/network-utils.js:99:1
+exports.createNetworkEvent@resource://devtools/server/actors/network-monitor/utils/network-utils.js:188:33
+_createNetworkEvent@resource://devtools/server/actors/network-monitor/network-observer.js:710:32
+_onRequestHeader@resource://devtools/server/actors/network-monitor/network-observer.js:756:10
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:637:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 99, column: 1
+console.error: (new TypeError("can't access property \"documentPrincipal\", browsingContext.currentWindowGlobal is null", "resource://devtools/server/actors/network-monitor/utils/network-utils.js", 99))
+Handler function threw an exception: TypeError: can't access property "addResponseStart", httpActivity.owner is null
+Stack: _onResponseHeader@resource://devtoJavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+1658328362991	Marionette	INFO	Stopped listening on port 57827
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+/network-monitor/network-observer.js:667:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 1018, column: 5
+console.error: (new TypeError("can't access property \"addResponseStart\", httpActivity.owner is null", "resource://devtools/server/actors/network-monitor/network-observer.js", 1018))
+Handler function _httpStopRequest threw an exception: TypeError: can't access property "documentPrincipal", browsingContext.currentWindowGlobal is null
+Stack: isChannelFromSystemPrincipal@resource://devtools/server/actors/network-monitor/utils/network-utils.js:99:1
+exports.createNetworkEvent@resource://devtools/server/actors/network-monitor/utils/network-utils.js:188:33
+_createNetworkEvent@resource://devtools/server/actors/network-monitor/network-observer.js:710:32
+_httpStopRequest@resource://devtools/server/actors/network-monitor/network-observer.js:338:14
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 99, column: 1
+console.error: (new TypeError("can't access property \"documentPrincipal\", browsingContext.currentWindowGlobal is null", "resource://devtools/server/actors/network-monitor/utils/network-utils.js", 99))
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 577: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1658328365489	Marionette	INFO	Stopped listening on port 57609
+stening on ws://localhost:58355/devtools/browser/4207299e-abb6-48ae-be57-013cf94a364a
+1658282911525	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+1658328359756	Marionette	INFO	Stopped listening on port 58361
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1660934138266	geckodriver	INFO	Listening on 127.0.0.1:62521
+1660934141299	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "62522" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofileX3fjMp"
+1660934141673	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:62522
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofileX3fjMp\\search.json.mozlz4", (void 0)))
+1660934143265	Marionette	INFO	Listening on port 62527
+DevTools listening on ws://localhost:62522/devtools/browser/4aa5244a-fb2c-4da0-9c6c-d3d275431cf8
+1660934143352	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.com/AMD-Ryzen-5600X-12-Thread-Processor/dp/B08166SLDF line 10264 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1660934160807	Marionette	INFO	Stopped listening on port 62527
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+1660934237240	geckodriver	INFO	Listening on 127.0.0.1:62708
+1660934240273	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "62709" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofilez85aaS"
+1660934240496	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:62709
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofilez85aaS\\search.json.mozlz4", (void 0)))
+1660934241824	Marionette	INFO	Listening on port 62714
+DevTools listening on ws://localhost:62709/devtools/browser/fb7c8742-9b26-485d-9ccc-783346851024
+1660934242321	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.com/AMD-Ryzen-5600X-12-Thread-Processor/dp/B08166SLDF line 10255 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1660934257753	Marionette	INFO	Stopped listening on port 62714
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1660934568971	geckodriver	INFO	Listening on 127.0.0.1:62946
+1660934572019	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "62947" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofileOkpwWX"
+1660934572243	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:62947
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofileOkpwWX\\search.json.mozlz4", (void 0)))
+1660934573673	Marionette	INFO	Listening on port 62953
+DevTools listening on ws://localhost:62947/devtools/browser/5278d6ac-d7ff-4d53-b672-096ed60d3261
+1660934574053	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.com/AMD-Ryzen-5600X-12-Thread-Processor/dp/B08166SLDF line 10039 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1660934590727	Marionette	INFO	Stopped listening on port 62953
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+1660935003159	geckodriver	INFO	Listening on 127.0.0.1:63283
+1660935006192	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "63284" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofiletVzc66"
+1660935006424	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:63284
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofiletVzc66\\search.json.mozlz4", (void 0)))
+1660935007732	Marionette	INFO	Listening on port 63289
+DevTools listening on ws://localhost:63284/devtools/browser/ac82d235-a648-424a-8728-f36b59314d4d
+1660935008233	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.com/AMD-Ryzen-3600-12-Thread-Processor/dp/B07STGGQ18 line 10369 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1660935030595	Marionette	INFO	Stopped listening on port 63289
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1660935031283	geckodriver	INFO	Listening on 127.0.0.1:63454
+1660935034328	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "63455" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofilemAVv85"
+1660935034553	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:63455
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofilemAVv85\\search.json.mozlz4", (void 0)))
+1660935035672	Marionette	INFO	Listening on port 63461
+DevTools listening on ws://localhost:63455/devtools/browser/8e266759-b102-4d38-8a02-b6aa7e3d706f
+1660935035857	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.bestbuy.com/~assets/bby/_intl/landing_page/js/app.min.js, line 1: ReferenceError: error is not defined
+JavaScript warning: https://www.bestbuy.com/2yECBVJi5xf17/zRM/BInoAzUb5KA/YDGOzGht/VjtXHEtQXw/GWEZ/AT4dfl0, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/2yECBVJi5xf17/zRM/BInoAzUb5KA/YDGOzGht/VjtXHEtQXw/GWEZ/AT4dfl0, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/2yECBVJi5xf17/zRM/BInoAzUb5KA/YDGOzGht/VjtXHEtQXw/GWEZ/AT4dfl0, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/BcUHUABoavvpRAX3o-C5BfAq8AHsMXRVb9HgeqDHxZ8.js line 2 > eval line 7365 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1660935086719	Marionette	INFO	Stopped listening on port 63461
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:63653
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofileZpjjab\\search.json.mozlz4", (void 0)))
+1660935058892	Marionette	INFO	Listening on port 63659
+DevTools listening on ws://localhost:63653/devtools/browser/9ac30634-9b5d-43bf-a027-056e776a055e
+1660935059334	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1660935061443	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/BcUHUABoavvpRAX3o-C5BfAq8AHsMXRVb9HgeqDHxZ8.js line 2 > eval line 7560 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1660935085249	Marionette	INFO	Stopped listening on port 63659
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1660935191059	geckodriver	INFO	Listening on 127.0.0.1:63900
+1660935194104	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "63901" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofile3fT2dY"
+1660935194325	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:63901
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofile3fT2dY\\search.json.mozlz4", (void 0)))
+1660935195442	Marionette	INFO	Listening on port 63906
+DevTools listening on ws://localhost:63901/devtools/browser/9f2344c8-ab3e-4649-9d70-a79913ce9763
+1660935195629	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.com/AMD-Ryzen-3600-12-Thread-Processor/dp/B07STGGQ18 line 10215 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1660935211135	Marionette	INFO	Stopped listening on port 63906
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PBrowser::Msg___delete__) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1660935211814	geckodriver	INFO	Listening on 127.0.0.1:64067
+1660935214859	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "64068" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofilerJ7h8H"
+1660935215073	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:64068
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofilerJ7h8H\\search.json.mozlz4", (void 0)))
+1660935216162	Marionette	INFO	Listening on port 64074
+DevTools listening on ws://localhost:64068/devtools/browser/c593f9f3-b69d-454b-b2d7-0a3307e4be3a
+1660935216400	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.bestbuy.com/~assets/bby/_intl/landing_page/js/app.min.js, line 1: ReferenceError: error is not defined
+JavaScript warning: https://www.bestbuy.com/2yECBVJi5xf17/zRM/BInoAzUb5KA/YDGOzGht/VjtXHEtQXw/GWEZ/AT4dfl0, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/2yECBVJi5xf17/zRM/BInoAzUb5KA/YDGOzGht/VjtXHEtQXw/GWEZ/AT4dfl0, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/2yECBVJi5xf17/zRM/BInoAzUb5KA/YDGOzGht/VjtXHEtQXw/GWEZ/AT4dfl0, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/2yECBVJi5xf17/zRM/BInoAzUb5KA/YDGOzGht/VjtXHEtQXw/GWEZ/AT4dfl0, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/BcUHUABoavvpRAX3o-C5BfAq8AHsMXRVb9HgeqDHxZ8.js line 2 > eval line 572 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1660935264086	Marionette	INFO	Stopped listening on port 64074
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+remote-debugging-port" "64267" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofilesZlQS7"
+1660935243387	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:64267
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofilesZlQS7\\search.json.mozlz4", (void 0)))
+1660935244576	Marionette	INFO	Listening on port 64275
+DevTools listening on ws://localhost:64267/devtools/browser/c5a6ccfb-321c-4880-8d59-7dab6c1df498
+1660935244696	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1660935246154	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://a60dec3bb87e3a021308e864bf9c89f6.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html, line 13: ReferenceError: osdlfm is not defined
+JavaScript error: https://a60dec3bb87e3a021308e864bf9c89f6.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html, line 13: ReferenceError: googqscp is not defined
+JavaScript error: https://a60dec3bb87e3a021308e864bf9c89f6.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html, line 13: ReferenceError: osdlfm is not defined
+JavaScript error: https://a60dec3bb87e3a021308e864bf9c89f6.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html, line 13: ReferenceError: googqscp is not defined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/BcUHUABoavvpRAX3o-C5BfAq8AHsMXRVb9HgeqDHxZ8.js line 2 > eval line 5296 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/oORtDv9EbGDZJqtoCU6ZUa1h2CU5mRmZpTeRJMx0_5U.js line 2 > eval line 7632 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/oORtDv9EbGDZJqtoCU6ZUa1h2CU5mRmZpTeRJMx0_5U.js line 2 > eval line 3956 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1660935260581	Marionette	INFO	Stopped listening on port 64275
+Handler function BrowserTabList.prototype.onCloseWindow's delayed body threw an exception: TypeError: topBrowsingContext is null
+Stack: getAllBrowsingContextsForContext@resource://devtools/server/actors/watcher/browsing-context-helpers.jsm:352:7
+getAllBrowsingContexts@resource://devtools/server/actors/watcher.js:150:12
+destroyTargets@resource://devtools/server/actors/watcher/target-helpers/frame-helper.js:164:36
+unwatchTargets@resource://devtools/server/actors/watcher.js:282:24
+destroy@resource://devtools/server/actors/watcher.js:173:12
+destroy@resource://devtools/shared/protocol/Pool.js:211:17
+destroy@resource://devtools/shared/protocol/Actor.js:76:11
+destroy@resource://devtools/server/actors/descriptors/tab.js:245:29
+BrowserTabList.prototype._handleActorClose@resource://devtools/server/actors/webbrowser.js:411:9
+BrowserTabList.prototype.onCloseWindow</<@resource://devtools/server/actors/webbrowser.js:660:16
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 352, column: 7
+console.error: (new TypeError("topBrowsingContext is null", "resource://devtools/server/actors/watcher/browsing-context-helpers.jsm", 352))
+console.error: "Exception while getting unique selector" (new TypeError("this.inspector is null", "resource://devtools/client/inspector/rules/rules.js", 380))
+console.error: (new Error("Connection closed, pending request to server0.conn0.watcher2, type watchResources failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\n_startListening@resource://devtools/shared/commands/resource/resource-command.js:929:31\nobserve@resource://gre/modules/AsyncShutdown.jsm:575:16\nGeckoDriver.prototype.quit@chrome://remote/content/marionette/driver.js:2661:22\ndespatch@chrome://remote/content/marionette/server.js:306:40\nexecute@chrome://remote/content/marionette/server.js:279:16\nonPacket/<@chrome://remote/content/marionette/server.js:252:20\nonPacket@chrome://remote/content/marionette/server.js:253:9\n_onJSONObjectReady/<@chrome://remote/content/marionette/transport.js:500:20\n", "resource://devtools/shared/protocol/Front.js", 106))
+SourceActor threw an exception: [Exception... "Failed to open input source 'chrome://browser/content/certerror/aboutNetErrorCodes.js'"  nsresult: "0x805303f4 (<unknown>)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: mainThreadFetch/< :: line 699"  data: yes]
+Stack: mainThreadFetch/<@resource://devtools/shared/DevToolsUtils.js:699:15
+mainThreadFetch@resource://devtools/shared/DevToolsUtils.js:545:10
+_fetchURLContents@resource://devtools/server/actors/utils/sources-manager.js:446:22
+urlContents@resource://devtools/server/actors/utils/sources-manager.js:410:17
+_resurrectSource@resource://devtools/server/actors/thread.js:2121:35
+addAllSources@resource://devtools/server/actors/thread.js:1482:14
+watch@resource://devtools/server/actors/resources/sources.js:62:17
+watchResources@resource://devtools/server/actors/resources/index.js:288:19
+_watchTargetResources@resource://devtools/server/actors/targets/target-actor-mixin.js:161:24
+addSessionDataEntry@resource://devtools/server/actors/targets/target-actor-mixin.js:53:20
+_addSessionDataEntry@resource://devtools/server/connectors/js-window-actor/DevToolsFrameChild.jsm:556:24
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameChild.jsm:465:21
+Line: 699, column: 0
+console.error: ({})
+console.error: "Error while calling actor 'watcher's method 'watchResources'" "this.transport is null"
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+console.error: "Error while calling actor 'watcher's method 'unwatchResources'" "this.transport is null"
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+console.error: "Error while calling actor 'watcher's method 'unwatchResources'" "this.transport is null"
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+console.error: "Error while calling actor 'watcher's method 'unwatchResources'" "this.transport is null"
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+console.error: "Error while calling actor 'watcher's method 'unwatchResources'" "this.transport is null"
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+console.error: "Error while calling actor 'watcher's method 'unwatchResources'" "this.transport is null"
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+console.error: "Error while calling actor 'watcher's method 'unwatchResources'" "this.transport is null"
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+JavaScript error: resource://devtools/server/devtools-server-connection.js, line 99: TypeError: this.transport is null
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+notifyTargetDestroyed/<@resource://devtools/server/actors/watcher.js:358:39
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:358:22
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+console.error: (new TypeError("this.transport is null", "resource://devtools/server/devtools-server-connection.js", 99))
+TypeError: this.transport is null: send@resource://devtools/server/devtools-server-connection.js:99:5
+_sendEvent@resource://devtools/shared/protocol/Actor.js:72:15
+initialize/<@resource://devtools/shared/protocol/Actor.js:46:16
+_emit@resource://devtools/shared/event-emitter.js:242:32
+emit@resource://devtools/shared/event-emitter.js:186:18
+emit@resource://devtools/shared/event-emitter.js:330:18
+notifyTargetDestroyed@resource://devtools/server/actors/watcher.js:391:10
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameParent.jsm:217:19
+observe@resource://gre/modules/AsyncShutdown.jsm:575:16
+
+SourceActor threw an exception: Error: Failed to fetch https://www.newegg.com/amd-ryzen-5-3600/p/N82E16819113569. Code 2147746065.
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:585:16
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 585, column: 16
+console.error: (new Error("Failed to fetch https://www.newegg.com/amd-ryzen-5-3600/p/N82E16819113569. Code 2147746065.", "resource://devtools/shared/DevToolsUtils.js", 585))
+SourceActor threw an exception: Error: Failed to fetch https://c1.neweggimages.com/webresource/oneTrust/scripttemplates/otSDKStub.js. Code 2147746065.
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:585:16
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 585, column: 16
+console.error: (new Error("Failed to fetch https://c1.neweggimages.com/webresource/oneTrust/scripttemplates/otSDKStub.js. Code 2147746065.", "resource://devtools/shared/DevToolsUtils.js", 585))
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1660935365207	geckodriver	INFO	Listening on 127.0.0.1:64566
+1660935368243	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "64567" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofileK7BUc7"
+1660935368471	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:64567
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofileK7BUc7\\search.json.mozlz4", (void 0)))
+1660935369706	Marionette	INFO	Listening on port 64573
+DevTools listening on ws://localhost:64567/devtools/browser/70cc9b1a-4c3c-4b26-967d-c674a19b62af
+1660935369776	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.com/AMD-Ryzen-3600-12-Thread-Processor/dp/B07STGGQ18 line 10436 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1660935385832	Marionette	INFO	Stopped listening on port 64573
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1660935386544	geckodriver	INFO	Listening on 127.0.0.1:64739
+1660935389576	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "64740" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofilecUTT7A"
+1660935389801	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:64740
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofilecUTT7A\\search.json.mozlz4", (void 0)))
+1660935390956	Marionette	INFO	Listening on port 64746
+DevTools listening on ws://localhost:64740/devtools/browser/85fbb813-8707-48bf-81c0-6f55283a4f96
+1660935391109	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.bestbuy.com/~assets/bby/_intl/landing_page/js/app.min.js, line 1: ReferenceError: error is not defined
+JavaScript warning: https://www.bestbuy.com/2yECBVJi5xf17/zRM/BInoAzUb5KA/YDGOzGht/VjtXHEtQXw/GWEZ/AT4dfl0, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/2yECBVJi5xf17/zRM/BInoAzUb5KA/YDGOzGht/VjtXHEtQXw/GWEZ/AT4dfl0, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/2yECBVJi5xf17/zRM/BInoAzUb5KA/YDGOzGht/VjtXHEtQXw/GWEZ/AT4dfl0, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/2yECBVJi5xf17/zRM/BInoAzUb5KA/YDGOzGht/VjtXHEtQXw/GWEZ/AT4dfl0, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/BcUHUABoavvpRAX3o-C5BfAq8AHsMXRVb9HgeqDHxZ8.js line 2 > eval line 5070 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1660935436116	Marionette	INFO	Stopped listening on port 64746
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+remote-debugging-port" "64937" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofilevgX0xc"
+1660935417986	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:64937
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofilevgX0xc\\search.json.mozlz4", (void 0)))
+1660935419463	Marionette	INFO	Listening on port 64946
+DevTools listening on ws://localhost:64937/devtools/browser/973b83c6-23cf-4b85-b94d-cf602c98c8f6
+1660935419765	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1660935421757	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://ed5615a86fa241fac0fa3cb05b6b03f0.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html, line 13: ReferenceError: osdlfm is not defined
+JavaScript error: https://ed5615a86fa241fac0fa3cb05b6b03f0.safeframe.googlesyndication.com/safeframe/1-0-38/html/container.html, line 13: ReferenceError: googqscp is not defined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/oORtDv9EbGDZJqtoCU6ZUa1h2CU5mRmZpTeRJMx0_5U.js line 2 > eval line 2661 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/BcUHUABoavvpRAX3o-C5BfAq8AHsMXRVb9HgeqDHxZ8.js line 2 > eval line 4303 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1660935434854	Marionette	INFO	Stopped listening on port 64946
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1660937700878	geckodriver	INFO	Listening on 127.0.0.1:49230
+1660937703908	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "49231" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofileVrUQmG"
+1660937704150	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:49231
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofileVrUQmG\\search.json.mozlz4", (void 0)))
+1660937705396	Marionette	INFO	Listening on port 49236
+DevTools listening on ws://localhost:49231/devtools/browser/7670c81a-781a-4c02-bcce-9552ec543721
+1660937705434	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.com/AMD-Ryzen-3600-12-Thread-Processor/dp/B07STGGQ18 line 10119 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1660937722608	Marionette	INFO	Stopped listening on port 49236
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+[Parent 20724, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:723
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1660937723396	geckodriver	INFO	Listening on 127.0.0.1:49392
+1660937726425	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "49393" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofile0p457i"
+1660937726645	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:49393
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofile0p457i\\search.json.mozlz4", (void 0)))
+1660937727817	Marionette	INFO	Listening on port 49401
+DevTools listening on ws://localhost:49393/devtools/browser/c2563a1b-8883-44b8-b097-901e99373304
+1660937727961	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.bestbuy.com/~assets/bby/_intl/landing_page/js/app.min.js, line 1: ReferenceError: error is not defined
+JavaScript warning: https://www.bestbuy.com/2yECBVJi5xf17/zRM/BInoAzUb5KA/YDGOzGht/VjtXHEtQXw/GWEZ/AT4dfl0, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.bestbuy.com/2yECBVJi5xf17/zRM/BInoAzUb5KA/YDGOzGht/VjtXHEtQXw/GWEZ/AT4dfl0, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1660937761146	Marionette	INFO	Stopped listening on port 49401
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:49453
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofileE8ikD1\\search.json.mozlz4", (void 0)))
+1660937746075	Marionette	INFO	Listening on port 49459
+DevTools listening on ws://localhost:49453/devtools/browser/e6696196-14ad-4112-82e5-b77ae039b551
+1660937746542	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1660937748061	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://www.newegg.com/gfplib.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/BcUHUABoavvpRAX3o-C5BfAq8AHsMXRVb9HgeqDHxZ8.js line 2 > eval line 6725 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1660937760531	Marionette	INFO	Stopped listening on port 49459
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1661874908169	geckodriver	INFO	Listening on 127.0.0.1:51656
+1661874911230	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51657" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofile0fD7p2"
+1661874911571	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:51657
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofile0fD7p2\\search.json.mozlz4", (void 0)))
+1661874912816	Marionette	INFO	Listening on port 51662
+DevTools listening on ws://localhost:51657/devtools/browser/56daa960-5402-475e-913a-7d17141725f3
+1661874913268	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.com/AMD-5600-12-Thread-Unlocked-Processor/dp/B09VCHR1VH line 8024 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://images-na.ssl-images-amazon.com/images/I/81WLwk4GvsL.js?AUIClients/FWCIMAssets, line 289: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1661874936862	Marionette	INFO	Stopped listening on port 51662
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1661875210418	geckodriver	INFO	Listening on 127.0.0.1:51876
+1661875213498	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51877" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofileKLz2UZ"
+1661875213712	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:51877
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofileKLz2UZ\\search.json.mozlz4", (void 0)))
+1661875214812	Marionette	INFO	Listening on port 51882
+DevTools listening on ws://localhost:51877/devtools/browser/173f1796-fa95-4561-b889-8335a4000953
+1661875215021	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.com/AMD-5600-12-Thread-Unlocked-Processor/dp/B09VCHR1VH line 9316 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1661875234061	Marionette	INFO	Stopped listening on port 51882
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1661875278642	geckodriver	INFO	Listening on 127.0.0.1:52066
+1661875281711	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52067" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofileUbZxwC"
+1661875281924	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:52067
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofileUbZxwC\\search.json.mozlz4", (void 0)))
+1661875282985	Marionette	INFO	Listening on port 52076
+DevTools listening on ws://localhost:52067/devtools/browser/a80d9df2-05c4-4111-ae77-baecfd149f96
+1661875283237	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.com/AMD-5600-12-Thread-Unlocked-Processor/dp/B09VCHR1VH line 8223 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1661875299823	Marionette	INFO	Stopped listening on port 52076
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1661875360850	geckodriver	INFO	Listening on 127.0.0.1:52264
+1661875363908	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52265" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofilerxotT1"
+1661875364119	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:52265
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofilerxotT1\\search.json.mozlz4", (void 0)))
+1661875365244	Marionette	INFO	Listening on port 52271
+DevTools listening on ws://localhost:52265/devtools/browser/9402eb33-f59a-41d6-aa09-b5090515e65c
+1661875365455	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.com/AMD-5600-12-Thread-Unlocked-Processor/dp/B09VCHR1VH line 8514 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1661875378416	Marionette	INFO	Stopped listening on port 52271
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1661875478841	geckodriver	INFO	Listening on 127.0.0.1:52448
+1661875481906	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52449" "-no-remote" "-profile" "C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofilearNMMt"
+1661875482119	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:52449
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofilearNMMt\\search.json.mozlz4", (void 0)))
+1661875483259	Marionette	INFO	Listening on port 52458
+DevTools listening on ws://localhost:52449/devtools/browser/2b8d661c-491b-4fc5-abc8-4918e1d22821
+1661875483432	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.com/AMD-5600-12-Thread-Unlocked-Processor/dp/B09VCHR1VH line 8320 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 14608, MediaDecoderStateMachine #2] WARNING: 1fe0e916120 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:317
+1661881722840	Marionette	INFO	Stopped listening on port 52458
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+ror("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofileMQPSbb\\search.json.mozlz4", (void 0)))
+1661875546794	Marionette	INFO	Listening on port 52635
+DevTools listening on ws://localhost:52627/devtools/browser/5f4f81eb-cfb1-4a91-a5d3-9b270be7f306
+1661875546872	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.com/AMD-5600-12-Thread-Unlocked-Processor/dp/B09VCHR1VH line 7 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://images-na.ssl-images-amazon.com/images/I/81WLwk4GvsL.js?AUIClients/FWCIMAssets, line 289: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1661881722113	Marionette	INFO	Stopped listening on port 52635
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+2794
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Emad\\AppData\\Local\\Temp\\rust_mozprofileL1pySH\\search.json.mozlz4", (void 0)))
+1661875575554	Marionette	INFO	Listening on port 52799
+DevTools listening on ws://localhost:52794/devtools/browser/ca3beede-7445-4c35-9b0e-1d1e38fa6092
+1661875576038	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.amazon.com/AMD-5600-12-Thread-Unlocked-Processor/dp/B09VCHR1VH line 7 > injectedScript, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 13500, MediaDecoderStateMachine #2] WARNING: 2794f4c6020 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:317
+1661881720025	Marionette	INFO	Stopped listening on port 52799
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
