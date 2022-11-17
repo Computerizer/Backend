@@ -38,6 +38,8 @@ function selectPsot(e) {
     if (e.target.nodeName === 'H3') {
         sliderMainDiv.querySelector(".post-title").textContent = e.target.innerHTML
         sliderMainDiv.querySelector("button").value = e.target.innerText
+        sliderMainDiv.querySelector(".header__text").innerHTML = e.target.nextElementSibling.innerHTML
+        console.log()
         sliderMainDiv.style.backgroundImage = `url('${e.target.id}')`
     }
 }
@@ -78,9 +80,14 @@ function slider() {
     sliderNavDiv.appendChild(fragmentDiv)
 
     sliderMainDiv.firstElementChild.innerHTML = `
-    <h1 class="post-title">
-        ${posts[0].title}
-    </h1>
+    <div class="text">
+        <h1 class="post-title">
+            ${posts[0].title}
+        </h1>
+        <p class="header__text">
+            ${posts[0].description}
+        </p>
+    </div>
     <button type="submit" value="${posts[0].title}" class="read_more">Read More</button>
     `
     sliderMainDiv.style.backgroundImage = `url('${posts[0].image}')`
@@ -126,7 +133,6 @@ function addRecentPossts(n = 3) {
 }
 
 function addSales() {
-    console.log(sales[0].part)
     for (part of sales) {
         let partDiv = document.querySelector(`.${part.part}`)
         partDiv.querySelector("a").href = part.link

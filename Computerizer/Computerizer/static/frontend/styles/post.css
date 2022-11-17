@@ -103,31 +103,22 @@ a:active {
 
 .post-card {
     padding: 0.5rem;
-    margin: 0.5rem;
-    min-width: 40%;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
     border-right: var(--text-light) 2px solid;
 }
 
 .card__img {
-    width: 30vh;
+    width: 40vh;
+    aspect-ratio: 16/9;
 }
 
-.card__text {
-    height: 9rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+
 
 .post-card:last-child {
     border-right: none;
-}
-
-.card__text h3 {
-    margin-bottom: 0.8rem;
 }
 
 .card__text p {
@@ -171,7 +162,7 @@ a:active {
     }
 
     .card__img {
-        width: 100%;
+        width: 30vh;
     }
 
     .card__text {

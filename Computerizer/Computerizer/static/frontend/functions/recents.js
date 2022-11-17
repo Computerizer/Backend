@@ -16,7 +16,6 @@ let mainFunc = async () => {
     let response = await fetch(`http://127.0.0.1:8000/blog/recent-posts/${fetchPostNum}`)
     posts = await response.json()
     fetchPostNum = posts.length
-    console.log(fetchPostNum)
 
     addRecentPossts()
     readMoreBtn.forEach(btn => {

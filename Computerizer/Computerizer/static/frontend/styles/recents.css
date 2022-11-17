@@ -111,9 +111,7 @@ hr {
 /* Responsive */
 
 @media only screen and (max-width: 430px) {
-    .body {
-        padding: 0 5%;
-    }
+
 
     /* posts */
 
@@ -124,6 +122,10 @@ hr {
 }
 
 @media only screen and (max-width: 1000px) {
+    .body {
+            padding: 0 5%;
+        }
+
     /* posts */
     .post__body {
         position: relative;
