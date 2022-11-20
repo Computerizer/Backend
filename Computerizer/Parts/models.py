@@ -96,8 +96,17 @@ class cpu(commoninfo):
         verbose_name ='CPU'
         verbose_name_plural ='CPUs'
 
-    def is_valid_link(self):
-        return self.cores < self.threads
+    def is_valid_cpu(self):
+        condition = True
+        manufacturer = self.manufacturer
+        if manufacturer.manufactures_cpu == False:
+            print('This manufacturer does not make cpus')
+            condition = False
+        if self.threads > self.cores:
+            condition = False
+        if (manufacturer.name.lower() == 'intel') and (self.cooler == True):
+            condition = False
+        return condition
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -136,7 +145,16 @@ class aircooler(commoninfo):
         verbose_name_plural ='Aircoolers'
 
     def is_valid_aircooler(self):
-        return self.amazon_URL != self.newegg_URL and self.amazon_URL
+        condition = True
+        manufacturer = self.manufacturer
+        if manufacturer.manufactures_cooler == False:
+            print('This manufacturer does not make coolers')
+            condition = False
+        if (self.price < 50.0) and (self.use_case == 'High-end'):
+            condition = False
+        if (self.color_name.lower() == 'black') and (self.theme == 'light'):
+            condition = False
+        return condition
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -175,7 +193,16 @@ class watercooler(commoninfo):
         verbose_name_plural ='Watercoolers'
 
     def is_valid_watercooler(self):
-        return self.num_fans > 0
+        condition = True
+        manufacturer = self.manufacturer
+        if manufacturer.manufactures_cpu == False:
+            print('This manufacturer does not make cpus')
+            condition = False
+        if self.threads > self.cores:
+            condition = False
+        if (manufacturer.name.lower() == 'intel') and (self.cooler == True):
+            condition = False
+        return condition
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -277,7 +304,7 @@ class motherboard(commoninfo):
         verbose_name ='Motherboard'
         verbose_name_plural ='Motherboards'
 
-    def is_valid_link(self):
+    def is_valid_motherboard(self):
         condition = True
         if (self.wifi == False and self.wifi_6_support == True) or (self.has_hdmi == False and self.hdmi_count > 0) or (self.has_displayport == False and self.displayport_count > 0) or (self.has_usbc == False and self.usbc_count > 0):
             condition = False
@@ -328,6 +355,18 @@ class ram(commoninfo):
         verbose_name ='RAM'
         verbose_name_plural ='RAMs'
 
+    def is_valid_ram(self):
+        condition = True
+        manufacturer = self.manufacturer
+        if manufacturer.manufactures_cpu == False:
+            print('This manufacturer does not make cpus')
+            condition = False
+        if self.threads > self.cores:
+            condition = False
+        if (manufacturer.name.lower() == 'intel') and (self.cooler == True):
+            condition = False
+        return condition
+
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -374,6 +413,18 @@ class hdd(commoninfo):
         verbose_name ='HDD'
         verbose_name_plural ='HDDs'
 
+    def is_valid_hdd(self):
+        condition = True
+        manufacturer = self.manufacturer
+        if manufacturer.manufactures_cpu == False:
+            print('This manufacturer does not make cpus')
+            condition = False
+        if self.threads > self.cores:
+            condition = False
+        if (manufacturer.name.lower() == 'intel') and (self.cooler == True):
+            condition = False
+        return condition
+
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
 
@@ -414,6 +465,18 @@ class ssd(commoninfo):
         verbose_name ='SSD'
         verbose_name_plural ='SSDs'
 
+    def is_valid_ssd(self):
+        condition = True
+        manufacturer = self.manufacturer
+        if manufacturer.manufactures_cpu == False:
+            print('This manufacturer does not make cpus')
+            condition = False
+        if self.threads > self.cores:
+            condition = False
+        if (manufacturer.name.lower() == 'intel') and (self.cooler == True):
+            condition = False
+        return condition
+
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -453,6 +516,18 @@ class psu(commoninfo):
         verbose_name ='PSU'
         verbose_name_plural ='PSUs'
 
+    def is_valid_psu(self):
+        condition = True
+        manufacturer = self.manufacturer
+        if manufacturer.manufactures_cpu == False:
+            print('This manufacturer does not make cpus')
+            condition = False
+        if self.threads > self.cores:
+            condition = False
+        if (manufacturer.name.lower() == 'intel') and (self.cooler == True):
+            condition = False
+        return condition
+
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -473,7 +548,7 @@ class fan(commoninfo):
             verbose_name ='Fan'
             verbose_name_plural ='Fans'
 
-    def is_valid_case(self):
+    def is_valid_fan(self):
         pass
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
