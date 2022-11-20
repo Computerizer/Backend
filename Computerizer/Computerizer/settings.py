@@ -44,8 +44,9 @@ INSTALLED_APPS = [
     'Oauth',
     'Parts',
     'TPA',
-    'frontend'
+    'frontend',
     
+    'storages',
 ]
 # Token Permissions:
 # AllowAny
@@ -138,6 +139,17 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'Computerizer/static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+AWS_ACCESS_KEY_ID = 'AKIA6OA2NJ4FFBJFQAJ6'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'computerizer-static'
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
