@@ -15,5 +15,5 @@
 - <a href='https://github.com/Computerizer/FULL-STACK/tree/main/Computerizer/Parts'> PARTS </a>  
 - <a href='https://github.com/Computerizer/FULL-STACK/tree/main/Computerizer/Oauth'> AUTH </a>  
 - <a href='https://github.com/Computerizer/FULL-STACK/tree/main/Computerizer/TPA'> 3P API </a>  
-- <a href='https://github.com/Computerizer/FULL-STACK/tree/main/Computerizer/frontend'> 3P API </a>  
+- <a href='https://github.com/Computerizer/FULL-STACK/tree/main/Computerizer/frontend'> FRONT END </a>  
 
