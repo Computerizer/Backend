@@ -10,3 +10,5 @@ Pillow==9.2.0
 selenium==4.3.0
 django-storages==1.13.1
 boto3==1.11.17
+gunicorn==20.1.0
+whitenoise==6.2.0
