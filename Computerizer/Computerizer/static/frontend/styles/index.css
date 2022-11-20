@@ -22,11 +22,6 @@ a {
     color: var(--text-normal);
 }
 
-button,
-a:hover {
-    cursor: pointer;
-}
-
 /* slider */
 
 .slider {
@@ -82,19 +77,20 @@ a:hover {
 
 .slider__nav {
     display: flex;
-    margin-top: 2rem;
+    margin-top: 1rem;
     overflow-x: scroll;
     width: 100%;
-    height: 10rem;
+    height: 12rem;
 }
 
 .post-card {
     padding: 0.5rem;
-    min-width: 40%;
+    min-width: 30%;
     display: flex;
     align-items: flex-start;
     gap: 0.2rem;
     border-right: var(--text-light) 2px solid;
+    margin-bottom: 0.5rem;
 }
 
 .card-text {
@@ -258,25 +254,31 @@ hr {
     font-size: 40px;
 }
 
-/* form */
+/* Subscribe */
+
 .b-form {
     background-color: var(--accent);
+    width: 100%;
+    height: 100%;
 }
 
 .subscribe {
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: var(--accent);
-    padding: 4rem 0;
+    padding: 4rem 6rem;
 }
 
-form {
+.subscribe_form {
     display: flex;
-    flex-direction: column;
     gap: 1.5rem;
-    min-width: 60%;
+    min-width: 80%;
+
+}
+
+.subscribe_form p {
+    width: 50%;
 }
 
 .subs__title {
@@ -284,33 +286,9 @@ form {
     margin-bottom: 3.5rem;
 }
 
-.name {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-}
-
-.input {
-    border: none;
-    border-radius: 5px;
-    height: 2.5rem;
-    width: 100%;
-    background-color: var(--text-light);
-    padding: 0 10px;
-}
-
-textarea {
-    border: none;
-    border-radius: 5px;
-    resize: none;
-    height: 7rem;
-    width: 100%;
-    background-color: var(--text-light);
-}
-
-.form-submit {
+.subs-submit {
     width: 40%;
-    margin: 0 auto;
+    margin: 1rem auto;
     width: fit-content;
     height: fit-content;
     padding: 0.5rem 2rem;
@@ -320,6 +298,8 @@ textarea {
     font-size: 1rem;
     font-weight: 500;
 }
+
+
 
 
 
@@ -424,30 +404,28 @@ textarea {
     }
 
     /* form */
+    .subscribe {
+        padding: 2rem 1rem;
+    }
+
+    .subscribe_form {
+        flex-direction: column;
+    }
+
+    .subscribe_form p {
+        width: auto;
+    }
+
     form {
         width: 100%;
     }
 
-    .name input {
-        width: 100%;
-        height: 2rem;
-    }
-
-    .name {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    textarea {
-        height: 7rem;
-    }
-
-    .form-submit {
+    .subs-submit {
         width: 100%;
     }
 
     .subs__title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     

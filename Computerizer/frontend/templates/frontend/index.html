@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'frontend/styles/navbar.css'%}">
     <link rel="stylesheet" href="{% static 'frontend/styles/index.css'%}">
+    <link rel="stylesheet" href="{% static 'frontend/styles/user-auth.css'%}">
     <title>Computerizer</title>
 </head>
 
@@ -44,9 +45,9 @@
                         <a href="{% url 'about'%}">about</a>
                     </li>
                 </ul>
-                <i class="material-icons">
-                    search
-                </i>
+                <button class="sign-up_btn">
+                    sign up
+                </button>
             </div>
     
             <div class="mobile">
@@ -58,29 +59,27 @@
                             </i>
                         </li>
                         <li id="active">
-                            <a href="">home</a>
+                            <a href="{% url 'home'%}">home</a>
                         </li>
                         <li>
-                            <a href="">recents</a>
+                            <a href="{% url 'recents'%}">recents</a>
                         </li>
                         <li>
-                            <a href="">subscribe</a>
+                            <a href="{% url 'home'%}">subscribe</a>
                         </li>
                         <li>
-                            <a href="">about</a>
+                            <a href="{% url 'about'%}">about</a>
                         </li>
                         <li>
-                            <i class="material-icons">
-                                search
-                            </i>
+                            <button class="sign-up_mobile">
+                                sign up
+                            </button>
                         </li>
                     </ul>
                 </div>
                 <i class="material-icons menu__btn">
                     menu
                 </i>
-    
-    
             </div>
     
         </nav>
@@ -168,19 +167,17 @@
         
     
         <!-- form -->
-        <div class="body b-form hiden" id="subscribe">
+        <div class="body b-form" id="subscribe">
             <div class="subscribe">
                 <h3 class="subs__title">
                     Subscribe with us
                 </h3>
-                <form action="">
-                    <div class="name">
-                        <input class="input" type="text" name="" id="" placeholder="First Name">
-                        <input class="input" type="text" name="" id="" placeholder="Last Name">
+                <form action="" class="subscribe_form">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi recusandae earum dicta, facere ipsum eos illo deleniti omnis assumenda, molestiae quia expedita vero dolorum porro non illum nihil praesentium</p>
+                    <div>
+                        <input class="input" type="email" name="" id="" placeholder="E-mail">
+                        <button type="submit" class="subs-submit">Subscribe</button>
                     </div>
-                    <input class="input" type="email" name="" id="" placeholder="E-mail">
-                    <input class="input" type="password" name="" id="" placeholder="Password">
-                    <button type="submit" class="form-submit">Subscribe</button>
                 </form>
             </div>
         </div>
@@ -215,6 +212,7 @@
     
     <script  src="{% static 'frontend/functions/navbar.js'%}"></script>
     <script  src="{% static 'frontend/functions/main.js'%}"></script>
+    <script  src="{% static 'frontend/functions/user_auth.js'%}"></script>
    
 
 </body>
