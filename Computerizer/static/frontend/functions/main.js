@@ -1,4 +1,7 @@
-let posts = "";
+let posts = ""
+let sales = ""
+let readMoreBtn = ""
+let fetchPostNum = 7
 const sliderDiv = document.querySelector(".slider")
 const sliderMainDiv = document.querySelector(".slider__main")
 const sliderNavDiv = document.querySelector(".slider__nav")
@@ -6,32 +9,59 @@ const postsDiv = document.querySelector(".posts")
 const loadMoreBtn = document.querySelector(".load-more")
 
 
-// Feching data
+
+// Feching data & main function
 let mainFunc = async () => {
-    let response = await fetch('http://127.0.0.1:8000/blog/recent-posts/')
+    let response = await fetch(`http://127.0.0.1:8000/blog/recent-posts/${fetchPostNum}`)
     posts = await response.json()
 
     slider()
     addRecentPossts()
+    let response2 = await fetch('http://127.0.0.1:8000/blog/sales/4')
+    sales = await response2.json()
+    addSales()
+    addListeners()
+}
+
+
+// listener functions
+function addListeners() {
+    sliderNavDiv.addEventListener("click", selectPsot)
+    loadMoreBtn.addEventListener('click', loadMore)
+    readMoreBtn = document.querySelectorAll(".read_more")
+    readMoreBtn.forEach(btn => {
+        btn.addEventListener("click", redirectUrl)
+    });
 }
 
 function selectPsot(e) {
     if (e.target.nodeName === 'H3') {
         sliderMainDiv.querySelector(".post-title").textContent = e.target.innerHTML
-        console.log(e.target.id)
+        sliderMainDiv.querySelector("button").value = e.target.innerText
+        sliderMainDiv.querySelector(".header__text").innerHTML = e.target.nextElementSibling.innerHTML
+        console.log()
         sliderMainDiv.style.backgroundImage = `url('${e.target.id}')`
     }
 }
 
 function loadMore(e) {
     e.preventDefault
-    let num = 3
-    addRecentPossts(num, num + 2)
+    addRecentPossts(fetchPostNum)
+    const loadMoreBtn = document.querySelector(".load-more")
+    loadMoreBtn.style.display = "none"
 }
+
+function redirectUrl(e) {
+    e.preventDefault()
+    window.location.href = window.location.href + `/post/${e.target.value}`
+}
+
+
+// Components render
 
 function slider() {
     let fragmentDiv = document.createDocumentFragment()
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 4; i++) {
         let cardDiv = document.createElement("div")
         cardDiv.classList.add("post-card")
         cardDiv.innerHTML = `
@@ -50,17 +80,21 @@ function slider() {
     sliderNavDiv.appendChild(fragmentDiv)
 
     sliderMainDiv.firstElementChild.innerHTML = `
-    <h1 class="post-title">
-        ${posts[0].title}
-    </h1>
-    <button type="submit">Read More</button>
+    <div class="text">
+        <h1 class="post-title">
+            ${posts[0].title}
+        </h1>
+        <p class="header__text">
+            ${posts[0].description}
+        </p>
+    </div>
+    <button type="submit" value="${posts[0].title}" class="read_more">Read More</button>
     `
     sliderMainDiv.style.backgroundImage = `url('${posts[0].image}')`
 }
 
-sliderNavDiv.addEventListener("click", selectPsot)
-
-function addRecentPossts(m = 0, n = 3) {
+function addRecentPossts(n = 3) {
+    let m = n - 3
     const postsFrag = document.createDocumentFragment()
     for (let i = m; i < n; i++) {
         let postDiv = document.createElement("div")
@@ -84,8 +118,7 @@ function addRecentPossts(m = 0, n = 3) {
                 </div>
                 <div class="post__action">
                     <span class="time">${posts[i].add_date.slice(0, 10)}</span>
-                    <button>Read more</button>
-
+                    <button class="read_more" value="${posts[i].title}">Read more</button>
                 </div>
             </div>
         </div>
@@ -93,9 +126,20 @@ function addRecentPossts(m = 0, n = 3) {
         postsFrag.appendChild(postDiv)
     }
     postsDiv.appendChild(postsFrag)
+    readMoreBtn = document.querySelectorAll(".read_more")
+    readMoreBtn.forEach(btn => {
+        btn.addEventListener("click", redirectUrl)
+    });
 }
 
-loadMoreBtn.addEventListener('click', loadMore)
+function addSales() {
+    for (part of sales) {
+        let partDiv = document.querySelector(`.${part.part}`)
+        partDiv.querySelector("a").href = part.link
+        partDiv.querySelector("p").innerText = part.body
+        partDiv.querySelector("img").src = part.image
+    }
+}
 
 // Start the program
 mainFunc()

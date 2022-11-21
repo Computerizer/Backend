@@ -14,16 +14,241 @@
     padding: 0;
 }
 
-.body {
-    padding: 0 15%;
-    width: 100%;
+a {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
 }
 /* Post page*/
 
 
 .post__details {
-    margin: 5rem 0;
+    margin-top: 6rem;
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
+}
+
+.post__title {
+    font-size: 3.5rem;
+}
+
+.post__social img {
+    margin-top: 0.5rem;
+    width: 20px;
+    margin-right: 10px;
+}
+
+.post__info {
+    color: var(--text-light);
+    letter-spacing: 0.05rem;
+}
+
+.container {
+    display: flex;
     gap: 1rem;
+    width: 100%;
+}
+
+.adds {
+    width: 100%;
+    background-color: var(--accent);
+}
+
+.post__body {
+    max-width: 75%;
+}
+
+.post__body img {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+/* Styling post body text */
+
+.post__text p, 
+.post__text img,
+.post__text ul {
+    margin: 1rem 0;
+    text-align: justify;
+}
+
+.post__text a {
+    color: var(--link);
+}
+
+/* recents */
+
+.recents {
+    margin-top: 5rem;
+}
+
+.recents__title {
+    font-size: 2rem;
+}
+
+.recents__nav {
+    display: flex;
+    margin: 2rem 0;
+    overflow-x: scroll;
+    width: 100%;
+    height: min-content;
+}
+
+.post-card {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    border-right: var(--text-light) 2px solid;
+}
+
+.card__img {
+    width: 40vh;
+    aspect-ratio: 16/9;
+}
+
+
+
+.post-card:last-child {
+    border-right: none;
+}
+
+.card__text p {
+    text-align: justify;
+    overflow: hidden;
+}
+
+.post-card__title:hover {
+    cursor: pointer;
+}
+
+/* Subscribe */
+
+.b-form {
+    background-color: var(--accent);
+    width: 100%;
+    height: 100%;
+}
+
+.subscribe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--accent);
+    padding: 4rem 6rem;
+}
+
+.subscribe_form {
+    display: flex;
+    gap: 1.5rem;
+    min-width: 80%;
+
+}
+
+.subscribe_form p {
+    width: 50%;
+}
+
+.subs__title {
+    font-size: 3rem;
+    margin-bottom: 3.5rem;
+}
+
+.subs-submit {
+    width: 40%;
+    margin: 1rem auto;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--main);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+/* Mobile */
+
+@media only screen and (max-width: 1000px) {
+    .body {
+        padding: 0 5%;
+    }
+
+    /* Post body */
+    .container {
+        flex-direction: column-reverse;
+    }
+
+    .post__title {
+        font-size: 2rem;
+    }
+
+    .post__info {
+        font-size: 1rem;
+    }
+
+    .post__body {
+        max-width: 100%;
+    }
+
+    /* recents */
+    .post-card {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .card__img {
+        width: 30vh;
+    }
+
+    .card__text {
+        height: auto;
+        font-size: 0.8rem;
+    }
+
+    .card__text p {
+        display: none;
+    }
+
+    .card__text h3 {
+        margin-bottom: 0;
+    }
+
+    /* form */
+    .subscribe {
+        padding: 2rem 1rem;
+    }
+
+    .subscribe_form {
+        flex-direction: column;
+    }
+
+    .subscribe_form p {
+        width: auto;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .subs-submit {
+        width: 100%;
+    }
+
+    .subs__title {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    
 }

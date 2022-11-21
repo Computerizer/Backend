@@ -1,0 +1,163 @@
+:root {
+    --main: #FF9425;
+    --accent: #E8E8E8;
+    --link: #FF616F;
+    --text-normal: #12130F;
+    --text-light: #A1AEB7;
+    --body-margin: 2.5rem;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-normal);
+}
+
+/* Recents page */
+
+.posts {
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+    max-width: 1920px;
+}
+
+.post__body {
+    display: flex;
+    gap: 2rem;
+    height: min-content;
+}
+
+.post__body img {
+    max-width: 30%;
+    height: 100%;
+    aspect-ratio: 16/9;
+}
+
+.post__info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post__info__body {
+    max-width: 70%;
+}
+
+.post__prev {
+    font-size: 1em;
+    min-width: 90%;
+    overflow: hidden;
+    font-weight: 400;
+    max-height: 7rem;
+}
+
+.post__action {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.post__action button {
+    width: fit-content;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--main);
+    color: white;
+}
+
+.load-more {
+    width: 100%;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.load-more button {
+    width: fit-content;
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--main);
+    color: white;
+}
+
+hr {
+    border: 1px solid black;
+    background-color: black;
+    margin: 1.5rem 0;
+}
+
+.post__title {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.auther {
+    font-size: 15px;
+    color: #A1AEB7;
+}
+
+.posts .title {
+    font-size: 3rem;
+    color: var(--main);
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 430px) {
+
+
+    /* posts */
+
+    .post__prev {
+        max-height: 10vh;
+        text-align: justify;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .body {
+            padding: 0 5%;
+        }
+
+    /* posts */
+    .post__body {
+        position: relative;
+    }
+    .post__info {
+        position: absolute;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.5);
+        margin: 0 5%;
+        padding: 1rem;
+        width: 100%;
+        height: 100%;
+        color: var(--accent);
+    }
+
+    .post__info__body {
+        min-width: 100%;
+    }
+
+    .post__prev {
+        display: none;
+    }
+
+    .post__body {
+        justify-content: center;
+    }
+
+    .post__body img {
+        min-width: 100%;
+    }
+
+    .post__action {
+        flex-direction: row;
+    }
+}
