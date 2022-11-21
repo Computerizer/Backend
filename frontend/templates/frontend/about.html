@@ -15,13 +15,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{% static 'frontend/styles/navbar.css'%}">
-    <link rel="stylesheet" href="{% static 'frontend/styles/post.css'%}">
+    <link rel="stylesheet" href="{% static 'frontend/styles/about.css'%}">
     <link rel="stylesheet" href="{% static 'frontend/styles/user-auth.css'%}">
-    <title>{{title}}</title>
+    <title>Computerizer</title>
 </head>
-
 <body>
-
+    
         <!-- Nav bar -->
         <header class="body b-nav">
             <nav class="nav-bar">
@@ -42,7 +41,7 @@
                         <li>
                             <a href="{% url 'home'%}">subscribe</a>
                         </li>
-                        <li>
+                        <li id="active">
                             <a href="{% url 'about'%}">about</a>
                         </li>
                     </ul>
@@ -86,16 +85,51 @@
             </nav>
         </header>
 
-    <div class="body">
-        <article>
-            <section class="post__details">
-                <h1 class="post__title">
-                </h1>
-                <h4 class="post__info">
-                    by  <em class="author"></em>  |  <em class="date"></em>
-                </h4>
-                <div class="post__social">
+
+
+    <div class="body about">
+
+        <section class="main">
+            <img src="{% static 'frontend/media/header.png'%}" alt="logo" class="about__logo__img">
+            <p>Computerizer aims to be your companion in your PC building journey, helping you get started with tutorials and articles,
+            and providing intuitive tools to help do dirty work for you (coming soon). Our vision is to make computer building accessible to everyone, regardless of budget or knowledge. Hence the reason we
+            started Computerizer, feel free to ask questions or provide suggestions. Stay Computerizer ⚡️</p>
+        </section>
+
+        <section class="body contact">
+
+            <h1>Contact us</h1>
+            <div class="about__social__icons">
+                <a href="">
+                    <img src="{% static 'frontend/media/reddit.svg'%}" alt="reddit logo">
+                </a>
+                <a href="">
+                    <img src="{% static 'frontend/media/twitter.svg'%}" alt="twitter logo">
+                </a>
+                <a href="">
+                    <img src="{% static 'frontend/media/linkedin.svg'%}" alt="github logo">
+                </a>
+                <a href="">
+                    <img src="{% static 'frontend/media/instagram.svg'%}" alt="github logo">
+                </a>
+                <a href="">
+                    <img src="{% static 'frontend/media/square-envelope-solid.svg'%}" alt="github logo">
+                </a>
+            </div>
+
+        </section>
+    </div>
+
     
+
+
+
+
+    <!-- footer -->
+    <div class="body b-footer">
+        <footer>
+            <div class="footer__social">
+                <div class="footer__social__icons">
                     <a href="">
                         <img src="{% static 'frontend/media/reddit.svg'%}" alt="reddit logo">
                     </a>
@@ -111,65 +145,6 @@
                     <a href="">
                         <img src="{% static 'frontend/media/square-envelope-solid.svg'%}" alt="github logo">
                     </a>
-    
-                </div>
-            </section>
-            <section class="container">
-                <div class="post__body">
-                    <img src="" alt="post hero" class="hero">
-                    <div class="post__text"></div>
-                </div>
-                <div class="adds">
-                    Hello
-                </div>
-            </section>
-        </article>
-
-        <!-- Recents -->
-        <section class="recents">
-            <h1 class="recents__title">
-                More great articles
-            </h1>
-            <div class="recents__nav">
-            </div>
-        </section>
-
-
-    </div>
-
-    <!-- form -->
-    <div class="body b-form" id="subscribe">
-        <div class="subscribe">
-            <h3 class="subs__title">
-                Subscribe with us
-            </h3>
-            <form action="" class="subscribe_form">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi recusandae earum dicta, facere ipsum eos
-                    illo deleniti omnis assumenda, molestiae quia expedita vero dolorum porro non illum nihil praesentium
-                </p>
-                <div>
-                    <input class="input" type="email" name="" id="" placeholder="E-mail">
-                    <button type="submit" class="subs-submit">Subscribe</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-
-    <!-- footer -->
-    <div class="body b-footer">
-        <footer>
-            <div class="footer__social">
-                <div class="footer__social__icons">
-                    <a href="">
-                        <img src="{% static 'frontend/media/reddit.svg'%}" alt="reddit logo">
-                    </a>
-                    <a href="">
-                        <img src="{% static 'frontend/media/twitter.svg'%}" alt="twitter logo">
-                    </a>
-                    <a href="">
-                        <img src="{% static 'frontend/media/github.svg'%}" alt="github logo">
-                    </a>
                 </div>
                 <p>2022 LTD | All rights reserved</p>
             </div>
@@ -182,9 +157,9 @@
         </footer>
     </div>
 
-    <script src="{% static 'frontend/functions/post.js'%}"></script>
+
     <script src="{% static 'frontend/functions/navbar.js'%}"></script>
     <script src="{% static 'frontend/functions/user_auth.js'%}"></script>
-</body>
 
+</body>
 </html>
