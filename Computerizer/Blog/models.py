@@ -8,6 +8,12 @@ class Author(models.Model):
     date_of_birth = models.DateField()
     description = models.TextField()
     profile_picture = models.ImageField(upload_to = r'Computerizer/static/Blog/profile_picture')
+    instagram = models.URLField(null=True, blank=True)
+    twitter = models.URLField(null=True, blank=True)
+    linkedIn = models.URLField(null=True, blank=True)
+    facebook = models.URLField(null=True, blank=True)
+    youtube = models.URLField(null=True, blank=True)
+    gitHub = models.URLField(null=True, blank=True)
 
 
 class Post(models.Model):
