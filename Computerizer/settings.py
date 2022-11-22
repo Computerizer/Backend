@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-xi-f@u^3n49lg1g6h(ms=a7g=lyy4f0%8n!_#0k37-krbxq1f#'
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -44,8 +44,7 @@ INSTALLED_APPS = [
     'Oauth',
     'Parts',
     'TPA',
-    'frontend',
-    
+    'frontend',    
     'storages',
 ]
 # Token Permissions:
@@ -92,13 +91,14 @@ WSGI_APPLICATION = 'Computerizer.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+# Using Postgresql db on AWS independant of heroku
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'db_admin',
-        'PASSWORD': 'computerizer_postgresql_admin',
+        'PASSWORD': os.environ['POSTGRESQL_PASS'],
         'HOST': 'computerizer-database.cfs83usv6ckv.us-west-2.rds.amazonaws.com',
         'PORT': '5432'
     }
@@ -145,16 +145,18 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-""" 
-AWS_ACCESS_KEY_ID = 'AKIA6OA2NJ4FFBJFQAJ6'
-AWS_SECRET_ACCESS_KEY = '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'
+# Static files (Images-Blogs-etc) 
+# Note: JS and CSS files are also stored on S3 for now
+# Until the application's frontend is migrated to react
+
+AWS_ACCESS_KEY_ID = os.environ['AWS_S3_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_S3_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = 'computerizer-static'
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
-"""
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
