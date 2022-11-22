@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-xi-f@u^3n49lg1g6h(ms=a7g=lyy4f0%8n!_#0k37-krbxq1f#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['computerizer.herokuapp.com', '127.0.0.1', 'https://computerizer.herokuapp.com']
+ALLOWED_HOSTS = ['computerizer.herokuapp.com', '127.0.0.1', 'https://computerizer.herokuapp.com', 'computerizr.com', 'https://computerizr.com', 'http://computerizr.com']
 
 
 # Application definition
