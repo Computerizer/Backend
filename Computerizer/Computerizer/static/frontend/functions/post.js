@@ -4,7 +4,7 @@ const author = document.querySelector(".author")
 const dateSpan = document.querySelector(".date")
 const heroImage = document.querySelector(".hero")
 const recentsNav = document.querySelector(".recents__nav")
-const statesDiv = document.querySelector(".states")
+const statisDiv = document.querySelector(".statis")
 let posts = ""
 let post;
 
@@ -13,7 +13,7 @@ const div = async () => {
     let response = await fetch('http://127.0.0.1:8000/blog/post/' + document.title)
     post = await response.json()
     addPost()
-    postStats()
+    postStatis()
 
     let response2 = await fetch(`http://127.0.0.1:8000/blog/recent-posts/6`)
     posts = await response2.json()
@@ -60,8 +60,8 @@ function redirectUrl(e) {
     window.location.href = "http://127.0.0.1:8000/" + `/post/${e.target.id}`
 }
 
-function postStats() {
-    statesDiv.innerHTML = `
+function postStatis() {
+    statisDiv.innerHTML = `
     <div class="impression">
         <p>Did you like this article? :</p>
         <button class="like">
