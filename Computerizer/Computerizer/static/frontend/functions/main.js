@@ -39,7 +39,6 @@ function selectPsot(e) {
         sliderMainDiv.querySelector(".post-title").textContent = e.target.innerHTML
         sliderMainDiv.querySelector("button").value = e.target.innerText
         sliderMainDiv.querySelector(".header__text").innerHTML = e.target.nextElementSibling.innerHTML
-        console.log()
         sliderMainDiv.style.backgroundImage = `url('${e.target.id}')`
     }
 }
@@ -53,7 +52,7 @@ function loadMore(e) {
 
 function redirectUrl(e) {
     e.preventDefault()
-    window.location.href = window.location.href + `/post/${e.target.value}`
+    window.location.href = "http://127.0.0.1:8000/" + `/post/${e.target.value}`
 }
 
 

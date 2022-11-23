@@ -4,6 +4,7 @@ const author = document.querySelector(".author")
 const dateSpan = document.querySelector(".date")
 const heroImage = document.querySelector(".hero")
 const recentsNav = document.querySelector(".recents__nav")
+const statesDiv = document.querySelector(".states")
 let posts = ""
 let post;
 
@@ -12,6 +13,7 @@ const div = async () => {
     let response = await fetch('http://127.0.0.1:8000/blog/post/' + document.title)
     post = await response.json()
     addPost()
+    postStats()
 
     let response2 = await fetch(`http://127.0.0.1:8000/blog/recent-posts/6`)
     posts = await response2.json()
@@ -28,7 +30,7 @@ function addPost() {
     author.innerText = post.author
     dateSpan.innerText = date
     postText.innerHTML = post.body
-    heroImage.src = post.image
+    heroImage.src = "/" + post.image
 }
 
 function addRecents() {
@@ -39,14 +41,42 @@ function addRecents() {
         cardDiv.innerHTML = `
             <img src="${i.image}" alt="post image" class="card__img">
             <div class="card__text">
-                <h3 class="post-card__title" id="${i.image}">
+                <h3 class="post-card__title" id="${i.title}">
                     ${i.title}
                 </h3>
             </div>
         `
+
         fragmentDiv.appendChild(cardDiv)
     }
     recentsNav.appendChild(fragmentDiv)
+    let titles = document.querySelectorAll(".post-card__title")
+    titles.forEach(title => {
+        title.addEventListener("click", redirectUrl)})
+}
+
+function redirectUrl(e) {
+    e.preventDefault()
+    window.location.href = "http://127.0.0.1:8000/" + `/post/${e.target.id}`
+}
+
+function postStats() {
+    statesDiv.innerHTML = `
+    <div class="impression">
+        <p>Did you like this article? :</p>
+        <button class="like">
+            <img src="/Computerizer/static/frontend/media/thumbs-up-solid.svg" alt="like">
+            <span>${post.likes}</span>
+        </button>
+        <button class="dislike">
+            <img src="/Computerizer/static/frontend/media/thumbs-down-solid.svg" alt="dislike">
+            <span>${post.dislikes}</span>
+        </button>
+    </div>
+    <div class="views">
+        <p>Number of views on this article: <span>${post.views}</span></p>
+    </div>
+    `
 }
 
 div()

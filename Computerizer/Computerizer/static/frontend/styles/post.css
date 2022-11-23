@@ -83,6 +83,37 @@ a:active {
     color: var(--link);
 }
 
+/* States */
+
+.states {
+    border: 2px solid var(--main);
+    display: flex;
+    margin-top: 1rem;
+    padding: 1rem 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.impression {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.like,
+.dislike {
+    border: 2px solid var(--link);
+    background-color: var(--main);
+    padding: 0.25rem 0.5rem;
+    border-radius: 10px;
+}
+
+.states img {
+    width: 15px;
+    color: var(--accent);
+}
+
+
 /* recents */
 
 .recents {

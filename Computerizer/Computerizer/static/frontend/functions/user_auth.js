@@ -16,15 +16,27 @@ function renderSignSection(e) {
             </i>
         </button>
         <h3 class="sign__title">
-            Subscribe with us
+            Become a member now!
         </h3>
         <form action="" class="sign_form">
             <div class="name">
-                <input class="input" type="text" name="" id="" placeholder="First Name">
-                <input class="input" type="text" name="" id="" placeholder="Last Name">
+                <div>
+                    <label for="f-name">First Name:</label>
+                    <input class="input" type="text" name="f-name" id="" placeholder="Enter your first Name">
+                </div>
+                <div>
+                    <label for="l-name">Last Name:</label>
+                    <input class="input" type="text" name="l-name" id="" placeholder="Enter your last Name">
+                </div>
             </div>
-            <input class="input" type="email" name="" id="" placeholder="E-mail">
-            <input class="input" type="password" name="" id="" placeholder="Password">
+            <div>
+                <label for="e-mail">Email:</label>
+                <input class="input" type="email" name="e-mail" id="" placeholder="Enter your email adress">
+            </div>
+            <div>
+                <label for="e-mail">Password:</label>
+                <input class="input" type="password" name="" id="" placeholder="Enter a password">
+            </div>
             <button type="submit" class="form-submit">Sign up</button>
         </form>
         <p>Do you have an account? <button class="sign-in-toggle">Sign in</button></p>
@@ -57,8 +69,14 @@ function logedInRender() {
             Sign in with your account
         </h3>
         <form action="" class="sign_form">
-            <input class="input" type="email" name="" id="" placeholder="E-mail">
-            <input class="input" type="password" name="" id="" placeholder="Password">
+            <div>
+                <label for="e-mail">Email:</label>
+                <input class="input" type="email" name="e-mail" id="" placeholder="Enter your account email">
+            </div>
+            <div>
+                <label for="e-mail">Password:</label>
+                <input class="input" type="password" name="" id="" placeholder="Enter your account password">
+            </div>
             <button type="submit" class="form-submit">Sign in</button>
         </form>
         <p>You don't have an account? <button class="sign-up-toggle">Sign up</button></p>
@@ -81,12 +99,18 @@ function signUpRender() {
             </i>
         </button>
         <h3 class="sign__title">
-            Subscribe with us
+            Become a member now!
         </h3>
         <form action="" class="sign_form">
             <div class="name">
-                <input class="input" type="text" name="" id="" placeholder="First Name">
-                <input class="input" type="text" name="" id="" placeholder="Last Name">
+                <div>
+                    <label for="f-name">First Name:</label>
+                    <input class="input" type="text" name="f-name" id="" placeholder="First Name">
+                </div>
+                <div>
+                    <label for="l-name">Last Name:</label>
+                    <input class="input" type="text" name="l-name" id="" placeholder="Last Name">
+                </div>
             </div>
             <input class="input" type="email" name="" id="" placeholder="E-mail">
             <input class="input" type="password" name="" id="" placeholder="Password">

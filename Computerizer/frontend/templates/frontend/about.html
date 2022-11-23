@@ -58,7 +58,7 @@
                                     cancel
                                 </i>
                             </li>
-                            <li id="active">
+                            <li>
                                 <a href="{% url 'home'%}">home</a>
                             </li>
                             <li>
@@ -67,7 +67,7 @@
                             <li>
                                 <a href="{% url 'home'%}">subscribe</a>
                             </li>
-                            <li>
+                            <li id="active">
                                 <a href="{% url 'about'%}">about</a>
                             </li>
                             <li>
@@ -91,14 +91,27 @@
 
         <section class="main">
             <img src="{% static 'frontend/media/header.png'%}" alt="logo" class="about__logo__img">
-            <p>Computerizer aims to be your companion in your PC building journey, helping you get started with tutorials and articles,
-            and providing intuitive tools to help do dirty work for you (coming soon). Our vision is to make computer building accessible to everyone, regardless of budget or knowledge. Hence the reason we
-            started Computerizer, feel free to ask questions or provide suggestions. Stay Computerizer ⚡️</p>
+
+            <h2>Mission:</h2>
+            <p>Computerizer aims to be your companion in your computer building journey, helping you get started by providing tutorials
+            and articles that solve both common and part specific problems. The elephant in the room is the pc building tool, that
+            walks you through an easy to follow step by step process to buy your dream computer. At Computerizer we put our users
+            and clients first, so instead of only suggesting you parts and products that fit your need, we do so while bringing you
+            the best prices and highest discounts across the internet from established platforms.
+            <em> Building Tool - Coming soon...</em>
+            </p>
+            
+
+            <h2>Vision:</h2>
+            <p>Our vision is to make computer building accessible to everyone regardless of budget, experience, or geographic location.
+            Our tools and services are free to use by everyone. We believe our customers and users always come first, therefore we
+            will not overload you with unnecessary advertisements and pop-ups. Immerse yourself in the world of pc building, have
+            fun, remember to press the power supply switch before your first testing, and stay Computerized ⚡</p>
+            
         </section>
 
         <section class="body contact">
 
-            <h1>Contact us</h1>
             <div class="about__social__icons">
                 <a href="">
                     <img src="{% static 'frontend/media/reddit.svg'%}" alt="reddit logo">
@@ -121,7 +134,6 @@
     </div>
 
     
-
 
 
 
