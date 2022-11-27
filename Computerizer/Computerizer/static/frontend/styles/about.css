@@ -47,7 +47,7 @@ h2 {
 }
 
 .about__logo__img {
-    width: 100%;
+    width: 80%;
     /* mask-image: linear-gradient(to right, to left, transparent 1%, var(--accent) 15%); */
     
 }

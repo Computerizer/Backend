@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="{% static 'frontend/styles/navbar.css'%}">
     <link rel="stylesheet" href="{% static 'frontend/styles/index.css'%}">
     <link rel="stylesheet" href="{% static 'frontend/styles/user-auth.css'%}">
-    <title>Computerizer</title>
+    <title>Computerizer | Blog</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'frontend/media/nLogo.png'%}">
 </head>
 
 <body>
@@ -24,12 +25,14 @@
     <!-- Nav bar -->
     <header class="body b-nav">
         <nav class="nav-bar">
-            <div class="logo">
-                <img src="{% static 'frontend/media/whiteLogo.png'%}" width="55px" alt="logo" class="logo__img">
-                <h2 class="logo__name">
-                    Blog
-                </h2>
-            </div>
+            <a href="{% url 'home'%}">
+                <div class="logo">
+                    <img src="{% static 'frontend/media/whiteLogo.png'%}" width="55px" alt="logo" class="logo__img">
+                    <h2 class="logo__name">
+                        Blog
+                    </h2>
+                </div>
+            </a>
             <div class="menus">
                 <ul class="pages">
                     <li id="active">
@@ -190,16 +193,16 @@
             <footer>
                 <div class="footer__social">
                     <div class="footer__social__icons">
-                        <a href="https://www.reddit.com/r/computerizer/">
+                        <a href="https://www.reddit.com/r/computerizer/" target="_blank">
                             <img src="{% static 'frontend/media/reddit.svg'%}" alt="reddit logo">
                         </a>
-                        <a href="https://twitter.com/computerizer__?s=11&t=4z3z9pOn76PxqEh8y10TTQ">
+                        <a href="https://twitter.com/computerizer__?s=11&t=4z3z9pOn76PxqEh8y10TTQ" target="_blank">
                             <img src="{% static 'frontend/media/twitter.svg'%}" alt="twitter logo">
                         </a>
-                        <a href="https://www.linkedin.com/company/thecomputerizer/">
+                        <a href="https://www.linkedin.com/company/thecomputerizer/" target="_blank">
                             <img src="{% static 'frontend/media/linkedin.svg'%}" alt="/linkedin logo">
                         </a>
-                        <a href="https://instagram.com/computerizer_?igshid=YmMyMTA2M2Y=">
+                        <a href="https://instagram.com/computerizer_?igshid=YmMyMTA2M2Y=" target="_blank">
                             <img src="{% static 'frontend/media/instagram.svg'%}" alt="instagram logo">
                         </a>
                     </div>

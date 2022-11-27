@@ -112,8 +112,14 @@ function signUpRender() {
                     <input class="input" type="text" name="l-name" id="" placeholder="Last Name">
                 </div>
             </div>
-            <input class="input" type="email" name="" id="" placeholder="E-mail">
-            <input class="input" type="password" name="" id="" placeholder="Password">
+            <div>
+                <label for="e-mail">Email:</label>
+                <input class="input" type="email" name="e-mail" id="" placeholder="Enter your email adress">
+            </div>
+            <div>
+                <label for="e-mail">Password:</label>
+                <input class="input" type="password" name="" id="" placeholder="Enter a password">
+            </div>
             <button type="submit" class="form-submit">Sign up</button>
         </form>
         <p>Do you have an account? <button class="sign-in-toggle">Sign in</button></p>

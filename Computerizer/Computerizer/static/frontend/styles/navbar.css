@@ -45,6 +45,8 @@ a:hover {
     top: 0;
     color: white;
     z-index: 100;
+    transition-duration: 500ms;
+    transition-property: background-image;
 }
 
 .nav-bar {
@@ -81,10 +83,10 @@ a:hover {
 
 .pages {
     display: flex;
-    gap: 1.5rem;
     list-style: none;
     border-right: 1px solid rgba(0, 0, 0, 0.3);
-    padding: 0 2rem;
+    padding: 0 1rem;
+    gap: 0.2rem;
 }
 
 .pages a {
@@ -93,6 +95,9 @@ a:hover {
     font-weight: 500;
     color: inherit;
     font-size: 0.9rem;
+    padding: 0.5rem 0.9rem;
+    transition: all 200ms ease-in;
+    border-radius: 5px;
 }
 
 .sign-up_btn {
@@ -110,11 +115,14 @@ a:hover {
 .pages a:hover,
 .sign-up_btn:hover {
     cursor: pointer;
-    color: var(--text-light);
+    color: var(--main);
+    background-color: var(--accent);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
 }
 
 #active a {
-    font-weight: 800;
+    font-weight: 900;
 }
 
 /* footer */
@@ -164,8 +172,7 @@ footer {
 
 .footer__social p {
     font-weight: 400;
-    font-size: 1rem;
-    letter-spacing: 3px;
+    font-size: 0.8rem;
 }
 
 

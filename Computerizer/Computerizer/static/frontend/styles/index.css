@@ -49,11 +49,6 @@ a {
     color: var(--accent);
 }
 
-.slider__main i {
-    font-size: 2rem;
-    /* backdrop-filter: blur(10px); */
-}
-
 .post-title {
     width: fit-content;
     font-size: 3rem;
@@ -83,9 +78,13 @@ a {
     height: 12rem;
 }
 
+::-webkit-scrollbar {
+    width: 1px;
+}
+
 .post-card {
     padding: 0.5rem;
-    min-width: 30%;
+    min-width: 40%;
     display: flex;
     align-items: flex-start;
     gap: 0.2rem;
