@@ -10,7 +10,7 @@ from rest_framework.permissions import IsAuthenticated,IsAdminUser,IsAuthenticat
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import api_view,permission_classes,authentication_classes
 from rest_framework.views import APIView
-
+from django.db.models import Q
 
 
 # Create your views here.
@@ -321,4 +321,18 @@ def getCommentLikes(request, id):
         i['user'] = comment.user.username
 
     return Response(serializer.data)
+
+
+@api_view(["GET"])
+def searchBlog(request, query):
+    posts = Post.objects.filter(Q(title__icontains = query) | Q(description__icontains = query))
+    categories = Category.objects.filter(Q(title__icontains = query))
+
+    postSerializer = RecentPostSerializer(posts, many = True)
+    categoriesSerializer = CategorySerializer(categories, many = True)
     
+    data = {}
+    data['posts'] = postSerializer.data
+    data['categories'] = categoriesSerializer.data
+    
+    return Response(data)

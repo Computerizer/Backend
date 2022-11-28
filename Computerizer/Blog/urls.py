@@ -24,5 +24,7 @@ urlpatterns = [
     path('comment/create', views.CreateComment.as_view(), name='createComment-api'),    
     path("comment/like/", views.LikeCommentView.as_view(), name='likeComment-api'),
     path("comment/unlike/", views.UnlikeComment.as_view(), name='unlikeComment-api'),
-    path('comment/likes/<int:id>', views.getCommentLikes, name='getCommentLikes-api')
+    path('comment/likes/<int:id>', views.getCommentLikes, name='getCommentLikes-api'),
+    #-------------------------------
+    path('search/<str:query>', views.searchBlog, name='searchBlog-api')
 ]
