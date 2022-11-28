@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'Computerizer.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 # Using Postgresql db on AWS independant of heroku
 
-DATABASES = {
+""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
@@ -102,7 +102,7 @@ DATABASES = {
         'HOST': 'computerizer-database.cfs83usv6ckv.us-west-2.rds.amazonaws.com',
         'PORT': '5432'
     }
-}
+} """
 
 
 # Password validation
@@ -142,11 +142,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'Computerizer/static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+STATIC_URL = 'Computerizer/static/'
 # Static files (Images-Blogs-etc) 
 # Note: JS and CSS files are also stored on S3 for now
 # Until the application's frontend is migrated to react
-
 AWS_ACCESS_KEY_ID = os.environ['AWS_S3_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = os.environ['AWS_S3_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = 'computerizer-static'
