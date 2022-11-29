@@ -39,18 +39,22 @@ a {
     margin: 5rem 0;
 }
 
-.about p {
-    text-align: center;
+.about p,
+h2 {
+    width: 100%;
+    text-align: justify;
     padding: 0 10%;
 }
 
 .about__logo__img {
-    width: 100%;
+    width: 80%;
+    /* mask-image: linear-gradient(to right, to left, transparent 1%, var(--accent) 15%); */
+    
 }
 
 .about__social__icons {
     background-image: linear-gradient(140deg, var(--logo-accent2), var(--logo-accent1));
-    padding: 2rem 4rem;
+    padding: 0.5rem 0.8rem;
     border-radius: 20px;    
     display: flex;
     justify-content: space-between;
@@ -58,7 +62,7 @@ a {
 }
 
 .about__social__icons a img {
-    width: 5rem;
+    width: 4rem;
 }
 
 .contact h1 {
@@ -73,8 +77,9 @@ a {
         padding: 0 5%;
     }
 
+
     .about__logo__img {
-        width: 90%;
+        width: 100%;
     }
 
     .about__social__icons {
@@ -85,7 +90,8 @@ a {
         width: 2rem;
     }
 
-    .about p {
+    .about p,
+    h2 {
         padding: 0;
     }
 
