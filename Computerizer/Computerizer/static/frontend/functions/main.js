@@ -17,7 +17,7 @@ let mainFunc = async () => {
 
     slider()
     addRecentPossts()
-    let response2 = await fetch('http://127.0.0.1:8000/blog/sales/4')
+    let response2 = await fetch('http://127.0.0.1:8000/blog/sales/5')
     sales = await response2.json()
     addSales()
     addListeners()
@@ -64,13 +64,15 @@ function slider() {
         let cardDiv = document.createElement("div")
         cardDiv.classList.add("post-card")
         cardDiv.innerHTML = `
-            <i class="material-icons">
-                format_align_justify
-            </i>
             <div class="card-text">
-                <h3 class="post-card__title" id="${posts[i].image}">
-                    ${posts[i].title}
-                </h3>
+                <div class="head">
+                    <i class="material-icons">
+                        format_align_justify
+                    </i>
+                    <h3 class="post-card__title" id="${posts[i].image}">
+                        ${posts[i].title}
+                    </h3>
+                </div>
                 <p>${posts[i].description}</p>
             </div>
         `

@@ -106,6 +106,9 @@ hr {
 .posts .title {
     font-size: 3rem;
     color: var(--main);
+    background: linear-gradient(140deg, var(--logo-accent2), var(--logo-accent1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Responsive */

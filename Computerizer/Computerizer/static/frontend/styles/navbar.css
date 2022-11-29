@@ -204,7 +204,7 @@ footer {
     list-style: none;
     gap: 1.5rem;
     align-items: center;
-    background-color: var(--main);
+    background-image: linear-gradient(180deg,var(--logo-accent1), var(--logo-accent2));
     padding: 3rem 2.5rem;
     text-transform: uppercase;
     height: 100%;

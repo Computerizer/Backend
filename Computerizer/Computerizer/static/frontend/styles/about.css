@@ -39,6 +39,12 @@ a {
     margin: 5rem 0;
 }
 
+.about h2 {
+    background: linear-gradient(140deg, var(--logo-accent2), var(--logo-accent1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .about p,
 h2 {
     width: 100%;
