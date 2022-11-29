@@ -43,7 +43,7 @@ def getRecentPosts(request, num_of_posts):
 
 @api_view(["GET"])
 def getPostsOrdered(request, order, num_of_posts):
-    posts = Post.objects.all().order_by(order).reverse()    
+    posts = Post.objects.filter(status = 'Published').order_by(order).reverse()    
     serializer = RecentPostSerializer(posts, many=True)
     return Response(serializer.data[0:num_of_posts])   
 
