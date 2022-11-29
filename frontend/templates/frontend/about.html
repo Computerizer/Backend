@@ -1,4 +1,4 @@
-{% load static%}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,30 +18,33 @@
     <link rel="stylesheet" href="{% static 'frontend/styles/about.css'%}">
     <link rel="stylesheet" href="{% static 'frontend/styles/user-auth.css'%}">
     <title>Computerizer</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'frontend/media/nLogo.png'%}">
 </head>
 <body>
     
         <!-- Nav bar -->
         <header class="body b-nav">
             <nav class="nav-bar">
-                <div class="logo">
-                    <img src="{% static 'frontend/media/whiteLogo.png'%}" width="55px" alt="logo" class="logo__img">
-                    <h2 class="logo__name">
-                        Blog
-                    </h2>
-                </div>
+                <a href="{% url 'home'%}">
+                    <div class="logo">
+                        <img src="{% static 'frontend/media/whiteLogo.png'%}" width="55px" alt="logo" class="logo__img">
+                        <h2 class="logo__name">
+                            Blog
+                        </h2>
+                    </div>
+                </a>
                 <div class="menus">
                     <ul class="pages">
-                        <li>
+                        <li id="active">
                             <a href="{% url 'home'%}">home</a>
                         </li>
                         <li>
                             <a href="{% url 'recents'%}">recents</a>
                         </li>
                         <li>
-                            <a href="{% url 'home'%}">subscribe</a>
+                            <a href="#subscribe">subscribe</a>
                         </li>
-                        <li id="active">
+                        <li>
                             <a href="{% url 'about'%}">about</a>
                         </li>
                     </ul>
@@ -91,28 +94,45 @@
 
         <section class="main">
             <img src="{% static 'frontend/media/header.png'%}" alt="logo" class="about__logo__img">
-            <p>Computerizer aims to be your companion in your PC building journey, helping you get started with tutorials and articles,
-            and providing intuitive tools to help do dirty work for you (coming soon). Our vision is to make computer building accessible to everyone, regardless of budget or knowledge. Hence the reason we
-            started Computerizer, feel free to ask questions or provide suggestions. Stay Computerizer ⚡️</p>
+
+            <h2>Mission:</h2>
+            <p>Computerizer aims to be your companion in your computer building journey, helping you get started by providing tutorials
+            and articles that solve both common and part specific problems. The elephant in the room is the pc building tool, that
+            walks you through an easy to follow step by step process to buy your dream computer. At Computerizer we put our users
+            and clients first, so instead of only suggesting you parts and products that fit your need, we do so while bringing you
+            the best prices and highest discounts across the internet from established platforms.
+            </p>
+            <p><em>Building Tool - Coming soon...</em></p>
+            
+
+            <h2>Vision:</h2>
+            <p>Our vision is to make computer building accessible to everyone regardless of budget, experience, or geographic location.
+            Our tools and services are free to use by everyone. We believe our customers and users always come first, therefore we
+            will not overload you with unnecessary advertisements and pop-ups. Immerse yourself in the world of pc building, have
+            fun, remember to press the power supply switch before your first testing, and stay Computerized ⚡</p>
+            
         </section>
 
         <section class="body contact">
 
-            <h1>Contact us</h1>
             <div class="about__social__icons">
-                <a href="">
+                <a href="https://www.reddit.com/r/computerizer/"
+                target="_blank">
                     <img src="{% static 'frontend/media/reddit.svg'%}" alt="reddit logo">
                 </a>
-                <a href="">
+                <a href="https://twitter.com/computerizer__?s=11&t=4z3z9pOn76PxqEh8y10TTQ"
+                target="_blank">
                     <img src="{% static 'frontend/media/twitter.svg'%}" alt="twitter logo">
                 </a>
-                <a href="">
-                    <img src="{% static 'frontend/media/linkedin.svg'%}" alt="github logo">
+                <a href="https://www.linkedin.com/company/thecomputerizer/"
+                target="_blank">
+                    <img src="{% static 'frontend/media/linkedin.svg'%}" alt="/linkedin logo">
                 </a>
-                <a href="">
-                    <img src="{% static 'frontend/media/instagram.svg'%}" alt="github logo">
+                <a href="https://instagram.com/computerizer_?igshid=YmMyMTA2M2Y="
+                target="_blank">
+                    <img src="{% static 'frontend/media/instagram.svg'%}" alt="instagram logo">
                 </a>
-                <a href="">
+                <a href="computerizer.team@gmail.com">
                     <img src="{% static 'frontend/media/square-envelope-solid.svg'%}" alt="github logo">
                 </a>
             </div>
@@ -124,26 +144,22 @@
 
 
 
-
     <!-- footer -->
     <div class="body b-footer">
         <footer>
             <div class="footer__social">
                 <div class="footer__social__icons">
-                    <a href="">
+                    <a href="https://www.reddit.com/r/computerizer/" target="_blank">
                         <img src="{% static 'frontend/media/reddit.svg'%}" alt="reddit logo">
                     </a>
-                    <a href="">
+                    <a href="https://twitter.com/computerizer__?s=11&t=4z3z9pOn76PxqEh8y10TTQ" target="_blank">
                         <img src="{% static 'frontend/media/twitter.svg'%}" alt="twitter logo">
                     </a>
-                    <a href="">
-                        <img src="{% static 'frontend/media/linkedin.svg'%}" alt="github logo">
+                    <a href="https://www.linkedin.com/company/thecomputerizer/" target="_blank">
+                        <img src="{% static 'frontend/media/linkedin.svg'%}" alt="/linkedin logo">
                     </a>
-                    <a href="">
-                        <img src="{% static 'frontend/media/instagram.svg'%}" alt="github logo">
-                    </a>
-                    <a href="">
-                        <img src="{% static 'frontend/media/square-envelope-solid.svg'%}" alt="github logo">
+                    <a href="https://instagram.com/computerizer_?igshid=YmMyMTA2M2Y=" target="_blank">
+                        <img src="{% static 'frontend/media/instagram.svg'%}" alt="instagram logo">
                     </a>
                 </div>
                 <p>2022 LTD | All rights reserved</p>
