@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{% static 'frontend/styles/post.css'%}">
     <link rel="stylesheet" href="{% static 'frontend/styles/user-auth.css'%}">
     <title>{{title}}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'frontend/media/nLogo.png'%}">
 </head>
 
 <body>
@@ -25,22 +26,24 @@
         <!-- Nav bar -->
         <header class="body b-nav">
             <nav class="nav-bar">
-                <div class="logo">
-                    <img src="{% static 'frontend/media/whiteLogo.png'%}" width="55px" alt="logo" class="logo__img">
-                    <h2 class="logo__name">
-                        Blog
-                    </h2>
-                </div>
+                <a href="{% url 'home'%}">
+                    <div class="logo">
+                        <img src="{% static 'frontend/media/whiteLogo.png'%}" width="55px" alt="logo" class="logo__img">
+                        <h2 class="logo__name">
+                            Blog
+                        </h2>
+                    </div>
+                </a>
                 <div class="menus">
                     <ul class="pages">
-                        <li>
+                        <li id="active">
                             <a href="{% url 'home'%}">home</a>
                         </li>
                         <li>
                             <a href="{% url 'recents'%}">recents</a>
                         </li>
                         <li>
-                            <a href="{% url 'home'%}">subscribe</a>
+                            <a href="#subscribe">subscribe</a>
                         </li>
                         <li>
                             <a href="{% url 'about'%}">about</a>
@@ -125,6 +128,11 @@
             </section>
         </article>
 
+        <!-- Post states-->
+        <div class="statis">
+            
+        </div>
+
         <!-- Recents -->
         <section class="recents">
             <h1 class="recents__title">
@@ -161,14 +169,20 @@
         <footer>
             <div class="footer__social">
                 <div class="footer__social__icons">
-                    <a href="">
+                    <a href="https://www.reddit.com/r/computerizer/"
+                    target="_blank">
                         <img src="{% static 'frontend/media/reddit.svg'%}" alt="reddit logo">
                     </a>
-                    <a href="">
+                    <a href="https://twitter.com/computerizer__?s=11&t=4z3z9pOn76PxqEh8y10TTQ"
+                    target="_blank">
                         <img src="{% static 'frontend/media/twitter.svg'%}" alt="twitter logo">
                     </a>
-                    <a href="">
-                        <img src="{% static 'frontend/media/github.svg'%}" alt="github logo">
+                    <a href="https://www.linkedin.com/company/thecomputerizer/"
+                    target="_blank">
+                        <img src="{% static 'frontend/media/linkedin.svg'%}" alt="/linkedin logo">
+                    </a>
+                    <a href="https://instagram.com/computerizer_?igshid=YmMyMTA2M2Y=" target="_blank">
+                        <img src="{% static 'frontend/media/instagram.svg'%}" alt="instagram logo">
                     </a>
                 </div>
                 <p>2022 LTD | All rights reserved</p>
