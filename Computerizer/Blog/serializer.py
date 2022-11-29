@@ -17,7 +17,7 @@ class SaleSerializer(ModelSerializer):
 class RecentPostSerializer(ModelSerializer):
     class Meta:
         model = Post
-        fields = '__all__'  
+        fields = ['id', 'author', 'description', 'image', 'status', 'publish_date', 'likes', 'dislikes', 'views']
         
 
 class CommentSerializer(ModelSerializer):

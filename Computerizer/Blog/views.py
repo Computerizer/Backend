@@ -37,7 +37,7 @@ def getCategories(request):
 
 @api_view(["GET"])
 def getRecentPosts(request, num_of_posts):
-    posts = Post.objects.filter(status = 'published').order_by('publish_date')
+    posts = Post.objects.filter(status = 'Published').order_by('publish_date')
     serializer = RecentPostSerializer(posts, many=True)
     return Response(serializer.data[0:num_of_posts])    
 
@@ -54,20 +54,18 @@ def getPost(request, title):
     body = f.read().decode("utf-8")
     data = {
             'title': post.title,
-            'body' : body,
-            'publish_date': post.publish_date,
-            'image':str(post.image),
             'author' : post.author.name,
+            'body' : body,
+            'description' : post.description,
+            'image':str(post.image),
+            'publish_date': post.publish_date,
             'likes' : post.likes,
-            'dislikes' : post.dislikes
+            'dislikes' : post.dislikes,
+            'views' : post.views
         }
     return Response(data, status=200)
 
-@api_view(['GET'])
-def searchPost(request,title):
-    posts = Post.objects.filter(title__contains = title)
-    serializer = RecentPostSerializer(posts, many = True)
-    return Response(serializer.data)
+
 
 @api_view(["POST"])
 def viewPost(request):
