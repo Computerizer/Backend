@@ -36,10 +36,10 @@ function addListeners() {
 
 function selectPsot(e) {
     if (e.target.nodeName === 'H3') {
-        sliderMainDiv.querySelector(".post-title").textContent = e.target.innerHTML
-        sliderMainDiv.querySelector("button").value = e.target.innerText
-        sliderMainDiv.querySelector(".header__text").innerHTML = e.target.nextElementSibling.innerHTML
-        sliderMainDiv.style.backgroundImage = `url('${e.target.id}')`
+        sliderMainDiv.querySelector(".post-title").textContent = posts[e.target.id].title
+        sliderMainDiv.querySelector("button").value = posts[e.target.id].title
+        sliderMainDiv.querySelector(".header__text").innerHTML = posts[e.target.id].description
+        sliderMainDiv.style.backgroundImage = `url('${posts[e.target.id].image}')`
     }
 }
 
@@ -69,7 +69,7 @@ function slider() {
                     <i class="material-icons">
                         format_align_justify
                     </i>
-                    <h3 class="post-card__title" id="${posts[i].image}">
+                    <h3 class="post-card__title" id="${i}">
                         ${posts[i].title}
                     </h3>
                 </div>
