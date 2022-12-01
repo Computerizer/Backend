@@ -162,3 +162,5 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'Oauth.CustomUser' # switch the User model to our Custom Model
+
+ADMIN_ENABLED = False
