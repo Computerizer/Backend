@@ -38,13 +38,15 @@
 .sign_form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     min-width: 80%;
+    margin: 1rem 0;
 }
 
 .sign__title {
     font-size: 2.5rem;
-    margin-bottom: 3.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
 .name {
@@ -81,6 +83,7 @@ textarea {
     border: none;
     border-radius: 5px;
     background-color: var(--main);
+    color: var(--accent);
     font-size: 1rem;
     font-weight: 500;
 }
@@ -118,6 +121,6 @@ textarea {
     }
 
     .sign__title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 }

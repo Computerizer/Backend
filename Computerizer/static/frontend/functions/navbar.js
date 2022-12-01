@@ -9,3 +9,4 @@ menuButton.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
     menuElm.classList.add("hide")
 })
+

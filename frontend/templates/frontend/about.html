@@ -1,4 +1,4 @@
-{% load static %}
+{% load static%}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +35,7 @@
                 </a>
                 <div class="menus">
                     <ul class="pages">
-                        <li id="active">
+                        <li>
                             <a href="{% url 'home'%}">home</a>
                         </li>
                         <li>
@@ -44,7 +44,7 @@
                         <li>
                             <a href="#subscribe">subscribe</a>
                         </li>
-                        <li>
+                        <li id="active">
                             <a href="{% url 'about'%}">about</a>
                         </li>
                     </ul>
@@ -61,7 +61,7 @@
                                     cancel
                                 </i>
                             </li>
-                            <li id="active">
+                            <li>
                                 <a href="{% url 'home'%}">home</a>
                             </li>
                             <li>
@@ -70,10 +70,10 @@
                             <li>
                                 <a href="{% url 'home'%}">subscribe</a>
                             </li>
-                            <li>
+                            <li id="active">
                                 <a href="{% url 'about'%}">about</a>
                             </li>
-                            <li>
+                            <li> 
                                 <button class="sign-up_mobile">
                                     sign up
                                 </button>

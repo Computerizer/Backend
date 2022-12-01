@@ -27,14 +27,17 @@ a {
 .slider {
     margin-top: 5rem;
     margin-bottom: 2.5rem;
+    padding-inline: 1.5rem;
 }
 
 .slider__main {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     aspect-ratio: 16/9;
+}
+
+.head {
+    display: flex;
+    gap: 0.5rem;   
 }
 
 .slider__main__left {
@@ -47,11 +50,6 @@ a {
     backdrop-filter: blur(4px);
     background-color: rgba(0, 0, 0, 0.5);
     color: var(--accent);
-}
-
-.slider__main i {
-    font-size: 2rem;
-    /* backdrop-filter: blur(10px); */
 }
 
 .post-title {
@@ -83,9 +81,13 @@ a {
     height: 12rem;
 }
 
+::-webkit-scrollbar {
+    width: 1px;
+}
+
 .post-card {
     padding: 0.5rem;
-    min-width: 30%;
+    min-width: 40%;
     display: flex;
     align-items: flex-start;
     gap: 0.2rem;
@@ -129,7 +131,7 @@ a {
 
 .part {
     background-color: var(--accent);
-    padding: 2.5rem;
+    padding: 1.5rem;
 }
 
 .part a {
@@ -140,20 +142,26 @@ a {
 }
 
 .part img {
-    width: 7vw;
+    width: 50%;
 }
 
+.Case img {
+    width: 100%;
+}
 
 .parts-grid-title {
+    color: var(--text-normal);
     font-size: 2.5rem;
     margin-bottom: 0.2rem;
 }
 
 .parts-grid-info {
+    color: var(--text-normal);
     font-weight: 300;
+    font-size: 0.8rem;
 }
 
-.part:nth-child(3) a {
+.vertical a {
     flex-direction: column;
     text-align: center;
     height: 100%;
@@ -165,6 +173,10 @@ a {
 
 .grid-row-span-2 {
     grid-row: span 2;
+}
+
+.grid-row-span-3 {
+    grid-row: span 3;
 }
 
 /* posts */
@@ -284,6 +296,9 @@ hr {
 .subs__title {
     font-size: 3rem;
     margin-bottom: 3.5rem;
+    background: linear-gradient(140deg, var(--logo-accent2), var(--logo-accent1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .subs-submit {
@@ -315,6 +330,16 @@ hr {
 
     .card-text {
         height: 8rem;
+    }
+
+    /* Sales */
+    .vertical a {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .parts-grid-title {
+        font-size: 2rem;
     }
 
     
@@ -401,6 +426,10 @@ hr {
 
     .grid-row-span-2 {
         grid-row: span 1;
+    }
+
+    .part img {
+        width: 40%;
     }
 
     /* form */

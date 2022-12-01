@@ -12,12 +12,12 @@ const loadMoreBtn = document.querySelector(".load-more")
 
 // Feching data & main function
 let mainFunc = async () => {
-    let response = await fetch(`http://127.0.0.1:8000/blog/recent-posts/${fetchPostNum}`)
+    let response = await fetch(`http://computerizr/blog/recent-posts/${fetchPostNum}`)
     posts = await response.json()
 
     slider()
     addRecentPossts()
-    let response2 = await fetch('http://127.0.0.1:8000/blog/sales/4')
+    let response2 = await fetch('http://computerizr/blog/sales/5')
     sales = await response2.json()
     addSales()
     addListeners()
@@ -39,7 +39,6 @@ function selectPsot(e) {
         sliderMainDiv.querySelector(".post-title").textContent = e.target.innerHTML
         sliderMainDiv.querySelector("button").value = e.target.innerText
         sliderMainDiv.querySelector(".header__text").innerHTML = e.target.nextElementSibling.innerHTML
-        console.log()
         sliderMainDiv.style.backgroundImage = `url('${e.target.id}')`
     }
 }
@@ -53,7 +52,7 @@ function loadMore(e) {
 
 function redirectUrl(e) {
     e.preventDefault()
-    window.location.href = window.location.href + `/post/${e.target.value}`
+    window.location.href = "http://computerizr/" + `/post/${e.target.value}`
 }
 
 
@@ -65,13 +64,15 @@ function slider() {
         let cardDiv = document.createElement("div")
         cardDiv.classList.add("post-card")
         cardDiv.innerHTML = `
-            <i class="material-icons">
-                format_align_justify
-            </i>
             <div class="card-text">
-                <h3 class="post-card__title" id="${posts[i].image}">
-                    ${posts[i].title}
-                </h3>
+                <div class="head">
+                    <i class="material-icons">
+                        format_align_justify
+                    </i>
+                    <h3 class="post-card__title" id="${posts[i].image}">
+                        ${posts[i].title}
+                    </h3>
+                </div>
                 <p>${posts[i].description}</p>
             </div>
         `
