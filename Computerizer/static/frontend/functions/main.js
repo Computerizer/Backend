@@ -1,7 +1,9 @@
+
 let posts = ""
 let sales = ""
 let readMoreBtn = ""
 let fetchPostNum = 7
+
 const sliderDiv = document.querySelector(".slider")
 const sliderMainDiv = document.querySelector(".slider__main")
 const sliderNavDiv = document.querySelector(".slider__nav")
@@ -10,9 +12,11 @@ const loadMoreBtn = document.querySelector(".load-more")
 
 
 
+
 // Feching data & main function
 let mainFunc = async () => {
     let response = await fetch(`http://127.0.0.1:8000/blog/recent-posts/${fetchPostNum}`)
+
     posts = await response.json()
 
     slider()
@@ -32,6 +36,7 @@ function addListeners() {
     readMoreBtn.forEach(btn => {
         btn.addEventListener("click", redirectUrl)
     });
+
 }
 
 function selectPsot(e) {
@@ -73,6 +78,7 @@ function slider() {
                         ${posts[i].title}
                     </h3>
                 </div>
+
                 <p>${posts[i].description}</p>
             </div>
         `
@@ -93,6 +99,7 @@ function slider() {
     `
     sliderMainDiv.style.backgroundImage = `url('${posts[0].image}')`
 }
+
 
 function addRecentPossts(n = 3) {
     let m = n - 3
@@ -141,6 +148,7 @@ function addSales() {
         partDiv.querySelector("img").src = part.image
     }
 }
+
 
 // Start the program
 mainFunc()

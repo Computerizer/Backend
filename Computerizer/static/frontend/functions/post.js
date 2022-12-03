@@ -6,6 +6,7 @@ const heroImage = document.querySelector(".hero")
 const recentsNav = document.querySelector(".recents__nav")
 const statisDiv = document.querySelector(".statis")
 let posts = ""
+
 let post;
 
 
@@ -77,6 +78,7 @@ function postStatis() {
         <p>Number of views on this article: <span>${post.views}</span></p>
     </div>
     `
+
 }
 
 div()
