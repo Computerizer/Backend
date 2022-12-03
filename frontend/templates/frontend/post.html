@@ -14,102 +14,191 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'frontend/styles/post.css'%}">
     <link rel="stylesheet" href="{% static 'frontend/styles/navbar.css'%}">
-    <title>Computerizer Post</title>
+    <link rel="stylesheet" href="{% static 'frontend/styles/post.css'%}">
+    <link rel="stylesheet" href="{% static 'frontend/styles/user-auth.css'%}">
+    <title>{{title}}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'frontend/media/nLogo.png'%}">
 </head>
 
 <body>
 
-    <!-- Nav bar -->
-    <div class="body b-nav">
-        <nav class="nav-bar">
-            <div class="logo">
-                <img src="{% static 'frontend/media/logo.png'%}" width="55px" alt="logo">
-                <h2 class="logo__name">
-                    Computerizer
-                </h2>
-            </div>
-            <div class="menus">
-                <ul class="pages">
-                    <li id="active">
-                        <a href="">home</a>
-                    </li>
-                    <li>
-                        <a href="">recents</a>
-                    </li>
-                    <li>
-                        <a href="">subscribe</a>
-                    </li>
-                    <li>
-                        <a href="">about</a>
-                    </li>
-                </ul>
-                <i class="material-icons">
-                    search
-                </i>
-            </div>
-    
-            <div class="mobile">
-                <div class="menus__mobile hide">
-                    <ul class="pages__mobile">
+        <!-- Nav bar -->
+        <header class="body b-nav">
+            <nav class="nav-bar">
+                <a href="{% url 'home'%}">
+                    <div class="logo">
+                        <img src="{% static 'frontend/media/whiteLogo.png'%}" width="55px" alt="logo" class="logo__img">
+                        <h2 class="logo__name">
+                            Blog
+                        </h2>
+                    </div>
+                </a>
+                <div class="menus">
+                    <ul class="pages">
                         <li>
-                            <i class="material-icons close__menu">
-                                cancel
-                            </i>
-                        </li>
-                        <li id="active">
-                            <a href="">home</a>
+                            <a href="{% url 'home'%}">home</a>
                         </li>
                         <li>
-                            <a href="">recents</a>
+                            <a href="{% url 'recents'%}">recents</a>
                         </li>
                         <li>
-                            <a href="">subscribe</a>
+                            <a href="#subscribe">subscribe</a>
                         </li>
                         <li>
-                            <a href="">about</a>
-                        </li>
-                        <li>
-                            <i class="material-icons">
-                                search
-                            </i>
+                            <a href="{% url 'about'%}">about</a>
                         </li>
                     </ul>
+                    <button class="sign-up_btn">
+                        sign up
+                    </button>
                 </div>
-                <i class="material-icons menu__btn">
-                    menu
-                </i>
-    
-    
-            </div>
-    
-        </nav>
-    </div>
+        
+                <div class="mobile">
+                    <div class="menus__mobile hide">
+                        <ul class="pages__mobile">
+                            <li>
+                                <i class="material-icons close__menu">
+                                    cancel
+                                </i>
+                            </li>
+                            <li>
+                                <a href="{% url 'home'%}">home</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'recents'%}">recents</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'home'%}">subscribe</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'about'%}">about</a>
+                            </li>
+                            <li>
+                                <button class="sign-up_mobile">
+                                    sign up
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <i class="material-icons menu__btn">
+                        menu
+                    </i>
+                </div>
+        
+            </nav>
+        </header>
 
     <div class="body">
-        <div class="post__details">
-            <h1 class="post__title">
-                This product is great for you!
+        <article>
+            <section class="post__details">
+                <h1 class="post__title">
+                </h1>
+                <h4 class="post__info">
+                    by  <em class="author"></em>  |  <em class="date"></em>
+                </h4>
+                <div class="post__social">
+    
+                    <a href="">
+                        <img src="{% static 'frontend/media/reddit.svg'%}" alt="reddit logo">
+                    </a>
+                    <a href="">
+                        <img src="{% static 'frontend/media/twitter.svg'%}" alt="twitter logo">
+                    </a>
+                    <a href="">
+                        <img src="{% static 'frontend/media/linkedin.svg'%}" alt="github logo">
+                    </a>
+                    <a href="">
+                        <img src="{% static 'frontend/media/instagram.svg'%}" alt="github logo">
+                    </a>
+                    <a href="">
+                        <img src="{% static 'frontend/media/square-envelope-solid.svg'%}" alt="github logo">
+                    </a>
+    
+                </div>
+            </section>
+            <section class="container">
+                <div class="post__body">
+                    <img src="" alt="post hero" class="hero">
+                    <div class="post__text"></div>
+                </div>
+                <div class="adds">
+                    Hello
+                </div>
+            </section>
+        </article>
+
+        <!-- Post states-->
+        <div class="statis">
+            
+        </div>
+
+        <!-- Recents -->
+        <section class="recents">
+            <h1 class="recents__title">
+                More great articles
             </h1>
-            <h4 class="post__info">
-                <span class="author">by Omda</span> | <span class="date">june 18 ,2021, 2:15pm</span>
-            </h4>
-            <div class="social">
-                <img src="{% static 'frontend/media/reddit.svg'%}" alt="reddit logo" width="25px">
-
-                
+            <div class="recents__nav">
             </div>
-        </div>
-        <div class="post__body">
-            <div class="adds"></div>
-            <div class="post__text">
+        </section>
 
-            </div>
+
+    </div>
+
+    <!-- form -->
+    <div class="body b-form" id="subscribe">
+        <div class="subscribe">
+            <h3 class="subs__title">
+                Subscribe with us
+            </h3>
+            <form action="" class="subscribe_form">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi recusandae earum dicta, facere ipsum eos
+                    illo deleniti omnis assumenda, molestiae quia expedita vero dolorum porro non illum nihil praesentium
+                </p>
+                <div>
+                    <input class="input" type="email" name="" id="" placeholder="E-mail">
+                    <button type="submit" class="subs-submit">Subscribe</button>
+                </div>
+            </form>
         </div>
+    </div>
+
+
+    <!-- footer -->
+    <div class="body b-footer">
+        <footer>
+            <div class="footer__social">
+                <div class="footer__social__icons">
+                    <a href="https://www.reddit.com/r/computerizer/"
+                    target="_blank">
+                        <img src="{% static 'frontend/media/reddit.svg'%}" alt="reddit logo">
+                    </a>
+                    <a href="https://twitter.com/computerizer__?s=11&t=4z3z9pOn76PxqEh8y10TTQ"
+                    target="_blank">
+                        <img src="{% static 'frontend/media/twitter.svg'%}" alt="twitter logo">
+                    </a>
+                    <a href="https://www.linkedin.com/company/thecomputerizer/"
+                    target="_blank">
+                        <img src="{% static 'frontend/media/linkedin.svg'%}" alt="/linkedin logo">
+                    </a>
+                    <a href="https://instagram.com/computerizer_?igshid=YmMyMTA2M2Y=" target="_blank">
+                        <img src="{% static 'frontend/media/instagram.svg'%}" alt="instagram logo">
+                    </a>
+                </div>
+                <p>2022 LTD | All rights reserved</p>
+            </div>
+    
+            <div class="footer__logo">
+                <img src="{% static 'frontend/media/nLogo.png'%}" alt="logo">
+            </div>
+    
+            <h3 class="footer__name">COMPUTERIZER</h3>
+        </footer>
     </div>
 
     <script src="{% static 'frontend/functions/post.js'%}"></script>
+    <script src="{% static 'frontend/functions/navbar.js'%}"></script>
+    <script src="{% static 'frontend/functions/user_auth.js'%}"></script>
 </body>
 
 </html>

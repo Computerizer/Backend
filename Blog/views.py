@@ -12,12 +12,14 @@ from rest_framework.views import APIView
 from django.db.models import Q
 
 
+
 # Create your views here.
 @api_view(['GET'])
 def getSales(request, num_of_sales):
     sales = Sale.objects.all()
     serializer = SaleSerializer(sales, many = True)
     return Response(serializer.data[0:num_of_sales])
+
 
 @api_view(['GET'])
 def getCategories(request):
@@ -319,7 +321,6 @@ def getCommentLikes(request, id):
 
     return Response(serializer.data)
 
-
 @api_view(["GET"])
 def searchBlog(request, query):
     posts = Post.objects.filter(Q(title__icontains = query) | Q(description__icontains = query))
@@ -333,3 +334,4 @@ def searchBlog(request, query):
     data['categories'] = categoriesSerializer.data
     
     return Response(data)
+

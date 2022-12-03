@@ -16,6 +16,7 @@ class Author(models.Model):
     gitHub = models.URLField(null=True, blank=True)
 
 
+
 class Post(models.Model):
     status_choices = [
         ('Archived', 'archived'),
@@ -38,6 +39,7 @@ class Post(models.Model):
     def __str__(self):
         return f'{self.title}'
 
+
 class Category(models.Model):
     image = models.ImageField(upload_to = r'Computerizer/static/Blog/categories')
     title = models.CharField(max_length = 120)
@@ -45,6 +47,7 @@ class Category(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
 class Sale(models.Model):
     image = models.ImageField(upload_to = r'Computerizer/static/Blog/sales')
     part = models.CharField(max_length = 60)

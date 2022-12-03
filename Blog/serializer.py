@@ -1,5 +1,7 @@
 from rest_framework.serializers import ModelSerializer
+
 from .models import Author, Post, Comment, LikeComment, LikePost, Sale, Category
+
 
 class AuthorSerializer(ModelSerializer):
     class Meta:
@@ -10,6 +12,7 @@ class CategorySerializer(ModelSerializer):
     class Meta:
         model = Category
         fields = '__all__'
+
 class SaleSerializer(ModelSerializer):
     class Meta:
         model = Sale
@@ -18,6 +21,7 @@ class RecentPostSerializer(ModelSerializer):
     class Meta:
         model = Post
         fields = ['id', 'author', 'description', 'image', 'status', 'publish_date', 'likes', 'dislikes', 'views']
+
         
 
 class CommentSerializer(ModelSerializer):
