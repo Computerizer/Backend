@@ -125,7 +125,7 @@ function addRecentPossts(n = 3) {
                     </p>
                 </div>
                 <div class="post__action">
-                    <span class="time">${posts[i].add_date.slice(0, 10)}</span>
+                    <span class="time">${posts[i].publish_date.slice(0, 10)}</span>
                     <button class="read_more" value="${posts[i].title}">Read more</button>
                 </div>
             </div>
