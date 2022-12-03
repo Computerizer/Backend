@@ -22,6 +22,7 @@ class RecentPostSerializer(ModelSerializer):
         model = Post
         fields = ['id', 'author', 'title', 'description', 'image', 'status', 'publish_date', 'likes', 'dislikes', 'views']
 
+
         
 
 class CommentSerializer(ModelSerializer):
