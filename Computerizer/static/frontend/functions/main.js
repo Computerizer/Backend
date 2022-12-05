@@ -142,7 +142,7 @@ function addRecentPossts(n = 3) {
 
 function addSales() {
     for (part of sales) {
-        let partDiv = document.querySelector(`.${part.part}`)
+        let partDiv = document.querySelector(`.${part.part_type}`)
         partDiv.querySelector("a").href = part.link
         partDiv.querySelector("p").innerText = part.body
         partDiv.querySelector("img").src = part.image
