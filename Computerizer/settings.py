@@ -21,9 +21,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['computerizr.com', 'https://computerizr.com', 'computerizer.up.railway.app']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -139,6 +139,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'Computerizer/static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = 'Computerizer/static/'
 
 # Static files (Images-Blogs-etc) 
 # Note: JS and CSS files are also stored on S3 for now
