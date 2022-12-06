@@ -138,7 +138,6 @@ USE_TZ = True
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'Computerizer/static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Static files (Images-Blogs-etc) 
 # Note: JS and CSS files are also stored on S3 for now
@@ -148,7 +147,7 @@ AWS_ACCESS_KEY_ID = os.environ['AWS_S3_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = os.environ['AWS_S3_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = 'computerizer-static'
 
-AWS_S3_FILE_OVERWRITE = False
+AWS_S3_FILE_OVERWRITE = True
 AWS_DEFAULT_ACL = None
 
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
