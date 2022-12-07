@@ -6,7 +6,7 @@ urlpatterns = [
     #-------------------------------
     path('sales/<int:num_of_sales>', views.getSales, name='sales-api'),
     #-------------------------------
-    path('recent-posts/<int:num_of_posts>', views.getRecentPosts, name='RecentPost-api'),
+    path('recent-posts/<int:num_of_posts>/<int:page_num>', views.getRecentPosts, name='RecentPost-api'),
     path('posts/<str:order>/<int:num_of_posts>', views.getPostsOrdered, name='PostOrder-api'),
     path('post/<str:title>', views.getPost, name='post-api'),
     path('post/view/', views.viewPost, name='viewPost-api'),

@@ -2,7 +2,7 @@
 let posts = ""
 let sales = ""
 let readMoreBtn = ""
-let fetchPostNum = 7
+let fetchPostNum = 8
 
 const sliderDiv = document.querySelector(".slider")
 const sliderMainDiv = document.querySelector(".slider__main")
@@ -15,7 +15,7 @@ const loadMoreBtn = document.querySelector(".load-more")
 
 // Feching data & main function
 let mainFunc = async () => {
-    let response = await fetch(`http://127.0.0.1:8000/blog/recent-posts/${fetchPostNum}`)
+    let response = await fetch(`http://127.0.0.1:8000/blog/recent-posts/${fetchPostNum}/1`)
 
     posts = await response.json()
 
@@ -57,7 +57,7 @@ function loadMore(e) {
 
 function redirectUrl(e) {
     e.preventDefault()
-    window.location.href = "http://127.0.0.1:8000/" + `/post/${e.target.value}`
+    window.location.href = "http://127.0.0.1:8000" + `/post/${e.target.value}`
 }
 
 
