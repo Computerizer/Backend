@@ -2,14 +2,13 @@ from sqlite3 import IntegrityError
 from django.shortcuts import render
 from rest_framework.response import Response
 from Oauth.models import CustomUser
-from .models import Author, Post, Comment, LikeComment, LikePost, Sale, Category
-from .serializer import AuthorSerializer, LikePostSerializer, RecentPostSerializer, CommentSerializer, LikeCommentSerializer, SaleSerializer, CategorySerializer
+from .models import Author, Post, Comment, LikeComment, LikePost, Sale
+from .serializer import AuthorSerializer, LikePostSerializer, RecentPostSerializer, CommentSerializer, LikeCommentSerializer, SaleSerializer
 from django.core.files.storage import default_storage
 from rest_framework.permissions import IsAuthenticated,IsAdminUser,IsAuthenticatedOrReadOnly,AllowAny
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import api_view,permission_classes,authentication_classes
 from rest_framework.views import APIView
-from django.db.models import Q
 
 
 
@@ -21,30 +20,15 @@ def getSales(request, num_of_sales):
     return Response(serializer.data[0:num_of_sales])
 
 
-@api_view(['GET'])
-def getCategories(request):
-    categories = Category.objects.all()
-    serializer = CategorySerializer(categories, many = True)
-
-    posts = []
-    for category in serializer.data:
-        for postId in category["posts"]:
-            post = Post.objects.get(id = postId)
-            posts += [post.title]
-        category['posts'] = posts
-        posts = []      
-        
-    return Response(serializer.data)
-
 @api_view(["GET"])
 def getRecentPosts(request, num_of_posts):
-    posts = Post.objects.filter(status = 'Published').order_by('publish_date')
+    posts = Post.objects.all().order_by('publish_date')
     serializer = RecentPostSerializer(posts, many=True)
     return Response(serializer.data[0:num_of_posts])    
 
 @api_view(["GET"])
 def getPostsOrdered(request, order, num_of_posts):
-    posts = Post.objects.filter(status = 'Published').order_by(order).reverse()    
+    posts = Post.objects.all().order_by(order).reverse()    
     serializer = RecentPostSerializer(posts, many=True)
     return Response(serializer.data[0:num_of_posts])   
 
@@ -55,18 +39,20 @@ def getPost(request, title):
     body = f.read().decode("utf-8")
     data = {
             'title': post.title,
-            'author' : post.author.name,
             'body' : body,
-            'description' : post.description,
-            'image':str(post.image),
             'publish_date': post.publish_date,
+            'image':str(post.image),
+            'author' : post.author.name,
             'likes' : post.likes,
-            'dislikes' : post.dislikes,
-            'views' : post.views
+            'dislikes' : post.dislikes
         }
     return Response(data, status=200)
 
-
+@api_view(['GET'])
+def searchPost(request,title):
+    posts = Post.objects.filter(title__contains = title)
+    serializer = RecentPostSerializer(posts, many = True)
+    return Response(serializer.data)
 
 @api_view(["POST"])
 def viewPost(request):
@@ -320,18 +306,4 @@ def getCommentLikes(request, id):
         i['user'] = comment.user.username
 
     return Response(serializer.data)
-
-@api_view(["GET"])
-def searchBlog(request, query):
-    posts = Post.objects.filter(Q(title__icontains = query) | Q(description__icontains = query))
-    categories = Category.objects.filter(Q(title__icontains = query))
-
-    postSerializer = RecentPostSerializer(posts, many = True)
-    categoriesSerializer = CategorySerializer(categories, many = True)
     
-    data = {}
-    data['posts'] = postSerializer.data
-    data['categories'] = categoriesSerializer.data
-    
-    return Response(data)
-

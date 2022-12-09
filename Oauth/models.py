@@ -49,7 +49,7 @@ class CustomUser(AbstractBaseUser):
     last_name         = models.CharField   (max_length = 300)
     email             = models.EmailField  (max_length=255,unique=True)   
     password          = models.CharField   (max_length=100,)
-    profile_pic       = models.ImageField  (upload_to = r'Computerizer/static/Oauth/media',blank=True,default=r'Computerizer\\static\\Oauth\\media\\default.jpg')
+    profile_pic       = models.ImageField  (upload_to = r'Computerizer/static/Oauth/media')
     sub_to_newsletter = models.BooleanField(default=True)
     own_pc            = models.BooleanField(default=False) 
     active            = models.BooleanField(default=True,null=True)  #can login

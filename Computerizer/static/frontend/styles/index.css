@@ -3,10 +3,6 @@
     --accent: #E8E8E8;
     --logo-accent1: #ff9328;
     --logo-accent2: #ff6070;
-<<<<<<< HEAD
-=======
-
->>>>>>> New-Frontend
     --link: #FF616F;
     --text-normal: #12130F;
     --text-light: #A1AEB7;
@@ -31,12 +27,7 @@ a {
 .slider {
     margin-top: 5rem;
     margin-bottom: 2.5rem;
-<<<<<<< HEAD
     padding-inline: 1.5rem;
-=======
-    padding-inline: 5rem;
-
->>>>>>> New-Frontend
 }
 
 .slider__main {
@@ -59,10 +50,6 @@ a {
     backdrop-filter: blur(4px);
     background-color: rgba(0, 0, 0, 0.5);
     color: var(--accent);
-<<<<<<< HEAD
-=======
-
->>>>>>> New-Frontend
 }
 
 .post-title {
@@ -106,16 +93,6 @@ a {
     gap: 0.2rem;
     border-right: var(--text-light) 2px solid;
     margin-bottom: 0.5rem;
-<<<<<<< HEAD
-=======
-}
-
-.card-text {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
->>>>>>> New-Frontend
 }
 
 .card-text {
@@ -136,10 +113,6 @@ a {
 .card-text p {
     text-align: justify;
     overflow: hidden;
-<<<<<<< HEAD
-=======
-
->>>>>>> New-Frontend
 }
 
 .post-card__title:hover {
@@ -343,10 +316,7 @@ hr {
 
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> New-Frontend
 
 
 /* responsive */
@@ -388,10 +358,6 @@ hr {
         }
 
     /* slider */
-    .slider {
-        padding-inline: 0;
-    }
-
         .slider__nav {
             flex-direction: column;
             gap: 1rem;

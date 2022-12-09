@@ -2,12 +2,11 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('categories/', views.getCategories, name='categories-api'),
-    #-------------------------------
     path('sales/<int:num_of_sales>', views.getSales, name='sales-api'),
     #-------------------------------
     path('recent-posts/<int:num_of_posts>', views.getRecentPosts, name='RecentPost-api'),
     path('posts/<str:order>/<int:num_of_posts>', views.getPostsOrdered, name='PostOrder-api'),
+    path('post/search/<str:title>', views.searchPost, name='search post-api'),
     path('post/<str:title>', views.getPost, name='post-api'),
     path('post/view/', views.viewPost, name='viewPost-api'),
     #-------------------------------
@@ -23,8 +22,5 @@ urlpatterns = [
     path('comment/create', views.CreateComment.as_view(), name='createComment-api'),    
     path("comment/like/", views.LikeCommentView.as_view(), name='likeComment-api'),
     path("comment/unlike/", views.UnlikeComment.as_view(), name='unlikeComment-api'),
-    path('comment/likes/<int:id>', views.getCommentLikes, name='getCommentLikes-api'),
-    #-------------------------------
-    path('search/<str:query>', views.searchBlog, name='searchBlog-api')
-
+    path('comment/likes/<int:id>', views.getCommentLikes, name='getCommentLikes-api')
 ]

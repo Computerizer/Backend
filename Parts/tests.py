@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from turtle import width
 from unicodedata import name
 from django.test import TestCase
@@ -450,8 +449,3 @@ class PcTestCase(TestCase):
 
     def test_wrong_pc():
         pass
-=======
-from django.test import TestCase
-
-# Create your tests here.
->>>>>>> New-Frontend

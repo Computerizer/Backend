@@ -6,28 +6,16 @@ const heroImage = document.querySelector(".hero")
 const recentsNav = document.querySelector(".recents__nav")
 const statisDiv = document.querySelector(".statis")
 let posts = ""
-<<<<<<< HEAD
-=======
-
->>>>>>> New-Frontend
 let post;
 
 
 const div = async () => {
-<<<<<<< HEAD
     let response = await fetch('http://computerizr/blog/post/' + document.title)
-=======
-    let response = await fetch('http://127.0.0.1:8000/blog/post/' + document.title)
->>>>>>> New-Frontend
     post = await response.json()
     addPost()
     postStatis()
 
-<<<<<<< HEAD
     let response2 = await fetch(`http://computerizr/blog/recent-posts/6`)
-=======
-    let response2 = await fetch(`http://127.0.0.1:8000/blog/recent-posts/6`)
->>>>>>> New-Frontend
     posts = await response2.json()
     addRecents()
 }
@@ -69,11 +57,7 @@ function addRecents() {
 
 function redirectUrl(e) {
     e.preventDefault()
-<<<<<<< HEAD
     window.location.href = "http://computerizr" + `/post/${e.target.id}`
-=======
-    window.location.href = "http://127.0.0.1:8000/" + `/post/${e.target.id}`
->>>>>>> New-Frontend
 }
 
 function postStatis() {
@@ -93,10 +77,6 @@ function postStatis() {
         <p>Number of views on this article: <span>${post.views}</span></p>
     </div>
     `
-<<<<<<< HEAD
-=======
-
->>>>>>> New-Frontend
 }
 
 div()

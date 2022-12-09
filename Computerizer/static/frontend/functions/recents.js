@@ -13,11 +13,7 @@ const loadMoreBtn = document.querySelector(".load-more")
 
 // Feching data & main function
 let mainFunc = async () => {
-<<<<<<< HEAD
     let response = await fetch(`http://computerizr/blog/recent-posts/${fetchPostNum}`)
-=======
-    let response = await fetch(`http://127.0.0.1:8000/blog/recent-posts/${fetchPostNum}`)
->>>>>>> New-Frontend
     posts = await response.json()
     fetchPostNum = posts.length
 
@@ -57,11 +53,7 @@ function addRecentPossts() {
                         </p>
                     </div>
                     <div class="post__action">
-<<<<<<< HEAD
                         <span class="time">${posts[i].add_date.slice(0, 10)}</span>
-=======
-                        <span class="time">${posts[i].publish_date.slice(0, 10)}</span>
->>>>>>> New-Frontend
                         <button class="read_more" value="${posts[i].title}">Read more</button>
                     </div>
                 </div>
