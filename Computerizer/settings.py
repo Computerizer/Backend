@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'Parts',
     'TPA',
     'frontend'
-    
+    'storages'
 ]
 # Token Permissions:
 # AllowAny
