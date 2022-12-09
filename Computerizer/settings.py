@@ -20,10 +20,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
+MAILCHIMP_API_KEY = 'f6145d4d81fd58139aef97b1c0887ab8-us21'
+MAILCHIMP_LIST_ID = '10d13042d6'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['computerizr.com', 'https://computerizr.com', 'computerizer.up.railway.app']
+ALLOWED_HOSTS = ['computerizr.com', 'https://computerizr.com']
 
 
 # Application definition
@@ -37,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'mailchimp',
     'Blog',
     'Oauth',
     'Parts',

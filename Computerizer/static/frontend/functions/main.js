@@ -2,6 +2,7 @@ let posts = ""
 let sales = ""
 let readMoreBtn = ""
 let fetchPostNum = 7
+
 const sliderDiv = document.querySelector(".slider")
 const sliderMainDiv = document.querySelector(".slider__main")
 const sliderNavDiv = document.querySelector(".slider__nav")
@@ -10,14 +11,16 @@ const loadMoreBtn = document.querySelector(".load-more")
 
 
 
+
 // Feching data & main function
 let mainFunc = async () => {
-    let response = await fetch(`http://computerizr/blog/recent-posts/${fetchPostNum}`)
+    let response = await fetch(`https://computerizr/blog/recent-posts/${fetchPostNum}`)
+
     posts = await response.json()
 
     slider()
     addRecentPossts()
-    let response2 = await fetch('http://computerizr/blog/sales/5')
+    let response2 = await fetch('https://computerizr/blog/sales/5')
     sales = await response2.json()
     addSales()
     addListeners()
@@ -32,14 +35,15 @@ function addListeners() {
     readMoreBtn.forEach(btn => {
         btn.addEventListener("click", redirectUrl)
     });
+
 }
 
 function selectPsot(e) {
     if (e.target.nodeName === 'H3') {
-        sliderMainDiv.querySelector(".post-title").textContent = e.target.innerHTML
-        sliderMainDiv.querySelector("button").value = e.target.innerText
-        sliderMainDiv.querySelector(".header__text").innerHTML = e.target.nextElementSibling.innerHTML
-        sliderMainDiv.style.backgroundImage = `url('${e.target.id}')`
+        sliderMainDiv.querySelector(".post-title").textContent = posts[e.target.id].title
+        sliderMainDiv.querySelector("button").value = posts[e.target.id].title
+        sliderMainDiv.querySelector(".header__text").innerHTML = posts[e.target.id].description
+        sliderMainDiv.style.backgroundImage = `url('${posts[e.target.id].image}')`
     }
 }
 
@@ -52,7 +56,7 @@ function loadMore(e) {
 
 function redirectUrl(e) {
     e.preventDefault()
-    window.location.href = "http://computerizr/" + `/post/${e.target.value}`
+    window.location.href = "https://computerizr" + `/post/${e.target.value}`
 }
 
 
@@ -69,10 +73,11 @@ function slider() {
                     <i class="material-icons">
                         format_align_justify
                     </i>
-                    <h3 class="post-card__title" id="${posts[i].image}">
+                    <h3 class="post-card__title" id="${i}">
                         ${posts[i].title}
                     </h3>
                 </div>
+
                 <p>${posts[i].description}</p>
             </div>
         `
@@ -93,6 +98,7 @@ function slider() {
     `
     sliderMainDiv.style.backgroundImage = `url('${posts[0].image}')`
 }
+
 
 function addRecentPossts(n = 3) {
     let m = n - 3
@@ -118,7 +124,7 @@ function addRecentPossts(n = 3) {
                     </p>
                 </div>
                 <div class="post__action">
-                    <span class="time">${posts[i].add_date.slice(0, 10)}</span>
+                    <span class="time">${posts[i].publish_date.slice(0, 10)}</span>
                     <button class="read_more" value="${posts[i].title}">Read more</button>
                 </div>
             </div>
@@ -142,8 +148,6 @@ function addSales() {
     }
 }
 
+
 // Start the program
 mainFunc()
-
-
-
