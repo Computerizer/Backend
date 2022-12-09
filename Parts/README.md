@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PARTS APPLICATION
 
 **Data Entry Documentation**: [*here*](https://github.com/Computerizer/Documentation/blob/main/Data%20Entry%20Documentation.md)  
@@ -7,3 +8,8 @@
   
 <img src='https://github.com/Computerizer/META/blob/main/wide.png' width='1000'>
 
+=======
+# PARTS BRANCH
+
+Owner: @Emad
+>>>>>>> New-Frontend

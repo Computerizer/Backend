@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.db import models
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 class manufacturer(models.Model):
@@ -567,3 +568,9 @@ class computer(models.Model):
 
         
     
+=======
+from random import choices
+from django.db import models
+
+
+>>>>>>> New-Frontend

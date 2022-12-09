@@ -1,4 +1,5 @@
 from django.contrib import admin
+<<<<<<< HEAD
 from .models import manufacturer, cpu, aircooler, watercooler, gpu, ram, hdd, ssd, motherboard, psu, case
 
 # Register your modes here.
@@ -23,3 +24,6 @@ admin.site.register(motherboard)
 admin.site.register(psu)
 
 admin.site.register(case)
+=======
+from .models import *
+>>>>>>> New-Frontend
