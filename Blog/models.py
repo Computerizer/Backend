@@ -26,7 +26,8 @@ class Post(models.Model):
 
     title = models.CharField(max_length=258)
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
-    body = models.FilePathField(path=r'Blog\blogs')
+    #body = models.FilePathField(path=r'Computerizer/static/Blog/articles', null=True, blank=True)
+    body = models.FileField(upload_to= r'Computerizer/static/Blog/articles', null=True, blank=True)
     description = models.TextField(default=None)
     image = models.ImageField(upload_to = r'Computerizer/static/Blog/media')
     status = models.CharField(choices = status_choices, max_length=15)
@@ -49,13 +50,21 @@ class Category(models.Model):
         return f'{self.title}'
 
 class Sale(models.Model):
+    part_choices = [
+        ('CPU' , 'CPU'),
+        ('GPU' , 'GPU'),
+        ('COOLER' , 'COOLER'),
+        ('CASE' , 'CASE'),
+        ('RAM' , 'RAM')
+    ]
+    part_type = models.CharField(choices=part_choices, max_length=6)
+    part_name = models.CharField(max_length=60)
     image = models.ImageField(upload_to = r'Computerizer/static/Blog/sales')
-    part = models.CharField(max_length = 60)
     body = models.TextField()
     link = models.URLField()
 
     def __str__(self):
-        return f'{self.part}'
+        return f'{self.part_type} : {self.part_name}'
 class Comment(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=None)    
     body = models.TextField()

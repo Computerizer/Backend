@@ -45,8 +45,9 @@ INSTALLED_APPS = [
     'Oauth',
     'Parts',
     'TPA',
-    'frontend',    
-    'storages',
+    'frontend',
+    'storages'
+    
 ]
 # Token Permissions:
 # AllowAny

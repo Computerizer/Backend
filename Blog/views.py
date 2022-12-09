@@ -10,6 +10,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import api_view,permission_classes,authentication_classes
 from rest_framework.views import APIView
 from django.db.models import Q
+from django.core.paginator import Paginator
 
 
 
@@ -37,10 +38,14 @@ def getCategories(request):
     return Response(serializer.data)
 
 @api_view(["GET"])
-def getRecentPosts(request, num_of_posts):
+def getRecentPosts(request, num_of_posts, page_num):
     posts = Post.objects.filter(status = 'Published').order_by('publish_date')
-    serializer = RecentPostSerializer(posts, many=True)
-    return Response(serializer.data[0:num_of_posts])    
+    objects = Paginator(posts, num_of_posts)
+    if page_num <= len(objects.page_range):
+        serializer = RecentPostSerializer(objects.page(page_num), many=True)
+        return Response(serializer.data)
+    else:
+        return Response('Out of range')        
 
 @api_view(["GET"])
 def getPostsOrdered(request, order, num_of_posts):
@@ -51,7 +56,7 @@ def getPostsOrdered(request, order, num_of_posts):
 @api_view(["GET"])
 def getPost(request, title):
     post = Post.objects.get(title = title)
-    f = default_storage.open(post.body)
+    f = default_storage.open(str(post.body))
     body = f.read().decode("utf-8")
     data = {
             'title': post.title,

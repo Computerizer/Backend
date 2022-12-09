@@ -1,7 +1,7 @@
 let posts = ""
 let sales = ""
 let readMoreBtn = ""
-let fetchPostNum = 7
+let fetchPostNum = 8
 
 const sliderDiv = document.querySelector(".slider")
 const sliderMainDiv = document.querySelector(".slider__main")
@@ -141,7 +141,7 @@ function addRecentPossts(n = 3) {
 
 function addSales() {
     for (part of sales) {
-        let partDiv = document.querySelector(`.${part.part}`)
+        let partDiv = document.querySelector(`.${part.part_type}`)
         partDiv.querySelector("a").href = part.link
         partDiv.querySelector("p").innerText = part.body
         partDiv.querySelector("img").src = part.image
