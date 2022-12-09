@@ -14,3 +14,4 @@ gunicorn==20.1.0
 whitenoise==6.2.0
 django-heroku
 mailchimp-marketing==3.0.80 
+mailchimp 
