@@ -14,7 +14,7 @@ const loadMoreBtn = document.querySelector(".load-more")
 
 // Feching data & main function
 let mainFunc = async () => {
-    let response = await fetch(`https://computerizr/blog/recent-posts/${fetchPostNum}`)
+    let response = await fetch(`https://computerizr/blog/recent-posts/${fetchPostNum}/1`)
 
     posts = await response.json()
 
