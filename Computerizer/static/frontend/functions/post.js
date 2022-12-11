@@ -1,3 +1,5 @@
+import {PostSubs}  from './handleSubs.js'
+
 /* Global Variables */
 const absURL = 'http://127.0.0.1:8000' // website domain URL 
 const baseURL = '/blog/post/'
@@ -10,6 +12,8 @@ const author = document.querySelector(".author")
 const dateSpan = document.querySelector(".date")
 const heroImage = document.querySelector(".hero")
 const recentsNav = document.querySelector(".recents__nav")
+const subsBtn = document.querySelector(".subs-submit")
+
 
 // Main functions
 function main() {
@@ -24,6 +28,7 @@ function main() {
         renderPosts(posts)
     })
 
+    subsBtn.addEventListener('click', doSubs)
 }
 
 /*
@@ -96,6 +101,12 @@ function renderPosts(posts) {
 function redirectUrl(e) {
     e.preventDefault()
     window.location.href = window.location.href.slice(-8, 0) + `/${e.target.dataset.url}`
+}
+
+// post fetch for subs
+function doSubs(e) {
+    e.preventDefault()
+    console.log(PostSubs('potos'))
 }
 
 main()
