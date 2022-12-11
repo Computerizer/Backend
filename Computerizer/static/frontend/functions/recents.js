@@ -1,88 +1,105 @@
-let posts = ""
-let sales = ""
-let readMoreBtn = ""
-let fetchPostNum = 1000
-let postFetched = 0
-const sliderDiv = document.querySelector(".slider")
-const sliderMainDiv = document.querySelector(".slider__main")
-const sliderNavDiv = document.querySelector(".slider__nav")
+/* Global Variables */
+const absURL = 'http://127.0.0.1:8000' // website domain URL 
+const baseURL = '/blog/recent-posts/'
 const postsDiv = document.querySelector(".posts")
 const loadMoreBtn = document.querySelector(".load-more")
+let fetchPerRun = 4 + '/'
+let chunkFetched = 1
 
 
 
-// Feching data & main function
-let mainFunc = async () => {
-    let response = await fetch(`http://127.0.0.1:8000/blog/recent-posts/${fetchPostNum}/1`)
-    posts = await response.json()
-    fetchPostNum = posts.length
+// Main functions
+function main() {
+    getPosts(fetchPerRun, chunkFetched)
+    .then((posts) => {
+        renderPosts(posts)
+    })
 
-    addRecentPossts()
-    readMoreBtn.forEach(btn => {
-        btn.addEventListener("click", redirectUrl)
-    });
-    loadMoreBtn.addEventListener('click', loadMore)
-    
+    loadMoreBtn.addEventListener('click', () => {
+        chunkFetched += 1
+        getPosts(fetchPerRun, chunkFetched)
+        .then((posts) => {
+            renderPosts(posts)
+        })
+    })
 }
 
 
-//  Rendering posts
+/*
+*
+* Script Functions
+* 
+*/ 
 
-function addRecentPossts() {
-    postFetched+= 4
-    if ((fetchPostNum - postFetched) >= 0) {
-        const postsFrag = document.createDocumentFragment()
-        for (let i = (postFetched - 4); i < postFetched; i++) {
-            let postDiv = document.createElement("div")
-            postDiv.classList.add("post")
+
+// Fetchin posts from databas function
+const getPosts = async (num, chunk) => {
+    const response = await fetch(absURL + baseURL + num + chunk)
+    try {
+        const posts = response.json()
+        return posts
+    } catch (error) {
+        console.error('Failing to fetch posts from database!')
+    }
+}
+
+// Rendring posts function
+function renderPosts(posts) {
+    const postsFrag = document.createDocumentFragment() // fragment varialbe
+
+    // Looping through fetched posts
+    if (posts !== "Out of range") {
+        posts.forEach(post => {
+        let postDiv = document.createElement("div")
+        postDiv.classList.add("post")
             
-            postDiv.innerHTML = `
+        postDiv.innerHTML = `
             <hr>
             <div class="post__body" >
-                <img src="${posts[i].image}" alt="img">
+                <img src="${post.image}" alt="img">
                 <div class="post__info">
                     <div class="post__info__body">
                         <h3 class="post__title">
-                            ${posts[i].title}
+                            ${post.title}
                         </h3>
                         <span class="auther">
-                            ${posts[i].author}
+                            ${post.author}
                         </span>
                         <p class="post__prev">
-                            ${posts[i].description}
+                            ${post.description}
                         </p>
                     </div>
                     <div class="post__action">
-                        <span class="time">${posts[i].publish_date.slice(0, 10)}</span>
-                        <button class="read_more" value="${posts[i].title}">Read more</button>
+                        <span class="time">
+                        ${post.publish_date.slice(0, 10)}
+                        </span>
+                        <button class="read_more" data-url="${post.post_url}">
+                        Read more
+                        </button>
                     </div>
                 </div>
             </div>
             `
             postsFrag.appendChild(postDiv)
-        }
+        });
+        postsFrag.childNodes.forEach(post => {
+            let btn = post.querySelector('.read_more')
+            btn.addEventListener("click", redirectUrl)
+        });
         postsDiv.appendChild(postsFrag)
     } else {
-        const loadMoreBtn = document.querySelector(".load-more")
         loadMoreBtn.style.display = "none"
     }
-    readMoreBtn = document.querySelectorAll(".read_more")
+    
 }
 
-// Lsiteners functions 
-function loadMore(e) {
-    e.preventDefault
-    addRecentPossts()
-    readMoreBtn.forEach(btn => {
-        btn.addEventListener("click", redirectUrl)
-    });
-}
 
+// Routing function for read-more buttons
 function redirectUrl(e) {
     e.preventDefault()
-    window.location.href = window.location.href.slice(-8, 0) + `/post/${e.target.value}`
+    window.location.href = window.location.href.slice(-8, 0) + `/${e.target.dataset.url}`
 }
 
-// Start file
 
-mainFunc()
+// Run script
+main()
