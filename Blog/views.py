@@ -43,6 +43,11 @@ def getRecentPosts(request, num_of_posts, page_num):
     objects = Paginator(posts, num_of_posts)
     if page_num <= len(objects.page_range):
         serializer = RecentPostSerializer(objects.page(page_num), many=True)
+        
+        for post in serializer.data:
+            cureent_post = Post.objects.get(id = post["id"])
+            post['post_url'] = cureent_post.get_absolute_url()
+
         return Response(serializer.data)
     else:
         return Response('Out of range')        
