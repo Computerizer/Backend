@@ -39,10 +39,10 @@
                         <a href="{% url 'home'%}">home</a>
                     </li>
                     <li>
-                        <a href="{% url 'recents'%}">recents</a>
+                        <a href="#subscribe">PC tool</a>
                     </li>
                     <li>
-                        <a href="#subscribe">subscribe</a>
+                        <a href="{% url 'recents'%}">recents</a>
                     </li>
                     <li>
                         <a href="{% url 'about'%}">about</a>
@@ -231,8 +231,9 @@
         
     
     <script  src="{% static 'frontend/functions/navbar.js'%}"></script>
-    <script  src="{% static 'frontend/functions/main.js'%}"></script>
-    <script  src="{% static 'frontend/functions/user_auth.js'%}"></script>
+    <script  src="{% static 'frontend/functions/main.js'%}" type="module"></script>
+    <script  src="{% static 'frontend/functions/renderSubs.js'%}" type="module"></script>
+
    
 
 </body>

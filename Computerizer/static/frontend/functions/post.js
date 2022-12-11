@@ -1,26 +1,66 @@
+import {PostSubs}  from './handleSubs.js'
+
+/* Global Variables */
+const absURL = 'http://127.0.0.1:8000' // website domain URL 
+const baseURL = '/blog/post/'
+const postsURL = '/blog/recent-posts/'
+const postURL = document.title
+
 const postText = document.querySelector(".post__text")
 const postTitle = document.querySelector(".post__title")
 const author = document.querySelector(".author")
 const dateSpan = document.querySelector(".date")
 const heroImage = document.querySelector(".hero")
 const recentsNav = document.querySelector(".recents__nav")
-const statisDiv = document.querySelector(".statis")
-let posts = ""
-let post;
+const subsBtn = document.querySelector(".subs-submit")
 
 
-const div = async () => {
-    let response = await fetch('http://127.0.0.1:8000/blog/post/' + document.title)
-    post = await response.json()
-    addPost()
-    postStatis()
+// Main functions
+function main() {
 
-    let response2 = await fetch(`http://127.0.0.1:8000/blog/recent-posts/6`)
-    posts = await response2.json()
-    addRecents()
+    getPost()
+    .then((post) => {
+        renderPost(post)
+    })
+
+    getPosts()
+    .then((posts) => {
+        renderPosts(posts)
+    })
+
+    subsBtn.addEventListener('click', doSubs)
 }
 
-function addPost() {
+/*
+*
+* Script Functions
+* 
+*/
+
+// Fetching post information from databas function
+const getPost = async () => {
+    const response = await fetch(absURL + baseURL + postURL)
+    try {
+        const post = response.json()
+        return post
+    } catch (error) {
+        console.error('Failing to fetch posts from database!')
+    }
+}
+
+// Fetching posts from databas function
+const getPosts = async () => {
+    const response = await fetch(absURL + postsURL + "6/1")
+    try {
+        const posts = response.json()
+        return posts
+    } catch (error) {
+        console.error('Failing to fetch posts from database!')
+    }
+}
+
+// Rendering post
+function renderPost(post) {
     let dateHolder = post.publish_date.slice(0, 10)
     let date = "";
 
@@ -33,50 +73,40 @@ function addPost() {
     heroImage.src = "/" + post.image
 }
 
-function addRecents() {
+// Rendering more posts section
+function renderPosts(posts) {
     let fragmentDiv = document.createDocumentFragment()
-    for (let i of posts) {
+    posts.forEach(post => {
         let cardDiv = document.createElement("div")
         cardDiv.classList.add("post-card")
         cardDiv.innerHTML = `
-            <img src="${i.image}" alt="post image" class="card__img">
+            <img src="${post.image}" alt="post image" class="card__img">
             <div class="card__text">
-                <h3 class="post-card__title" id="${i.title}">
-                    ${i.title}
+                <h3 class="post-card__title" data-url="${post.post_url}">
+                    ${post.title}
                 </h3>
             </div>
         `
 
-        fragmentDiv.appendChild(cardDiv)
-    }
-    recentsNav.appendChild(fragmentDiv)
-    let titles = document.querySelectorAll(".post-card__title")
+    fragmentDiv.appendChild(cardDiv)
+    });
+    let titles = fragmentDiv.querySelectorAll('.post-card__title')
     titles.forEach(title => {
-        title.addEventListener("click", redirectUrl)})
+        title.addEventListener('click', redirectUrl)
+    })
+    recentsNav.appendChild(fragmentDiv)
 }
 
+// Routing function
 function redirectUrl(e) {
     e.preventDefault()
-    window.location.href = "http://127.0.0.1:8000" + `/post/${e.target.id}`
+    window.location.href = window.location.href.slice(-8, 0) + `/${e.target.dataset.url}`
 }
 
-function postStatis() {
-    statisDiv.innerHTML = `
-    <div class="impression">
-        <p>Did you like this article? :</p>
-        <button class="like">
-            <img src="/Computerizer/static/frontend/media/thumbs-up-solid.svg" alt="like">
-            <span>${post.likes}</span>
-        </button>
-        <button class="dislike">
-            <img src="/Computerizer/static/frontend/media/thumbs-down-solid.svg" alt="dislike">
-            <span>${post.dislikes}</span>
-        </button>
-    </div>
-    <div class="views">
-        <p>Number of views on this article: <span>${post.views}</span></p>
-    </div>
-    `
+// post fetch for subs
+function doSubs(e) {
+    e.preventDefault()
+    console.log(PostSubs('potos'))
 }
 
-div()
+main()
