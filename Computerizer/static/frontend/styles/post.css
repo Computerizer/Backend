@@ -159,7 +159,7 @@ a:active {
     overflow: hidden;
 }
 
-.post-card__title:hover {
+.post-card:hover {
     cursor: pointer;
 }
 
