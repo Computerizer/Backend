@@ -14,13 +14,13 @@ const loadMoreBtn = document.querySelector(".load-more")
 
 // Feching data & main function
 let mainFunc = async () => {
-    let response = await fetch(`https://computerizr/blog/recent-posts/${fetchPostNum}`)
+    let response = await fetch(`https://127.0.0.1:8000/blog/recent-posts/${fetchPostNum}`)
 
     posts = await response.json()
 
     slider()
     addRecentPossts()
-    let response2 = await fetch('https://computerizr/blog/sales/5')
+    let response2 = await fetch('https://127.0.0.1:8000/blog/sales/5')
     sales = await response2.json()
     addSales()
     addListeners()
@@ -56,7 +56,7 @@ function loadMore(e) {
 
 function redirectUrl(e) {
     e.preventDefault()
-    window.location.href = "https://computerizr" + `/post/${e.target.value}`
+    window.location.href = "https://127.0.0.1:8000" + `/post/${e.target.value}`
 }
 
 

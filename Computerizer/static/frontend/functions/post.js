@@ -10,12 +10,12 @@ let post;
 
 
 const div = async () => {
-    let response = await fetch('http://computerizr/blog/post/' + document.title)
+    let response = await fetch('http://127.0.0.1:8000/blog/post/' + document.title)
     post = await response.json()
     addPost()
     postStatis()
 
-    let response2 = await fetch(`http://computerizr/blog/recent-posts/6`)
+    let response2 = await fetch(`http://127.0.0.1:8000/blog/recent-posts/6`)
     posts = await response2.json()
     addRecents()
 }
@@ -57,7 +57,7 @@ function addRecents() {
 
 function redirectUrl(e) {
     e.preventDefault()
-    window.location.href = "http://computerizr" + `/post/${e.target.id}`
+    window.location.href = "http://127.0.0.1:8000" + `/post/${e.target.id}`
 }
 
 function postStatis() {

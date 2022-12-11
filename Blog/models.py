@@ -26,7 +26,6 @@ class Post(models.Model):
 
     title = models.CharField(max_length=258)
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
-    #body = models.FilePathField(path=r'Computerizer/static/Blog/articles', null=True, blank=True)
     body = models.FileField(upload_to= r'Computerizer/static/Blog/articles', null=True, blank=True)
     description = models.TextField(default=None)
     image = models.ImageField(upload_to = r'Computerizer/static/Blog/media')
