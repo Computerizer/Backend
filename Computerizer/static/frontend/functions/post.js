@@ -1,7 +1,7 @@
 import {PostSubs}  from './handleSubs.js'
 
 /* Global Variables */
-const absURL = 'http://127.0.0.1:8000' // website domain URL 
+const absURL = 'https://computerizr.com' // website domain URL 
 const baseURL = '/blog/post/'
 const postsURL = '/blog/recent-posts/'
 const postURL = document.title

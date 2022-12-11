@@ -1,5 +1,5 @@
 /* Global Variables */
-const absURL = 'http://127.0.0.1:8000' // website domain URL 
+const absURL = 'https://computerizr.com' // website domain URL 
 const baseURL = '/blog/recent-posts/'
 const postsDiv = document.querySelector(".posts")
 const loadMoreBtn = document.querySelector(".load-more")
