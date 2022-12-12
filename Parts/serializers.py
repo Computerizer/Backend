@@ -44,6 +44,11 @@ class AircoolerSerializer(ModelSerializer):
         model = aircooler
         fields = '__all__'
 
+class MoboSerializer(ModelSerializer):
+    class Meta:
+        model = motherboard
+        fields = '__all__'
+
 class PsuSerializer(ModelSerializer):
     class Meta:
         model = psu
