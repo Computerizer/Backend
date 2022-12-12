@@ -1,0 +1,8 @@
+from django.urls import path, include
+from .views import *
+
+urlpatterns = [
+    path('get-all/<str:part>', List_all_part.as_view, name=''),
+    path('get-all/<str:part>/<str:manufacturer>', None, name=''),
+
+]
