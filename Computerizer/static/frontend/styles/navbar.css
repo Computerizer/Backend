@@ -96,7 +96,7 @@ a:hover {
     font-weight: 500;
     color: inherit;
     font-size: 0.9rem;
-    padding: 0.5rem 0.9rem;
+    padding: 0.35rem 0.9rem;
     transition: all 200ms ease-in;
     border-radius: 5px;
 }
@@ -125,6 +125,27 @@ a:hover {
 #active a {
     font-weight: 900;
 }
+
+.coming-soon {
+    position: relative;
+}
+
+.coming-soon:hover::after {
+    font-size: 0.9rem;
+    padding: 0.1rem;
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    top: 180%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: attr(data-tooltip);
+    height: fit-content;
+    width: 100%;
+    color: var(--accent);
+    overflow: visible;
+}
+
 
 /* footer */
 
