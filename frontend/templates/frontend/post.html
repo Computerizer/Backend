@@ -39,7 +39,7 @@
                         <li>
                             <a href="{% url 'home'%}">home</a>
                         </li>
-                        <li>
+                        <li class="coming-soon" data-tooltip="coming soon!">
                             <a href="#">PC tool</a>
                         </li>
                         <li>
@@ -151,15 +151,32 @@
             <h3 class="subs__title">
                 Subscribe with us
             </h3>
-            <form action="" class="subscribe_form">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi recusandae earum dicta, facere ipsum eos
-                    illo deleniti omnis assumenda, molestiae quia expedita vero dolorum porro non illum nihil praesentium
-                </p>
-                <div>
-                    <input class="input" type="email" name="" id="" placeholder="E-mail">
+            <div class="subscribe_form">
+                <p>Subscribe to our newsletter to get notified when we release new articles and tutorials. Not to mention we
+                    will send you
+                    the best and hottest PC deals on a weekly basis, who wouldn’t want that? Join the Computerizer
+                    newsletter now!</p>
+                <form action="">
+                    <div class="name">
+                        <div>
+                            <label for="f-name">First Name: <span id="error"></span></label>
+                            <input class="input" type="text" name="f-name" id="f-name" placeholder="Enter your first Name"
+                                required>
+                        </div>
+                        <div>
+                            <label for="l-name">Last Name: <span id="error"></span></label>
+                            <input class="input" type="text" name="l-name" id="l-name" placeholder="Enter your last Name"
+                            required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="e-mail">Email: <span id="error"></span></label>
+                        <input class="input" type="email" name="e-mail" id="e-mail" placeholder="Enter your email adress"
+                        required>
+                    </div>
                     <button type="submit" class="subs-submit">Subscribe</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 
