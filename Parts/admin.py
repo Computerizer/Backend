@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import manufacturer, cpu, aircooler, watercooler, gpu, ram, hdd, ssd, motherboard, psu, case
+from .models import manufacturer, cpu, aircooler, watercooler, gpu, ram, hdd, ssd, motherboard, psu, case, fan
 
 # Register your modes here.
 admin.site.register(manufacturer)
@@ -21,5 +21,7 @@ admin.site.register(ssd)
 admin.site.register(motherboard)
 
 admin.site.register(psu)
+
+admin.site.register(fan)
 
 admin.site.register(case)

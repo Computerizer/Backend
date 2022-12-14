@@ -2,6 +2,7 @@ from django.db import models
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 class manufacturer(models.Model):
     manufacturers = (
+        ('ASrock', 'ASrock'),
         ('AMD', 'AMD'),
         ('Intel', 'Intel'),
         ('Aorus', 'Aorus'),
@@ -32,6 +33,7 @@ class manufacturer(models.Model):
         ('Zotac', 'Zotac'),
         ('Seagate', 'Seagate'),
         ('Western Digital', 'Western Digital'),
+        ('Zotac', 'Zotac'),
     )
     ID   = models.CharField(primary_key=True, null=False, blank=False, max_length=10)
     name = models.CharField(max_length=50, null=True, blank=True)
@@ -59,7 +61,7 @@ class manufacturer(models.Model):
 class commoninfo(models.Model):
     ID                  = models.CharField(primary_key=True, max_length=15)
     manufacturer        = models.ManyToManyField('manufacturer',  related_name="%(class)s_related")
-    name                = models.CharField(max_length=100)
+    name                = models.CharField(max_length=200)
     data_added          = models.DateField(auto_now_add=True, null=True)
     amazon_url          = models.URLField(null=True)
     newegg_url          = models.URLField(null=True)
@@ -90,7 +92,7 @@ class cpu(commoninfo):
     integrated_graphics = models.BooleanField()
     use_case            = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
     def __str__(self):
-        return f"{self.Model_Name} ({self.ID})"
+        return f"{self.Model_name} ({self.ID})"
 
     class Meta:
         verbose_name ='CPU'
@@ -542,7 +544,7 @@ class fan(commoninfo):
     theme                 = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), verbose_name='Color Theme', max_length=15)
     use_case              = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)    
     def __str__(self):
-        return f"{self.Name} ({self.ID})"
+        return f"{self.name} ({self.ID})"
 
     class Meta:
             verbose_name ='Fan'
@@ -579,7 +581,7 @@ class case(commoninfo):
     theme                 = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), verbose_name='Color Theme', max_length=15)
     use_case              = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)    
     def __str__(self):
-        return f"{self.Name} ({self.ID})"
+        return f"{self.name} ({self.ID})"
 
     class Meta:
             verbose_name ='Case'

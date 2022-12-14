@@ -9,57 +9,57 @@ class ManufacturerSerializer(ModelSerializer):
 ############################################
 #       Serializers for specific parts     # 
 ############################################
-class CpuSerializer(ModelSerializer):
+class cpuSerializer(ModelSerializer):
     class Meta:
         model = cpu
         fields = '__all__'
 
-class GpuSerializer(ModelSerializer):
+class gpuSerializer(ModelSerializer):
     class Meta:
         model = gpu
         fields = '__all__'
 
-class RamSerializer(ModelSerializer):
+class ramSerializer(ModelSerializer):
     class Meta:
         model = ram
         fields = '__all__'
 
-class SsdSerializer(ModelSerializer):
+class ssdSerializer(ModelSerializer):
     class Meta:
         model = ssd
         fields = '__all__'
 
-class HddSerializer(ModelSerializer):
+class hddSerializer(ModelSerializer):
     class Meta:
         model = hdd
         fields = '__all__'
 
-class WatercoolerSerializer(ModelSerializer):
+class watercoolerSerializer(ModelSerializer):
     class Meta:
         model = watercooler
         fields = '__all__'
 
-class AircoolerSerializer(ModelSerializer):
+class aircoolerSerializer(ModelSerializer):
     class Meta:
         model = aircooler
         fields = '__all__'
 
-class MoboSerializer(ModelSerializer):
+class moboSerializer(ModelSerializer):
     class Meta:
         model = motherboard
         fields = '__all__'
 
-class PsuSerializer(ModelSerializer):
+class psuSerializer(ModelSerializer):
     class Meta:
         model = psu
         fields = '__all__'
 
-class FanSerializer(ModelSerializer):
+class fanSerializer(ModelSerializer):
     class Meta:
         model = fan
         fields = '__all__'
 
-class CaseSerializer(ModelSerializer):
+class caseSerializer(ModelSerializer):
     class Meta:
         model = case
         fields = '__all__'
