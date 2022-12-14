@@ -9,8 +9,8 @@ from mailchimp_marketing import Client
 from mailchimp_marketing.api_client import ApiClientError
 
 class SubscribeMailchimp(APIView):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    authentication_classes = ()
+    permission_classes = ()
 
     def post(self, request):
         email = request.data['email']
