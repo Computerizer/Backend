@@ -79,10 +79,11 @@ function renderPosts(posts) {
     posts.forEach(post => {
         let cardDiv = document.createElement("div")
         cardDiv.classList.add("post-card")
+        cardDiv.dataset.url = post.post_url
         cardDiv.innerHTML = `
             <img src="${post.image}" alt="post image" class="card__img">
             <div class="card__text">
-                <h3 class="post-card__title" data-url="${post.post_url}">
+                <h3 class="post-card__title">
                     ${post.title}
                 </h3>
             </div>
@@ -90,9 +91,8 @@ function renderPosts(posts) {
 
     fragmentDiv.appendChild(cardDiv)
     });
-    let titles = fragmentDiv.querySelectorAll('.post-card__title')
-    titles.forEach(title => {
-        title.addEventListener('click', redirectUrl)
+    fragmentDiv.childNodes.forEach(post => {
+        post.addEventListener('click', redirectUrl)
     })
     recentsNav.appendChild(fragmentDiv)
 }
@@ -100,7 +100,7 @@ function renderPosts(posts) {
 // Routing function
 function redirectUrl(e) {
     e.preventDefault()
-    window.location.href = window.location.href.slice(-8, 0) + `/${e.target.dataset.url}`
+    window.location.href = window.location.href.slice(-8, 0) + `/${e.currentTarget.dataset.url}`
 }
 
 // post fetch for subs

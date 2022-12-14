@@ -97,6 +97,10 @@ a {
     margin-bottom: 0.5rem;
 }
 
+.post-card:hover {
+    cursor: pointer;
+}
+
 .card-text {
     height: 100%;
     display: flex;
