@@ -252,11 +252,11 @@ a {
 .load-more button {
     width: fit-content;
     font-size: 1rem;
-        padding: 0.5rem 2rem;
-        border-radius: 8px;
-        border: none;
-        background-color: var(--main);
-        color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--main);
+    color: white;
 }
 
 hr {
@@ -297,9 +297,16 @@ hr {
 
 .subscribe_form {
     display: flex;
+    align-items: center;
     gap: 1.5rem;
     min-width: 80%;
+}
 
+.subscribe_form form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3.5rem;
+    gap: 1rem;
 }
 
 .subscribe_form p {
@@ -307,8 +314,8 @@ hr {
 }
 
 .subs__title {
+    text-align: center;
     font-size: 3rem;
-    margin-bottom: 3.5rem;
     background: linear-gradient(140deg, var(--logo-accent2), var(--logo-accent1));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -316,7 +323,6 @@ hr {
 
 .subs-submit {
     width: 40%;
-    margin: 1rem auto;
     width: fit-content;
     height: fit-content;
     padding: 0.5rem 2rem;
