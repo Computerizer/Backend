@@ -22,7 +22,6 @@ function main() {
     .then((posts) => {
         renderSlider(posts)
         renderRecentPosts(posts)
-        sliderNavDiv.addEventListener("click", selectPsot)
     })
 
     getSales()
@@ -103,13 +102,12 @@ function renderSlider(posts) {
         i +=1
         let cardDiv = document.createElement("div")
         cardDiv.classList.add("post-card")
+        cardDiv.dataset.title = post.title
+        cardDiv.dataset.des = post.description
+        cardDiv.dataset.img = post.image
+        cardDiv.dataset.url = post.post_url
         cardDiv.innerHTML = `
-            <div class="card-text" 
-            data-title='${post.title}'
-            data-des='${post.description}'
-            data-img='${post.image}'
-            data-url='${post.post_url}'
-            >
+            <div class="card-text">
                 <div class="head">
                     <i class="material-icons">
                         format_align_justify
@@ -123,7 +121,9 @@ function renderSlider(posts) {
         `
         fragmentDiv.appendChild(cardDiv)        
     });
-
+    fragmentDiv.childNodes.forEach(card => {
+        card.addEventListener('click', selectPsot)
+    })
     sliderNavDiv.appendChild(fragmentDiv)
 }
 
@@ -132,7 +132,7 @@ function renderRecentPosts(posts) {
     const postsFrag = document.createDocumentFragment() // fragment varialbe
 
     // Looping through fetched posts
-    if (chunkFetched !== 2) {
+    if (chunkFetched <= 2) {
         posts.forEach(post => {
         let postDiv = document.createElement("div")
         postDiv.classList.add("post")
@@ -191,16 +191,12 @@ function renderSales(sales) {
 
 // Listener for selecting posts out of silder nav bar
 function selectPsot(e) {
-    if (e.target.nodeName === 'H3') {
-        let div = e.target.parentElement.parentElement
-        sliderMainDiv.querySelector(".post-title").textContent = div.dataset.title
-        let btn = sliderMainDiv.querySelector("button")
-        btn.dataset.url = div.dataset.url
-        btn.addEventListener('click', redirectUrl)
-        sliderMainDiv.querySelector(".header__text").innerHTML = div.dataset.des
-        sliderMainDiv.style.backgroundImage = `url('${div.dataset.img}')`
-        
-    }
+    let div = e.currentTarget
+    sliderMainDiv.querySelector(".post-title").textContent = div.dataset.title
+    let btn = sliderMainDiv.querySelector("button")
+    btn.dataset.url = div.dataset.url
+    sliderMainDiv.querySelector(".header__text").innerHTML = div.dataset.des
+    sliderMainDiv.style.backgroundImage = `url('${div.dataset.img}')`
 }
 
 // Routing function
