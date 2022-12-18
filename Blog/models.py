@@ -7,7 +7,7 @@ class Author(models.Model):
     name = models.CharField(max_length=64)
     date_of_birth = models.DateField()
     description = models.TextField()
-    profile_picture = models.ImageField(upload_to = r'Computerizer/static/Blog/profile_picture')
+    profile_picture = models.ImageField(upload_to = r'User/author')
     instagram = models.URLField(null=True, blank=True)
     twitter = models.URLField(null=True, blank=True)
     linkedIn = models.URLField(null=True, blank=True)
@@ -26,9 +26,9 @@ class Post(models.Model):
 
     title = models.CharField(max_length=258)
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
-    body = models.FileField(upload_to= r'Computerizer/static/Blog/articles', null=True, blank=True)
-    description = models.TextField(default=None)
-    image = models.ImageField(upload_to = r'Computerizer/static/Blog/media')
+    body = models.FileField(upload_to= r'Blog/articles')
+    description = models.TextField(default='')
+    image = models.ImageField(upload_to = r'Blog/thumbnails', help_text='Name of image must be in the form: <title>-thumbnail')
     status = models.CharField(choices = status_choices, max_length=15)
     add_date  = models.DateTimeField(auto_now_add=True)
     publish_date  = models.DateTimeField(null=True, blank=True)
@@ -44,7 +44,7 @@ class Post(models.Model):
 
 
 class Category(models.Model):
-    image = models.ImageField(upload_to = r'Computerizer/static/Blog/categories')
+    image = models.ImageField(upload_to = r'Blog/media')
     title = models.CharField(max_length = 120)
     posts = models.ManyToManyField(Post)
 
@@ -61,14 +61,14 @@ class Sale(models.Model):
     ]
     part_type = models.CharField(choices=part_choices, max_length=6)
     part_name = models.CharField(max_length=60)
-    image = models.ImageField(upload_to = r'Computerizer/static/Blog/sales')
+    image = models.ImageField(upload_to = r'Parts/Deal-of-the-week')
     body = models.TextField()
     link = models.URLField()
 
     def __str__(self):
         return f'{self.part_type} : {self.part_name}'
 class Comment(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=None)    
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)    
     body = models.TextField()
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     upload_date = models.DateTimeField(auto_now_add=True)
