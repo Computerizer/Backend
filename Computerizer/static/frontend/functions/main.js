@@ -11,6 +11,10 @@ const sliderNavDiv = document.querySelector(".slider__nav")
 const postsDiv = document.querySelector(".posts")
 const loadMoreBtn = document.querySelector(".load-more")
 const subsBtn = document.querySelector(".subs-submit")
+const subsDiv = document.querySelector(".subscribe_form")
+const fName = document.getElementById('f-name')
+const lName = document.getElementById('l-name')
+const eMail = document.getElementById('e-mail')
 
 let fetchPerRun = 4 + '/'
 let chunkFetched = 1
@@ -22,7 +26,6 @@ function main() {
     .then((posts) => {
         renderSlider(posts)
         renderRecentPosts(posts)
-        sliderNavDiv.addEventListener("click", selectPsot)
     })
 
     getSales()
@@ -40,8 +43,7 @@ function main() {
         })
     })
 
-    subsBtn.addEventListener('click', doSubs)
-
+    subsBtn.addEventListener('click', subscribe)
 }
 
 /*
@@ -103,13 +105,12 @@ function renderSlider(posts) {
         i +=1
         let cardDiv = document.createElement("div")
         cardDiv.classList.add("post-card")
+        cardDiv.dataset.title = post.title
+        cardDiv.dataset.des = post.description
+        cardDiv.dataset.img = post.image
+        cardDiv.dataset.url = post.post_url
         cardDiv.innerHTML = `
-            <div class="card-text" 
-            data-title='${post.title}'
-            data-des='${post.description}'
-            data-img='${post.image}'
-            data-url='${post.post_url}'
-            >
+            <div class="card-text">
                 <div class="head">
                     <i class="material-icons">
                         format_align_justify
@@ -123,7 +124,9 @@ function renderSlider(posts) {
         `
         fragmentDiv.appendChild(cardDiv)        
     });
-
+    fragmentDiv.childNodes.forEach(card => {
+        card.addEventListener('click', selectPsot)
+    })
     sliderNavDiv.appendChild(fragmentDiv)
 }
 
@@ -132,7 +135,7 @@ function renderRecentPosts(posts) {
     const postsFrag = document.createDocumentFragment() // fragment varialbe
 
     // Looping through fetched posts
-    if (chunkFetched !== 2) {
+    if (chunkFetched <= 2) {
         posts.forEach(post => {
         let postDiv = document.createElement("div")
         postDiv.classList.add("post")
@@ -191,16 +194,12 @@ function renderSales(sales) {
 
 // Listener for selecting posts out of silder nav bar
 function selectPsot(e) {
-    if (e.target.nodeName === 'H3') {
-        let div = e.target.parentElement.parentElement
-        sliderMainDiv.querySelector(".post-title").textContent = div.dataset.title
-        let btn = sliderMainDiv.querySelector("button")
-        btn.dataset.url = div.dataset.url
-        btn.addEventListener('click', redirectUrl)
-        sliderMainDiv.querySelector(".header__text").innerHTML = div.dataset.des
-        sliderMainDiv.style.backgroundImage = `url('${div.dataset.img}')`
-        
-    }
+    let div = e.currentTarget
+    sliderMainDiv.querySelector(".post-title").textContent = div.dataset.title
+    let btn = sliderMainDiv.querySelector("button")
+    btn.dataset.url = div.dataset.url
+    sliderMainDiv.querySelector(".header__text").innerHTML = div.dataset.des
+    sliderMainDiv.style.backgroundImage = `url('${div.dataset.img}')`
 }
 
 // Routing function
@@ -209,13 +208,73 @@ function redirectUrl(e) {
     window.location.href = window.location.href.slice(-8, 0) + `/${e.target.dataset.url}`
 }
 
-// post subs fetch
-function doSubs(e) {
-    e.preventDefault()
-    console.log(PostSubs('potos'))
+// Thanks message for subscribed user
+function renderThanks() {
+    subsDiv.innerHTML = ''
+    document.querySelector('.subs__title').innerText = "Thanks for subscribing\n Stay computerized!"
 }
 
+// post subs fetch
+function subscribe(e) {
+    e.preventDefault()
 
+    fName.classList.remove("errorField")
+    fName.previousElementSibling.firstElementChild.innerText = ''
+    lName.classList.remove("errorField")
+    lName.previousElementSibling.firstElementChild.innerText = ''
+    eMail.classList.remove("errorField")
+    eMail.previousElementSibling.firstElementChild.innerText = ''
+    
+    const backData = {
+        'firstName': fName.value,
+        'lastName': lName.value,
+        'email': eMail.value
+    }
+
+    for (const key in backData) {
+        if (backData[key] === '') {
+            if (key === 'firstName') {
+                fName.classList.add("errorField")
+                fName.previousElementSibling.firstElementChild.innerText = "This field can't be empty!"
+                return
+            } else if (key === 'lastName') {
+                lName.classList.add("errorField")
+                lName.previousElementSibling.firstElementChild.innerText = "This field can't be empty!"
+                return
+            } else if (key === 'email') {
+                eMail.classList.add("errorField")
+                eMail.previousElementSibling.firstElementChild.innerText = "This field can't be empty!"
+                return
+            }
+        }
+    }
+
+    PostSubs(backData)
+    .then(res => {
+        handleErrors(res)
+    })
+}
+
+// handle Subscribe Errors
+function handleErrors(res) {
+
+    fName.classList.remove("errorField")
+    lName.classList.remove("errorField")
+    eMail.classList.remove("errorField")
+
+    if (res === 'success') {
+        renderThanks()
+    } else {
+        let msg = JSON.parse(res)
+        if (msg.title === "Member Exists") {
+            eMail.classList.add("errorField")
+            eMail.previousElementSibling.firstElementChild.innerText = "This email already exists!"
+        } else {
+            eMail.classList.add("errorField")
+            eMail.previousElementSibling.firstElementChild.innerText = msg.detail
+        }
+    }
+}
 
 
 // Run script
