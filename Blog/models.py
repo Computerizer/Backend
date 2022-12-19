@@ -30,7 +30,7 @@ class Post(models.Model):
     description = models.TextField(default='')
     image = models.ImageField(upload_to = r'Blog/thumbnails', help_text='Name of image must be in the form: <title>-thumbnail')
     status = models.CharField(choices = status_choices, max_length=15)
-    add_date  = models.DateTimeField(auto_now_add=True)
+    add_date  = models.DateField(auto_now_add=True)
     publish_date  = models.DateTimeField(null=True, blank=True)
     likes = models.PositiveIntegerField(default=0)
     dislikes = models.PositiveIntegerField(default=0)
