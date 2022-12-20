@@ -7,13 +7,16 @@ class Author(models.Model):
     name = models.CharField(max_length=64)
     date_of_birth = models.DateField()
     description = models.TextField()
-    profile_picture = models.ImageField(upload_to = r'User/author')
+    profile_picture = models.ImageField(upload_to = r'User/author', null=True, blank=True)
     instagram = models.URLField(null=True, blank=True)
     twitter = models.URLField(null=True, blank=True)
     linkedIn = models.URLField(null=True, blank=True)
     facebook = models.URLField(null=True, blank=True)
     youtube = models.URLField(null=True, blank=True)
     gitHub = models.URLField(null=True, blank=True)
+
+    def __str__(self):
+        return self.name
 
 
 
@@ -28,10 +31,10 @@ class Post(models.Model):
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
     body = models.FileField(upload_to= r'Blog/articles')
     description = models.TextField(default='')
-    image = models.ImageField(upload_to = r'Blog/thumbnails', help_text='Name of image must be in the form: <title>-thumbnail')
+    image = models.ImageField(upload_to = r'Blog/thumbnails', help_text='Name of image must be in the form: title-thumbnail', null=True, blank=True)
     status = models.CharField(choices = status_choices, max_length=15)
-    add_date  = models.DateField(auto_now_add=True)
-    publish_date  = models.DateTimeField(null=True, blank=True)
+    add_date  = models.DateField()
+    publish_date  = models.DateField(null=True, blank=True, help_text='This is only altered when the article is published')
     likes = models.PositiveIntegerField(default=0)
     dislikes = models.PositiveIntegerField(default=0)
     views = models.PositiveIntegerField(default=0)
