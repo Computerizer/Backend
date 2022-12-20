@@ -20,8 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
-MAILCHIMP_API_KEY = 'f6145d4d81fd58139aef97b1c0887ab8-us21'
-MAILCHIMP_LIST_ID = '10d13042d6'
+MAILCHIMP_API_KEY = os.environ['MAILCHIMP_API_KEY']
+MAILCHIMP_LIST_ID = os.environ['MAILCHIMP_LIST_ID']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -146,6 +146,10 @@ USE_TZ = True
 # Static files (Images-Blogs-etc) 
 # Note: JS and CSS files are also stored on S3 for now
 # Until the application's frontend is migrated to react
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'Computerizer/static')
+]
 
 AWS_ACCESS_KEY_ID = os.environ['AWS_S3_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = os.environ['AWS_S3_SECRET_ACCESS_KEY']
