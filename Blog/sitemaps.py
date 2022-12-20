@@ -11,7 +11,7 @@ class BlogSitemap(Sitemap):
         return Post.objects.all()
 
     def lastmod(self, obj):
-        return obj.add_date
+        return obj.publish_date
         
     def location(self,obj):
         return '/post/%s' % (obj.title)
