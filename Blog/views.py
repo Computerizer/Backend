@@ -76,12 +76,12 @@ def getPostsOrdered(request, order, num_of_posts):
 @api_view(["GET"])
 def getPost(request, title):
     post = Post.objects.get(title = title)
-    #f = default_storage.open(str(post.body))
-    #body = f.read().decode("utf-8")
+    f = default_storage.open(str(post.body))
+    body = f.read().decode("utf-8")
     data = {
             'title': post.title,
             'author' : post.author.name,
-            'body' : post.body,
+            'body' : body,
             'description' : post.description,
             'image':str(post.image),
             'publish_date': post.publish_date,
