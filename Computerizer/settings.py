@@ -26,7 +26,7 @@ MAILCHIMP_LIST_ID = '10d13042d6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://computerizr.com', 'http://computerizr.com', 'computerizer.up.railway.app']
+ALLOWED_HOSTS = ['computerizr.com', 'https://computerizr.com', 'http://computerizr.com', 'computerizer.up.railway.app']
 
 
 # Application definition
