@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'TPA',
     'frontend',    
     'storages',
+    'robots'
 ]
 SITE_ID = 1 
 # Token Permissions:
@@ -83,6 +84,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.loaders.app_directories.Loader'
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -164,3 +166,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'Oauth.CustomUser' # switch the User model to our Custom Model
 
 ADMIN_ENABLED = False
+
+ROBOTS_CACHE_TIMEOUT = 60*60*24
