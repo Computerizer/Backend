@@ -1,3 +1,3 @@
 User-agent: Googlebot
-Disallow: /admin
+Disallow:
 Sitemap: https://computerizr.com/sitemap.xml
