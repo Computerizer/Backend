@@ -26,7 +26,7 @@ MAILCHIMP_LIST_ID = os.environ['MAILCHIMP_LIST_ID']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['computerizr.com', 'https://computerizr.com', 'http://computerizr.com', 'computerizer.up.railway.app']
 
 
 # Application definition
