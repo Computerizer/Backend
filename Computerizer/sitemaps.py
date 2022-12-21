@@ -1,5 +1,5 @@
 from django.contrib.sitemaps import Sitemap
-from .models import Post
+from Blog.models import Post
 
 
 class BlogSitemap(Sitemap):
@@ -12,6 +12,3 @@ class BlogSitemap(Sitemap):
 
     def lastmod(self, obj):
         return obj.publish_date
-        
-    def location(self,obj):
-        return '/post/%s' % (obj.title)

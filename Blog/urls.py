@@ -1,11 +1,5 @@
 from django.urls import path
 from . import views
-from django.contrib.sitemaps.views import sitemap
-from .sitemaps import BlogSitemap
-
-sitemaps = {
-    'Blog':BlogSitemap
-}
 
 urlpatterns = [
     path('categories/', views.getCategories, name='categories-api'),
@@ -33,7 +27,6 @@ urlpatterns = [
     #-------------------------------
     path('search/<str:query>', views.searchBlog, name='searchBlog-api'),
 
-    #-------------------------------
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    #------------------------------
 
 ]
