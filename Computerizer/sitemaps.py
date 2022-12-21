@@ -14,6 +14,9 @@ class BlogSitemap(Sitemap):
     def lastmod(self, obj):
         return obj.publish_date
 
+    def location(self,obj):
+        return '/post/%s' % (obj.title)
+
 class StaticSitemap(Sitemap):
     changefreq = "daily"
     priority = 0.7
