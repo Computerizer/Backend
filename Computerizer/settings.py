@@ -20,11 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
-MAILCHIMP_API_KEY = os.environ['MAILCHIMP_API_KEY']
-MAILCHIMP_LIST_ID = os.environ['MAILCHIMP_LIST_ID']
+#MAILCHIMP_API_KEY = os.environ['MAILCHIMP_API_KEY']
+#MAILCHIMP_LIST_ID = os.environ['MAILCHIMP_LIST_ID']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['computerizr.com', 'https://computerizr.com', 'http://computerizr.com', 'computerizer.up.railway.app']
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    #'robots'
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'mailchimp',
@@ -49,7 +50,6 @@ INSTALLED_APPS = [
     'TPA',
     'frontend',    
     'storages',
-    'robots'
 ]
 SITE_ID = 1 
 # Token Permissions:
@@ -84,7 +84,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
-                'django.template.loaders.app_directories.Loader'
+                #'django.template.loaders.app_directories.Loader'
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
