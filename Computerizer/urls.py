@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 from django.contrib.sitemaps.views import sitemap
-from .sitemaps import BlogSitemap
+from .sitemaps import BlogSitemap, StaticSitemap
 
 sitemaps = {
-    'Blog':BlogSitemap
+    'Blog':BlogSitemap,
+    'Static':StaticSitemap
 }
 
 urlpatterns = [
