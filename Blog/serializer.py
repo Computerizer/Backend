@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from .models import Author, Post, Comment, LikeComment, LikePost, Sale, Category
+from .models import Author, Post, Post_Image, Comment, LikeComment, LikePost, Sale, Category
 
 
 class AuthorSerializer(ModelSerializer):
@@ -25,6 +25,11 @@ class RecentPostSerializer(ModelSerializer):
 class PostSerializer(ModelSerializer):
     class Meta:
         model = Post
+        fields = '__all__'
+
+class ImagePostSerializer(ModelSerializer):
+    class Meta:
+        model = Post_Image
         fields = '__all__'
         
 
