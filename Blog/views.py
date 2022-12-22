@@ -73,7 +73,7 @@ def getPost(request, title):
         # [] inside f'' not working
         photo = image['title']
         index = body.find(f'src="{photo}"')
-        print(index)
+        
         # checking if image src in the file( index = -1 means not found)
         if index != -1:
             image = image['image']
