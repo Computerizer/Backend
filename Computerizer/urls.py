@@ -18,6 +18,7 @@ from django.urls import path, include, re_path
 from django.views.generic.base import TemplateView
 from django.contrib.sitemaps.views import sitemap
 from .sitemaps import BlogSitemap, StaticSitemap
+from .views import robots_txt
 
 sitemaps = {
     'Blog':BlogSitemap,
@@ -31,5 +32,5 @@ urlpatterns = [
     path('TPA/', include('TPA.urls')),
     path('', include('frontend.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-    re_path(r'^robots\.txt', include('robots.urls')),
+    path("robots.txt", robots_txt),
 ]
