@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from Computerizer.settings import MAILCHIMP_API_KEY, MAILCHIMP_LIST_ID
+#from Computerizer.settings import MAILCHIMP_API_KEY, MAILCHIMP_LIST_ID
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.authentication import TokenAuthentication
