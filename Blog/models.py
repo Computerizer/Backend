@@ -43,7 +43,13 @@ class Post(models.Model):
     def get_absolute_url(self):
         return f'post/{self.title}'
 
+class Post_Image(models.Model):
+    title= models.CharField(max_length= 60)
+    image = models.ImageField(upload_to = r'Computerizer/static/Blog/media')
+    post = models.ForeignKey(Post, on_delete= models.CASCADE)
 
+    def __str__(self):
+        return f'{self.post.title}: {self.title}'
 class Category(models.Model):
     image = models.ImageField(upload_to = r'Computerizer/static/Blog/categories')
     title = models.CharField(max_length = 120)

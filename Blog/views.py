@@ -2,8 +2,8 @@ from sqlite3 import IntegrityError
 from django.shortcuts import render
 from rest_framework.response import Response
 from Oauth.models import CustomUser
-from .models import Author, Post, Comment, LikeComment, LikePost, Sale, Category
-from .serializer import AuthorSerializer, PostSerializer, LikePostSerializer, RecentPostSerializer, CommentSerializer, LikeCommentSerializer, SaleSerializer, CategorySerializer
+from .models import Author, Post, Post_Image, Comment, LikeComment, LikePost, Sale, Category
+from .serializer import AuthorSerializer, ImagePostSerializer, PostSerializer, LikePostSerializer, RecentPostSerializer, CommentSerializer, LikeCommentSerializer, SaleSerializer, CategorySerializer
 from django.core.files.storage import default_storage
 from rest_framework.permissions import IsAuthenticated,IsAdminUser,IsAuthenticatedOrReadOnly,AllowAny
 from rest_framework.authentication import TokenAuthentication
@@ -61,9 +61,31 @@ def getPostsOrdered(request, order, num_of_posts):
 @api_view(["GET"])
 def getPost(request, title):
     post = Post.objects.get(title = title)
+    images = Post_Image.objects.filter(post = post)
+    image_serializer = ImagePostSerializer(images, many = True)
+
     serializer = PostSerializer(post)
     f = default_storage.open(str(post.body))
     body = f.read().decode("utf-8")
+
+    # replacing image title in html to image link
+    for image in image_serializer.data:
+        # [] inside f'' not working
+        photo = image['title']
+        index = body.find(f'src="{photo}"')
+        print(index)
+        # checking if image src in the file( index = -1 means not found)
+        if index != -1:
+            image = image['image']
+            body = body.replace(body[index : index + len(f"src='{photo}'")] , f'src="{image}"')
+        else:
+            # checking if there src = '' instead of src = ""
+            index = body.find(f"src='{photo}'") 
+            if index != -1:
+                image = image['image']
+                body = body.replace(body[index : index + len(f"src='{photo}'")] , f"src='{image}'") 
+            
+
     data = {
             'title': post.title,
             'author' : post.author.name,
