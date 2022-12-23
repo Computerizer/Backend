@@ -52,7 +52,7 @@ const getPost = async () => {
     }
 }
 
-/* // Fetching posts from databas function
+
 const getPosts = async () => {
     const response = await fetch(absURL + postsURL + "6/1")
     try {
@@ -61,7 +61,7 @@ const getPosts = async () => {
     } catch (error) {
         console.error('Failing to fetch posts from database!')
     }
-} */
+}
 
 // Rendering post
 function renderPost(post) {

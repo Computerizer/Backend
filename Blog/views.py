@@ -1,3 +1,4 @@
+from sqlite3 import IntegrityError
 from django.shortcuts import render
 from rest_framework.response import Response
 from Oauth.models import CustomUser
@@ -13,7 +14,7 @@ from django.core.paginator import Paginator
 
 
 
-# a view to get a certain number of sales
+# Create your views here.
 @api_view(['GET'])
 def getSales(request, num_of_sales):
     sales = Sale.objects.all()
@@ -21,14 +22,12 @@ def getSales(request, num_of_sales):
     return Response(serializer.data[0:num_of_sales])
 
 
-# a view to get all the categories(maybe will change in future depending on use)
 @api_view(['GET'])
 def getCategories(request):
     categories = Category.objects.all()
     serializer = CategorySerializer(categories, many = True)
 
-    # replace post id with post title in serializer data
-    posts = [] # this is a list which will be used to temporarily store the posts title for each category
+    posts = []
     for category in serializer.data:
         for postId in category["posts"]:
             post = Post.objects.get(id = postId)
@@ -38,19 +37,13 @@ def getCategories(request):
         
     return Response(serializer.data)
 
-# get all published posts 
-# divided into chunks 
-# first parameter number of posts for each chunck
-# second parameter chunck number 
 @api_view(["GET"])
 def getRecentPosts(request, num_of_posts, page_num):
     posts = Post.objects.filter(status = 'Published').order_by('publish_date')
     objects = Paginator(posts, num_of_posts)
-    # checking if chunck number valid
     if page_num <= len(objects.page_range):
         serializer = RecentPostSerializer(objects.page(page_num), many=True)
-
-        # adding absloute url to each post in serializer data
+        
         for post in serializer.data:
             cureent_post = Post.objects.get(id = post["id"])
             post['post_url'] = cureent_post.get_absolute_url()
@@ -59,20 +52,12 @@ def getRecentPosts(request, num_of_posts, page_num):
     else:
         return Response('Out of range')        
 
-# get a certain number of posts ordered by a given parameter
 @api_view(["GET"])
 def getPostsOrdered(request, order, num_of_posts):
     posts = Post.objects.filter(status = 'Published').order_by(order).reverse()    
     serializer = RecentPostSerializer(posts, many=True)
-
-    # adding absloute url to each post in serializer data
-    for post in serializer.data:
-        cureent_post = Post.objects.get(id = post["id"])
-        post['post_url'] = cureent_post.get_absolute_url()
-
     return Response(serializer.data[0:num_of_posts])   
 
-# get all of the post data
 @api_view(["GET"])
 def getPost(request, title):
     post = Post.objects.get(title = title)
@@ -104,7 +89,7 @@ def getPost(request, title):
     data = {
             'title': post.title,
             'author' : post.author.name,
-            'body' : post.body,
+            'body' : body,
             'description' : post.description,
             'image': serializer.data['image'],
             'publish_date': post.publish_date,
@@ -115,7 +100,7 @@ def getPost(request, title):
     return Response(data, status=200)
 
 
-# adding 1 view to a post
+
 @api_view(["POST"])
 def viewPost(request):
     post = Post.objects.get(title = request.data['post'])
@@ -123,8 +108,7 @@ def viewPost(request):
     post.views += 1
     post.save()
     return Response("Post Viewed")
-
-# getting all of the comments to a certain post
+    
 @api_view(['GET'])
 def getComments(request, post_title):
     post = Post.objects.get(title = post_title)
@@ -167,7 +151,7 @@ class LikePostView(APIView):
         user = CustomUser.objects.get(username = request.data['user'])
         like_state = 'liked'
         if user == request.user:
-            #check if already disliked or liked by user 
+            #check if already diliked or liked by user 
             try:
                 like_post = LikePost.objects.get(post = post, user = user)
                 if like_post.like_state == like_state:
@@ -232,40 +216,30 @@ def getPostLikes(request, title):
     likes = LikePost.objects.filter(post= post, like_state = 'liked')
     serializer = LikePostSerializer(likes, many = True)
 
-    data= {}
-    data['likes_number'] = post.likes
-
-    users = []
-    #adding users who like the post
+    #using username and title insted of id number
     for i in serializer.data:
         user = CustomUser.objects.get(id = i['user'])
-        users.append(user.username)
-
-    data['users'] = users
+        i['user'] = user.username
+        i['post'] = post.title
         
 
-    return Response(data)
+    return Response(serializer.data)
 
 
 @api_view(['GET'])
 def getPostDislikes(request, title):
     post = Post.objects.get(title = title)
-    likes = LikePost.objects.filter(post= post, like_state = 'disliked')
-    serializer = LikePostSerializer(likes, many = True)
+    dislikes = LikePost.objects.filter(post= post, like_state = 'disliked')
+    serializer = LikePostSerializer(dislikes, many = True)
 
-    data= {}
-    data['dislikes_number'] = post.dislikes
-
-    users = []
-    #adding users who like the post
+    #using username and title insted of id number
     for i in serializer.data:
         user = CustomUser.objects.get(id = i['user'])
-        users.append(user.username)
-
-    data['users'] = users
+        i['user'] = user.username
+        i['post'] = post.title
         
 
-    return Response(data)
+    return Response(serializer.data)
 
 
 
@@ -374,18 +348,11 @@ def getCommentLikes(request, id):
     comment = Comment.objects.get(id = id)
     comment_likes = LikeComment.objects.filter(comment = comment)
     serializer = LikeCommentSerializer(comment_likes, many = True)
-    
-    data = {}
-    data['likes_number'] = comment.likes
-
-    users = []
     for i in serializer.data:
-        user = CustomUser.objects.get(id = i['user'])
-        users.append(user.username)
+        i['comment'] = comment.body
+        i['user'] = comment.user.username
 
-    data['users'] = users
-
-    return Response(data)
+    return Response(serializer.data)
 
 @api_view(["GET"])
 def searchBlog(request, query):
@@ -400,4 +367,3 @@ def searchBlog(request, query):
     data['categories'] = categoriesSerializer.data
     
     return Response(data)
-
