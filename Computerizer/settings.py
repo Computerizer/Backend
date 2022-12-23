@@ -24,7 +24,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 #MAILCHIMP_LIST_ID = os.environ['MAILCHIMP_LIST_ID']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
