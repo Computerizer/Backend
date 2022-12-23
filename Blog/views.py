@@ -104,7 +104,7 @@ def getPost(request, title):
     data = {
             'title': post.title,
             'author' : post.author.name,
-            'body' : body,
+            'body' : post.body,
             'description' : post.description,
             'image': serializer.data['image'],
             'publish_date': post.publish_date,

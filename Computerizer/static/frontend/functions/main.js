@@ -204,7 +204,7 @@ function selectPsot(e) {
 
 // Routing function
 function redirectUrl(e) {
-    e.preventDefault()
+    e.preventDefault();
     window.location.href = window.location.href.slice(-8, 0) + `/${e.target.dataset.url}`
 }
 
