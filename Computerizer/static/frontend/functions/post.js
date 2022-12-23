@@ -87,9 +87,9 @@ function renderPosts(posts) {
         cardDiv.innerHTML = `
             <img src="${post.image}" alt="post image" class="card__img">
             <div class="card__text">
-                <h3 class="post-card__title">
+                <h1 class="post-card__title">
                     ${post.title}
-                </h3>
+                </h1>
             </div>
         `
 

@@ -24,9 +24,9 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 #MAILCHIMP_LIST_ID = os.environ['MAILCHIMP_LIST_ID']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['computerizr.com', 'https://computerizr.com', 'http://computerizr.com', 'computerizer.up.railway.app']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -146,6 +146,10 @@ USE_TZ = True
 # Static files (Images-Blogs-etc) 
 # Note: JS and CSS files are also stored on S3 for now
 # Until the application's frontend is migrated to react
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'Computerizer/static')
+]
 
 AWS_ACCESS_KEY_ID = os.environ['AWS_S3_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = os.environ['AWS_S3_SECRET_ACCESS_KEY']
