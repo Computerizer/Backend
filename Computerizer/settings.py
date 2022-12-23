@@ -24,9 +24,9 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 #MAILCHIMP_LIST_ID = os.environ['MAILCHIMP_LIST_ID']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['computerizer.up.railway.app', 'computerizr.com', 'https://computerizr.com/', 'https://computerizr.com']
 
 
 # Application definition
