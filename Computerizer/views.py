@@ -16,5 +16,7 @@ def robots_txt(request):
         "Disallow: /blog",
         "Disallow: /auth",
         "Disallow: /TPA",
+        " ",
+        "Sitemap: https://computerizr.com/sitemap.xml"
     ]
     return HttpResponse("\n".join(lines), content_type="text/plain")
