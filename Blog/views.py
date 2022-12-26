@@ -39,7 +39,7 @@ def getCategories(request):
 
 @api_view(["GET"])
 def getRecentPosts(request, num_of_posts, page_num):
-    posts = Post.objects.filter(status = 'Published').order_by('publish_date')
+    posts = Post.objects.filter(status = 'Published').order_by('-publish_date')
     objects = Paginator(posts, num_of_posts)
     if page_num <= len(objects.page_range):
         serializer = RecentPostSerializer(objects.page(page_num), many=True)
@@ -47,6 +47,7 @@ def getRecentPosts(request, num_of_posts, page_num):
         for post in serializer.data:
             cureent_post = Post.objects.get(id = post["id"])
             post['post_url'] = cureent_post.get_absolute_url()
+            post['author'] = cureent_post.author.name
 
         return Response(serializer.data)
     else:
