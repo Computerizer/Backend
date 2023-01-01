@@ -27,3 +27,18 @@ urlpatterns = [
     path('get/case/<str:manufacturer>', List_specific_case, name='specific-case'),
 
 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
