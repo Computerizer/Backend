@@ -17,8 +17,6 @@
   
 <br>
 <br>
-<br>
-
     
 <hr>
 <img src='https://github.com/Computerizer/META/blob/main/wide.png' width='1200'>
