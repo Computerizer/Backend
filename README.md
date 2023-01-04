@@ -1,5 +1,3 @@
-<img src='https://github.com/Computerizer/META/blob/main/wide.png' width='1200'>
-
 # Contributors 
 - [Emad Gasser](https://www.linkedin.com/in/emad-gasser/)  
 - [Moaz Shbayik](https://www.linkedin.com/in/moaz-abdelaziz-7a8461236/)  
@@ -17,3 +15,4 @@
 - <a href='https://github.com/Computerizer/FULL-STACK/tree/main/Computerizer/TPA'> 3P API </a>  
 - <a href='https://github.com/Computerizer/FULL-STACK/tree/main/Computerizer/frontend'> FRONT END </a>  
 
+<img src='https://github.com/Computerizer/META/blob/main/wide.png' width='1200'>
