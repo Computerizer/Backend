@@ -15,4 +15,5 @@
 - <a href='https://github.com/Computerizer/FULL-STACK/tree/main/Computerizer/TPA'> 3P API </a>  
 - <a href='https://github.com/Computerizer/FULL-STACK/tree/main/Computerizer/frontend'> FRONT END </a>  
 
+<hr>
 <img src='https://github.com/Computerizer/META/blob/main/wide.png' width='1200'>
