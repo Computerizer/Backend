@@ -28,7 +28,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['computerizr.com', 'https://computerizr.com/', 'computerizer.up.railway.app']
 
-
 # Application definition
 
 INSTALLED_APPS = [
