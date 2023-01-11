@@ -60,7 +60,7 @@ class manufacturer(models.Model):
 
 class commoninfo(models.Model):
     ID                  = models.CharField(primary_key=True, max_length=15)
-    manufacturer        = models.ManyToManyField('manufacturer',  related_name="%(class)s_related")
+    manufacturer        = models.ForeignKey('manufacturer',  related_name="%(class)s_related", on_delete=models.CASCADE, default='')
     name                = models.CharField(max_length=200)
     data_added          = models.DateField(auto_now_add=True, null=True)
     amazon_url          = models.URLField(null=True)
