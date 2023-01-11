@@ -3,7 +3,7 @@ from django.db import models
 from Oauth.models import CustomUser
 # Create your models here.
 class Author(models.Model):
-    id = models.TextField(primary_key=True)
+    #id = models.TextField(primary_key=True)
     name = models.CharField(max_length=64)
     date_of_birth = models.DateField()
     description = models.TextField()
@@ -15,6 +15,8 @@ class Author(models.Model):
     youtube = models.URLField(null=True, blank=True)
     gitHub = models.URLField(null=True, blank=True)
 
+    def __str__(self):
+        return f'{self.name}'
 
 
 class Post(models.Model):
