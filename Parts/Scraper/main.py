@@ -6,9 +6,9 @@ from selenium import webdriver
 # ------- AMAZON --- NEWEGG --- BESTBUY ------- WEBSCRAPER ------- #
 
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
-AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36',
-'accepted-language': 'en-US',
-'referer': 'https://www.google.com/'}
+    AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36',
+        'accepted-language': 'en-US',
+            'referer': 'https://www.google.com/'}
 
 
 def amazonPrice(url) -> float:
@@ -28,8 +28,9 @@ def amazonSale(url) -> float:
     page = requests.get(url, headers=headers).text
     r = bs4(page, 'lxml')
     salePercent = r.find('span', class_='a-size-large a-color-price\
-    savingPriceOverride aok-align-center reinventPriceSavingsPercentageMargin\
-    savingsPercentage').text
+        savingPriceOverride aok-align-center\
+            reinventPriceSavingsPercentageMargin\
+                savingsPercentage').text
     if salePercent is not None:
         return (salePercent[1:-1])
     else:
