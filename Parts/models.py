@@ -1,5 +1,7 @@
 from django.db import models
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
 class manufacturer(models.Model):
     manufacturers = (
         ('ASrock', 'ASrock'),
@@ -58,6 +60,7 @@ class manufacturer(models.Model):
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+
 class commoninfo(models.Model):
     ID                  = models.CharField(primary_key=True, max_length=15)
     manufacturer        = models.ForeignKey('manufacturer',  related_name="%(class)s_related", on_delete=models.CASCADE, default='')
@@ -68,12 +71,14 @@ class commoninfo(models.Model):
     bestbuy_url         = models.URLField(null=True)
     current_price       = models.FloatField(null=True, blank=True)
     lowest_Price_Link   = models.URLField(null=True, blank=True)
+
     class Meta:
         abstract = True
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 
 class cpu(commoninfo):
     Sockets = (
@@ -91,6 +96,7 @@ class cpu(commoninfo):
     power_consumption   = models.PositiveIntegerField(null=True)
     integrated_graphics = models.BooleanField()
     use_case            = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
+
     def __str__(self):
         return f"{self.Model_name} ({self.ID})"
 
@@ -112,6 +118,7 @@ class cpu(commoninfo):
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 
 class aircooler(commoninfo):
     sockets = [
@@ -139,6 +146,7 @@ class aircooler(commoninfo):
     power_consumption = models.IntegerField(null=True)
     theme             = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), verbose_name='Color Theme', max_length=10)
     use_case          = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
+
     def __str__(self):
         return f"{self.name}"
 
@@ -160,6 +168,7 @@ class aircooler(commoninfo):
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 
 class watercooler(commoninfo):
     sockets = (
@@ -187,6 +196,7 @@ class watercooler(commoninfo):
     power_consumption = models.PositiveIntegerField(null=True)
     theme             = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), verbose_name='Color Theme', max_length=15)
     use_case          = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
+
     def __str__(self):
         return f"{self.name}"
 
@@ -208,6 +218,7 @@ class watercooler(commoninfo):
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 
 class gpu(commoninfo):
     type                 = models.CharField(choices=(('Nvidia GTX','Nvidia GTX'), ('Nvidia RTX','Nvidia RTX'), ('AMD Radeon', 'AMD Radeon')), max_length=15, verbose_name='Type')
@@ -240,6 +251,7 @@ class gpu(commoninfo):
     theme                = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), verbose_name='Color Theme', max_length=15)
     power_consumption    = models.PositiveIntegerField(null=True) #In watts
     use_case             = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
+
     def __str__(self):
         return f"{self.name}"
 
@@ -256,6 +268,7 @@ class gpu(commoninfo):
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 
 class motherboard(commoninfo):
 
@@ -299,6 +312,7 @@ class motherboard(commoninfo):
     integrated_io_sheild = models.BooleanField(help_text='Does it have a built in cover on the rear ports', verbose_name='Integrated IO sheild')
     theme                = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), verbose_name='Color Theme', max_length=15)
     use_case             = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
+
     def __str__(self):
         return f"{self.name}"
 
@@ -314,6 +328,7 @@ class motherboard(commoninfo):
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 
 class ram(commoninfo):
 
@@ -350,6 +365,7 @@ class ram(commoninfo):
     power_consumption = models.PositiveIntegerField(null=True)
     rgb               = models.BooleanField()
     use_case          = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
+    
     def __str__(self):
         return f"{self.name}"
 
@@ -371,6 +387,7 @@ class ram(commoninfo):
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 
 class hdd(commoninfo):
     rpm = (
@@ -409,6 +426,7 @@ class hdd(commoninfo):
     rgb               = models.BooleanField()
     power_consumption = models.PositiveIntegerField(null=True)
     use_case          = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
+
     def __str__(self):
         return f"{self.name}"
     class Meta:
@@ -429,6 +447,7 @@ class hdd(commoninfo):
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@    
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
+
 
 class ssd(commoninfo):
     connectivity = (
@@ -482,6 +501,7 @@ class ssd(commoninfo):
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+
 class psu(commoninfo):
     ratings = (
         ('Bronze', 'Bronze'),
@@ -533,6 +553,7 @@ class psu(commoninfo):
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+
 class fan(commoninfo):
     size                  = models.PositiveIntegerField(null=True)
     lowest_rpm            = models.PositiveIntegerField(null=True, verbose_name='Lowest Speed', help_text='The RPM value')
@@ -555,6 +576,7 @@ class fan(commoninfo):
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 
 class case(commoninfo):
     mobo_size = (
@@ -584,8 +606,8 @@ class case(commoninfo):
         return f"{self.name} ({self.ID})"
 
     class Meta:
-            verbose_name ='Case'
-            verbose_name_plural ='Cases'
+        verbose_name = 'Case'
+        verbose_name_plural = 'Cases'
 
     def is_valid_case(self):
         condition = True
@@ -595,6 +617,7 @@ class case(commoninfo):
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 
 class computer(models.Model):
     ID            = models.CharField(primary_key=True, max_length=20)
@@ -613,28 +636,29 @@ class computer(models.Model):
     fan2          = models.ForeignKey(fan, null=True, blank=True, on_delete= models.CASCADE, related_name='fan2')
     fan3          = models.ForeignKey(fan, null=True, blank=True, on_delete= models.CASCADE, related_name='fan3')
     case          = models.ForeignKey(case, on_delete= models.CASCADE)
+
     def __str__(self):
         return f"{self.ID}"
 
     class Meta:
-        verbose_name ='Computer'
-        verbose_name_plural ='Computers'
+        verbose_name = 'Computer'
+        verbose_name_plural = 'Computers'
 
     def is_valid_computer(self):
         condition = True 
         if gpu.length > case.length:
-            condition= False
+            condition = False
 
         if aircooler.height > case.depth:
-            condition= False
+            condition = False
 
         if cpu.socket != motherboard.socket:
-            condition= False
+            condition = False
 
-        ram_capacity= ['4x4', '8x4', '16x4', '32x4']
+        ram_capacity = ['4x4', '8x4', '16x4', '32x4']
         for i in ram_capacity:
             if (ram.ram_capacity == i) and (motherboard.ram_slots == 2):
-                condition= False
+                condition = False
 
         if (case.size == 'Mini-ITX') and (motherboard.size == 'ATX' or 'Micro-ATX'):
             condition= False
