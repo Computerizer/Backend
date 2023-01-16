@@ -10,12 +10,14 @@ headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
         'accepted-language': 'en-US',
             'referer': 'https://www.google.com/'}
 
+# ------------------------ #
+# --------- AMZN --------- #
+
 
 def amazonPrice(url) -> float:
     # Gets all page content #
     page = requests.get(url, headers=headers).text
     r = bs4(page, 'lxml')
-
     # Gets price and decimal value separate #
     price = r.find('span', class_='a-price-whole').text
     decimal = r.find('span', class_='a-price-fraction').text
@@ -32,9 +34,24 @@ def amazonSale(url) -> float:
             reinventPriceSavingsPercentageMargin\
                 savingsPercentage').text
     if salePercent is not None:
-        return (salePercent[1:-1])
+        return (float(round((salePercent[1:-1]), 1)))
     else:
         return float(0)
+
+
+def amazonRating(url) -> float:
+    # Gets all page content #
+    page = requests.get(url, headers=headers).text
+    r = bs4(page, 'lxml')
+    # Gets price and decimal value separate #
+    description = r.find('span', class_='a-icon-alt').text
+    rating = description[0:3]
+    rating = None
+    return (float(round(rating, 0)))
+
+
+# ------------------------ #
+# --------- NEWG --------- #
 
 
 def neweggPrice(url) -> float:
@@ -43,7 +60,6 @@ def neweggPrice(url) -> float:
     r = bs4(page, 'lxml')
     cls = r.find('li', class_='price-current')
     fullPrice = cls.text
-
     return float(fullPrice[1:].replace(',', ''))
 
 
@@ -51,11 +67,38 @@ def neweggSale(url) -> float:
     # Gets all page content #
     page = requests.get(url, headers=headers).text
     r = bs4(page, 'lxml')
-
     # Gets price and decimal value separate #
     oldprice = r.find('span', class_='price-was-data').text
     oldprice = float(oldprice[1:].replace(',', ''))
     newprice = neweggPrice(url)
-
     sale = 100 - ((newprice/oldprice)*100)
     return (float(round(sale, 1)))
+
+
+def neweggRating(url) -> float:
+    # Gets all page content #
+    page = requests.get(url, headers=headers).text
+    r = bs4(page, 'lxml')
+    # Gets price and decimal value separate #
+    container = r.find('div', class_='product-rating')
+    inner = container.find(attrs={"class": "rating"})
+    rating = inner.get('title')[0:3]
+    return (float(round(rating, 0)))
+
+# ------------------------ #
+# --------- BSTBY -------- #
+
+
+def bestbuyPrice(url) -> float:
+    pass
+
+
+def bestbuySale(url) -> float:
+    pass
+
+
+def bestbuyRating(url) -> float:
+    pass
+
+
+# ------------------------ #
