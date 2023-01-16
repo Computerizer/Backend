@@ -2,6 +2,7 @@ from time import sleep, thread_time
 from bs4 import BeautifulSoup as bs4
 import requests
 from selenium import webdriver
+from string import ascii_letters, whitespace
 
 # ------- AMAZON --- NEWEGG --- BESTBUY ------- WEBSCRAPER ------- #
 
@@ -90,15 +91,39 @@ def neweggRating(url) -> float:
 
 
 def bestbuyPrice(url) -> float:
-    pass
+    # Gets all page content #
+    page = requests.get(url, headers=headers).text
+    r = bs4(page, 'lxml')
+    # Gets price and decimal value separate #
+    container = r.find('div', class_='priceView-hero-price priceView-customer-price')
+    inner = container.find_all('span')
+    rating = inner[0].text
+    return (float(rating[1:]))
 
 
 def bestbuySale(url) -> float:
-    pass
+    # Gets all page content #
+    page = requests.get(url, headers=headers).text
+    r = bs4(page, 'lxml')
+    ignore = ascii_letters + whitespace
+    # Gets price and decimal value separate #
+    oldPrice = float((r.find('div', class_='pricing-price__regular-price')\
+        .text).translate(str.maketrans('', '', ignore))[1:])
+    saleAmount = float((r.find('div', class_='pricing-price__savings')\
+        .text).translate(str.maketrans('', '', ignore))[1:])
+    salePercent = round((saleAmount/oldPrice)*100, 1)
+    return (salePercent)
 
 
 def bestbuyRating(url) -> float:
-    pass
+    # Gets all page content #
+    page = requests.get(url, headers=headers).text
+    r = bs4(page, 'lxml')
+    # Gets price and decimal value separate #
+    number = r.find('span', class_='ugc-c-review-average font-weight-medium order-1')
+    stars = round(float(number.text), 0)
+    return (float(stars))
 
 
+# ------------------------ #
 # ------------------------ #
