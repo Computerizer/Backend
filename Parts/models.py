@@ -77,6 +77,7 @@ class commoninfo(models.Model):
     previous_price      = models.FloatField(null=True, default=0.0)
     current_price       = models.FloatField(null=True, blank=True)
     lowest_Price_Link   = models.URLField(null=True, blank=True)
+    last_modified       = models.DateField(auto_now=True)
 
     class Meta:
         abstract = True

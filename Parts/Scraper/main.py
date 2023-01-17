@@ -11,6 +11,14 @@ headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
         'accepted-language': 'en-US',
             'referer': 'https://www.google.com/'}
 
+
+def proxy_request(url):
+    payload = {
+        "source": "universal",
+        "url": url,
+        "geo_location": "USA"
+    }
+
 # ------------------------ #
 # --------- AMZN --------- #
 
