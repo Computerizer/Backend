@@ -28,69 +28,72 @@ user_agents = [
     'Mozilla/5.0 (iPhone14,6; U; CPU iPhone OS 15_4 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19E241 Safari/602.1',
     'Mozilla/5.0 (Linux; Android 10; SM-G996U Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36',
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9'
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 OPR/94.0.4606.65',
+    'Mozilla/5.0 (Linux; Android 10; SM-N975F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5414.117 Mobile Safari/537.36 OPR/63.3.3216.58675'
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.70'
+
 ]
 
 # ------------------------ #
 # --------- AMZN --------- #
 
 
-""" def amazonPrice(url) -> float:
-    # Gets all page content #
-    headers = {'User-Agent': choice(user_agents)}
-    page = session.get(url, headers=headers, timeout=5)
-    page.raise_for_status()
-
-    r = bs4(page.content, 'lxml')
-    # Gets price and decimal value separate #
-    price = r.find('span', class_='a-price-whole').text
-    decimal = r.find('span', class_='a-price-fraction').text
-
-    return (price.rstrip(price[-1]) + '.' + decimal)
-"""
 def amazonPrice(url) -> float:
     # Gets all page content #
     try:
-        headers = {'User-Agent': choice(user_agents), 'Origin': 'https://www.google.com', 'Referer': 'https://www.google.com'}
-    except:
-        pass
-    page = session.get(url, headers=headers).content
-    #page.raise_for_status()
-
+        headers = {'User-Agent': choice(user_agents),
+        'Origin': 'https://www.google.com', 'Referer': 'https://www.google.com'}
+        page = session.get(url, headers=headers).content
+    except Exception:
+        headers = {'User-Agent': choice(user_agents),
+        'Origin': 'https://www.google.com', 'Referer': 'https://www.google.com'}
+        page = session.get(url, headers=headers).content
     r = bs4(page, 'lxml')
     # Gets price and decimal value separate #
-    price = r.find('span', class_='a-price-whole').text
-    decimal = r.find('span', class_='a-price-fraction').text
+    try:
+        price = r.find('span', class_='a-price-whole').text
+        decimal = r.find('span', class_='a-price-fraction').text
+    except AttributeError:
+        print('Fetching failed...')
+        print('Amazon may have blocked scraper')
+        return 'AMZ-F'
     return (price.rstrip(price[-1]) + '.' + decimal)
+
 
 def amazonSale(url) -> float:
     # Gets all page content #
-    headers = {'User-Agent': choice(user_agents)}
-    page = session.get(url, headers=headers, timeout=5)
-    page.raise_for_status()
-
-    r = bs4(page.content, 'lxml')
-    salePercent = r.find('span', class_='a-size-large a-color-price\
-        savingPriceOverride aok-align-center\
-            reinventPriceSavingsPercentageMargin\
-                savingsPercentage').text
+    try:
+        headers = {'User-Agent': choice(user_agents),
+        'Origin': 'https://www.google.com', 'Referer': 'https://www.google.com'}
+        page = session.get(url, headers=headers).content
+    except Exception:
+        headers = {'User-Agent': choice(user_agents),
+        'Origin': 'https://www.google.com', 'Referer': 'https://www.google.com'}
+        page = session.get(url, headers=headers).content
+    r = bs4(page, 'lxml')
+    # Gets sale percentage #
+    salePercent = r.find('span', class_='a-size-large a-color-price savingPriceOverride aok-align-center reinventPriceSavingsPercentageMargin savingsPercentage').text
     if salePercent is not None:
-        return (float(round((salePercent[1:-1]), 1)))
+        return (round(float(salePercent[1:-1]), 1))
     else:
         return float(0)
 
 
 def amazonRating(url) -> float:
     # Gets all page content #
-    headers = {'User-Agent': choice(user_agents)}
-    page = session.get(url, headers=headers, timeout=5)
-    page.raise_for_status()
-
-    r = bs4(page.content, 'lxml')
-    # Gets price and decimal value separate #
+    try:
+        headers = {'User-Agent': choice(user_agents),
+        'Origin': 'https://www.google.com', 'Referer': 'https://www.google.com'}
+        page = session.get(url, headers=headers).content
+    except Exception:
+        headers = {'User-Agent': choice(user_agents),
+        'Origin': 'https://www.google.com', 'Referer': 'https://www.google.com'}
+        page = session.get(url, headers=headers).content
+    r = bs4(page, 'lxml')
+    # Gets rating of product from amazon #
     description = r.find('span', class_='a-icon-alt').text
     rating = description[0:3]
-    rating = None
-    return (float(round(rating, 0)))
+    return (round(float(rating), 0))
 
 
 # ------------------------ #
@@ -98,29 +101,40 @@ def amazonRating(url) -> float:
 
 
 def neweggPrice(url) -> float:
+    """ Fetching Newegg product price given its url """
     # Gets all page content #
-    headers = {'User-Agent': choice(user_agents)}
-    page = session.get(url, headers=headers, timeout=5)
-    page.raise_for_status()
-
-    r = bs4(page.content, 'lxml')
-    cls = r.find('li', class_='price-current')
-    fullPrice = cls.text
-    return float(fullPrice[1:].replace(',', ''))
+    try:
+        headers = {'User-Agent': choice(user_agents),
+        'Origin': 'https://www.google.com', 'Referer': 'https://www.google.com'}
+        page = session.get(url, headers=headers).content
+    except Exception:
+        headers = {'User-Agent': choice(user_agents),
+        'Origin': 'https://www.google.com', 'Referer': 'https://www.google.com'}
+        page = session.get(url, headers=headers).content
+    r = bs4(page, 'lxml')
+    # Gets price and decimal value separate #
+    price = r.find('li', class_='price-current').text
+    return float(price[1:].replace(',', ''))
 
 
 def neweggSale(url) -> float:
+    """ Calculating newegg price | manually doesn't automatically fetch it """
     # Gets all page content #
-    headers = {'User-Agent': choice(user_agents)}
-    page = session.get(url, headers=headers, timeout=5)
-    page.raise_for_status()
-
-    r = bs4(page.content, 'lxml')
-    # Gets price and decimal value separate #
+    try:
+        headers = {'User-Agent': choice(user_agents),
+        'Origin': 'https://www.google.com', 'Referer': 'https://www.google.com'}
+        page = session.get(url, headers=headers).content
+    except Exception:
+        headers = {'User-Agent': choice(user_agents),
+        'Origin': 'https://www.google.com', 'Referer': 'https://www.google.com'}
+        page = session.get(url, headers=headers).content
+    r = bs4(page, 'lxml')
+    # Gets new price and old price, then calculates sale #
     oldprice = r.find('span', class_='price-was-data').text
     oldprice = float(oldprice[1:].replace(',', ''))
-    newprice = neweggPrice(url)
-    sale = 100 - ((newprice/oldprice)*100)
+    newprice = r.find('li', class_='price-current').text
+    newprice = float(newprice[1:].replace(',', ''))
+    sale = 100 - ((float(newprice)/float(oldprice))*100)
     return (float(round(sale, 1)))
 
 
