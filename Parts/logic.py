@@ -16,43 +16,43 @@ JSON = {
 ''' Also because they are the most important component in a PC '''
 partPercentages = {
     500: {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     750:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     1000:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     1250:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     1500:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     1750:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     2000:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     2250:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     2500:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     2750:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     3000:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     3250:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     3500:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     3750:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     4000:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     4250:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     4500:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     4750:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},
     5000:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
-    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},}
+    'PSU': None, 'FAN': None, 'CASE': None, 'STORAGE': None,},}
 
 cache = dict()
 
@@ -82,6 +82,7 @@ def main(JSON):
     ram = get_ram(percents['RAM'], formFactor)
     cooler = get_cooler(percents['COOLER'], formFactor, cpu, mobo)
     case = get_case(percents['CASE'], formFactor, purpose, mobo, gpu, cooler)
+    storage = get_storage(percents['STORAGE'], case)
     watts = cpu['Power Consumption'] + gpu['Power Consumption'] + cooler['Power Consumption']
     psu = get_psu(percents['PSU'], case, watts)
 
