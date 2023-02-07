@@ -1,4 +1,4 @@
-from .models import *
+from .models import * #imports all components from database to be used in filtering 
 
 JSON = {
     'budget': 4000,
@@ -11,65 +11,51 @@ JSON = {
     'question': {'Q1': None, 'Q2': None}
 }
 
+''' Since the algorithm currently serves gamers only '''
+''' The CPU and GPU should both have the largest share of the budget '''
+''' Also because they are the most important component in a PC '''
 partPercentages = {
-    500: {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    750:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    1000:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    1250:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    1500:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    1750:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    2000:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    2250:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    2500:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    2750:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    3000:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    3250:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    3500:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    3750:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    4000:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    4250:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    4500:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    4750:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
-    5000:
-    {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'AC': None,
-    'WC': None, 'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},}
+    500: {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    750:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    1000:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    1250:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    1500:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    1750:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    2000:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    2250:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    2500:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    2750:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    3000:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    3250:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    3500:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    3750:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    4000:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    4250:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    4500:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    4750:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
+    5000:{'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
+    'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},}
 
 cache = dict()
+
 
 def main(JSON):
     ''' This function calls on all PC parts, using input from user's\
@@ -89,13 +75,15 @@ def main(JSON):
 
     ''' Parts are chosen in a specific sequence,\
     as some depend on each other '''
+    # percents[<part-name>] grabs the budget for that specifc part
     cpu = get_cpu(percents['CPU'], formFactor, purpose)
     gpu = get_gpu(percents['GPU'], resolution, fps, gameType, theme)
     mobo = get_mobo(percents['Mobo'], cpu, gpu)
-    ram = get_ram()
-    cooler = get_cooler()
-    case = get_case()
-    psu = get_psu()
+    ram = get_ram(percents['RAM'], formFactor)
+    cooler = get_cooler(percents['COOLER'], formFactor, cpu, mobo)
+    case = get_case(percents['CASE'], formFactor, purpose, mobo, gpu, cooler)
+    watts = cpu['Power Consumption'] + gpu['Power Consumption'] + cooler['Power Consumption']
+    psu = get_psu(percents['PSU'], case, watts)
 
     ''' Before the PC is returned, the algorithm
     first checks that all parts integrate correctly with each other, 
@@ -111,28 +99,41 @@ def main(JSON):
     else:
         pass
 
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+''' Below are the functions that get the parts based on inputs from the main function '''
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+
 def get_cpu(budget, formFactor, purpose):
     pass
+
 
 def get_gpu(budget, resolution, fps, gameType, theme):
     pass
 
+
 def get_mobo(budget, cpu, gpu):
     pass
+
 
 def get_ram(budget, formFactor):
     pass
 
+
 def get_cooler(budget, formfactor, purpose, cpu, mobo):
     pass
+
 
 def get_case(budget, formFactor, purpose, mobo, gpu, cooler):
     pass
 
+
 def get_storage(budget, case):
     pass
+
 
 def get_psu(budget, formfactor, watts):
     pass
 
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
