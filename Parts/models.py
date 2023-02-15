@@ -634,14 +634,9 @@ class computer(models.Model):
     cpu           = models.ForeignKey(cpu, on_delete= models.CASCADE)
     gpu           = models.ForeignKey(gpu, on_delete= models.CASCADE)
     ram           = models.ForeignKey(ram, on_delete= models.CASCADE)
-    ssd1          = models.ForeignKey(ssd, null=True, blank=True, on_delete= models.CASCADE, related_name='ssd1')
-    ssd2          = models.ForeignKey(ssd, null=True, blank=True, on_delete= models.CASCADE, related_name='ssd2')
-    hdd1          = models.ForeignKey(hdd, null=True, blank=True, on_delete= models.CASCADE, related_name='hdd1')
-    hdd2          = models.ForeignKey(hdd, null=True, blank=True, on_delete= models.CASCADE, related_name='hdd')
+    ssd          = models.ForeignKey(ssd, null=True, blank=True, on_delete= models.CASCADE, related_name='ssd1')
+    hdd          = models.ForeignKey(hdd, null=True, blank=True, on_delete= models.CASCADE, related_name='hdd1')
     psu           = models.ForeignKey(psu, on_delete= models.CASCADE)
-    fan1          = models.ForeignKey(fan, null=True, blank=True, on_delete= models.CASCADE, related_name='fan1')
-    fan2          = models.ForeignKey(fan, null=True, blank=True, on_delete= models.CASCADE, related_name='fan2')
-    fan3          = models.ForeignKey(fan, null=True, blank=True, on_delete= models.CASCADE, related_name='fan3')
     case          = models.ForeignKey(case, on_delete= models.CASCADE)
 
     def __str__(self):

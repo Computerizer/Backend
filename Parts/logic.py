@@ -11,9 +11,12 @@ JSON = {
     'question': {'Q1': None, 'Q2': None}
 }
 
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 ''' Since the algorithm currently serves gamers only '''
 ''' The CPU and GPU should both have the largest share of the budget '''
 ''' Also because they are the most important component in a PC '''
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+
 partPercentages = {
     500: {'CPU': None, 'GPU': None, 'RAM': None, 'MOBO': None, 'COOLER': None,
     'PSU': None, 'FAN': None, 'CASE': None, 'SSD': None, 'HDD': None},
@@ -78,7 +81,7 @@ def main(JSON):
     cpu = get_cpu(percents['CPU'], formFactor, purpose)
     mobo = get_mobo(percents['Mobo'], cpu, formFactor, theme)
     cooler = get_cooler(percents['COOLER'], formFactor, cpu, mobo)
-    gpu = get_gpu(percents['GPU'], resolution, fps, gameType, theme)
+    gpu = get_gpu(percents['GPU'], formFactor, resolution, fps, gameType, theme)
     case = get_case(percents['CASE'], formFactor, purpose, mobo, gpu, cooler)
     ram = get_ram(percents['RAM'], formFactor)
     ssd = get_ssd(percents['SSD'], case, mobo)
@@ -102,6 +105,9 @@ def main(JSON):
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 ''' Below are the functions that get the parts based on inputs from the main function '''
+''' Basic documentation is provided as general guidance, however feel free to add additionals '''
+''' filters or check as long as it makes the function give better suggestions for its part '''
+''' For questions or bugs, please raise an issue here: https://github.com/Computerizer/FULL-STACK/issues '''
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
 def get_cpu(budget, formFactor, purpose):
@@ -126,30 +132,39 @@ def get_mobo(budget, cpu, formFactor, theme):
     pass
 
 
-def get_gpu(budget, resolution, fps, gameType, theme):
+def get_gpu(budget, fromfactor, resolution, fps, gameType, theme):
     ''' Below is the explanation of how this function is going to work '''
     # The GPU is a bit more complicated than the CPU
     # As there are many parameters involved 
     # 1) Performance as in resolution, FPS, gametype, and boostclock.
     # 2) Maximizing GPU performance utilization from motherboard,
     # for example if the mobo doesn't support PCIe5, there is no need to suggest a PCIe5 GPU
-    # And for that you can use the (supported_resolution, boost_clock, )
-    # in the CPU table to help, for example the i9 is both table top and work machine,
-    # and its also for ATX builds.
+    # And for that you can use the (supported_resolution, boost_clock, etc) fields
+    pass
+
+
+def get_cooler(budget, formfactor, purpose, cpu, mobo):
+    ''' Below is the explanation of how this function is going to work '''
+    # Again filter anything outside the budget range 
+    # Based on formFactor(ATX-Micro-Mini), purpose, budget, and the cpu type
+    # choose either a water or air cooler (criteria can include intend of the pc
+    # and how much heat the CPU releases, wich can be estimated by its name and wattage)
+    # Finally filter out any coolers that aren't compatible with the motherboard/CPU
     pass
 
 
 def get_case(budget, formFactor, purpose, mobo, gpu, cooler):
     ''' Below is the explanation of how this function is going to work '''
+    # Obviously, we filter by price/budget firstly 
+    # Then we fitler based on the formfactor (ATX, micro, or mini)
+    # Then we filter cases left to fit the maximum width of the gpu
+    # We also make sure that the cooler fits in the case,
+    # if its an aircooler then we check for height and clearance, 
+    # if its a watercooler, then check that the radiator fits 
     pass
 
 
 def get_ram(budget, formFactor):
-    ''' Below is the explanation of how this function is going to work '''
-    pass
-
-
-def get_cooler(budget, formfactor, purpose, cpu, mobo):
     ''' Below is the explanation of how this function is going to work '''
     pass
 
