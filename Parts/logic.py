@@ -1,5 +1,5 @@
 from .models import * #imports all component tables from database to be used in filtering 
-
+# Below is an exmaple of a JSON request we will get from the tool's frontend
 JSON = {
     'budget': 4000,
     'fps': 144,
