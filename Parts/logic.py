@@ -59,50 +59,6 @@ partPercentages = {
 
 cache = dict()
 
-def main(JSON):
-    ''' This function calls on all PC parts, using input from user's\
-    JSON preferences to filter out different parts '''
-    ''' The function also checks that suggested parts integrate correctly\
-    with each other, before sending a response to the user '''
-    global partPercentages
-    price = JSON['Budget']
-    percents = partPercentages[price]
-    
-    resolution = JSON['resolution']
-    fps = JSON['fps']
-    gameType = JSON['gameType']
-    formFactor = JSON['formFactor']
-    purpose = JSON['purpose']
-    theme = JSON['theme']
-
-    ''' Parts are chosen in a specific sequence,\
-    as some depend on each other '''
-    # percents[<part-name>] grabs the budget for that specifc part
-    cpu = get_cpu(percents['CPU'], formFactor, purpose)
-    mobo = get_mobo(percents['Mobo'], cpu, formFactor, theme)
-    cooler = get_cooler(percents['COOLER'], formFactor, cpu, mobo)
-    gpu = get_gpu(percents['GPU'], formFactor, resolution, fps, gameType, theme)
-    case = get_case(percents['CASE'], formFactor, purpose, mobo, gpu, cooler)
-    ram = get_ram(percents['RAM'], formFactor)
-    ssd = get_ssd(percents['SSD'], case, mobo)
-    hdd = get_hdd(percents['HDD'], case)
-    watts = cpu['power_consumption'] + gpu['power_consumption'] + cooler['power_consumption']
-    psu = get_psu(percents['PSU'], case, watts)
-
-    ''' Before the PC is returned, the algorithm
-    first checks that all parts integrate correctly with each other, 
-    by using the validator in the computer table in models.py '''
-    if cooler['type'] == 'air':
-        pc = computer(motherboard=mobo, aircooler=cooler,
-            cpu=cpu, gpu=gpu, ram=ram, case=case, ssd=ssd, hdd=hdd, psu=psu)
-    else:
-        pc = computer(motherboard=mobo, watercooler=cooler,
-            cpu=cpu, gpu=gpu, ram=ram, case=case, ssd=ssd, hdd=hdd, psu=psu)
-    if pc.is_valid_computer is True:
-        return {} # A dictionary containing all parts and its details
-    else:
-        pass
-
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 ''' Below are the functions that get the parts based on inputs from the main function '''
 ''' Basic documentation is provided as general guidance, however feel free to add additionals '''
@@ -164,25 +120,90 @@ def get_case(budget, formFactor, purpose, mobo, gpu, cooler):
     pass
 
 
-def get_ram(budget, formFactor):
+def get_ram(budget, mobo, cpu):
     ''' Below is the explanation of how this function is going to work '''
+    # Follow the same previous pattern, first filter by budget
+    # Next filter any ram sets that exceed the maximum slot number on the mobo
+    # Then check if the mobo and cpu support DDr5, if so then suggest a DDr5 ram set
+    # If not then filter out anything that is DDr5 and keep the DDr4
     pass
 
 
 def get_ssd(budget, case, mobo):
     ''' Below is the explanation of how this function is going to work '''
+    # Follow the same previous pattern, first filter by budget
+    # An SSD must hold the main OS at least, and preferablly be as fast as possible
+    # There for check for the fastest SSD sockets going down, and filter out as you go
+    # You can do so by checking sockets on the motherboard, using relative fields 
+    # At the end filter what's left based on the fastest speed and highest storage
     pass
 
 
-def get_hdd(budget, case):
+def get_hdd(budget, case, gameType):
     ''' Below is the explanation of how this function is going to work '''
+    # Again, filter by budget
+    # Generally, AAA games require more storage as they are larger in storage 
+    # For HDDs, prioritize storage over speed 
+    # Also check that their are available disk storage space in the case
     pass
 
 
 def get_psu(budget, formfactor, watts):
     ''' Below is the explanation of how this function is going to work '''
+    # Filter out by budget 
+    # Then filter out based on formFactor (ATX, ITX, etc)
+    # Then filter for the minimum required watts given in the parameter 
+    # Finally go from the highest rating (Platinum) to lowest (Bronze), 
+    # check if there is any psu from the higher ratings, keep it and remove all else
     pass
+
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+
+
+def main(JSON):
+    ''' This function calls on all PC parts, using input from user's\
+    JSON preferences to filter out different parts '''
+    ''' The function also checks that suggested parts integrate correctly\
+    with each other, before sending a response to the user '''
+    global partPercentages
+    price = JSON['Budget']
+    percents = partPercentages[price]
+    
+    resolution = JSON['resolution']
+    fps = JSON['fps']
+    gameType = JSON['gameType']
+    formFactor = JSON['formFactor']
+    purpose = JSON['purpose']
+    theme = JSON['theme']
+
+    ''' Parts are chosen in a specific sequence,\
+    as some depend on each other '''
+    # percents[<part-name>] grabs the budget for that specifc part
+    cpu = get_cpu(percents['CPU'], formFactor, purpose)
+    mobo = get_mobo(percents['Mobo'], cpu, formFactor, theme)
+    cooler = get_cooler(percents['COOLER'], formFactor, cpu, mobo)
+    gpu = get_gpu(percents['GPU'], formFactor, resolution, fps, gameType, theme)
+    case = get_case(percents['CASE'], formFactor, purpose, mobo, gpu, cooler)
+    ram = get_ram(percents['RAM'], mobo, cpu)
+    ssd = get_ssd(percents['SSD'], case, mobo)
+    hdd = get_hdd(percents['HDD'], case, gameType)
+    watts = cpu['power_consumption'] + gpu['power_consumption'] + cooler['power_consumption']
+    psu = get_psu(percents['PSU'], case, watts)
+
+    ''' Before the PC is returned, the algorithm
+    first checks that all parts integrate correctly with each other, 
+    by using the validator in the computer table in models.py '''
+    if cooler['type'] == 'air':
+        pc = computer(motherboard=mobo, aircooler=cooler,
+            cpu=cpu, gpu=gpu, ram=ram, case=case, ssd=ssd, hdd=hdd, psu=psu)
+    else:
+        pc = computer(motherboard=mobo, watercooler=cooler,
+            cpu=cpu, gpu=gpu, ram=ram, case=case, ssd=ssd, hdd=hdd, psu=psu)
+    if pc.is_valid_computer is True:
+        return {} # A dictionary containing all parts and its details
+    else:
+        pass
+
 
