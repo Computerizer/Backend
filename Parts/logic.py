@@ -4,12 +4,10 @@ class algorithm:
     def __init__(self, JSON):
         self.budget = int(JSON['budget'])
         self.fps = int(JSON['fps'])
-        self.resolution = int(JSON['resolution'][0])
-        self.gametype = str(JSON['gametype'])
+        self.resolution = int(JSON['resolution'][      self.gametype = str(JSON['gametype'])
         self.formFactor = str(JSON['formFactor'])
         self.purpose = str(JSON['purpose'])
-        self.theme = JSON['theme'][0]
-        if JSON['theme'][1] == 'RGB':
+        self.theme = JSON['theme'][     if JSON['theme'][1] == 'RGB':
             self.rgb = True
         else:
             self.rgb = False
@@ -18,28 +16,28 @@ class algorithm:
     ''' The CPU and GPU should both have the largest share of the budget '''
     ''' Also because they are the most important component in a PC '''
     def getPercents(self, part):
-        #Percents in the order: CPU-GPU-RAM-MOBO-COOLER-PSU-FAN-CASE-STORAGE
+        #Percents in the order: CPU - GPU - RAM - MOBO - COOLER - PSU - CASE - STORAGE
         #The part parameter is to be send as an argument from the calling function(eg:0 is CPU, 2 if RAM)
         partPercentages = {
-        500: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        750: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        1000:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        1250:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        1500:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        1750:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        2000:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        2250:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        2500:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        2750:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        3000:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        3250:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        3500:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        3750:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        4000:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        4250:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        4500:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        4750:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        5000:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        500: [16, 33, 21, 5, 4, 4, 7, 10],
+        750: [21, 37, 22, 4, 4, 4, 3, 5],
+        1000:[0, 0, 0, 0, 0, 0, 0, 0],
+        1250:[0, 0, 0, 0, 0, 0, 0, 0],
+        1500:[0, 0, 0, 0, 0, 0, 0, 0],
+        1750:[0, 0, 0, 0, 0, 0, 0, 0],
+        2000:[0, 0, 0, 0, 0, 0, 0, 0],
+        2250:[0, 0, 0, 0, 0, 0, 0, 0],
+        2500:[0, 0, 0, 0, 0, 0, 0, 0],
+        2750:[0, 0, 0, 0, 0, 0, 0, 0],
+        3000:[0, 0, 0, 0, 0, 0, 0, 0],
+        3250:[0, 0, 0, 0, 0, 0, 0, 0],
+        3500:[0, 0, 0, 0, 0, 0, 0, 0],
+        3750:[0, 0, 0, 0, 0, 0, 0, 0],
+        4000:[0, 0, 0, 0, 0, 0, 0, 0],
+        4250:[0, 0, 0, 0, 0, 0, 0, 0],
+        4500:[0, 0, 0, 0, 0, 0, 0, 0],
+        4750:[0, 0, 0, 0, 0, 0, 0, 0],
+        5000:[0, 0, 0, 0, 0, 0, 0, 0],
         }
         percents = partPercentages[self.budget]
         return percents[part]
