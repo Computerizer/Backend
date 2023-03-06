@@ -19,6 +19,7 @@ class algorithm:
     ''' Also because they are the most important component in a PC '''
     def getPercents(self, part):
         #Percents in the order: CPU-GPU-RAM-MOBO-COOLER-PSU-FAN-CASE-STORAGE
+        #The part parameter is to be send as an argument from the calling function(eg:0 is CPU, 2 if RAM)
         partPercentages = {
         500: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         750: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
