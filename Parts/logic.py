@@ -16,13 +16,13 @@ class algorithm:
     ''' The CPU and GPU should both have the largest share of the budget '''
     ''' Also because they are the most important component in a PC '''
     def getPercents(self, part):
-        #Percents in the order: CPU - GPU - RAM - MOBO - COOLER - PSU - CASE - STORAGE
+        #Percents in the order: CPU - GPU - MOBO - RAM - STORAGE - COOLER - PSU - CASE
         #The part parameter is to be send as an argument from the calling function(eg:0 is CPU, 2 if RAM)
         partPercentages = {
         500: [16, 33, 21, 5, 4, 4, 7, 10],
         750: [21, 37, 22, 4, 4, 4, 3, 5],
-        1000:[0, 0, 0, 0, 0, 0, 0, 0],
-        1250:[0, 0, 0, 0, 0, 0, 0, 0],
+        1000:[21, 37, 16, 5, 5, 8, 7, 7],
+        1250:[17, 38, 15, 5, 5, 6, 8, 6],
         1500:[0, 0, 0, 0, 0, 0, 0, 0],
         1750:[0, 0, 0, 0, 0, 0, 0, 0],
         2000:[0, 0, 0, 0, 0, 0, 0, 0],
@@ -117,19 +117,21 @@ class algorithm:
         pass
 
     def getComputer(self):
-        cpu = self.__getCpu(self.getPercents('CPU'))
-        mobo = self.__getMobo(self.getPercents('MOBO'), cpu)
-        cooler = self.__getCooler(self.getPercents('COOLER'), cpu, mobo)
-        gpu = self.__getGpu(self.getPercents('GPU'))
-        case = self.__getCase(self.getPercents('CASE'), mobo, gpu, cooler)
-        ram = self.__getRam(self.getPercents('RAM'), mobo, cpu)
-        storage = self.__getStorage(self.getPercents('STORAGE'), case, mobo)
+        #Percents in the order: CPU - GPU - MOBO - RAM - STORAGE - COOLER - PSU - CASE
+    
+        cpu = self.__getCpu(self.getPercents(0))
+        mobo = self.__getMobo(self.getPercents(2), cpu)
+        cooler = self.__getCooler(self.getPercents(5), cpu, mobo)
+        gpu = self.__getGpu(self.getPercents(1))
+        case = self.__getCase(self.getPercents(7), mobo, gpu, cooler)
+        ram = self.__getRam(self.getPercents(3), mobo, cpu)
+        storage = self.__getStorage(self.getPercents(4), case, mobo)
         watts = cpu['power_consumption'] + gpu['power_consumption'] + cooler['power_consumption']
-        psu = self.__getPsu(self.getPercents('PSU'), case, watts)
+        psu = self.__getPsu(self.getPercents(6), case, watts)
         #Before returning the PC to the views, we should run some error checking and integration checking
-        case = self.check(cpu, mobo, cooler, gpu, case, ram, storage, psu)
-        if case is True:
-            return{}
+        condition = self.check(cpu, mobo, cooler, gpu, case, ram, storage, psu)
+        if condition is True:
+            return[cpu, mobo, cooler, gpu, case, ram, storage, watts, psu]
         else:
             pass
 
