@@ -9,10 +9,10 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view,permission_classes,authentication_classes
-import operator
+
 #####################################################################
 #####################################################################
-#####################################################################
+
 @api_view(['GET'])
 def List_all_cpu(request):
     name = request.query_params.get('name')

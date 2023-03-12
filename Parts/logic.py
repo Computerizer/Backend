@@ -4,10 +4,12 @@ class algorithm:
     def __init__(self, JSON):
         self.budget = int(JSON['budget'])
         self.fps = int(JSON['fps'])
-        self.resolution = int(JSON['resolution'][      self.gametype = str(JSON['gametype'])
+        self.resolution = int(JSON['resolution'])
+        self.gametype = str(JSON['gametype'])
         self.formFactor = str(JSON['formFactor'])
         self.purpose = str(JSON['purpose'])
-        self.theme = JSON['theme'][     if JSON['theme'][1] == 'RGB':
+        self.theme = JSON['theme']     
+        if JSON['theme'][1] == 'RGB':
             self.rgb = True
         else:
             self.rgb = False
