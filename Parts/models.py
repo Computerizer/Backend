@@ -646,6 +646,7 @@ class computer(models.Model):
 #                                       ALGORITHM                                       #
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+# Developement to be done on Jupyter Notebooks 
 class algorithm:
     def __init__(self, JSON):
         self.budget = int(JSON['budget'])
@@ -693,6 +694,11 @@ class algorithm:
     ''' For questions or bugs, please raise an issue here: https://github.com/Computerizer/FULL-STACK/issues '''
     #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 
+    # If several parts remain, sort by highest rating.
+    # If there are parts with the same rating, suggest lowest price 
+    # If part's specific budget is 200$, create a range of 10% above and below (so range 180 - 220)
+
+    # Yusuf
     def __getCpu(self, budgetPercentage):
         # All CPUs are firstly filtered by budget from the CPUs table
         # The formFactor and purpose paramters play a role in deciding which CPU to choose
@@ -704,6 +710,7 @@ class algorithm:
         # and its also for ATX builds.
         pass
     
+    # Omar
     def __getGpu(self, budgetPercentage):
         # The GPU is a bit more complicated than the CPU
         # As there are many parameters involved 
@@ -713,6 +720,7 @@ class algorithm:
         # And for that you can use the (supported_resolution, boost_clock, etc) fields
         pass
     
+    # Omar
     def __getRam(self, budgetPercentage, MOBO, CPU):
         # Follow the same previous pattern, first filter by budget
         # Next filter any ram sets that exceed the maximum slot number on the mobo
@@ -720,6 +728,7 @@ class algorithm:
         # If not then filter out anything that is DDr5 and keep the DDr4
         pass
     
+    # Emad
     def __getMobo(self, budgetPercentage, CPU):
         # Choosing a motherboard is pretty simple 
         # Firstly filter by budget, then by theme.
@@ -727,6 +736,7 @@ class algorithm:
         # Finally we filter based on formFactor: ATX, Micro-ATX, or Mini-ITX
         pass
     
+    # Yusuf
     def __getCooler(self, budgetPercentage, CPU, MOBO):
         # Again filter anything outside the budget range 
         # Based on formFactor(ATX-Micro-Mini), purpose, budget, and the cpu type
@@ -735,6 +745,7 @@ class algorithm:
         # Finally filter out any coolers that aren't compatible with the motherboard/CPU
         pass
     
+    # Emad
     def __getStorage(self, budgetPercentage, CASE, MOBO):
         # Follow the same previous pattern, first filter by budget
         # An SSD must hold the main OS at least, and preferablly be as fast as possible
@@ -743,6 +754,7 @@ class algorithm:
         # At the end filter what's left based on the fastest speed and highest storage
         pass
     
+    # Yusuf
     def __getCase(self, budgetPercentage, MOBO, GPU, COOLER):
         # Obviously, we filter by price/budget firstly 
         # Then we fitler based on the formfactor (ATX, micro, or mini)
@@ -752,6 +764,7 @@ class algorithm:
         # if its a watercooler, then check that the radiator fits 
         pass
     
+    # Omar
     def __getPsu(self, budgetPercentage, CASE, WATTS):
         # Filter out by budget 
         # Then filter out based on formFactor (ATX, ITX, etc)
@@ -760,9 +773,7 @@ class algorithm:
         # check if there is any psu from the higher ratings, keep it and remove all else
         pass
 
-    def getComputer(self):
-        #Percents in the order: CPU - GPU - MOBO - RAM - STORAGE - COOLER - PSU - CASE
-    
+    def getComputer(self):    
         cpu = self.__getCpu(self.getPercents(0))
         mobo = self.__getMobo(self.getPercents(2), cpu)
         cooler = self.__getCooler(self.getPercents(5), cpu, mobo)
@@ -772,10 +783,17 @@ class algorithm:
         storage = self.__getStorage(self.getPercents(4), case, mobo)
         watts = cpu['power_consumption'] + gpu['power_consumption'] + cooler['power_consumption']
         psu = self.__getPsu(self.getPercents(6), case, watts)
+        
         #Before returning the PC to the views, we should run some error checking and integration checking
-        condition = self.check(cpu, mobo, cooler, gpu, case, ram, storage, psu)
+        condition = False
+        if mobo.socket == cpu.socket:
+            if case.width > gpu.length:
+                if cooler.height < case.depth:
+                    condition = True
+        else:
+            condition = False 
+            
         if condition is True:
             return[cpu, mobo, cooler, gpu, case, ram, storage, watts, psu]
         else:
-            pass  
-    
+            raise LookupError
