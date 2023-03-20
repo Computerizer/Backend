@@ -342,7 +342,6 @@ class ram(commoninfo):
     )
 
     ddr_type = (
-        ('DDR3', 'DDR3'),
         ('DDR4', 'DDR4'),
         ('DDR5', 'DDR5')
     )
@@ -609,8 +608,8 @@ class computer(models.Model):
     cpu           = models.ForeignKey(cpu, on_delete= models.CASCADE)
     gpu           = models.ForeignKey(gpu, on_delete= models.CASCADE)
     ram           = models.ForeignKey(ram, on_delete= models.CASCADE)
-    ssd          = models.ForeignKey(ssd, null=True, blank=True, on_delete= models.CASCADE, related_name='ssd1')
-    hdd          = models.ForeignKey(hdd, null=True, blank=True, on_delete= models.CASCADE, related_name='hdd1')
+    ssd           = models.ForeignKey(ssd, null=True, blank=True, on_delete= models.CASCADE, related_name='ssd1')
+    hdd           = models.ForeignKey(hdd, null=True, blank=True, on_delete= models.CASCADE, related_name='hdd1')
     psu           = models.ForeignKey(psu, on_delete= models.CASCADE)
     case          = models.ForeignKey(case, on_delete= models.CASCADE)
 
@@ -794,6 +793,19 @@ class algorithm:
             condition = False 
             
         if condition is True:
-            return[cpu, mobo, cooler, gpu, case, ram, storage, watts, psu]
+            return[cpu, mobo, cooler, gpu, case, ram, storage, psu]
         else:
             raise LookupError
+        
+
+# Below is an exmaple of a JSON request we will get from the tool's frontend
+JSON = {
+    'budget': 4000,
+    'fps': 144,
+    'resolution': '4k',
+    'gametype': 'AAA',
+    'formFactor': 'ATX',
+    'purpose': 'Table Top',
+    'theme': ['Dark', 'RGB'],
+    'question': {'Q1': None, 'Q2': None}
+}
