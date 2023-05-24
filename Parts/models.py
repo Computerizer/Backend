@@ -654,7 +654,7 @@ class algorithm:
         self.gametype = str(JSON['gametype'])
         self.formFactor = str(JSON['formFactor'])
         self.purpose = str(JSON['purpose'])
-        self.theme = JSON['theme']     
+        self.theme = JSON['theme'][0]     
         if JSON['theme'][1] == 'RGB':
             self.rgb = True
         else:
