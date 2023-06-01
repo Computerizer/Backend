@@ -740,7 +740,7 @@ class algorithm:
         cpuSocket = CPU.socket # String val, either: AM4, LGA1700, LGA1200
         currentDate = datetime.today()
         dateOfUpdate = currentDate - timedelta(days=4) #Older than 4 days ago from today
-        mobo = cpu.objects.filter(
+        mobo = motherboard.objects.filter(
             socket=cpuSocket).filter(
             current_price__gte=budgetLowerBound).filter(
             current_price__lte=budgetUpperBound).filter(
@@ -752,7 +752,7 @@ class algorithm:
 
         highest_rating = mobo.objects.order_by('-rating')[:3]
         lowest_price = mobo.objects.order_by('current_price')[:3]
-        lowPrice_and_highRating = highest_rating.intersection(lowest_price)
+        lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
         return lowPrice_and_highRating
         
     # Yusuf
