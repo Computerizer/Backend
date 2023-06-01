@@ -734,8 +734,27 @@ class algorithm:
         # Firstly filter by budget, then by theme.
         # Then we filter based on our CPU choice (CPU-socket field), AMD and Intel use different mobos
         # Finally we filter based on formFactor: ATX, Micro-ATX, or Mini-ITX
-        pass
-    
+        budget = (self.budget * budgetPercentage) // 100 # Calculating budget from given percentage
+        budgetLowerBound = budget - ((budget*15)//100)
+        budgetUpperBound = budget + ((budget*15)//100)
+        cpuSocket = CPU.socket # String val, either: AM4, LGA1700, LGA1200
+        currentDate = datetime.today()
+        dateOfUpdate = currentDate - timedelta(days=4) #Older than 4 days ago from today
+        mobo = cpu.objects.filter(
+            socket=cpuSocket).filter(
+            current_price__gte=budgetLowerBound).filter(
+            current_price__lte=budgetUpperBound).filter(
+            size=self.formFactor).filter(
+            rgb=self.rgb).filter(
+            theme=self.theme).exclue(
+            rating__lte=4.0).exclude(
+            last_modified__lt=dateOfUpdate)
+
+        highest_rating = mobo.objects.order_by('-rating')[:3]
+        lowest_price = mobo.objects.order_by('current_price')[:3]
+        lowPrice_and_highRating = highest_rating.intersection(lowest_price)
+        return lowPrice_and_highRating
+        
     # Yusuf
     def __getCooler(self, budgetPercentage, CPU, MOBO):
         # Again filter anything outside the budget range 
