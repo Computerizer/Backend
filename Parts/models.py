@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.postgres import *
-from datetime import datetime
+from datetime import datetime, timedelta
 from django.utils import timezone
 
 class manufacturer(models.Model):
@@ -91,7 +91,6 @@ class cpu(commoninfo):
         ('LGA 1700', 'LGA 1700'),
         ('LGA 1200', 'LGA 1200')
     )
-    model_name          = models.CharField(max_length=20)#WANTED
     cores               = models.PositiveIntegerField()#WANTED
     threads             = models.PositiveIntegerField()#WANTED
     base_speed          = models.FloatField()#WANTED
@@ -134,9 +133,9 @@ class aircooler(commoninfo):
     ]
 
     sizes = (
-        ('Large', 'Large'),
-        ('Average', 'Average'),
-        ('Small', 'Small')
+        ('ATX', 'ATX'),
+        ('MicroAtx', 'MicroAtx'),
+        ('MiniItx', 'MiniItx')
     )
     socket            = models.CharField(choices=sockets, max_length=15)#WANTED
     size              = models.CharField(choices=sizes, max_length=10)#WANTED
@@ -797,27 +796,16 @@ class algorithm:
         cooler = self.__getCooler(self.getPercents(5), cpu, mobo)
         gpu = self.__getGpu(self.getPercents(1))
         case = self.__getCase(self.getPercents(7), mobo, gpu, cooler)
-        if case.has_fans is False or case.num_of_fans < 3:
-            required_num_of_fans = 3 - case.num_of_fans
-            fans = self.__getFans(self.getPercents(8), case, mobo, required_num_of_fans)
         ram = self.__getRam(self.getPercents(3), mobo, cpu)
         storage = self.__getStorage(self.getPercents(4), case, mobo)
         watts = cpu['power_consumption'] + gpu['power_consumption'] + cooler['power_consumption']
         psu = self.__getPsu(self.getPercents(6), case, watts)
         
         #Before returning the PC to the views, we should run some error checking and integration checking
-        condition = False
-        if mobo.socket == cpu.socket:
-            if case.width > gpu.length:
-                if cooler.height < case.depth:
-                    condition = True
-        else:
-            condition = False 
-        if condition is True:
+        try:
             return[cpu, mobo, cooler, gpu, case, ram, storage, psu]
-        else:
-            raise LookupError
-        
+        except Exception as error:
+            return error
 
 # Below is an exmaple of a JSON request we will get from the tool's frontend
 JSON = {
