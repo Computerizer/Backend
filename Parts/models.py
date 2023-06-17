@@ -764,12 +764,65 @@ class algorithm:
     
     # Emad
     def __getStorage(self, budgetPercentage, CASE, MOBO):
-        # Follow the same previous pattern, first filter by budget
+            # Follow the same previous pattern, first filter by budget
         # An SSD must hold the main OS at least, and preferablly be as fast as possible
         # There for check for the fastest SSD sockets going down, and filter out as you go
         # You can do so by checking sockets on the motherboard, using relative fields 
         # At the end filter what's left based on the fastest speed and highest storage
-        pass
+        budget = (self.budget * budgetPercentage) // 100 # Calculating budget from given percentage
+        budgetLowerBound = budget - ((budget*15)//100)
+        budgetUpperBound = budget + ((budget*15)//100)
+        currentDate = datetime.today()
+        dateOfUpdate = currentDate - timedelta(days=4) #Older than 4 days ago from today
+        ssd_count = 0
+        hdd_count = 0
+        ssd_price = 0
+        hdd_price = 0
+        if (self.formFactor == 'MiniItx') or (self.purpose == 'ConsoleKiller'):
+            ssd_count = 1
+            ssd_price = budget
+        else:
+            ssd_count = 1
+            hdd_count = 1
+            ssd_price = budget * 0.7
+            hdd_price = budget - ssd_price
+        
+        if ssd_count > 0 and hdd_count == 0:
+            SSD = ssd.objects.filter(
+                current_price__gte=float(ssd_price - ((ssd_price*15)//100))).filter(
+                current_price__lte=float(ssd_price + ((ssd_price*15)//100))).filter(
+                rgb=self.rgb).exclude(
+                rating__lte=4.0).exclude(
+                last_modified__lt=dateOfUpdate)
+            
+        elif ssd_count > 0  and hdd_count > 0:
+            SSD = ssd.objects.filter(
+                current_price__gte=float(ssd_price - ((ssd_price*15)//100))).filter(
+                current_price__lte=float(ssd_price + ((ssd_price*15)//100))).filter(
+                rgb=self.rgb).exclude(
+                rating__lte=4.0).exclude(
+                last_modified__lt=dateOfUpdate)
+            
+            HDD = hdd.objects.filter(
+                current_price__gte=float(hdd_price - ((hdd_price*15)//100))).filter(
+                current_price__lte=float(hdd_price + ((hdd_price*15)//100))).filter(
+                rgb=self.rgb).exclude(
+                rating__lte=4.0).exclude(
+                last_modified__lt=dateOfUpdate)
+        
+        if HDD.count() == 0:
+            highest_rating = SSD.objects.order_by('-rating')[:5]
+            lowest_price = SSD.objects.order_by('current_price')[:5]
+            lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+            return lowPrice_and_highRating
+        else:
+            highest_rating_ssd = SSD.objects.order_by('-rating')[:5]
+            lowest_price_ssd = SSD.objects.order_by('current_price')[:5]
+            lowPrice_and_highRating_ssd = highest_rating_ssd.intersection(lowest_price_ssd).first()
+            highest_rating_hdd = HDD.objects.order_by('-rating')[:5]
+            lowest_price_hdd = HDD.objects.order_by('current_price')[:5]
+            lowPrice_and_highRating_hdd = highest_rating_hdd.intersection(lowest_price_hdd).first()
+            return [lowPrice_and_highRating_ssd, lowPrice_and_highRating_hdd]
     
     # Yusuf
     def __getCase(self, budgetPercentage, MOBO, GPU, COOLER):
