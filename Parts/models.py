@@ -562,12 +562,11 @@ class fan(commoninfo):
 
 class case(commoninfo):
     mobo_size = (
-        (1, 'ATX only'),
-        (2, 'Micro-ATX'),
-        (3, 'ATX and Micro-ITX'),
-        (4, 'Micro-ATX and Mini-ITX'),
-        (4, 'Mini-ITX only'),
+        ('ATX', 'ATX'),
+        ('Micro-ATX', 'Micro-ATX'),
+        ('Mini-ITX', 'Mini-ITX')
     )
+
     mobo_support          = models.IntegerField(choices=mobo_size, null=True) #WANTED
     height                = models.FloatField() #WANTED
     width                 = models.FloatField() #WANTED
@@ -653,7 +652,10 @@ class algorithm:
         self.gametype = str(JSON['gametype'])
         self.formFactor = str(JSON['formFactor'])
         self.purpose = str(JSON['purpose'])
-        self.theme = JSON['theme'][0]     
+        self.theme = JSON['theme'][0] 
+        self.DAYS_ALLOWED = 4 #Number of days allowed to use a part before updating its data using scraper 
+        self.currentDate = datetime.today()
+        self.dateOfUpdate = self.currentDate - timedelta(days=self.DAYS_ALLOWED) # Last day allowed for part use
         if JSON['theme'][1] == 'RGB':
             self.rgb = True
         else:
@@ -706,7 +708,24 @@ class algorithm:
         # and the other paramters, and you can use the formFactor and purpose fields 
         # in the CPU table to help, for example the i9 is both table top and work machine,
         # and its also for ATX builds.
-        pass
+
+        budget = (self.budget * budgetPercentage) // 100 
+        budgetLowerBound = budget - ((budget*15)//100)
+        budgetUpperBound = budget + ((budget*15)//100)
+        
+        Cpu = cpu.object.filter(
+            current_price__gte=budgetLowerBound).filter(
+            current_price__lte=budgetUpperBound).exclude(
+            rating__lte=4.0).exclude(
+            last_modified__lt=self.dateOfUpdate)
+        
+        if self.formFactor == 'MiniITX' or self.purpose == 'Console Killer':
+            Cpu.object.filter(power_consumption__lte = 100)
+
+        highest_rating = Cpu.objects.order_by('-rating')
+        lowest_price = Cpu.objects.order_by('current_price')
+        lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+        return lowPrice_and_highRating
     
     # Omar
     def __getGpu(self, budgetPercentage):
@@ -736,8 +755,7 @@ class algorithm:
         budgetLowerBound = budget - ((budget*15)//100)
         budgetUpperBound = budget + ((budget*15)//100)
         cpuSocket = CPU.socket # String val, either: AM4, LGA1700, LGA1200
-        currentDate = datetime.today()
-        dateOfUpdate = currentDate - timedelta(days=4) #Older than 4 days ago from today
+
         mobo = motherboard.objects.filter(
             socket=cpuSocket).filter(
             current_price__gte=budgetLowerBound).filter(
@@ -746,7 +764,7 @@ class algorithm:
             rgb=self.rgb).filter(
             theme=self.theme).exclude(
             rating__lte=4.0).exclude(
-            last_modified__lt=dateOfUpdate)
+            last_modified__lt=self.dateOfUpdate)
 
         highest_rating = mobo.objects.order_by('-rating')[:5]
         lowest_price = mobo.objects.order_by('current_price')[:5]
@@ -760,7 +778,23 @@ class algorithm:
         # choose either a water or air cooler (criteria can include intend of the pc
         # and how much heat the CPU releases, wich can be estimated by its name and wattage)
         # Finally filter out any coolers that aren't compatible with the motherboard/CPU
-        pass
+        budget = (self.budget * budgetPercentage) // 100 
+        budgetLowerBound = budget - ((budget*15)//100)
+        budgetUpperBound = budget + ((budget*15)//100)
+
+        # currently only using aircoolers
+        cooler = aircooler.objects.filter(
+            current_price__gte=budgetLowerBound).filter(
+            current_price__lte=budgetUpperBound).filter(
+            size = self.formFactor).filter(
+            socket = CPU.socket).exclude(
+            rating__lte=4.0).exclude(
+            last_modified__lt=self.dateOfUpdate)
+        
+        highest_rating = cooler.objects.order_by('-rating')
+        lowest_price = cooler.objects.order_by('current_price')
+        lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+        return lowPrice_and_highRating
     
     # Emad
     def __getStorage(self, budgetPercentage, CASE, MOBO):
@@ -832,7 +866,14 @@ class algorithm:
         # We also make sure that the cooler fits in the case,
         # if its an aircooler then we check for height and clearance, 
         # if its a watercooler, then check that the radiator fits 
-        pass
+        budget = (self.budget * budgetPercentage) // 100 
+        budgetLowerBound = budget - ((budget*15)//100)
+        budgetUpperBound = budget + ((budget*15)//100)
+
+        Case = case.objects.filter(
+            current_price__gte=budgetLowerBound).filter(
+            current_price__lte=budgetUpperBound).filter(
+            size = self.formFactor)
     
     # Omar
     def __getPsu(self, budgetPercentage, CASE, WATTS):
