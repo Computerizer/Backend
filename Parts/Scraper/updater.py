@@ -4,49 +4,41 @@ from datetime import datetime
 from .main import *
 
 
-def cpuUpdate(url):
+def cpuUpdate(url) -> float:
     pass
 
 
-def gpuUpdate(url):
+def gpuUpdate(url) -> float:
     pass
 
 
-def ramUpdate(url):
+def ramUpdate(ur) -> float:
     pass
 
 
-def moboUpdate(url):
+def moboUpdate(url) -> float:
     pass
 
 
-def aircoolerUpdate(url):
+def aircoolerUpdate(url) -> float:
     pass
 
 
-def watercoolerUpdate(url):
+def watercoolerUpdate(url) -> float:
     pass
 
 
-def ssdUpdate(url):
+def storageUpdate(url) -> float:
     pass
 
 
-def hddUpdate(url):
+def psuUpdate(url) -> float:
     pass
 
 
-def psuUpdate(url):
+def caseUpdate(url) -> float:
     pass
 
 
-def fanUpdate(url):
-    pass
-
-
-def caseUpdate(url):
-    pass
-
-
-def main():
+def main() -> float:
     pass

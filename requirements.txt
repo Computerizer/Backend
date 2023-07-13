@@ -5,14 +5,13 @@ markdown==3.3.7
 django-filter==22.1
 pygments==2.12.0
 postgres==4.0
-psycopg2==2.9.3
 Pillow==9.3.0
 selenium==4.3.0
 django-storages==1.13.1
 boto3==1.26.13
 gunicorn==20.1.0
 whitenoise==6.2.0
-django-heroku
 mailchimp-marketing==3.0.80 
 mailchimp 
 django-extensions==0.8
+sentry-sdk

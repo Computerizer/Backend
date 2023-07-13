@@ -2,8 +2,8 @@ from sqlite3 import IntegrityError
 from django.shortcuts import render
 from rest_framework.response import Response
 from Oauth.models import CustomUser
-from .models import Author, Post, Post_Image, Comment, LikeComment, LikePost, Sale, Category
-from .serializer import AuthorSerializer, ImagePostSerializer, PostSerializer, LikePostSerializer, RecentPostSerializer, CommentSerializer, LikeCommentSerializer, SaleSerializer, CategorySerializer
+from .models import Author, Post, Post_Image, Comment, LikeComment, LikePost, Category
+from .serializer import AuthorSerializer, ImagePostSerializer, PostSerializer, LikePostSerializer, RecentPostSerializer, CommentSerializer, LikeCommentSerializer, CategorySerializer
 from django.core.files.storage import default_storage
 from rest_framework.permissions import IsAuthenticated,IsAdminUser,IsAuthenticatedOrReadOnly,AllowAny
 from rest_framework.authentication import TokenAuthentication
@@ -11,16 +11,6 @@ from rest_framework.decorators import api_view,permission_classes,authentication
 from rest_framework.views import APIView
 from django.db.models import Q
 from django.core.paginator import Paginator
-
-
-
-# Create your views here.
-@api_view(['GET'])
-def getSales(request, num_of_sales):
-    sales = Sale.objects.all()
-    serializer = SaleSerializer(sales, many = True)
-    return Response(serializer.data[0:num_of_sales])
-
 
 @api_view(['GET'])
 def getCategories(request):

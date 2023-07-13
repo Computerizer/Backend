@@ -949,7 +949,7 @@ JSON = {
     'budget': 4000,
     'fps': 144,
     'resolution': '4k',
-    'gametype': 'AAA',
+    'gameType': 'AAA',
     'formFactor': 'ATX',
     'purpose': 'Table Top',
     'theme': 'Dark',
