@@ -504,11 +504,14 @@ class psu(commoninfo):
     )
 
     mobo_size = (
-        (1, 'ATX only'),
-        (2, 'Micro-ATX'),
-        (3, 'ATX and Micro-ITX'),
-        (4, 'Micro-ATX and Mini-ITX'),
-        (4, 'Mini-ITX only'),
+        # (1, 'ATX only'),
+        # (2, 'Micro-ATX'),
+        # (3, 'ATX and Micro-ITX'),
+        # (4, 'Micro-ATX and Mini-ITX'),
+        # (4, 'Mini-ITX only'),
+        ('ATX', 'ATX'),
+        ('Micro-ATX', 'Micro-ATX'),
+        ('Mini-ITX', 'Mini-ITX')
     )
     wattage           = models.PositiveIntegerField() #WANTED
     rating            = models.CharField(choices=ratings, max_length=10) #WANTED
@@ -735,6 +738,14 @@ class algorithm:
         # 2) Maximizing GPU performance utilization from motherboard,
         # for example if the mobo doesn't support PCIe5, there is no need to suggest a PCIe5 GPU
         # And for that you can use the (supported_resolution, boost_clock, etc) fields
+        budget = (self.budget * budgetPercentage)// 100
+        HighestPrice = budget + ((budget * 15) // 100)
+        LowestPrice = budget - ((budget * 15) // 100)
+        Gpu = gpu.objects.filter(
+            current_price__gte = LowestPrice).filter(
+            current_price__lte=HighestPrice).exclude(
+            rating__lte=4.0).exclude(
+            last_modified__lt=self.dateOfUpdate)
         pass
     
     # Omar
@@ -743,8 +754,25 @@ class algorithm:
         # Next filter any ram sets that exceed the maximum slot number on the mobo
         # Then check if the mobo and cpu support DDr5, if so then suggest a DDr5 ram set
         # If not then filter out anything that is DDr5 and keep the DDr4
-        pass
-    
+        budget = (self.budget * budgetPercentage)// 100
+        HighestPrice = budget + ((budget * 15) // 100)
+        LowestPrice = budget - ((budget * 15) // 100)
+        ram_sets = MOBO.ram_slots
+        #TODO Filter ram sets that exceed the maximum slot number on the mobo
+        rams = ram.objects.filter(
+            current_price__gte = LowestPrice).filter(
+            current_price__lte=HighestPrice).exclude(
+            rating__lte=4.0).exclude(
+            last_modified__lt=self.dateOfUpdate)
+        if MOBO.ddr_5_support:
+            rams = rams.filter(type='DDR5')
+        else:
+            rams = rams.filter(type='DDR4')
+
+        highest_rating = rams.objects.order_by('-rating')[:5]
+        lowest_price = rams.objects.order_by('current_price')[:5]
+        lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+        return lowPrice_and_highRating
     # Emad
     def __getMobo(self, budgetPercentage, CPU):
         # Choosing a motherboard is pretty simple 
@@ -882,7 +910,22 @@ class algorithm:
         # Then filter for the minimum required watts given in the parameter 
         # Finally go from the highest rating (Platinum) to lowest (Bronze), 
         # check if there is any psu from the higher ratings, keep it and remove all else
-        pass
+        budget = (self.budget * budgetPercentage)// 100
+        HighestPrice = budget + ((budget * 15) // 100)
+        LowestPrice = budget - ((budget * 15) // 100)
+        Size = self.JSON['formFactor'][0]
+        Psu = psu.objects.filter(
+            current_price__gte = LowestPrice).filter(
+            current_price__lte=HighestPrice).filter(
+            size = Size).filter(
+            wattage__gte = WATTS).exclude(
+            rating__lte=4.0).exclude(
+            last_modified__lt=self.dateOfUpdate)
+        
+        highest_rating = Psu.objects.order_by('-ratings').order_by('-rating')[:5]
+        lowest_price = Psu.objects.order_by('current_price')[:5]
+        lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+        return lowPrice_and_highRating
 
     def getComputer(self):    
         cpu = self.__getCpu(self.getPercents(0))
