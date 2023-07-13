@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'Oauth',
     'TPA',
     'storages',
-    'django.contrib.sites',
+    #'django.contrib.sites',
     'django.contrib.sitemaps',
 ]
 SITE_ID = 1 
@@ -143,7 +143,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'Computerizer\static')
 ]
 
-STATIC_URL = 'FULL-STACK\Computerizer\static/'
+STATIC_URL = 'FULL-STACK/Computerizer/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 # AWS_ACCESS_KEY_ID = os.environ['AWS_S3_ACCESS_KEY_ID']
 # AWS_SECRET_ACCESS_KEY = os.environ['AWS_S3_SECRET_ACCESS_KEY']
