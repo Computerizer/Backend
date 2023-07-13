@@ -143,7 +143,7 @@ USE_TZ = True
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'Computerizer/static')
 ]
-
+STATIC_URL = 'FULL-STACK/Computerizer/static'
 # AWS_ACCESS_KEY_ID = os.environ['AWS_S3_ACCESS_KEY_ID']
 # AWS_SECRET_ACCESS_KEY = os.environ['AWS_S3_SECRET_ACCESS_KEY']
 # AWS_STORAGE_BUCKET_NAME = 'computerizer-static'
