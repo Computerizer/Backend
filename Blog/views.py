@@ -2,8 +2,8 @@ from sqlite3 import IntegrityError
 from django.shortcuts import render
 from rest_framework.response import Response
 from Oauth.models import CustomUser
-from .models import Author, Post, Post_Image, Comment, LikeComment, LikePost, Sale, Category
-from .serializer import AuthorSerializer, ImagePostSerializer, PostSerializer, LikePostSerializer, RecentPostSerializer, CommentSerializer, LikeCommentSerializer, SaleSerializer, CategorySerializer
+from .models import Author, Post, Post_Image, Comment,Category
+from .serializer import AuthorSerializer, ImagePostSerializer, PostSerializer, RecentPostSerializer, CommentSerializer, CategorySerializer
 from django.core.files.storage import default_storage
 from rest_framework.permissions import IsAuthenticated,IsAdminUser,IsAuthenticatedOrReadOnly,AllowAny
 from rest_framework.authentication import TokenAuthentication
@@ -15,11 +15,11 @@ from django.core.paginator import Paginator
 
 
 # Create your views here.
-@api_view(['GET'])
-def getSales(request, num_of_sales):
-    sales = Sale.objects.all()
-    serializer = SaleSerializer(sales, many = True)
-    return Response(serializer.data[0:num_of_sales])
+# @api_view(['GET'])
+# def getSales(request, num_of_sales):
+#     sales = Sale.objects.all()
+#     serializer = SaleSerializer(sales, many = True)
+#     return Response(serializer.data[0:num_of_sales])
 
 
 @api_view(['GET'])
@@ -48,16 +48,14 @@ def getRecentPosts(request, num_of_posts, page_num):
             cureent_post = Post.objects.get(id = post["id"])
             post['post_url'] = cureent_post.get_absolute_url()
             post['author'] = cureent_post.author.name
+            post['likes'] = cureent_post.get_likes_num()
+            post['dislikes'] = cureent_post.get_dislikes_num()
 
         return Response(serializer.data)
     else:
         return Response('Out of range')        
 
-@api_view(["GET"])
-def getPostsOrdered(request, order, num_of_posts):
-    posts = Post.objects.filter(status = 'Published').order_by(order).reverse()    
-    serializer = RecentPostSerializer(posts, many=True)
-    return Response(serializer.data[0:num_of_posts])   
+
 
 @api_view(["GET"])
 def getPost(request, title):
@@ -94,8 +92,8 @@ def getPost(request, title):
             'description' : post.description,
             'image': serializer.data['image'],
             'publish_date': post.publish_date,
-            'likes' : post.likes,
-            'dislikes' : post.dislikes,
+            'likes' : post.get_likes_num(),
+            'dislikes' : post.get_dislikes_num(),
             'views' : post.views
         }
     return Response(data, status=200)
@@ -117,8 +115,11 @@ def getComments(request, post_title):
     serializer = CommentSerializer(comments, many = True)
     for i in serializer.data:
         user = CustomUser.objects.get(id = i['user'])
+        comment = Comment.objects.get(id = i['id'])
         i['user'] = user.username
         i['post'] = post.title
+        i['likes'] = comment.get_likes_num()
+        
     return Response(serializer.data)
 
 
@@ -138,9 +139,11 @@ class CreateComment(APIView):
             serializer = CommentSerializer(data= data)
             if serializer.is_valid():
                 serializer.save()
-            return Response(serializer.data)  
+                return Response('success')
+            else:
+                return Response('Not allowed', status=400)  
         else:
-            return Response("You don't have permission to do this")
+            return Response("You don't have permission to do this", status=401)
 
 
 class LikePostView(APIView):
@@ -149,32 +152,25 @@ class LikePostView(APIView):
 
     def post(self, request):
         post = Post.objects.get(title = request.data['post'])
-        user = CustomUser.objects.get(username = request.data['user'])
-        like_state = 'liked'
-        if user == request.user:
-            #check if already diliked or liked by user 
-            try:
-                like_post = LikePost.objects.get(post = post, user = user)
-                if like_post.like_state == like_state:
-                    return Response('post already liked by user')
-                else:    
-                    post.likes += 1
-                    post.dislikes -= 1
-                    post.save()
-                        
-                    like_post.like_state = like_state
-                    like_post.save()
-                    
-            except:    
-                like_post = LikePost( post = post, user = user, like_state = like_state)
-                like_post.save()
+        user = request.user
 
-                post.likes += 1
-                post.save()
+        #check if already diliked or liked by user 
+    
+        if user in post.likes.all():
+            post.likes.remove(user)
 
-            return Response('post liked')
+            post.save()
+            return Response('post unliked')
         else:
-            return Response("You don't have permission to edit this")    
+            if user in post.dislikes.all():
+                post.dislikes.remove(user)
+
+            post.likes.add(user)
+            
+            post.save()
+                
+            return Response('post liked')
+
 
 
 class DislikePost(APIView):
@@ -183,113 +179,25 @@ class DislikePost(APIView):
 
     def post(self, request):
         post = Post.objects.get(title = request.data['post'])
-        user = CustomUser.objects.get(username = request.data['user'])
+        user = request.user
 
-        if request.user == user:
-            like_state = 'disliked'
-            #check if already disliked or liked by user 
-            try:
-                dislike_post = LikePost.objects.get(post = post, user = user)
-                if dislike_post.like_state == 'disliked':
-                    return Response('post already disliked by user')
-                else:    
-                    dislike_post.like_state = like_state
-                    dislike_post.save()
+        
+        #check if already disliked or liked by user 
+        if user in post.dislikes.all():
+            post.dislikes.remove(user)
 
-                    post.likes -= 1
-                    post.dislikes += 1
-                    post.save()
-            except:    
-                dislike_post = LikePost( post = post, user = user, like_state = like_state)
-                dislike_post.save()
+            return Response('post undisliked')
+        else:    
+            if user in post.likes.all():
+                post.likes.remove(user)
 
-                post.dislikes += 1
-                post.save()
-
+            post.dislikes.add(user)
+            
+            post.save()
+            
             return Response('post disliked')
-        else:
-            return Response("You don't have permission to edit this")    
 
 
-@api_view(['GET'])
-def getPostLikes(request, title):
-    post = Post.objects.get(title = title)
-    likes = LikePost.objects.filter(post= post, like_state = 'liked')
-    serializer = LikePostSerializer(likes, many = True)
-
-    #using username and title insted of id number
-    for i in serializer.data:
-        user = CustomUser.objects.get(id = i['user'])
-        i['user'] = user.username
-        i['post'] = post.title
-        
-
-    return Response(serializer.data)
-
-
-@api_view(['GET'])
-def getPostDislikes(request, title):
-    post = Post.objects.get(title = title)
-    dislikes = LikePost.objects.filter(post= post, like_state = 'disliked')
-    serializer = LikePostSerializer(dislikes, many = True)
-
-    #using username and title insted of id number
-    for i in serializer.data:
-        user = CustomUser.objects.get(id = i['user'])
-        i['user'] = user.username
-        i['post'] = post.title
-        
-
-    return Response(serializer.data)
-
-
-
-
-class UnlikePost(APIView):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
-
-
-    def post(self, request):
-        post = Post.objects.get(title = request.data['post'])
-        user = CustomUser.objects.get(username = request.data['user'])
-        if user == request.user:
-            try:
-                liked_post = LikePost.objects.get(post = post, user = user, like_state = 'liked')
-                liked_post.delete()
-
-                if post.likes != 0:
-                    post.likes -= 1
-                post.save()
-            except:
-                return Response("post isn't liked")    
-
-            return Response('post unliked')    
-        else:
-            return Response("You don't have permission to do this")
-
-
-class UndislikePost(APIView):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
-
-    def post(self, request):
-        post = Post.objects.get(title = request.data['post'])
-        user = CustomUser.objects.get(username = request.data['user'])
-        if user == request.user:
-            try:
-                liked_post = LikePost.objects.get(post = post, user = user, like_state = 'disliked') 
-                liked_post.delete()
-
-                if post.dislikes != 0:
-                    post.dislikes -= 1
-                post.save()
-            except:
-                return Response("post isn't disliked")     
-
-            return Response('post undisliked')    
-        else:
-            return Response("You don't have permission to do this")    
 
 
 class LikeCommentView(APIView):
@@ -300,60 +208,24 @@ class LikeCommentView(APIView):
         post = Post.objects.get(title = request.data['post'])
 
         comment = Comment.objects.get(body = request.data['body'], user = comment_user, post = post)
-        user = CustomUser.objects.get(username = request.data['user'])
-        if user == request.user:
-            try:
-                like_comment = LikeComment.objects.get(user = user, comment = comment)
-                return Response('comment already liked by this user')
-            except:
-                like_comment = LikeComment(comment = comment, user = user)
-                like_comment.save()
+        user = request.user
+        if user in comment.likes.all():
+            comment.likes.remove(user)
 
-                comment.likes += 1
-                comment.save()    
+            comment.save()
+
+            return Response('comment unliked')
+        else:
+            comment.likes.add(user)
+
+            comment.save()    
 
             return Response('comment liked')
-        else:
-            return Response("You don't have permission to do this")    
 
 
-class UnlikeComment(APIView):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
-
-    def post(self, request):
-        comment_user = CustomUser.objects.get(username = request.data['comment_user'])
-        post = Post.objects.get(title = request.data['post'])
-
-        comment = Comment.objects.get(body = request.data['body'], user = comment_user, post = post)
-        user = CustomUser.objects.get(username = request.data['user'])
-        if user == request.user:
-            try:
-                like_comment = LikeComment.objects.get(comment = comment , user = user)
-                like_comment.delete()
-
-                if comment.likes != 0:
-                    comment.likes -= 1
-                comment.save()
-            except:
-                return Response("This comment isn't liked by this user")    
-
-            return Response('comment unliked')       
-        else:
-            return Response("You don't have permission to do this")    
+ 
 
 
-
-@api_view(['GET'])
-def getCommentLikes(request, id):
-    comment = Comment.objects.get(id = id)
-    comment_likes = LikeComment.objects.filter(comment = comment)
-    serializer = LikeCommentSerializer(comment_likes, many = True)
-    for i in serializer.data:
-        i['comment'] = comment.body
-        i['user'] = comment.user.username
-
-    return Response(serializer.data)
 
 @api_view(["GET"])
 def searchBlog(request, query):
