@@ -13,15 +13,6 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 
 
-
-# Create your views here.
-# @api_view(['GET'])
-# def getSales(request, num_of_sales):
-#     sales = Sale.objects.all()
-#     serializer = SaleSerializer(sales, many = True)
-#     return Response(serializer.data[0:num_of_sales])
-
-
 @api_view(['GET'])
 def getCategories(request):
     categories = Category.objects.all()

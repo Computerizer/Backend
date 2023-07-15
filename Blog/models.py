@@ -3,7 +3,6 @@ from django.db import models
 from Oauth.models import CustomUser
 # Create your models here.
 class Author(models.Model):
-    #id = models.TextField(primary_key=True)
     name = models.CharField(max_length=64)
     date_of_birth = models.DateField()
     description = models.TextField()
@@ -28,7 +27,6 @@ class Post(models.Model):
 
     title = models.CharField(max_length=258)
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
-    #body = models.FilePathField(path=r'Computerizer/static/Blog/articles', null=True, blank=True)
     body = models.FileField(upload_to= r'Blog/articles', null=True, blank=True)
     description = models.TextField(default=None)
     image = models.ImageField(upload_to = r'Blog/thumbnails')
@@ -66,22 +64,7 @@ class Category(models.Model):
     def __str__(self):
         return f'{self.title}'
 
-# class Sale(models.Model):
-#     part_choices = [
-#         ('CPU' , 'CPU'),
-#         ('GPU' , 'GPU'),
-#         ('COOLER' , 'COOLER'),
-#         ('CASE' , 'CASE'),
-#         ('RAM' , 'RAM')
-#     ]
-#     part_type = models.CharField(choices=part_choices, max_length=6)
-#     part_name = models.CharField(max_length=60)
-#     image = models.ImageField(upload_to = r'Parts/Deal-of-the-week')
-#     body = models.TextField()
-#     link = models.URLField()
 
-#     def __str__(self):
-#         return f'{self.part_type} : {self.part_name}'
 class Comment(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=None)    
     body = models.TextField()
@@ -112,10 +95,10 @@ class Comment(models.Model):
 #     def __str__(self):
 #         return f'{self.post.title}: {self.user}'
 
-# class LikeComment(models.Model):
+class LikeComment(models.Model):
 
-#     comment = models.ForeignKey(Comment, on_delete=models.CASCADE)  
-#     user = models.ForeignKey(CustomUser, on_delete= models.CASCADE)
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)  
+    user = models.ForeignKey(CustomUser, on_delete= models.CASCADE)
 
 #     def __str__(self):
 #         return f'{self.user}: {self.comment.body}'    
