@@ -85,8 +85,13 @@ def getPost(request, title):
             'publish_date': post.publish_date,
             'likes' : post.get_likes_num(),
             'dislikes' : post.get_dislikes_num(),
-            'views' : post.views
+            'views' : post.views,
+            'categories' : []
         }
+    categories = Category.objects.filter(posts = post)
+    for categorie in categories:
+        data['categories'].append(categorie.title)
+
     return Response(data, status=200)
 
 

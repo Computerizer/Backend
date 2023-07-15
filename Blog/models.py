@@ -59,7 +59,7 @@ class Post_Image(models.Model):
 class Category(models.Model):
     image = models.ImageField(upload_to = r'Blog/media')
     title = models.CharField(max_length = 120)
-    posts = models.ManyToManyField(Post)
+    posts = models.ManyToManyField(Post, blank=True)
 
     def __str__(self):
         return f'{self.title}'
