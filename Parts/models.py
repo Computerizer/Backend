@@ -928,11 +928,36 @@ class algorithm:
         return lowPrice_and_highRating
 
     def getComputer(self):    
-        cpu = self.__getCpu(self.getPercents(0))
-        mobo = self.__getMobo(self.getPercents(2), cpu)
-        cooler = self.__getCooler(self.getPercents(5), cpu, mobo)
-        gpu = self.__getGpu(self.getPercents(1))
-        case = self.__getCase(self.getPercents(7), mobo, gpu, cooler)
+        try:
+            cpu = self.__getCpu(self.getPercents(0))
+        except Exception:
+            print('CPU ERROR')
+            print(Exception)
+
+        try:
+            mobo = self.__getMobo(self.getPercents(2), cpu)
+        except Exception:
+            print('MOBO ERROR')
+            print(Exception)
+
+        try:
+            cooler = self.__getCooler(self.getPercents(5), cpu, mobo)
+        except Exception:
+            print('COOLER ERROR')
+            print(Exception)
+
+        try:
+            gpu = self.__getGpu(self.getPercents(1))
+        except Exception:
+            print('GPU ERROR')
+            print(Exception)
+
+        try:
+            case = self.__getCase(self.getPercents(7), mobo, gpu, cooler)
+        except Exception:
+            print('CASE ERROR')
+            print(Exception)
+
         ram = self.__getRam(self.getPercents(3), mobo, cpu)
         storage = self.__getStorage(self.getPercents(4), case, mobo)
         watts = cpu['power_consumption'] + gpu['power_consumption'] + cooler['power_consumption']
