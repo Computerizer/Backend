@@ -933,36 +933,65 @@ class algorithm:
         except Exception:
             print('CPU ERROR')
             print(Exception)
+            #or get static part
 
         try:
             mobo = self.__getMobo(self.getPercents(2), cpu)
         except Exception:
             print('MOBO ERROR')
             print(Exception)
+            #or get static part
 
         try:
             cooler = self.__getCooler(self.getPercents(5), cpu, mobo)
         except Exception:
             print('COOLER ERROR')
             print(Exception)
+            #or get static part
 
         try:
             gpu = self.__getGpu(self.getPercents(1))
         except Exception:
             print('GPU ERROR')
             print(Exception)
+            #or get static part
 
         try:
             case = self.__getCase(self.getPercents(7), mobo, gpu, cooler)
         except Exception:
             print('CASE ERROR')
             print(Exception)
+            #or get static part
 
-        ram = self.__getRam(self.getPercents(3), mobo, cpu)
-        storage = self.__getStorage(self.getPercents(4), case, mobo)
-        watts = cpu['power_consumption'] + gpu['power_consumption'] + cooler['power_consumption']
-        psu = self.__getPsu(self.getPercents(6), case, watts)
-        
+        try:
+            ram = self.__getRam(self.getPercents(3), mobo, cpu)
+        except Exception:
+            print('RAM ERROR')
+            print(Exception)
+            #or get static part
+
+        try:
+            storage = self.__getStorage(self.getPercents(4), case, mobo)
+        except Exception:
+            print('STORAGE ERROR')
+            print(Exception)
+            #or get static part
+
+        try:
+            watts = cpu['power_consumption'] + gpu['power_consumption'] + cooler['power_consumption']
+        except Exception:
+            print('ERROR CALCULATING WATTS')
+            print('Check other parts errors...')
+            print(Exception)
+            #or get static part
+
+        try:
+            psu = self.__getPsu(self.getPercents(6), case, watts)
+        except Exception:
+            print('PSU ERROR')
+            print(Exception)
+            #or get static part
+
         #Before returning the PC to the views, we should run some error checking and integration checking
         try:
             return[cpu, mobo, cooler, gpu, case, ram, storage, psu]
@@ -978,6 +1007,5 @@ JSON = {
     'formFactor': 'ATX',
     'purpose': 'Table Top',
     'theme': 'Dark',
-    'RGB': True,
-    'question': {'Q1': None, 'Q2': None}
-}
+    'RGB': True
+    }
