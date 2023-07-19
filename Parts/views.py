@@ -32,10 +32,13 @@ def algorithm_api(request):
         json = request.data['JSON']
         userPC = algorithm(JSON=json)
         result = userPC.getComputer()
+        request.session['uses_left'] -= 1
         return Response(result)
     except Exception:
             print(Exception)
     return Response({'error message': 'maximum user retries, change parameters'})
+
+
 
 #####################################################################
 #####################################################################

@@ -1090,7 +1090,7 @@ def neweggRating(url) -> float:
 # --------- BSTBY -------- #
 
 
-def bestbuyPrice(url) -> float:
+""" def bestbuyPrice(url) -> float:
     # Gets all page content #
     headers = {'User-Agent': choice(user_agents)}
     page = session.get(url, headers=headers, timeout=5)
@@ -1132,7 +1132,7 @@ def bestbuyRating(url) -> float:
     number = r.find('span', class_='ugc-c-review-average font-weight-medium order-1')
     stars = round(float(number.text), 0)
     return (float(stars))
-
+"""
 
 # ------------------------ #
 # ------------------------ #
