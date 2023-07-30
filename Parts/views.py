@@ -22,22 +22,22 @@ def reset_uses(request) -> JsonResponse:
 
 @api_view(['POST'])
 def algorithm_api(request):
-    if 'uses_left' not in request.session:
-        request.session['uses_left'] = 3
-    uses = request.session.get('uses_left', None)
-    if uses == 0:
-        return HttpResponseForbidden('Maximum uses for this session, please reset preferences')
-    
-    try:
-        json = request.data['JSON']
-        userPC = algorithm(JSON=json)
-        result = userPC.getComputer()
-        request.session['uses_left'] -= 1
-        return Response(result)
-    except Exception:
-            print(Exception)
-    return Response({'error message': 'maximum user retries, change parameters'})
-
+#    if 'uses_left' not in request.session:
+#        request.session['uses_left'] = 3
+#    uses = request.session.get('uses_left', None)
+#    if uses == 0:
+#        return HttpResponseForbidden('Maximum uses for this session, please reset preferences')
+#    
+#    try:
+#        json = request.data['JSON']
+#        userPC = algorithm(JSON=json)
+#        result = userPC.getComputer()
+#        request.session['uses_left'] -= 1
+#        return Response(result)
+#    except Exception:
+#            print(Exception)
+#    return Response({'error message': 'maximum user retries, change parameters'})
+    return Response({'Message': 'Hey'})
 
 
 #####################################################################
