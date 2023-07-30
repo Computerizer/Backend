@@ -30,8 +30,8 @@ urlpatterns = [
     path('blog/', include('Blog.urls')),
     path('auth/', include('Oauth.urls')),
     path('parts/', include('Parts.urls')),
-    path('TPA/', include('TPA.urls')),
-    path('', include('frontend.urls')),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    #path('TPA/', include('TPA.urls')),
+    #path('', include('frontend.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemap}, name='django.contrib.sitemaps.views.sitemap'),
     path("robots.txt", robots_txt),
 ]

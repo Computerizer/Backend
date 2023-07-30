@@ -9,19 +9,32 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+#Sentry
+sentry_sdk.init(
+dsn="https://7ea21b52dba04f69bd7fe1105e553d58@o4505521897668608.ingest.sentry.io/4505521914970112",
+integrations=[DjangoIntegration()],
+
+# Set traces_sample_rate to 1.0 to capture 100%
+# of transactions for performance monitoring.
+# We recommend adjusting this value in production.
+traces_sample_rate=1.0,
+
+# If you wish to associate users to errors (assuming you are using
+# django.contrib.auth) you may enable sending PII data.
+send_default_pii=True
+)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
-
-MAILCHIMP_API_KEY = os.environ['MAILCHIMP_API_KEY']
-MAILCHIMP_LIST_ID = os.environ['MAILCHIMP_LIST_ID']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -39,12 +52,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'mailchimp',
     'Parts',
     'Blog',
     'Oauth',
     'TPA',
-    'frontend',    
     'storages',
     'django.contrib.sites',
     'django.contrib.sitemaps',
@@ -96,16 +107,14 @@ WSGI_APPLICATION = 'Computerizer.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 # Using Postgresql db on AWS independant of heroku
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'db_admin',
-        'PASSWORD': os.environ['POSTGRESQL_PASS'],
-        'HOST': 'computerizer-database.cfs83usv6ckv.us-west-2.rds.amazonaws.com',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 
 # Password validation
@@ -147,23 +156,26 @@ USE_TZ = True
 # Until the application's frontend is migrated to react
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'Computerizer/static')
+    os.path.join(BASE_DIR, 'Computerizer\static')
 ]
 
-AWS_ACCESS_KEY_ID = os.environ['AWS_S3_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_S3_SECRET_ACCESS_KEY']
-AWS_STORAGE_BUCKET_NAME = 'computerizer-static'
-AWS_DEFAULT_ACL = None
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_LOCATION = 'static'
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATIC_URL = 'FULL-STACK/Computerizer/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+# AWS_ACCESS_KEY_ID = os.environ['AWS_S3_ACCESS_KEY_ID']
+# AWS_SECRET_ACCESS_KEY = os.environ['AWS_S3_SECRET_ACCESS_KEY']
+# AWS_STORAGE_BUCKET_NAME = 'computerizer-static'
+# AWS_DEFAULT_ACL = None
+# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# AWS_LOCATION = 'static'
+# STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'Oauth.CustomUser' # switch the User model to our Custom Model
 
-ADMIN_ENABLED = False
+ADMIN_ENABLED = True

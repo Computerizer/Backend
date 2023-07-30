@@ -6,15 +6,6 @@
   
 > 👤 Above are all the contributors and team members in charge of Computerizer's developement
 
-
-# Components
-- <a href='https://github.com/Computerizer/FULL-STACK/tree/main/Computerizer/Computerizer'> ROOT </a>  
-- <a href='https://github.com/Computerizer/FULL-STACK/tree/main/Computerizer/Blog'> BLOG </a>  
-- <a href='https://github.com/Computerizer/FULL-STACK/tree/main/Computerizer/Parts'> PARTS </a>  
-- <a href='https://github.com/Computerizer/FULL-STACK/tree/main/Computerizer/Oauth'> AUTH </a>  
-- <a href='https://github.com/Computerizer/FULL-STACK/tree/main/Computerizer/TPA'> 3P API </a>  
-- <a href='https://github.com/Computerizer/FULL-STACK/tree/main/Computerizer/frontend'> FRONT END </a>  
-  
 <br>
 <br>
     

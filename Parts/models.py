@@ -68,11 +68,11 @@ class commoninfo(models.Model):
     data_added          = models.DateField(auto_now_add=True, null=True)
     amazon_url          = models.JSONField(null=True)
     newegg_url          = models.JSONField(null=True)
-    bestbuy_url         = models.JSONField(null=True)
+    #bestbuy_url        = models.JSONField(null=True)
     rating              = models.FloatField(null=True)
     amazon_price        = models.FloatField(null=True)
     newegg_price        = models.FloatField(null=True)
-    bestbuy_price       = models.FloatField(null=True)
+    #bestbuy_price      = models.FloatField(null=True)
     previous_price      = models.FloatField(null=True, default=0.0)
     current_price       = models.FloatField(null=True, blank=True)
     lowest_Price_Link   = models.URLField(null=True, blank=True)
@@ -504,11 +504,14 @@ class psu(commoninfo):
     )
 
     mobo_size = (
-        (1, 'ATX only'),
-        (2, 'Micro-ATX'),
-        (3, 'ATX and Micro-ITX'),
-        (4, 'Micro-ATX and Mini-ITX'),
-        (4, 'Mini-ITX only'),
+        # (1, 'ATX only'),
+        # (2, 'Micro-ATX'),
+        # (3, 'ATX and Micro-ITX'),
+        # (4, 'Micro-ATX and Mini-ITX'),
+        # (4, 'Mini-ITX only'),
+        ('ATX', 'ATX'),
+        ('Micro-ATX', 'Micro-ATX'),
+        ('Mini-ITX', 'Mini-ITX')
     )
     wattage           = models.PositiveIntegerField() #WANTED
     rating            = models.CharField(choices=ratings, max_length=10) #WANTED
@@ -562,12 +565,11 @@ class fan(commoninfo):
 
 class case(commoninfo):
     mobo_size = (
-        (1, 'ATX only'),
-        (2, 'Micro-ATX'),
-        (3, 'ATX and Micro-ITX'),
-        (4, 'Micro-ATX and Mini-ITX'),
-        (4, 'Mini-ITX only'),
+        ('ATX', 'ATX'),
+        ('Micro-ATX', 'Micro-ATX'),
+        ('Mini-ITX', 'Mini-ITX')
     )
+
     mobo_support          = models.IntegerField(choices=mobo_size, null=True) #WANTED
     height                = models.FloatField() #WANTED
     width                 = models.FloatField() #WANTED
@@ -653,7 +655,10 @@ class algorithm:
         self.gametype = str(JSON['gametype'])
         self.formFactor = str(JSON['formFactor'])
         self.purpose = str(JSON['purpose'])
-        self.theme = JSON['theme'][0]     
+        self.theme = JSON['theme'][0] 
+        self.DAYS_ALLOWED = 4 #Number of days allowed to use a part before updating its data using scraper 
+        self.currentDate = datetime.today()
+        self.dateOfUpdate = self.currentDate - timedelta(days=self.DAYS_ALLOWED) # Last day allowed for part use
         if JSON['theme'][1] == 'RGB':
             self.rgb = True
         else:
@@ -706,7 +711,24 @@ class algorithm:
         # and the other paramters, and you can use the formFactor and purpose fields 
         # in the CPU table to help, for example the i9 is both table top and work machine,
         # and its also for ATX builds.
-        pass
+
+        budget = (self.budget * budgetPercentage) // 100 
+        budgetLowerBound = budget - ((budget*15)//100)
+        budgetUpperBound = budget + ((budget*15)//100)
+        
+        Cpu = cpu.object.filter(
+            current_price__gte=budgetLowerBound).filter(
+            current_price__lte=budgetUpperBound).exclude(
+            rating__lte=4.0).exclude(
+            last_modified__lt=self.dateOfUpdate)
+        
+        if self.formFactor == 'MiniITX' or self.purpose == 'Console Killer':
+            Cpu.object.filter(power_consumption__lte = 100)
+
+        highest_rating = Cpu.objects.order_by('-rating')
+        lowest_price = Cpu.objects.order_by('current_price')
+        lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+        return lowPrice_and_highRating
     
     # Omar
     def __getGpu(self, budgetPercentage):
@@ -716,6 +738,14 @@ class algorithm:
         # 2) Maximizing GPU performance utilization from motherboard,
         # for example if the mobo doesn't support PCIe5, there is no need to suggest a PCIe5 GPU
         # And for that you can use the (supported_resolution, boost_clock, etc) fields
+        budget = (self.budget * budgetPercentage)// 100
+        HighestPrice = budget + ((budget * 15) // 100)
+        LowestPrice = budget - ((budget * 15) // 100)
+        Gpu = gpu.objects.filter(
+            current_price__gte = LowestPrice).filter(
+            current_price__lte=HighestPrice).exclude(
+            rating__lte=4.0).exclude(
+            last_modified__lt=self.dateOfUpdate)
         pass
     
     # Omar
@@ -724,8 +754,25 @@ class algorithm:
         # Next filter any ram sets that exceed the maximum slot number on the mobo
         # Then check if the mobo and cpu support DDr5, if so then suggest a DDr5 ram set
         # If not then filter out anything that is DDr5 and keep the DDr4
-        pass
-    
+        budget = (self.budget * budgetPercentage)// 100
+        HighestPrice = budget + ((budget * 15) // 100)
+        LowestPrice = budget - ((budget * 15) // 100)
+        ram_sets = MOBO.ram_slots
+        #TODO Filter ram sets that exceed the maximum slot number on the mobo
+        rams = ram.objects.filter(
+            current_price__gte = LowestPrice).filter(
+            current_price__lte=HighestPrice).exclude(
+            rating__lte=4.0).exclude(
+            last_modified__lt=self.dateOfUpdate)
+        if MOBO.ddr_5_support:
+            rams = rams.filter(type='DDR5')
+        else:
+            rams = rams.filter(type='DDR4')
+
+        highest_rating = rams.objects.order_by('-rating')[:5]
+        lowest_price = rams.objects.order_by('current_price')[:5]
+        lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+        return lowPrice_and_highRating
     # Emad
     def __getMobo(self, budgetPercentage, CPU):
         # Choosing a motherboard is pretty simple 
@@ -736,8 +783,7 @@ class algorithm:
         budgetLowerBound = budget - ((budget*15)//100)
         budgetUpperBound = budget + ((budget*15)//100)
         cpuSocket = CPU.socket # String val, either: AM4, LGA1700, LGA1200
-        currentDate = datetime.today()
-        dateOfUpdate = currentDate - timedelta(days=4) #Older than 4 days ago from today
+
         mobo = motherboard.objects.filter(
             socket=cpuSocket).filter(
             current_price__gte=budgetLowerBound).filter(
@@ -746,7 +792,7 @@ class algorithm:
             rgb=self.rgb).filter(
             theme=self.theme).exclude(
             rating__lte=4.0).exclude(
-            last_modified__lt=dateOfUpdate)
+            last_modified__lt=self.dateOfUpdate)
 
         highest_rating = mobo.objects.order_by('-rating')[:5]
         lowest_price = mobo.objects.order_by('current_price')[:5]
@@ -760,16 +806,85 @@ class algorithm:
         # choose either a water or air cooler (criteria can include intend of the pc
         # and how much heat the CPU releases, wich can be estimated by its name and wattage)
         # Finally filter out any coolers that aren't compatible with the motherboard/CPU
-        pass
+        budget = (self.budget * budgetPercentage) // 100 
+        budgetLowerBound = budget - ((budget*15)//100)
+        budgetUpperBound = budget + ((budget*15)//100)
+
+        # currently only using aircoolers
+        cooler = aircooler.objects.filter(
+            current_price__gte=budgetLowerBound).filter(
+            current_price__lte=budgetUpperBound).filter(
+            size = self.formFactor).filter(
+            socket = CPU.socket).exclude(
+            rating__lte=4.0).exclude(
+            last_modified__lt=self.dateOfUpdate)
+        
+        highest_rating = cooler.objects.order_by('-rating')
+        lowest_price = cooler.objects.order_by('current_price')
+        lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+        return lowPrice_and_highRating
     
     # Emad
     def __getStorage(self, budgetPercentage, CASE, MOBO):
-        # Follow the same previous pattern, first filter by budget
+            # Follow the same previous pattern, first filter by budget
         # An SSD must hold the main OS at least, and preferablly be as fast as possible
         # There for check for the fastest SSD sockets going down, and filter out as you go
         # You can do so by checking sockets on the motherboard, using relative fields 
         # At the end filter what's left based on the fastest speed and highest storage
-        pass
+        budget = (self.budget * budgetPercentage) // 100 # Calculating budget from given percentage
+        budgetLowerBound = budget - ((budget*15)//100)
+        budgetUpperBound = budget + ((budget*15)//100)
+        currentDate = datetime.today()
+        dateOfUpdate = currentDate - timedelta(days=4) #Older than 4 days ago from today
+        ssd_count = 0
+        hdd_count = 0
+        ssd_price = 0
+        hdd_price = 0
+        if (self.formFactor == 'MiniItx') or (self.purpose == 'ConsoleKiller'):
+            ssd_count = 1
+            ssd_price = budget
+        else:
+            ssd_count = 1
+            hdd_count = 1
+            ssd_price = budget * 0.7
+            hdd_price = budget - ssd_price
+        
+        if ssd_count > 0 and hdd_count == 0:
+            SSD = ssd.objects.filter(
+                current_price__gte=float(ssd_price - ((ssd_price*15)//100))).filter(
+                current_price__lte=float(ssd_price + ((ssd_price*15)//100))).filter(
+                rgb=self.rgb).exclude(
+                rating__lte=4.0).exclude(
+                last_modified__lt=dateOfUpdate)
+            
+        elif ssd_count > 0  and hdd_count > 0:
+            SSD = ssd.objects.filter(
+                current_price__gte=float(ssd_price - ((ssd_price*15)//100))).filter(
+                current_price__lte=float(ssd_price + ((ssd_price*15)//100))).filter(
+                rgb=self.rgb).exclude(
+                rating__lte=4.0).exclude(
+                last_modified__lt=dateOfUpdate)
+            
+            HDD = hdd.objects.filter(
+                current_price__gte=float(hdd_price - ((hdd_price*15)//100))).filter(
+                current_price__lte=float(hdd_price + ((hdd_price*15)//100))).filter(
+                rgb=self.rgb).exclude(
+                rating__lte=4.0).exclude(
+                last_modified__lt=dateOfUpdate)
+        
+        if HDD.count() == 0:
+            highest_rating = SSD.objects.order_by('-rating')[:5]
+            lowest_price = SSD.objects.order_by('current_price')[:5]
+            lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+            return lowPrice_and_highRating
+        else:
+            highest_rating_ssd = SSD.objects.order_by('-rating')[:5]
+            lowest_price_ssd = SSD.objects.order_by('current_price')[:5]
+            lowPrice_and_highRating_ssd = highest_rating_ssd.intersection(lowest_price_ssd).first()
+            highest_rating_hdd = HDD.objects.order_by('-rating')[:5]
+            lowest_price_hdd = HDD.objects.order_by('current_price')[:5]
+            lowPrice_and_highRating_hdd = highest_rating_hdd.intersection(lowest_price_hdd).first()
+            return [lowPrice_and_highRating_ssd, lowPrice_and_highRating_hdd]
     
     # Yusuf
     def __getCase(self, budgetPercentage, MOBO, GPU, COOLER):
@@ -779,7 +894,14 @@ class algorithm:
         # We also make sure that the cooler fits in the case,
         # if its an aircooler then we check for height and clearance, 
         # if its a watercooler, then check that the radiator fits 
-        pass
+        budget = (self.budget * budgetPercentage) // 100 
+        budgetLowerBound = budget - ((budget*15)//100)
+        budgetUpperBound = budget + ((budget*15)//100)
+
+        Case = case.objects.filter(
+            current_price__gte=budgetLowerBound).filter(
+            current_price__lte=budgetUpperBound).filter(
+            size = self.formFactor)
     
     # Omar
     def __getPsu(self, budgetPercentage, CASE, WATTS):
@@ -788,19 +910,88 @@ class algorithm:
         # Then filter for the minimum required watts given in the parameter 
         # Finally go from the highest rating (Platinum) to lowest (Bronze), 
         # check if there is any psu from the higher ratings, keep it and remove all else
-        pass
+        budget = (self.budget * budgetPercentage)// 100
+        HighestPrice = budget + ((budget * 15) // 100)
+        LowestPrice = budget - ((budget * 15) // 100)
+        Size = self.JSON['formFactor'][0]
+        Psu = psu.objects.filter(
+            current_price__gte = LowestPrice).filter(
+            current_price__lte=HighestPrice).filter(
+            size = Size).filter(
+            wattage__gte = WATTS).exclude(
+            rating__lte=4.0).exclude(
+            last_modified__lt=self.dateOfUpdate)
+        
+        highest_rating = Psu.objects.order_by('-ratings').order_by('-rating')[:5]
+        lowest_price = Psu.objects.order_by('current_price')[:5]
+        lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+        return lowPrice_and_highRating
 
     def getComputer(self):    
-        cpu = self.__getCpu(self.getPercents(0))
-        mobo = self.__getMobo(self.getPercents(2), cpu)
-        cooler = self.__getCooler(self.getPercents(5), cpu, mobo)
-        gpu = self.__getGpu(self.getPercents(1))
-        case = self.__getCase(self.getPercents(7), mobo, gpu, cooler)
-        ram = self.__getRam(self.getPercents(3), mobo, cpu)
-        storage = self.__getStorage(self.getPercents(4), case, mobo)
-        watts = cpu['power_consumption'] + gpu['power_consumption'] + cooler['power_consumption']
-        psu = self.__getPsu(self.getPercents(6), case, watts)
-        
+        try:
+            cpu = self.__getCpu(self.getPercents(0))
+        except Exception:
+            print('CPU ERROR')
+            print(Exception)
+            #or get static part
+
+        try:
+            mobo = self.__getMobo(self.getPercents(2), cpu)
+        except Exception:
+            print('MOBO ERROR')
+            print(Exception)
+            #or get static part
+
+        try:
+            cooler = self.__getCooler(self.getPercents(5), cpu, mobo)
+        except Exception:
+            print('COOLER ERROR')
+            print(Exception)
+            #or get static part
+
+        try:
+            gpu = self.__getGpu(self.getPercents(1))
+        except Exception:
+            print('GPU ERROR')
+            print(Exception)
+            #or get static part
+
+        try:
+            case = self.__getCase(self.getPercents(7), mobo, gpu, cooler)
+        except Exception:
+            print('CASE ERROR')
+            print(Exception)
+            #or get static part
+
+        try:
+            ram = self.__getRam(self.getPercents(3), mobo, cpu)
+        except Exception:
+            print('RAM ERROR')
+            print(Exception)
+            #or get static part
+
+        try:
+            storage = self.__getStorage(self.getPercents(4), case, mobo)
+        except Exception:
+            print('STORAGE ERROR')
+            print(Exception)
+            #or get static part
+
+        try:
+            watts = cpu['power_consumption'] + gpu['power_consumption'] + cooler['power_consumption']
+        except Exception:
+            print('ERROR CALCULATING WATTS')
+            print('Check other parts errors...')
+            print(Exception)
+            #or get static part
+
+        try:
+            psu = self.__getPsu(self.getPercents(6), case, watts)
+        except Exception:
+            print('PSU ERROR')
+            print(Exception)
+            #or get static part
+
         #Before returning the PC to the views, we should run some error checking and integration checking
         try:
             return[cpu, mobo, cooler, gpu, case, ram, storage, psu]
@@ -812,10 +1003,9 @@ JSON = {
     'budget': 4000,
     'fps': 144,
     'resolution': '4k',
-    'gametype': 'AAA',
+    'gameType': 'AAA',
     'formFactor': 'ATX',
     'purpose': 'Table Top',
     'theme': 'Dark',
-    'RGB': True,
-    'question': {'Q1': None, 'Q2': None}
-}
+    'RGB': True
+    }

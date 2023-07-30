@@ -56,6 +56,8 @@ class CustomUser(AbstractBaseUser):
     staff             = models.BooleanField(default=False,null=True) #staff user not superuser
     admin             = models.BooleanField(default=False,null=True) #admin / superuser
     
+
+
     USERNAME_FIELD  = 'email' #username
 
     #email and password is requierd by default
