@@ -160,7 +160,7 @@ USE_TZ = True
 # Until the application's frontend is migrated to react
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'Computerizer\static')
+    os.path.join(BASE_DIR, 'Computerizer/static')
 ]
 
 STATIC_URL = 'FULL-STACK/Computerizer/static/'
