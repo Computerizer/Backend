@@ -34,7 +34,9 @@ send_default_pii=True
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+
+#SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = 'django-insecure-xi-f@u^3n49lg1g6h(ms=a7g=lyy4f0%8n!_#0k37-krbxq1f#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -44,13 +46,15 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tinymce',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'rest_framework',
     'rest_framework.authtoken',
     'Parts',
@@ -58,8 +62,6 @@ INSTALLED_APPS = [
     'Oauth',
     'TPA',
     'storages',
-    'django.contrib.sites',
-    'django.contrib.sitemaps',
 ]
 SITE_ID = 1 
 # Token Permissions:
@@ -176,9 +178,42 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
-#TINYMCE_JS_URL = 'tinymce/tinymce.min.js'
-TINYMCE_JS_URL = os.path.join(STATIC_URL, "tinymce/tinymce.min.js")
-TINYMCE_COMPRESSOR = True
+TINYMCE_DEFAULT_CONFIG = {
+    "entity_encoding": "raw",
+    "menubar": "file edit view insert format tools table help",
+    "plugins": 'print preview paste importcss searchreplace autolink autosave save code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap emoticons quickbars',
+    "toolbar": "fullscreen preview | undo redo | bold italic forecolor backcolor | formatselect | image link | "
+    "alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | fontsizeselect "
+    "emoticons | ",
+    "custom_undo_redo_levels": 50,
+    "quickbars_insert_toolbar": False,
+    "file_picker_callback": """function (cb, value, meta) {
+        var input = document.createElement("input");
+        input.setAttribute("type", "file");
+        if (meta.filetype == "image") {
+            input.setAttribute("accept", "image/*");
+        }
+        if (meta.filetype == "media") {
+            input.setAttribute("accept", "video/*");
+        }
+
+        input.onchange = function () {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function () {
+                var id = "blobid" + (new Date()).getTime();
+                var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                var base64 = reader.result.split(",")[1];
+                var blobInfo = blobCache.create(id, file, base64);
+                blobCache.add(blobInfo);
+                cb(blobInfo.blobUri(), { title: file.name });
+            };
+            reader.readAsDataURL(file);
+        };
+        input.click();
+    }""",
+    "content_style": "body { font-family:Roboto,Helvetica,Arial,sans-serif; font-size:14px }",
+}
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
