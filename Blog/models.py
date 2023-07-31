@@ -1,7 +1,7 @@
 from distutils.command.upload import upload
 from django.db import models
 from Oauth.models import CustomUser
-from tinymce import models as tinymce_models
+from tinymce.models import HTMLField
 
 # Create your models here.
 class Author(models.Model):
@@ -29,7 +29,7 @@ class Post(models.Model):
 
     title = models.CharField(max_length=258)
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
-    body = tinymce_models.HTMLField(null=True, blank=True)
+    body = HTMLField()
     description = models.TextField(default=None)
     image = models.ImageField(upload_to = r'Blog/thumbnails')
     status = models.CharField(choices = status_choices, max_length=15)
