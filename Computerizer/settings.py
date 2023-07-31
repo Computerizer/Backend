@@ -34,7 +34,7 @@ send_default_pii=True
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tinymce',
     'rest_framework',
     'rest_framework.authtoken',
     'Parts',
@@ -156,10 +157,10 @@ USE_TZ = True
 # Until the application's frontend is migrated to react
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'Computerizer\static')
+    os.path.join(BASE_DIR, 'Computerizer/static')
 ]
 
-STATIC_URL = 'FULL-STACK/Computerizer/static/'
+STATIC_URL = 'FULL-STACK/Computerizer/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 # AWS_ACCESS_KEY_ID = os.environ['AWS_S3_ACCESS_KEY_ID']
@@ -174,6 +175,11 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+
+#TINYMCE_JS_URL = 'tinymce/tinymce.min.js'
+TINYMCE_JS_URL = os.path.join(STATIC_URL, "tinymce/tinymce.min.js")
+TINYMCE_COMPRESSOR = True
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'Oauth.CustomUser' # switch the User model to our Custom Model

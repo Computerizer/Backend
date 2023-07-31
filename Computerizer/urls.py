@@ -27,6 +27,7 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('tinymce/', include('tinymce.urls')),
     path('blog/', include('Blog.urls')),
     path('auth/', include('Oauth.urls')),
     path('parts/', include('Parts.urls')),
