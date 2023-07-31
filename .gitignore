@@ -8,6 +8,7 @@ media
 
 # Other #
 ComputerizerVenv/
+ComputerizerVenv/bin
 
 # Backup files # 
 *.bak 
