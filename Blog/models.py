@@ -1,6 +1,8 @@
 from distutils.command.upload import upload
+from typing import Iterable, Optional
 from django.db import models
 from Oauth.models import CustomUser
+from django.template.defaultfilters import slugify
 from tinymce.models import HTMLField
 
 # Create your models here.
@@ -28,6 +30,7 @@ class Post(models.Model):
     ]
 
     title = models.CharField(max_length=258)
+    slug = models.SlugField()
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
     body = HTMLField()
     description = models.TextField(default=None)
@@ -42,6 +45,11 @@ class Post(models.Model):
     def __str__(self):
         return f'{self.title}'
     
+    def save(self, *args, **kwargs):
+        if not self.title:
+            self.slug = slugify(self.title)
+        return super(Post, self).save(*args, **kwargs)
+    
     def get_likes_num(self):
         return self.likes.count()
     
@@ -49,7 +57,7 @@ class Post(models.Model):
         return self.dislikes.count()
 
     def get_absolute_url(self):
-        return f'post/{self.title}'
+        return f'post/{self.slug}'
 
 class Post_Image(models.Model):
     title= models.CharField(max_length= 60)
