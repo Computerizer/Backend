@@ -29,8 +29,8 @@ class Post(models.Model):
         ('Unpublished', 'unpublished')
     ]
 
-    title = models.CharField(max_length=258)
-    slug = models.SlugField()
+    title = models.CharField(max_length=150)
+    slug = models.CharField(max_length=25, help_text='A dash should be put after each word')
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
     body = HTMLField()
     description = models.TextField(default=None)
@@ -44,11 +44,6 @@ class Post(models.Model):
 
     def __str__(self):
         return f'{self.title}'
-    
-    def save(self, *args, **kwargs):
-        if not self.title:
-            self.slug = slugify(self.title)
-        return super(Post, self).save(*args, **kwargs)
     
     def get_likes_num(self):
         return self.likes.count()
