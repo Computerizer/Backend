@@ -2,7 +2,6 @@ from distutils.command.upload import upload
 from typing import Iterable, Optional
 from django.db import models
 from Oauth.models import CustomUser
-from django.template.defaultfilters import slugify
 from tinymce.models import HTMLField
 
 # Create your models here.
