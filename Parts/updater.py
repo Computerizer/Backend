@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from .scraper import *
 
 
-def cpuUpdate(part) -> float:
+def update(part) -> float:
     oldPrice = part.current_price
     try:
         amazon = amazonPrice(part.url)
@@ -31,38 +31,6 @@ def cpuUpdate(part) -> float:
         amazon_price=amazon, newegg_price=newegg, lowest_Price_Link=link)
         part.save()
         return
-
-
-def gpuUpdate(url) -> float:
-    pass
-
-
-def ramUpdate(ur) -> float:
-    pass
-
-
-def moboUpdate(url) -> float:
-    pass
-
-
-def aircoolerUpdate(url) -> float:
-    pass
-
-
-def watercoolerUpdate(url) -> float:
-    pass
-
-
-def storageUpdate(url) -> float:
-    pass
-
-
-def psuUpdate(url) -> float:
-    pass
-
-
-def caseUpdate(url) -> float:
-    pass
 
 
 def main() -> float:
