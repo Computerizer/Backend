@@ -18,6 +18,8 @@ urlpatterns = [
     #-------------------------------
     path('search/<str:query>', views.searchBlog, name='searchBlog-api'),
 
+    path('test/tinymce', views.test1, name='Tinymcetest')
+
     #------------------------------
 
 ]

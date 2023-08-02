@@ -1,4 +1,5 @@
 from sqlite3 import IntegrityError
+from django.http import HttpResponse
 from django.shortcuts import render
 from rest_framework.response import Response
 from Oauth.models import CustomUser
@@ -219,7 +220,6 @@ class LikeCommentView(APIView):
             return Response('comment liked')
 
 
- 
 
 
 
@@ -236,3 +236,10 @@ def searchBlog(request, query):
     data['categories'] = categoriesSerializer.data
     
     return Response(data)
+
+
+def test1(request):
+    testblog = Post.objects.get()
+    body = testblog.body
+    print(body)
+    return HttpResponse(body)

@@ -1,6 +1,9 @@
 from distutils.command.upload import upload
+from typing import Iterable, Optional
 from django.db import models
 from Oauth.models import CustomUser
+from tinymce.models import HTMLField
+
 # Create your models here.
 class Author(models.Model):
     name = models.CharField(max_length=64)
@@ -25,9 +28,10 @@ class Post(models.Model):
         ('Unpublished', 'unpublished')
     ]
 
-    title = models.CharField(max_length=258)
+    title = models.CharField(max_length=150)
+    slug = models.CharField(max_length=25, help_text='A dash should be put after each word')
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
-    body = models.FileField(upload_to= r'Blog/articles', null=True, blank=True)
+    body = HTMLField()
     description = models.TextField(default=None)
     image = models.ImageField(upload_to = r'Blog/thumbnails')
     status = models.CharField(choices = status_choices, max_length=15)
@@ -47,7 +51,7 @@ class Post(models.Model):
         return self.dislikes.count()
 
     def get_absolute_url(self):
-        return f'post/{self.title}'
+        return f'post/{self.slug}'
 
 class Post_Image(models.Model):
     title= models.CharField(max_length= 60)
