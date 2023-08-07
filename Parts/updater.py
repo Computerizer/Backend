@@ -3,10 +3,11 @@ from datetime import datetime, timedelta, date
 from .scraper import *
 from builtins import Exception
 from django.core.exceptions import *
-from django.db import *
+from django.db import DatabaseError
+import asyncio
 
 
-def update(part) -> float:
+async def update(part) -> float:
     oldPrice = part.current_price
     try:
         amazon = amazonPrice(part.url)
@@ -40,7 +41,7 @@ class updaterException(Exception):
         super().__init__(message)
         self.extraInfo = extra_info
 
-def cpuUpgrade() -> float:
+async def cpuUpgrade() -> float:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = cpu.objects.get(last_modified_lt=condition)[:5]
@@ -54,7 +55,7 @@ def cpuUpgrade() -> float:
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'CPU ----> {DBError}')
 
-def gpuUpgrade() -> float:
+async def gpuUpgrade() -> float:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = gpu.objects.get(last_modified_lt=condition)[:5]
@@ -68,7 +69,7 @@ def gpuUpgrade() -> float:
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'GPU ----> {DBError}')
 
-def ramUpgrade() -> float:
+async def ramUpgrade() -> float:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = ram.objects.get(last_modified_lt=condition)[:5]
@@ -82,7 +83,7 @@ def ramUpgrade() -> float:
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'RAM ----> {DBError}')
 
-def moboUpgrade() -> float:
+async def moboUpgrade() -> float:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = mobo.objects.get(last_modified_lt=condition)[:5]
@@ -96,7 +97,7 @@ def moboUpgrade() -> float:
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'MOBO ----> {DBError}')
 
-def caseUpgrade() -> float:
+async def caseUpgrade() -> float:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = case.objects.get(last_modified_lt=condition)[:5]
@@ -110,7 +111,7 @@ def caseUpgrade() -> float:
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'CASE ----> {DBError}')
 
-def wcUpgrade() -> float:
+async def wcUpgrade() -> float:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = watercooler.objects.get(last_modified_lt=condition)[:5]
@@ -124,7 +125,7 @@ def wcUpgrade() -> float:
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'WC ----> {DBError}')
 
-def acUpgrade() -> float:
+async def acUpgrade() -> float:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = aircooler.objects.get(last_modified_lt=condition)[:5]
@@ -138,7 +139,7 @@ def acUpgrade() -> float:
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'AC ----> {DBError}')
 
-def psuUpgrade() -> float:
+async def psuUpgrade() -> float:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = psu.objects.get(last_modified_lt=condition)[:5]
@@ -152,7 +153,7 @@ def psuUpgrade() -> float:
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'PSU ----> {DBError}')
 
-def ssdUpgrade() -> float:
+async def ssdUpgrade() -> float:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = ssd.objects.get(last_modified_lt=condition)[:5]
@@ -166,7 +167,7 @@ def ssdUpgrade() -> float:
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'SSD ----> {DBError}')
 
-def hddUpgrade() -> float:
+async def hddUpgrade() -> float:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = hdd.objects.get(last_modified_lt=condition)[:5]
@@ -180,15 +181,25 @@ def hddUpgrade() -> float:
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'HDD ----> {DBError}')
 
-def main() -> float:
-    cpuUpgrade()
-    gpuUpgrade()
-    moboUpgrade()
-    caseUpgrade()
-    wcUpgrade()
-    acUpgrade()
-    psuUpgrade()
-    ssdUpgrade()
-    hddUpgrade()
 
-
+async def main():
+    try:
+        tasks = [
+            cpuUpgrade(),
+            gpuUpgrade(),
+            ramUpgrade(),
+            moboUpgrade(),
+            caseUpgrade(),
+            wcUpgrade(),
+            acUpgrade(),
+            psuUpgrade(),
+            ssdUpgrade(),
+            hddUpgrade(),
+        ]
+        results = await asyncio.gather(*tasks)
+        print(results)
+    except updaterException as e:
+        print(f'Error in updater ({datetime.now()})')
+        print('-')
+        print(f'Message: {e.message}')
+        print(f'Extra Info: {e.extraInfo}')
