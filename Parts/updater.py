@@ -1,9 +1,13 @@
-from .models import cpu, gpu, ram, motherboard, case, aircooler, watercooler, ssd, hdd, fan, case, psu
-from datetime import datetime, timedelta
+from .models import cpu, gpu, ram, motherboard as mobo, case, aircooler, watercooler, ssd, hdd, fan, case, psu
+from datetime import datetime, timedelta, date
 from .scraper import *
+from builtins import Exception
+from django.core.exceptions import *
+from django.db import DatabaseError
+import asyncio
 
 
-def cpuUpdate(part) -> float:
+async def update(part) -> float:
     oldPrice = part.current_price
     try:
         amazon = amazonPrice(part.url)
@@ -32,38 +36,170 @@ def cpuUpdate(part) -> float:
         part.save()
         return
 
+class updaterException(Exception):
+    def __init__(self, message, extra_info):
+        super().__init__(message)
+        self.extraInfo = extra_info
 
-def gpuUpdate(url) -> float:
-    pass
+async def cpuUpgrade() -> float:
+    condition = datetime.today() - timedelta(days=3)
+    try:
+        parts = cpu.objects.get(last_modified_lt=condition)[:5]
+        if parts.count() == 0:
+            raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
+        
+        for cpuObject in parts:
+            update(cpuObject)
+        return 'Success'
+    
+    except DatabaseError as DBError:
+        raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'CPU ----> {DBError}')
+
+async def gpuUpgrade() -> float:
+    condition = datetime.today() - timedelta(days=3)
+    try:
+        parts = gpu.objects.get(last_modified_lt=condition)[:5]
+        if parts.count() == 0:
+            raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
+        
+        for gpuObject in parts:
+            update(gpuObject)
+        return 'Success'
+    
+    except DatabaseError as DBError:
+        raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'GPU ----> {DBError}')
+
+async def ramUpgrade() -> float:
+    condition = datetime.today() - timedelta(days=3)
+    try:
+        parts = ram.objects.get(last_modified_lt=condition)[:5]
+        if parts.count() == 0:
+            raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
+        
+        for ramObject in parts:
+            update(ramObject)
+        return 'Success'
+    
+    except DatabaseError as DBError:
+        raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'RAM ----> {DBError}')
+
+async def moboUpgrade() -> float:
+    condition = datetime.today() - timedelta(days=3)
+    try:
+        parts = mobo.objects.get(last_modified_lt=condition)[:5]
+        if parts.count() == 0:
+            raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
+        
+        for moboObject in parts:
+            update(moboObject)
+        return 'Success'
+    
+    except DatabaseError as DBError:
+        raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'MOBO ----> {DBError}')
+
+async def caseUpgrade() -> float:
+    condition = datetime.today() - timedelta(days=3)
+    try:
+        parts = case.objects.get(last_modified_lt=condition)[:5]
+        if parts.count() == 0:
+            raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
+        
+        for caseObject in parts:
+            update(caseObject)
+        return 'Success'
+    
+    except DatabaseError as DBError:
+        raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'CASE ----> {DBError}')
+
+async def wcUpgrade() -> float:
+    condition = datetime.today() - timedelta(days=3)
+    try:
+        parts = watercooler.objects.get(last_modified_lt=condition)[:5]
+        if parts.count() == 0:
+            raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
+        
+        for wcObject in parts:
+            update(wcObject)
+        return 'Success'
+    
+    except DatabaseError as DBError:
+        raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'WC ----> {DBError}')
+
+async def acUpgrade() -> float:
+    condition = datetime.today() - timedelta(days=3)
+    try:
+        parts = aircooler.objects.get(last_modified_lt=condition)[:5]
+        if parts.count() == 0:
+            raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
+        
+        for acObject in parts:
+            update(acObject)
+        return 'Success'
+    
+    except DatabaseError as DBError:
+        raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'AC ----> {DBError}')
+
+async def psuUpgrade() -> float:
+    condition = datetime.today() - timedelta(days=3)
+    try:
+        parts = psu.objects.get(last_modified_lt=condition)[:5]
+        if parts.count() == 0:
+            raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
+        
+        for psuObject in parts:
+            update(psuObject)
+        return 'Success'
+    
+    except DatabaseError as DBError:
+        raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'PSU ----> {DBError}')
+
+async def ssdUpgrade() -> float:
+    condition = datetime.today() - timedelta(days=3)
+    try:
+        parts = ssd.objects.get(last_modified_lt=condition)[:5]
+        if parts.count() == 0:
+            raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
+        
+        for ssdObject in parts:
+            update(ssdObject)
+        return 'Success'
+    
+    except DatabaseError as DBError:
+        raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'SSD ----> {DBError}')
+
+async def hddUpgrade() -> float:
+    condition = datetime.today() - timedelta(days=3)
+    try:
+        parts = hdd.objects.get(last_modified_lt=condition)[:5]
+        if parts.count() == 0:
+            raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
+        
+        for hddObject in parts:
+            update(hddObject)
+        return 'Success'
+    
+    except DatabaseError as DBError:
+        raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'HDD ----> {DBError}')
 
 
-def ramUpdate(ur) -> float:
-    pass
-
-
-def moboUpdate(url) -> float:
-    pass
-
-
-def aircoolerUpdate(url) -> float:
-    pass
-
-
-def watercoolerUpdate(url) -> float:
-    pass
-
-
-def storageUpdate(url) -> float:
-    pass
-
-
-def psuUpdate(url) -> float:
-    pass
-
-
-def caseUpdate(url) -> float:
-    pass
-
-
-def main() -> float:
-    pass
+async def main():
+    try:
+        tasks = [
+            cpuUpgrade(),
+            gpuUpgrade(),
+            ramUpgrade(),
+            moboUpgrade(),
+            caseUpgrade(),
+            wcUpgrade(),
+            acUpgrade(),
+            psuUpgrade(),
+            ssdUpgrade(),
+            hddUpgrade(),
+        ]
+        results = await asyncio.gather(*tasks)
+        print(results)
+    except updaterException as e:
+        print(f'Error in updater ({datetime.now()})')
+        print('-')
+        print(f'Message: {e.message}')
+        print(f'Extra Info: {e.extraInfo}')
