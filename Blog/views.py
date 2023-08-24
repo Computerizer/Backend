@@ -52,35 +52,36 @@ def getRecentPosts(request, num_of_posts, page_num):
 @api_view(["GET"])
 def getPost(request, title):
     post = Post.objects.get(title = title)
-    images = Post_Image.objects.filter(post = post)
-    image_serializer = ImagePostSerializer(images, many = True)
-
     serializer = PostSerializer(post)
-    f = default_storage.open(str(post.body))
-    body = f.read().decode("utf-8")
+    
+    # images = Post_Image.objects.filter(post = post)
+    # image_serializer = ImagePostSerializer(images, many = True)
 
-    # replacing image title in html to image link
-    for image in image_serializer.data:
-        # [] inside f'' not working
-        photo = image['title']
-        index = body.find(f'src="{photo}"')
+    # f = default_storage.open(str(post.body))
+    # body = f.read().decode("utf-8")
+
+    # # replacing image title in html to image link
+    # for image in image_serializer.data:
+    #     # [] inside f'' not working
+    #     photo = image['title']
+    #     index = body.find(f'src="{photo}"')
         
-        # checking if image src in the file( index = -1 means not found)
-        if index != -1:
-            image = image['image']
-            body = body.replace(body[index : index + len(f"src='{photo}'")] , f'src="{image}"')
-        else:
-            # checking if there src = '' instead of src = ""
-            index = body.find(f"src='{photo}'") 
-            if index != -1:
-                image = image['image']
-                body = body.replace(body[index : index + len(f"src='{photo}'")] , f"src='{image}'") 
+    #     # checking if image src in the file( index = -1 means not found)
+    #     if index != -1:
+    #         image = image['image']
+    #         body = body.replace(body[index : index + len(f"src='{photo}'")] , f'src="{image}"')
+    #     else:
+    #         # checking if there src = '' instead of src = ""
+    #         index = body.find(f"src='{photo}'") 
+    #         if index != -1:
+    #             image = image['image']
+    #             body = body.replace(body[index : index + len(f"src='{photo}'")] , f"src='{image}'") 
             
 
     data = {
             'title': post.title,
             'author' : post.author.name,
-            'body' : body,
+            'body' : post.body,
             'description' : post.description,
             'image': serializer.data['image'],
             'publish_date': post.publish_date,
