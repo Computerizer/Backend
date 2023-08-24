@@ -670,7 +670,7 @@ class algorithm:
     def getPercents(self, part):
         #Percents in the order: CPU - GPU - MOBO - RAM - STORAGE - COOLER - PSU - CASE
         #The part parameter is to be send as an argument from the calling function(eg:0 is CPU, 2 if RAM)
-        partPercentages = [19, 34, 16, 5, 5, 7, 7, 7]
+        partPercentages = [19, 30, 16, 6, 6, 8, 7, 8]
         return partPercentages[part]
 
     #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
