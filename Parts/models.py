@@ -69,7 +69,7 @@ class commoninfo(models.Model):
     amazon_url          = models.TextField(null=True)
     newegg_url          = models.TextField(null=True)
     #bestbuy_url        = models.TextField(null=True)
-    #rating              = models.FloatField()
+    partRating          = models.FloatField(blank=True, null=True)
     amazon_price        = models.FloatField(null=True)
     newegg_price        = models.FloatField(null=True)
     #bestbuy_price      = models.FloatField(null=True)
