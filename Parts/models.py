@@ -652,8 +652,8 @@ class algorithm:
     def __init__(self, JSON):
         self.budget = int(JSON['budget'])
         self.fps = int(JSON['fps'])
-        self.resolution = int(JSON['resolution'])
-        self.gametype = str(JSON['gametype'])
+        #self.resolution = int(JSON['resolution'])
+        self.gameType = str(JSON['gameType'])
         self.formFactor = str(JSON['formFactor'])
         self.purpose = str(JSON['purpose'])
         self.theme = JSON['theme'][0] 
@@ -878,6 +878,9 @@ class algorithm:
         # We also make sure that the cooler fits in the case,
         # if its an aircooler then we check for height and clearance, 
         # if its a watercooler, then check that the radiator fits 
+
+        # gpu large = case large (only use of relative size)
+        # make sure cooler length = case depth
         budget = (self.budget * budgetPercentage) // 100 
         budgetLowerBound = budget - ((budget*15)//100)
         budgetUpperBound = budget + ((budget*15)//100)
@@ -885,7 +888,11 @@ class algorithm:
         Case = case.objects.filter(
             current_price__gte=budgetLowerBound).filter(
             current_price__lte=budgetUpperBound).filter(
-            size = self.formFactor)
+            size = self.formFactor).filter(
+            relativeSize = GPU.relativeSize).filter(
+            length__gt = COOLER.length).exclude(
+            rating__lte=4.0).exclude(
+            last_modified__lt=self.dateOfUpdate)
 
         highest_rating = Case.objects.order_by('-rating')
         lowest_price = Case.objects.order_by('current_price')
