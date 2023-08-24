@@ -15,7 +15,7 @@ class BlogSitemap(Sitemap):
         return obj.publish_date
 
     def location(self,obj):
-        return '/post/%s' % (obj.title)
+        return '/post/%s' % (obj.slug)
 
 class StaticSitemap(Sitemap):
     changefreq = "daily"

@@ -69,7 +69,7 @@ class commoninfo(models.Model):
     amazon_url          = models.TextField(null=True)
     newegg_url          = models.TextField(null=True)
     #bestbuy_url        = models.TextField(null=True)
-    rating              = models.FloatField(null=True)
+    #rating              = models.FloatField()
     amazon_price        = models.FloatField(null=True)
     newegg_price        = models.FloatField(null=True)
     #bestbuy_price      = models.FloatField(null=True)
@@ -670,25 +670,8 @@ class algorithm:
     def getPercents(self, part):
         #Percents in the order: CPU - GPU - MOBO - RAM - STORAGE - COOLER - PSU - CASE
         #The part parameter is to be send as an argument from the calling function(eg:0 is CPU, 2 if RAM)
-        partPercentages = {
-        500: [16, 33, 21, 5, 4, 4, 7, 10],
-        750: [21, 37, 22, 4, 4, 4, 3, 5],
-        1000:[21, 37, 16, 5, 5, 8, 7, 7],
-        1250:[17, 38, 15, 5, 5, 6, 8, 6],
-        1500:[19, 35, 13, 6, 6, 9, 6, 6],
-        1750:[16, 48, 12, 3, 4, 8, 5, 5],
-        2000:[0, 0, 0, 0, 0, 0, 0, 0],
-        2250:[0, 0, 0, 0, 0, 0, 0, 0],
-        2500:[0, 0, 0, 0, 0, 0, 0, 0],
-        2750:[0, 0, 0, 0, 0, 0, 0, 0],
-        3000:[0, 0, 0, 0, 0, 0, 0, 0],
-        3250:[0, 0, 0, 0, 0, 0, 0, 0],
-        3500:[0, 0, 0, 0, 0, 0, 0, 0],
-        3750:[0, 0, 0, 0, 0, 0, 0, 0],
-        4000:[0, 0, 0, 0, 0, 0, 0, 0],
-        }
-        percents = partPercentages[self.budget]
-        return percents[part]
+        partPercentages = [19, 34, 16, 5, 5, 7, 7, 7]
+        return partPercentages[part]
 
     #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
     ''' Below are the functions that get the parts based on inputs from the main function '''
