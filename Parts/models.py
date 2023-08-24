@@ -885,7 +885,11 @@ class algorithm:
             current_price__gte=budgetLowerBound).filter(
             current_price__lte=budgetUpperBound).filter(
             size = self.formFactor)
-    
+
+        highest_rating = Case.objects.order_by('-rating')
+        lowest_price = Case.objects.order_by('current_price')
+        lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+        return lowPrice_and_highRating    
     # Omar
     def __getPsu(self, budgetPercentage, CASE, WATTS):
         # Filter out by budget 
