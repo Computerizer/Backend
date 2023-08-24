@@ -65,7 +65,7 @@ class commoninfo(models.Model):
     ID                  = models.CharField(primary_key=True, max_length=15)
     manufacturer        = models.ForeignKey('manufacturer',  related_name="%(class)s_related", on_delete=models.CASCADE, default='')
     name                = models.CharField(max_length=150)
-    relativeSize        = models.CharField(choices=['S', 'M', 'L'], null=True)
+    relativeSize        = models.CharField(choices=['S', 'M', 'L'], null=True, max_length=1)
     data_added          = models.DateField(auto_now_add=True, null=True)
     amazon_url          = models.TextField(null=True)
     newegg_url          = models.TextField(null=True)
@@ -141,7 +141,7 @@ class aircooler(commoninfo):
     socket            = models.CharField(choices=sockets, max_length=15)#WANTED
     size              = models.CharField(choices=sizes, max_length=10)#WANTED
     height            = models.FloatField()#WANTED
-    width             = models.FloatField()#WANTED
+    length             = models.FloatField()#WANTED
     num_fans          = models.PositiveIntegerField()#WANTED
     num_heatsinks     = models.PositiveIntegerField()#WANTED
     color_name        = models.CharField(default='Black', max_length=15) #Write the color name corresponding to the Hex value below #WANTED
@@ -574,7 +574,7 @@ class case(commoninfo):
     mobo_support          = models.IntegerField(choices=mobo_size, null=True) #WANTED
     height                = models.FloatField() #WANTED
     width                 = models.FloatField() #WANTED
-    depth                 = models.FloatField() #WANTED
+    length                = models.FloatField() #WANTED
     max_gpu_length        = models.FloatField(null=True, blank=True) #WANTED
     max_cpu_cooler_heigth = models.FloatField(null=True, blank=True) #WANTED
     rgb                   = models.BooleanField() #WANTED
