@@ -818,8 +818,7 @@ class algorithm:
         budget = (self.budget * budgetPercentage) // 100 # Calculating budget from given percentage
         budgetLowerBound = budget - ((budget*15)//100)
         budgetUpperBound = budget + ((budget*15)//100)
-        currentDate = datetime.today()
-        dateOfUpdate = currentDate - timedelta(days=4) #Older than 4 days ago from today
+
         ssd_count = 0
         hdd_count = 0
         ssd_price = 0
@@ -839,7 +838,7 @@ class algorithm:
                 current_price__lte=float(ssd_price + ((ssd_price*15)//100))).filter(
                 rgb=self.rgb).exclude(
                 rating__lte=4.0).exclude(
-                last_modified__lt=dateOfUpdate)
+                last_modified__lt=self.dateOfUpdate)
             
         elif ssd_count > 0  and hdd_count > 0:
             SSD = ssd.objects.filter(
@@ -847,14 +846,14 @@ class algorithm:
                 current_price__lte=float(ssd_price + ((ssd_price*15)//100))).filter(
                 rgb=self.rgb).exclude(
                 rating__lte=4.0).exclude(
-                last_modified__lt=dateOfUpdate)
+                last_modified__lt=self.dateOfUpdate)
             
             HDD = hdd.objects.filter(
                 current_price__gte=float(hdd_price - ((hdd_price*15)//100))).filter(
                 current_price__lte=float(hdd_price + ((hdd_price*15)//100))).filter(
                 rgb=self.rgb).exclude(
                 rating__lte=4.0).exclude(
-                last_modified__lt=dateOfUpdate)
+                last_modified__lt=self.dateOfUpdate)
         
         if HDD.count() == 0:
             highest_rating = SSD.objects.order_by('-rating')[:5]
