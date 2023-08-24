@@ -65,7 +65,7 @@ class commoninfo(models.Model):
     ID                  = models.CharField(primary_key=True, max_length=15)
     manufacturer        = models.ForeignKey('manufacturer',  related_name="%(class)s_related", on_delete=models.CASCADE, default='')
     name                = models.CharField(max_length=150)
-    relativeSize        = models.CharField(choices=['S', 'M', 'L'])
+    relativeSize        = models.CharField(choices=['S', 'M', 'L'], null=True)
     data_added          = models.DateField(auto_now_add=True, null=True)
     amazon_url          = models.TextField(null=True)
     newegg_url          = models.TextField(null=True)
