@@ -226,8 +226,8 @@ class gpu(commoninfo):
     micro_atx            = models.BooleanField(null=True, blank=True)#WANTED
     mini_itx             = models.BooleanField(null=True, blank=True)#WANTED
     length               = models.FloatField(help_text='*in inches')#WANTED
-    height               = models.FloatField(help_text='*in inches')#WANTED
-    width                = models.FloatField(help_text='*in inches')#WANTED
+    height               = models.FloatField(help_text='*in inches', null=True)#WANTED
+    width                = models.FloatField(help_text='*in inches', null=True)#WANTED
     fan_count            = models.IntegerField(choices=((0, 0), (1, 1), (2, 2), (3, 3)))#WANTED
     vram                 = models.PositiveIntegerField(verbose_name='Memory (VRAM)')#WANTED
     gddr_type            = models.CharField(choices=(("GDDR6X", "GDDR6X"), ('GDDR6', 'GDDR6'), ('GDDR5X', 'GDDR5X'), ('GDDR5', 'GDDR5')), verbose_name='GDDR', max_length=10)#WANTED
@@ -742,7 +742,7 @@ class algorithm:
         HighestPrice = budget + ((budget * 15) // 100)
         LowestPrice = budget - ((budget * 15) // 100)
         ram_sets = MOBO.ram_slots
-        #TODO Filter ram sets that exceed the maximum slot number on the mobo
+        #Todo Filter ram sets that exceed the maximum slot number on the mobo
         rams = ram.objects.filter(
             current_price__gte = LowestPrice).filter(
             current_price__lte=HighestPrice).exclude(
