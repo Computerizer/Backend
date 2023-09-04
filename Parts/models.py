@@ -622,6 +622,7 @@ class computer(models.Model):
         verbose_name = 'Computer'
         verbose_name_plural = 'Computers'
 
+    # Remove is valid function
     def is_valid_computer(self):
         condition = True 
         if gpu.length > case.length:
@@ -671,6 +672,8 @@ class algorithm:
     def getPercents(self, part):
         #Percents in the order: CPU - GPU - MOBO - RAM - STORAGE - COOLER - PSU - CASE
         #The part parameter is to be send as an argument from the calling function(eg:0 is CPU, 2 if RAM)
+
+        # Ensure budget equals to 100
         partPercentages = [19, 30, 16, 6, 6, 8, 7, 8]
         return partPercentages[part]
 
@@ -683,7 +686,7 @@ class algorithm:
 
     # If several parts remain, sort by highest rating.
     # If there are parts with the same rating, suggest lowest price 
-    # If part's specific budget is 200$, create a range of 10% above and below (so range 180 - 220)
+    # If part's specific budget is 200$, create a range of 10% above and below (so range 180 - 220) 
 
     # Yusuf
     def __getCpu(self, budgetPercentage):
