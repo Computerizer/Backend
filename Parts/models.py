@@ -94,8 +94,8 @@ class cpu(commoninfo):
     )
     cores               = models.PositiveIntegerField()#WANTED
     threads             = models.PositiveIntegerField()#WANTED
-    base_speed          = models.FloatField()#WANTED
-    boost_speed         = models.FloatField()#WANTED
+    base_clock          = models.FloatField()#WANTED
+    boost_clock         = models.FloatField()#WANTED
     overclockable       = models.BooleanField()#WANTED
     socket              = models.CharField(choices=Sockets, max_length=15)#WANTED
     cooler              = models.BooleanField(help_text='eg: amd ryzen 3600', verbose_name='Comes with cooler')#WANTED
@@ -231,13 +231,12 @@ class gpu(commoninfo):
     fan_count            = models.IntegerField(choices=((0, 0), (1, 1), (2, 2), (3, 3)))#WANTED
     vram                 = models.PositiveIntegerField(verbose_name='Memory (VRAM)')#WANTED
     gddr_type            = models.CharField(choices=(("GDDR6X", "GDDR6X"), ('GDDR6', 'GDDR6'), ('GDDR5X', 'GDDR5X'), ('GDDR5', 'GDDR5')), verbose_name='GDDR', max_length=10)#WANTED
-    cude_cores           = models.IntegerField(null=True, blank=True)
-    stream_processors    = models.IntegerField(null=True, blank=True)
+    cores                = models.IntegerField(null=True, blank=True)
     base_clock           = models.IntegerField() #in MHz #WANTED
     boost_clock          = models.IntegerField() #in MHz #WANTED
-    multimonitor_support = models.BooleanField()
-    monitor_count        = models.PositiveIntegerField() 
-    supported_resolution = models.CharField(verbose_name='Maximum supported resolutions', choices=(('1K', '1K'), ('2K', '2K'), ('4K', '4K'), ('5K', '5K'), ('8K', '8K')), max_length=5)#WANTED
+    #multimonitor_support = models.BooleanField()
+    #monitor_count        = models.PositiveIntegerField() 
+    supported_resolution = models.CharField(verbose_name='Maximum supported resolutions', choices=((1000, '1K'), (2000, '2K'), (4000, '4K'), (5000, '5K'), (8000, '8K')), max_length=5)#WANTED
     pcie_5_support       = models.BooleanField(verbose_name='Supports PCIe 5') #  gen of either pcie or ddr, then #WANTED
     pcie_4_support       = models.BooleanField(verbose_name='Supports PCIe 4') #  it automatically supports gen 4 #WANTED
     rgb                  = models.BooleanField(verbose_name='RGB Lighting', help_text="ONLY RGB LIGHT THAT'S PART OF THE MOBO")#WANTED
@@ -706,10 +705,8 @@ class algorithm:
             rating__lte=4.0).exclude(
             last_modified__lt=self.dateOfUpdate)
         
-        if self.formFactor == 'MiniITX' or self.purpose == 'Console Killer':
-            Cpu.object.filter(power_consumption__lte = 100)
 
-        highest_rating = Cpu.objects.order_by('-rating')
+        highest_rating = Cpu.objects.order_by('-rating', '-base_clock')
         lowest_price = Cpu.objects.order_by('current_price')
         lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
         return lowPrice_and_highRating
@@ -727,10 +724,16 @@ class algorithm:
         LowestPrice = budget - ((budget * 15) // 100)
         Gpu = gpu.objects.filter(
             current_price__gte = LowestPrice).filter(
-            current_price__lte=HighestPrice).exclude(
+            current_price__lte=HighestPrice).filter(
+            rgb=self.rgb).exclude(
             rating__lte=4.0).exclude(
             last_modified__lt=self.dateOfUpdate)
-        pass
+        
+        highest_rating = Gpu.objects.order_by('-rating', '-base_clock')
+        lowest_price = Gpu.objects.order_by('current_price')
+        lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+        return lowPrice_and_highRating
+
     
     # Omar
     def __getRam(self, budgetPercentage, MOBO, CPU):
@@ -795,6 +798,7 @@ class algorithm:
         budgetUpperBound = budget + ((budget*15)//100)
 
         # currently only using aircoolers
+        # Ask user if he prefers air or water cooling
         cooler = aircooler.objects.filter(
             current_price__gte=budgetLowerBound).filter(
             current_price__lte=budgetUpperBound).filter(
