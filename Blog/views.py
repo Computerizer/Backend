@@ -42,6 +42,12 @@ def getRecentPosts(request, num_of_posts, page_num):
             post['author'] = cureent_post.author.name
             post['likes'] = cureent_post.get_likes_num()
             post['dislikes'] = cureent_post.get_dislikes_num()
+            categories = Category.objects.filter(posts = post['id'])
+            arrOfCategories = []
+            for categorie in categories:
+                arrOfCategories.append(categorie.title)
+
+            post['categories'] = arrOfCategories
 
         return Response(serializer.data)
     else:
