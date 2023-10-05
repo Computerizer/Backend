@@ -65,7 +65,7 @@ class commoninfo(models.Model):
     ID                  = models.CharField(primary_key=True, max_length=15)
     manufacturer        = models.ForeignKey('manufacturer',  related_name="%(class)s_related", on_delete=models.CASCADE, default='')
     name                = models.CharField(max_length=150)
-    relativeSize        = models.CharField(choices=(('S', 'S'), ('M', 'M'), ('L', 'L')), null=True, max_length=1)
+    relativeSize        = models.CharField(choices=(('S', 'S'), ('M', 'M'), ("L","L")), null=True, max_length=1)
     data_added          = models.DateField(auto_now_add=True, null=True)
     amazon_url          = models.TextField(null=True, blank=True)
     newegg_url          = models.TextField(null=True, blank=True)
@@ -610,6 +610,7 @@ class computer(models.Model):
         verbose_name = 'Computer'
         verbose_name_plural = 'Computers'
 
+    # Remove is valid function
     def is_valid_computer(self):
         condition = True
         if gpu.length > case.length:
@@ -640,8 +641,8 @@ class algorithm:
     def __init__(self, JSON):
         self.budget = int(JSON['budget'])
         self.fps = int(JSON['fps'])
-        self.resolution = int(JSON['resolution'])
-        self.gametype = str(JSON['gametype'])
+        #self.resolution = int(JSON['resolution'])
+        self.gameType = str(JSON['gameType'])
         self.formFactor = str(JSON['formFactor'])
         self.purpose = str(JSON['purpose'])
         self.theme = JSON['theme'][0]
@@ -659,6 +660,8 @@ class algorithm:
     def getPercents(self, part):
         #Percents in the order: CPU - GPU - MOBO - RAM - STORAGE - COOLER - PSU - CASE
         #The part parameter is to be send as an argument from the calling function(eg:0 is CPU, 2 if RAM)
+
+        # Ensure budget equals to 100
         partPercentages = [19, 30, 16, 6, 6, 8, 7, 8]
         return partPercentages[part]
 
@@ -671,7 +674,7 @@ class algorithm:
 
     # If several parts remain, sort by highest rating.
     # If there are parts with the same rating, suggest lowest price 
-    # If part's specific budget is 200$, create a range of 10% above and below (so range 180 - 220)
+    # If part's specific budget is 200$, create a range of 10% above and below (so range 180 - 220) 
 
     # Yusuf
     def __getCpu(self, budgetPercentage):
@@ -812,8 +815,7 @@ class algorithm:
         budget = (self.budget * budgetPercentage) // 100 # Calculating budget from given percentage
         budgetLowerBound = budget - ((budget*15)//100)
         budgetUpperBound = budget + ((budget*15)//100)
-        currentDate = datetime.today()
-        dateOfUpdate = currentDate - timedelta(days=4) #Older than 4 days ago from today
+
         ssd_count = 0
         hdd_count = 0
         ssd_price = 0
@@ -833,23 +835,23 @@ class algorithm:
                 current_price__lte=float(ssd_price + ((ssd_price*15)//100))).filter(
                 rgb=self.rgb).exclude(
                 rating__lte=4.0).exclude(
-                last_modified__lt=dateOfUpdate)
-
+                last_modified__lt=self.dateOfUpdate)
+            
         elif ssd_count > 0  and hdd_count > 0:
             SSD = ssd.objects.filter(
                 current_price__gte=float(ssd_price - ((ssd_price*15)//100))).filter(
                 current_price__lte=float(ssd_price + ((ssd_price*15)//100))).filter(
                 rgb=self.rgb).exclude(
                 rating__lte=4.0).exclude(
-                last_modified__lt=dateOfUpdate)
-
+                last_modified__lt=self.dateOfUpdate)
+            
             HDD = hdd.objects.filter(
                 current_price__gte=float(hdd_price - ((hdd_price*15)//100))).filter(
                 current_price__lte=float(hdd_price + ((hdd_price*15)//100))).filter(
                 rgb=self.rgb).exclude(
                 rating__lte=4.0).exclude(
-                last_modified__lt=dateOfUpdate)
-
+                last_modified__lt=self.dateOfUpdate)
+        
         if HDD.count() == 0:
             highest_rating = SSD.objects.order_by('-rating')[:5]
             lowest_price = SSD.objects.order_by('current_price')[:5]
@@ -872,15 +874,26 @@ class algorithm:
         # We also make sure that the cooler fits in the case,
         # if its an aircooler then we check for height and clearance, 
         # if its a watercooler, then check that the radiator fits 
-        budget = (self.budget * budgetPercentage) // 100
+
+        # gpu large = case large (only use of relative size)
+        # make sure cooler length = case depth
+        budget = (self.budget * budgetPercentage) // 100 
         budgetLowerBound = budget - ((budget*15)//100)
         budgetUpperBound = budget + ((budget*15)//100)
 
         Case = case.objects.filter(
             current_price__gte=budgetLowerBound).filter(
             current_price__lte=budgetUpperBound).filter(
-            size = self.formFactor)
+            size = self.formFactor).filter(
+            relativeSize = GPU.relativeSize).filter(
+            length__gt = COOLER.length).exclude(
+            rating__lte=4.0).exclude(
+            last_modified__lt=self.dateOfUpdate)
 
+        highest_rating = Case.objects.order_by('-rating')
+        lowest_price = Case.objects.order_by('current_price')
+        lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+        return lowPrice_and_highRating    
     # Omar
     def __getPsu(self, budgetPercentage, CASE, WATTS):
         # Filter out by budget 
