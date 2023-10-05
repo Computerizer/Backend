@@ -13,6 +13,7 @@ from rest_framework.decorators import api_view,permission_classes,authentication
 #####################################################################
 #####################################################################
 
+
 @api_view(['POST'])
 def reset_uses(request) -> JsonResponse:
     # Reset the value of 'uses_left' to 3

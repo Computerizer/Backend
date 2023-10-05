@@ -7,24 +7,24 @@ from django.db import DatabaseError
 import asyncio
 
 
-async def update(part) -> float:
+async def update(part) -> None:
     oldPrice = part.current_price
     try:
         amazon = amazonPrice(part.url)
     except Exception:
-        print(f'Error in Amazon Web Scrpaer Price ({datetime.now()})')
+        print(f'Error in Amazon Web Scraper Price ({datetime.now()})')
         print('-')
         print(Exception)
     try:
         newegg = neweggPrice(part.url)
     except Exception:
-        print(f'Error in Newegg Web Scrpaer Price ({datetime.now()})')
+        print(f'Error in Newegg Web Scraper Price ({datetime.now()})')
         print('-')
         print(Exception)
     if amazon < newegg:
         link = part.amazon_url
         newPrice = amazon
-        part.update(current_price=newPrice, previous_price=oldPrice,\
+        part.update(current_price=newPrice, previous_price=oldPrice,
         amazon_price=amazon, newegg_price=newegg, lowest_Price_Link=link)
         part.save()
         return
@@ -36,12 +36,14 @@ async def update(part) -> float:
         part.save()
         return
 
+
 class updaterException(Exception):
     def __init__(self, message, extra_info):
         super().__init__(message)
         self.extraInfo = extra_info
 
-async def cpuUpgrade() -> float:
+
+async def cpuUpgrade() -> str:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = cpu.objects.get(last_modified_lt=condition)[:5]
@@ -49,13 +51,14 @@ async def cpuUpgrade() -> float:
             raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
         
         for cpuObject in parts:
-            update(cpuObject)
+            await update(cpuObject)
         return 'Success'
     
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'CPU ----> {DBError}')
 
-async def gpuUpgrade() -> float:
+
+async def gpuUpgrade() -> str:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = gpu.objects.get(last_modified_lt=condition)[:5]
@@ -63,13 +66,14 @@ async def gpuUpgrade() -> float:
             raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
         
         for gpuObject in parts:
-            update(gpuObject)
+            await update(gpuObject)
         return 'Success'
     
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'GPU ----> {DBError}')
 
-async def ramUpgrade() -> float:
+
+async def ramUpgrade() -> str:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = ram.objects.get(last_modified_lt=condition)[:5]
@@ -77,13 +81,14 @@ async def ramUpgrade() -> float:
             raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
         
         for ramObject in parts:
-            update(ramObject)
+            await update(ramObject)
         return 'Success'
     
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'RAM ----> {DBError}')
 
-async def moboUpgrade() -> float:
+
+async def moboUpgrade() -> str:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = mobo.objects.get(last_modified_lt=condition)[:5]
@@ -91,13 +96,14 @@ async def moboUpgrade() -> float:
             raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
         
         for moboObject in parts:
-            update(moboObject)
+            await update(moboObject)
         return 'Success'
     
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'MOBO ----> {DBError}')
 
-async def caseUpgrade() -> float:
+
+async def caseUpgrade() -> str:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = case.objects.get(last_modified_lt=condition)[:5]
@@ -105,13 +111,14 @@ async def caseUpgrade() -> float:
             raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
         
         for caseObject in parts:
-            update(caseObject)
+            await update(caseObject)
         return 'Success'
     
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'CASE ----> {DBError}')
 
-async def wcUpgrade() -> float:
+
+async def wcUpgrade() -> str:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = watercooler.objects.get(last_modified_lt=condition)[:5]
@@ -119,13 +126,14 @@ async def wcUpgrade() -> float:
             raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
         
         for wcObject in parts:
-            update(wcObject)
+            await update(wcObject)
         return 'Success'
     
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'WC ----> {DBError}')
 
-async def acUpgrade() -> float:
+
+async def acUpgrade() -> str:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = aircooler.objects.get(last_modified_lt=condition)[:5]
@@ -133,13 +141,14 @@ async def acUpgrade() -> float:
             raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
         
         for acObject in parts:
-            update(acObject)
+            await update(acObject)
         return 'Success'
     
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'AC ----> {DBError}')
 
-async def psuUpgrade() -> float:
+
+async def psuUpgrade() -> str:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = psu.objects.get(last_modified_lt=condition)[:5]
@@ -147,13 +156,14 @@ async def psuUpgrade() -> float:
             raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
         
         for psuObject in parts:
-            update(psuObject)
+            await update(psuObject)
         return 'Success'
     
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'PSU ----> {DBError}')
 
-async def ssdUpgrade() -> float:
+
+async def ssdUpgrade() -> str:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = ssd.objects.get(last_modified_lt=condition)[:5]
@@ -161,13 +171,14 @@ async def ssdUpgrade() -> float:
             raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
         
         for ssdObject in parts:
-            update(ssdObject)
+            await update(ssdObject)
         return 'Success'
     
     except DatabaseError as DBError:
         raise updaterException(message='CHECK PRODUCTION DB for problems', extra_info=f'SSD ----> {DBError}')
 
-async def hddUpgrade() -> float:
+
+async def hddUpgrade() -> str:
     condition = datetime.today() - timedelta(days=3)
     try:
         parts = hdd.objects.get(last_modified_lt=condition)[:5]
@@ -175,7 +186,7 @@ async def hddUpgrade() -> float:
             raise updaterException('Nothing to upgrade Currently', extra_info=f'{datetime.today()}')
         
         for hddObject in parts:
-            update(hddObject)
+            await update(hddObject)
         return 'Success'
     
     except DatabaseError as DBError:
