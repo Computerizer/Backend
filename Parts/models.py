@@ -15,7 +15,6 @@ class manufacturer(models.Model):
     manufactures_psu           = models.BooleanField(verbose_name='Makes PSU', null=True, blank=True)
     manufactures_case          = models.BooleanField(verbose_name='Makes Cases', null=True, blank=True)
     manufactures_cooler        = models.BooleanField(verbose_name='Makes Coolers', null=True, blank=True)
-
     def __str__(self):
         return f"{self.name}"
 
