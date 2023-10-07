@@ -4,42 +4,8 @@ from datetime import datetime, timedelta
 from django.utils import timezone
 
 class manufacturer(models.Model):
-    manufacturers = (
-        ('asrock', 'asrock'),
-        ('amd', 'amd'),
-        ('intel', 'intel'),
-        ('aorus', 'aorus'),
-        ('asus', 'asus'),
-        ('colorful', 'colorful'),
-        ('coolermaster', 'coolermaster'),
-        ('corsair', 'corsair'),
-        ('crucial', 'crucial'),
-        ('evga', 'evga'),
-        ('gigabyte', 'gigabyte'),
-        ('gskill', 'gskill'),
-        ('lianli', 'lianli'),
-        ('msi', 'msi'),
-        ('noctua', 'noctua'),
-        ('nvidia', 'nvidia'),
-        ('nzxt', 'nzxt'),
-        ('pny', 'pny'),
-        ('powercolor', 'powercolor'),
-        ('razer', 'razer'),
-        ('sapphire', 'sapphire'),
-        ('samsung', 'samsung'),
-        ('siliconpower', 'siliconpower'),
-        ('teamGroup', 'teamGroup'),
-        ('thermaltake', 'thermaltake'),
-        ('vcolor', 'vcolor'),
-        ('xfx', 'xfx'),
-        ('xpg', 'xpg'),
-        ('zotac', 'zotac'),
-        ('seagate', 'seagate'),
-        ('westerndigital', 'westerndigital'),
-        ('zotac', 'zotac'),
-    )
-    ID   = models.CharField(primary_key=True, null=False, blank=False, max_length=10)
-    name = models.CharField(max_length=50, null=True, blank=True)
+    ID                         = models.CharField(primary_key=True, null=False, blank=False, max_length=10)
+    name                       = models.CharField(max_length=50, null=True, blank=True)
     manufactures_cpu           = models.BooleanField(verbose_name='Makes CPU', null=True, blank=True)
     manufactures_gpu           = models.BooleanField(verbose_name='Makes GPU', null=True, blank=True)
     manufactures_motherboard   = models.BooleanField(verbose_name='Makes Motherboards', null=True, blank=True)
