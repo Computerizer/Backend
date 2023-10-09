@@ -26,6 +26,7 @@ class manufacturer(models.Model):
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+
 class commoninfo(models.Model):
     ID                  = models.CharField(primary_key=True, max_length=15)
     manufacturer        = models.ForeignKey('manufacturer',  related_name="%(class)s_related", on_delete=models.CASCADE, default='')
@@ -48,8 +49,10 @@ class commoninfo(models.Model):
         abstract = True
         app_label = 'Parts'
 
+
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 
 class cpu(commoninfo):
     Sockets = (
@@ -57,19 +60,19 @@ class cpu(commoninfo):
         ('LGA 1700', 'LGA 1700'),
         ('LGA 1200', 'LGA 1200')
     )
-    cores               = models.PositiveIntegerField()#WANTED
-    threads             = models.PositiveIntegerField()#WANTED
-    base_clock          = models.FloatField()#WANTED
-    boost_clock         = models.FloatField()#WANTED
-    overclockable       = models.BooleanField()#WANTED
-    socket              = models.CharField(choices=Sockets, max_length=15)#WANTED
-    cooler              = models.BooleanField(help_text='eg: amd ryzen 3600', verbose_name='Comes with cooler')#WANTED
-    power_consumption   = models.PositiveIntegerField(null=True)#WANTED
-    integrated_graphics = models.BooleanField(null=True)#WANTED
+    cores               = models.PositiveIntegerField()
+    threads             = models.PositiveIntegerField()
+    base_clock          = models.FloatField()
+    boost_clock         = models.FloatField()
+    overclockable       = models.BooleanField()
+    socket              = models.CharField(choices=Sockets, max_length=15)
+    cooler              = models.BooleanField(help_text='eg: amd ryzen 3600', verbose_name='Comes with cooler')
+    power_consumption   = models.PositiveIntegerField(null=True)
+    integrated_graphics = models.BooleanField(null=True)
     use_case            = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
 
     def __str__(self):
-        return f"{self.Model_name} ({self.ID})"
+        return f"{self.name} ({self.ID})"
 
     class Meta:
         verbose_name ='CPU'
@@ -87,15 +90,18 @@ class cpu(commoninfo):
             condition = False
         return condition
 
+
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 
 class aircooler(commoninfo):
     sockets = [
+        ('AM5', 'AM5'),
         ('AM4', 'AM4'),
         ('LGA 1700', 'LGA 1700'),
         ('LGA 1200', 'LGA 1200'),
         ('LGA 1151', 'LGA 1151'),
-        ('All', 'AMD INTEL'),
+        ('AMD Intel', 'AMD INTEL'),
     ]
 
     sizes = (
@@ -103,17 +109,17 @@ class aircooler(commoninfo):
         ('MicroAtx', 'MicroAtx'),
         ('MiniItx', 'MiniItx')
     )
-    socket            = models.CharField(choices=sockets, max_length=15)#WANTED
-    size              = models.CharField(choices=sizes, max_length=10)#WANTED
-    height            = models.FloatField()#WANTED
-    length             = models.FloatField()#WANTED
-    num_fans          = models.PositiveIntegerField()#WANTED
-    num_heatsinks     = models.PositiveIntegerField()#WANTED
-    color_name        = models.CharField(default='Black', max_length=15) #Write the color name corresponding to the Hex value below #WANTED
-    color_hex         = models.CharField(default='#RRGGBB', max_length=8) #Write the color value as a hex string #WANTED
-    rgb               = models.BooleanField()#WANTED
-    power_consumption = models.IntegerField(null=True)#WANTED
-    theme             = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), verbose_name='Color Theme', max_length=10)#WANTED
+    socket            = models.CharField(choices=sockets, max_length=15)
+    size              = models.CharField(choices=sizes, max_length=10)
+    height            = models.FloatField()
+    length             = models.FloatField()
+    num_fans          = models.PositiveIntegerField()
+    num_heatsinks     = models.PositiveIntegerField()
+    color_name        = models.CharField(default='Black', max_length=15) #Write the color name corresponding to the Hex value below
+    color_hex         = models.CharField(default='#RRGGBB', max_length=8) #Write the color value as a hex string
+    rgb               = models.BooleanField()
+    power_consumption = models.IntegerField(null=True)
+    theme             = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), verbose_name='Color Theme', max_length=10)
     use_case          = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
 
     def __str__(self):
@@ -135,33 +141,28 @@ class aircooler(commoninfo):
             condition = False
         return condition
 
+
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 
 class watercooler(commoninfo):
     sockets = (
-        (1, 'AM4'),
-        (2, 'LGA 1700'),
-        (3, 'LGA 1200'),
-        (4, 'LGA 1151'),
-        (5, 'LGA 1700 and LGA 1151'),
-        (6, 'AM4 and LGA 1700 and LGA 1151'),
-    )
+        ('AM5', 'AM5'),
+        ('AM4', 'AM4'),
+        ('LGA 1700', 'LGA 1700'),
+        ('LGA 1200', 'LGA 1200'),
+        ('LGA 1151', 'LGA 1151'),
+        ('AMD and Intel', 'AMD and Intel')
+        )
 
-    sizes = (
-        ('Large', 'Large'),
-        ('Average', 'Average'),
-        ('Small', 'Small')
-    )
-    socket            = models.IntegerField(choices=sockets)#WANTED
-    size              = models.CharField(choices=sizes, max_length=10)#WANTED
-    length            = models.FloatField()#WANTED
-    width             = models.FloatField()#WANTED
-    num_fans          = models.PositiveIntegerField()#WANTED
-    color_name        = models.CharField(default='Black', max_length=15) #Write the color name corresponding to the Hex value below #WANTED
-    color_hex         = models.CharField(default='#RRGGBB', max_length=8) #Write the color value as a hex string #WANTED
-    rgb               = models.BooleanField()#WANTED
-    power_consumption = models.PositiveIntegerField(null=True)#WANTED
-    theme             = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), verbose_name='Color Theme', max_length=15)#WANTED
+    socket            = models.CharField(choices=sockets, max_length=20)
+    length            = models.FloatField()
+    num_fans          = models.PositiveIntegerField()
+    color_name        = models.CharField(default='Black', max_length=15) #Write the color name corresponding to the Hex value below
+    color_hex         = models.CharField(default='#RRGGBB', max_length=8) #Write the color value as a hex string
+    rgb               = models.BooleanField()
+    power_consumption = models.PositiveIntegerField(null=True)
+    theme             = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), verbose_name='Color Theme', max_length=15)
     use_case          = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
 
     def __str__(self):
@@ -172,63 +173,44 @@ class watercooler(commoninfo):
         verbose_name_plural ='Watercoolers'
 
     def is_valid_watercooler(self):
-        condition = True
-        manufacturer = self.manufacturer
-        if manufacturer.manufactures_cpu == False:
-            print('This manufacturer does not make cpus')
-            condition = False
-        if self.threads > self.cores:
-            condition = False
-        if (manufacturer.name.lower() == 'intel') and (self.cooler == True):
-            condition = False
-        return condition
+        pass
+
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+
 class gpu(commoninfo):
-    type                 = models.CharField(choices=(('Nvidia GTX','Nvidia GTX'), ('Nvidia RTX','Nvidia RTX'), ('AMD Radeon', 'AMD Radeon')), max_length=15, verbose_name='Type')#WANTED
-    atx                  = models.BooleanField(null=True, blank=True)#WANTED
-    micro_atx            = models.BooleanField(null=True, blank=True)#WANTED
-    mini_itx             = models.BooleanField(null=True, blank=True)#WANTED
-    length               = models.FloatField(help_text='*in inches')#WANTED
-    height               = models.FloatField(help_text='*in inches', null=True)#WANTED
-    width                = models.FloatField(help_text='*in inches', null=True)#WANTED
-    fan_count            = models.IntegerField(choices=((0, 0), (1, 1), (2, 2), (3, 3)))#WANTED
-    vram                 = models.PositiveIntegerField(verbose_name='Memory (VRAM)')#WANTED
-    gddr_type            = models.CharField(choices=(("GDDR6X", "GDDR6X"), ('GDDR6', 'GDDR6'), ('GDDR5X', 'GDDR5X'), ('GDDR5', 'GDDR5')), verbose_name='GDDR', max_length=10)#WANTED
+    type                 = models.CharField(choices=(('GTX', 'GTX'), ('RTX', 'RTX'), ('Radeon', 'Radeon')), max_length=6)
+    length               = models.FloatField(help_text='*in mm - (120, 240, 360, etc)')
+    width                = models.FloatField(help_text='*depth, checks for clearance with case cover', null=True)
+    fan_count            = models.IntegerField(choices=((1, 1), (2, 2), (3, 3)))
+    vram                 = models.PositiveIntegerField(verbose_name='Memory (VRAM)')
+    gddr_type            = models.CharField(choices=(("GDDR6X", "GDDR6X"), ('GDDR6', 'GDDR6'), ('GDDR5X', 'GDDR5X'), ('GDDR5', 'GDDR5')), max_length=10)
     cores                = models.IntegerField(null=True, blank=True)
-    base_clock           = models.IntegerField() #in MHz #WANTED
-    boost_clock          = models.IntegerField() #in MHz #WANTED
-    #multimonitor_support = models.BooleanField()
-    #monitor_count        = models.PositiveIntegerField()
-    supported_resolution = models.CharField(verbose_name='Maximum supported resolutions', choices=((1000, '1K'), (2000, '2K'), (4000, '4K'), (5000, '5K'), (8000, '8K')), max_length=5)#WANTED
-    pcie_5_support       = models.BooleanField(verbose_name='Supports PCIe 5') #  gen of either pcie or ddr, then #WANTED
-    pcie_4_support       = models.BooleanField(verbose_name='Supports PCIe 4') #  it automatically supports gen 4 #WANTED
-    rgb                  = models.BooleanField(verbose_name='RGB Lighting', help_text="ONLY RGB LIGHT THAT'S PART OF THE MOBO")#WANTED
-    pins_num             = models.PositiveIntegerField(verbose_name='Pins required', help_text='Number of pins to power the card')
-    has_displayport      = models.BooleanField()
-    displayport_count    = models.PositiveIntegerField()#WANTED
-    has_hdmi             = models.BooleanField()
-    hdmi_count           = models.PositiveIntegerField()#WANTED
-    has_usbc             = models.BooleanField(verbose_name='Supports USB-C')
-    usbc_count           = models.PositiveIntegerField(verbose_name='USB-C ports count')#WANTED
-    theme                = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), verbose_name='Color Theme', max_length=15)#WANTED
-    power_consumption    = models.PositiveIntegerField(null=True) #In watts #WANTED
+    base_clock           = models.IntegerField()
+    boost_clock          = models.IntegerField()
+    #multimonitor_support= models.BooleanField()
+    #monitor_count       = models.PositiveIntegerField()
+    supported_resolution = models.CharField(verbose_name='Maximum supported resolutions', choices=((1000, '1080P'), (2000, '2K'), (4000, '4K'), (5000, '5K'), (8000, '8K')), max_length=5)
+    pcie_version         = models.BooleanField(verbose_name='Which PCIe verison (type only 5 or4)', null=True) #  gen of either pcie or ddr, then
+    rgb                  = models.BooleanField()
+    pin_num              = models.PositiveIntegerField(verbose_name='Pins required', help_text='Number of pins to power the card', null=True)
+    displayport_count    = models.PositiveIntegerField()
+    hdmi_count           = models.PositiveIntegerField()
+    usbc_count           = models.PositiveIntegerField(verbose_name='USB-C ports count', null=True)
+    theme                = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), max_length=6)
+    power_consumption    = models.PositiveIntegerField(null=True)
     use_case             = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
 
     def __str__(self):
         return f"{self.name}"
 
     class Meta:
-        verbose_name ='GPU'
-        verbose_name_plural ='GPUs'
+        verbose_name = 'GPU'
+        verbose_name_plural = 'GPUs'
 
     def is_valid_gpu(self):
-        condition = True
-        if (self.has_hdmi == True and self.hdmi_count > 0) and (self.has_displayport == True and self.displayport_count > 0) and \
-        (self.has_usbc == True and self.usbc_count > 0) and (self.base_clock < self.boost_clock) and (self.pcie_4_support == True and self.pcie_5_support == True):
-            condition = True
-        return condition
+        pass
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -246,33 +228,27 @@ class motherboard(commoninfo):
         ('Micro-ATX', 'Micro-ATX'),
         ('Mini-ITX', 'Mini-ITX'),
     )
-    socket               = models.CharField(choices=Sockets, max_length=15, verbose_name='Socket support') #WANTED
-    size                 = models.CharField(choices=sizes, max_length=15, verbose_name='Size (form factor)')#WANTED
-    ram_slots            = models.IntegerField(choices=((4,4), (2,2)), verbose_name='How many ram slots',null=True, blank=True)#WANTED
-    ddr_5_support        = models.BooleanField(verbose_name='Supports DDR5 RAM') #WANTED
-    ddr_4_support        = models.BooleanField(verbose_name='Supports DDR4 RAM') #  - if a mobo supports a 5th #WANTED
-    pcie_5_support       = models.BooleanField(verbose_name='Supports PCIe 5') #  gen of either pcie or ddr, then #WANTED
-    pcie_4_support       = models.BooleanField(verbose_name='Supports PCIe 4') #  it automatically supports gen 4 #WANTED
-    wifi                 = models.BooleanField(help_text='Does it allow WIFI connectivity (without a cable)', verbose_name='Supports Wireless Connectivity')#WANTED
+    socket               = models.CharField(choices=Sockets, max_length=15, verbose_name='Socket support')
+    size                 = models.CharField(choices=sizes, max_length=15, verbose_name='Size (form factor)')
+    ram_slots            = models.IntegerField(choices=((4, 4), (2, 2)), verbose_name='How many ram slots', null=True)
+    ddr_5_support        = models.BooleanField(verbose_name='Supports DDR5 RAM')
+    ddr_4_support        = models.BooleanField(verbose_name='Supports DDR4 RAM')
+    pcie_version         = models.BooleanField(verbose_name='Which Pcie verison (type only 5 or4)', null=True)
+    wifi                 = models.BooleanField(help_text='Does it allow WIFI connectivity (without a cable)')
     wifi_6_support       = models.BooleanField(verbose_name='Supports WIFI 6')
     lan_support          = models.BooleanField(verbose_name='Supports LAN Connectivity')
-    #fan_headers          = models.PositiveIntegerField(help_text='How many fan pins on the motherboards, basically how many fans can be directly connected \n Check motherboard description on official website for more help', verbose_name='Fan Headers count')
-    rgb                  = models.BooleanField(verbose_name='RGB Lighting', help_text="ONLY RGB LIGHT THAT'S PART OF THE MOBO") #WANTED
-    #rgb_headers          = models.PositiveIntegerField(verbose_name='RGB Headers count', help_text='How many pins onboard can be used to power RGB in other components')
-    #argb_headers         = models.PositiveIntegerField()
-    has_hdmi             = models.BooleanField()
-    hdmi_count           = models.PositiveIntegerField()#WANTED
-    has_displayport      = models.BooleanField()
-    displayport_count    = models.PositiveIntegerField()#WANTED
-    has_usbc             = models.BooleanField(verbose_name='Supports USB-C')
-    usbc_count           = models.PositiveIntegerField(verbose_name='USB-C ports count')#WANTED
-    usb3point2_support   = models.BooleanField(verbose_name='USB3.2 support')
+    #fan_headers         = models.PositiveIntegerField(help_text='How many fan pins on the motherboards, basically how many fans can be directly connected \n Check motherboard description on official website for more help', verbose_name='Fan Headers count')
+    rgb                  = models.BooleanField(help_text="ONLY RGB LIGHT THAT'S PART OF THE MOBO")
+    #rgb_headers         = models.PositiveIntegerField(verbose_name='RGB Headers count', help_text='How many pins onboard can be used to power RGB in other components')
+    #argb_headers        = models.PositiveIntegerField()
+    hdmi_count           = models.PositiveIntegerField()
+    displayport_count    = models.PositiveIntegerField()
+    usbc_count           = models.PositiveIntegerField(verbose_name='USB-C ports count')
     usb3point2_count     = models.IntegerField(verbose_name='USB3.2 count', null=True)
-    usb_count            = models.IntegerField(verbose_name='USB count', null=True)#WANTED
-    mdot2_SSD_slots      = models.PositiveIntegerField(verbose_name='Number of M.2 slots')#WANTED
-    sata_slots           = models.PositiveIntegerField(verbose_name='Number of SATA slots', null=True)#WANTED
-    integrated_io_sheild = models.BooleanField(help_text='Does it have a built in cover on the rear ports', verbose_name='Integrated IO sheild')#WANTED
-    theme                = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), verbose_name='Color Theme', max_length=15)#WANTED
+    usb_count            = models.IntegerField(verbose_name='USB count', null=True)
+    mdot2_SSD_slots      = models.PositiveIntegerField(verbose_name='Number of M.2 slots')
+    integrated_io_sheild = models.BooleanField(help_text='Does it have a built in cover on io')
+    theme                = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), max_length=6)
     use_case             = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
 
     def __str__(self):
@@ -283,10 +259,7 @@ class motherboard(commoninfo):
         verbose_name_plural ='Motherboards'
 
     def is_valid_motherboard(self):
-        condition = True
-        if (self.wifi == False and self.wifi_6_support == True) or (self.has_hdmi == False and self.hdmi_count > 0) or (self.has_displayport == False and self.displayport_count > 0) or (self.has_usbc == False and self.usbc_count > 0):
-            condition = False
-        return condition
+        pass
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -310,18 +283,17 @@ class ram(commoninfo):
         ('DDR4', 'DDR4'),
         ('DDR5', 'DDR5')
     )
-    capacity          = models.PositiveIntegerField(choices=ram_capacity)#WANTED
-    divided_capacity  = models.CharField(choices=(('4x2', '4x2'),('4x4', '4x4'),('8x2', '8x2'),('8x4', '8x4'),('16x2', '16x2'),('16x4', '16x4'),('32x2', '32x2'),('32x4', '32x4'),), help_text='How many sticks to make up total RAM capacity', max_length=10) #WANTED
-    channels          = models.CharField(choices=number_of_channels, max_length=20)#WANTED
-    height            = models.FloatField(verbose_name="How tall", help_text='In mm (milimeter')#WANTED
-    speed             = models.IntegerField() #WANTED
-    type              = models.CharField(choices=ddr_type, max_length=5)#WANTED
+    capacity          = models.PositiveIntegerField(choices=ram_capacity)
+    divided_capacity  = models.CharField(choices=(('4x2', '4x2'),('4x4', '4x4'),('8x2', '8x2'),('8x4', '8x4'),('16x2', '16x2'),('16x4', '16x4'),('32x2', '32x2'),('32x4', '32x4'),), help_text='How many sticks to make up total RAM capacity', max_length=10)
+    channels          = models.CharField(choices=number_of_channels, max_length=20)
+    speed             = models.IntegerField()
+    type              = models.CharField(choices=ddr_type, max_length=5)
     pins              = models.PositiveIntegerField()
     xmp               = models.BooleanField()
-    color_name        = models.CharField(default='Black', max_length=15) #Write the color name corresponding to the Hex value below #WANTED
-    color_hex         = models.CharField(default='#RRGGBB', max_length=8) #Write the color value as a hex string #WANTED
-    power_consumption = models.PositiveIntegerField(null=True) #WANTED
-    rgb               = models.BooleanField() #WANTED
+    color_name        = models.CharField(default='Black', max_length=15) #Write the color name corresponding to the Hex value below
+    color_hex         = models.CharField(default='#RRGGBB', max_length=8) #Write the color value as a hex string
+    power_consumption = models.PositiveIntegerField(null=True)
+    rgb               = models.BooleanField()
     use_case          = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
 
     def __str__(self):
@@ -332,16 +304,7 @@ class ram(commoninfo):
         verbose_name_plural ='RAMs'
 
     def is_valid_ram(self):
-        condition = True
-        manufacturer = self.manufacturer
-        if manufacturer.manufactures_cpu == False:
-            print('This manufacturer does not make cpus')
-            condition = False
-        if self.threads > self.cores:
-            condition = False
-        if (manufacturer.name.lower() == 'intel') and (self.cooler == True):
-            condition = False
-        return condition
+        pass
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -351,36 +314,28 @@ class hdd(commoninfo):
         (4200, 4200),
         (5400, 5400),
         (7200, 7200),
-        (1000, 1000)
     )
 
-    sata = (
+    sata_connection = (
         (1.0, 1.0),
         (1.5, 1.5),
         (3.0, 3.0),
         (6.0, 6.0),
     )
 
-    cache = (
-        (64, 64),
-        (128, 128),
-        (256, 256),
-        (512, 512),
-    ) #in megabytes
-
     size = (
-        (1, 1),
         (1.8, 1.8),
         (2.5, 2.5),
-        (3.5, 3.5),
-    ) #in inches
-    capacity          = models.PositiveIntegerField() #in gb, tb values will be altered on the frontend #WANTED
-    cache             = models.PositiveIntegerField() #in mb, tb values will be altered on the frontend #WANTED
-    speed             = models.PositiveIntegerField(choices=rpm) #in GhZ #WANTED
-    size              = models.FloatField(choices=size, null=True) #in GhZ #WANTED
-    connectivity      = models.CharField(help_text='What is the connectivity type, (eg: number of pins, cable type)', max_length=20) #WANTED
-    rgb               = models.BooleanField() #WANTED
-    power_consumption = models.PositiveIntegerField(null=True) #WANTED
+        (3.5, 3.5)
+    )
+
+    capacity          = models.PositiveIntegerField() #in gb, tb values will be altered on the frontend
+    #cache             = models.PositiveIntegerField() #in mb, tb values will be altered on the frontend
+    speed             = models.PositiveIntegerField(choices=rpm, verbose_name="Speed (rpm)") #in GhZ
+    sata              = models.CharField(choices=sata_connection, verbose_name='SATA Version', null=True, max_length=3)
+    size              = models.FloatField(choices=size, null=True)
+    rgb               = models.BooleanField()
+    power_consumption = models.PositiveIntegerField(null=True)
     use_case          = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
 
     def __str__(self):
@@ -390,48 +345,20 @@ class hdd(commoninfo):
         verbose_name_plural ='HDDs'
 
     def is_valid_hdd(self):
-        condition = True
-        manufacturer = self.manufacturer
-        if manufacturer.manufactures_cpu == False:
-            print('This manufacturer does not make cpus')
-            condition = False
-        if self.threads > self.cores:
-            condition = False
-        if (manufacturer.name.lower() == 'intel') and (self.cooler == True):
-            condition = False
-        return condition
+        pass
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 class ssd(commoninfo):
-    connectivity = (
-        ('SATA 3', 'SATA 3'),
-        ('Micro-SATA', 'Micro-SATA'),
-        ('Mini-SATA', 'Mini-SATA'),
-        ('Mini-PCIe', 'Mini-PCIe'),
-        ('PCIe-Express 3.0', 'PCIe-Express 3.0'),
-        ('PCIe-Express 3.1', 'PCIe-Express 3.1'),
-        ('PCIe-Express 4.0', 'PCIe-Express 4.0'),
-        ('PCIe-Express 4.0', 'PCIe-Express 4.0'),
-        ('Thunderbolt 3', 'Thunderbolt 3'),
-    )
-
-    size = (
-        ('1.0', '1.0'),
-        ('2.5', '2.5'),
-        ('3.5', '3.5'),
-        ('M.2', 'M.2'),
-        ('mSATA', 'mSATA'),
-        ('AIC', 'AIC'),
-    ) #in inches
-    capacity          = models.PositiveIntegerField() #in gb, tb values will be altered on the frontend #WANTED
-    read_speed        = models.PositiveIntegerField() #in MbPs #WANTED
-    write_speed       = models.PositiveIntegerField() #in MbPs #WANTED
-    form_factor       = models.CharField(choices=size, max_length=20) #WANTED
-    height            = models.FloatField() #WANTED
-    interface         = models.CharField(choices=connectivity, help_text='What is the connectivity type, (eg: number of pins, cable type)', max_length=20) #WANTED
-    power_consumption = models.PositiveIntegerField(null=True) #WANTED
-    rgb               = models.BooleanField() #WANTED
+    capacity          = models.PositiveIntegerField() #in gb, tb values will be altered on the frontend
+    read_speed        = models.PositiveIntegerField() #in MbPs
+    write_speed       = models.PositiveIntegerField() #in MbPs
+    mdot2             = models.BooleanField(verbose_name='M.2 Support')
+    sata              = models.BooleanField(verbose_name='SATA Support')
+    pcie_generation   = models.PositiveIntegerField(verbose_name='PCIe Generation (3, 3.1, or 4)', null=True)
+    interface         = models.CharField(choices=connectivity, help_text='What is the connectivity type', max_length=20)
+    power_consumption = models.PositiveIntegerField(null=True)
+    rgb               = models.BooleanField()
     use_case          = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
     def __str__(self):
         return f"{self.name}"
@@ -441,16 +368,7 @@ class ssd(commoninfo):
         verbose_name_plural ='SSDs'
 
     def is_valid_ssd(self):
-        condition = True
-        manufacturer = self.manufacturer
-        if manufacturer.manufactures_cpu == False:
-            print('This manufacturer does not make cpus')
-            condition = False
-        if self.threads > self.cores:
-            condition = False
-        if (manufacturer.name.lower() == 'intel') and (self.cooler == True):
-            condition = False
-        return condition
+        pass
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -473,12 +391,12 @@ class psu(commoninfo):
         ('Micro-ATX', 'Micro-ATX'),
         ('Mini-ITX', 'Mini-ITX')
     )
-    wattage           = models.PositiveIntegerField() #WANTED
-    rating            = models.CharField(choices=ratings, max_length=10) #WANTED
-    connection        = models.CharField(choices=connectivity, max_length=15) #WANTED
-    size              = models.CharField(choices=mobo_size, max_length=10) #WANTED
-    color_name        = models.CharField(default='Black', max_length=15) #Write the color name corresponding to the Hex value below #WANTED
-    color_hex         = models.CharField(default='#RRGGBB', max_length=8) #Write the color value as a hex string #WANTED
+    wattage           = models.PositiveIntegerField()
+    rating            = models.CharField(choices=ratings, max_length=10)
+    connection        = models.CharField(choices=connectivity, max_length=15)
+    size              = models.CharField(choices=mobo_size, max_length=10)
+    color_name        = models.CharField(default='Black', max_length=15) #Write the color name corresponding to the Hex value below
+    color_hex         = models.CharField(default='#RRGGBB', max_length=8) #Write the color value as a hex string
     use_case          = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
     def __str__(self):
         return f"{self.ID}: {self.name}"
@@ -488,16 +406,7 @@ class psu(commoninfo):
         verbose_name_plural ='PSUs'
 
     def is_valid_psu(self):
-        condition = True
-        manufacturer = self.manufacturer
-        if manufacturer.manufactures_cpu == False:
-            print('This manufacturer does not make cpus')
-            condition = False
-        if self.threads > self.cores:
-            condition = False
-        if (manufacturer.name.lower() == 'intel') and (self.cooler == True):
-            condition = False
-        return condition
+        pass
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -523,6 +432,7 @@ class fan(commoninfo):
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+
 class case(commoninfo):
     #height                = models.FloatField()
     #width                 = models.FloatField()
@@ -530,15 +440,15 @@ class case(commoninfo):
     mobo_support          = models.CharField(choices=(('ATX', 'ATX'), ('Micro-ATX', 'Micro-ATX'), ('Mini-ITX', 'MiniI-TX')), max_length=10)
     max_gpu_length        = models.FloatField(null=True, blank=True)
     max_radiator_size     = models.FloatField(null=True, blank=True)
-    rgb                   = models.BooleanField() #WANTED
-    has_fans              = models.BooleanField() #WANTED
-    num_fans              = models.PositiveIntegerField() #WANTED
-    max_num_number        = models.IntegerField(null=True) #WANTED
+    rgb                   = models.BooleanField()
+    has_fans              = models.BooleanField()
+    num_fans              = models.PositiveIntegerField()
+    max_num_number        = models.IntegerField(null=True)
     max_fan_size          = models.PositiveIntegerField(null=True)
     io                    = models.TextField(null=True)
     color_name            = models.CharField(default='Black', max_length=15)
     color_hex             = models.CharField(default='#RRGGBB', max_length=8)
-    theme                 = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), verbose_name='Color Theme', max_length=15) #WANTED
+    theme                 = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), verbose_name='Color Theme', max_length=15)
     use_case              = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
     def __str__(self):
         return f"{self.name} ({self.ID})"
@@ -548,76 +458,29 @@ class case(commoninfo):
         verbose_name_plural = 'Cases'
 
     def is_valid_case(self):
-        condition = True
-        if self.has_fans == False and self.num_fans > 0:
-            condition = False
-        return condition
+        pass
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-class computer(models.Model):
-    ID            = models.CharField(primary_key=True, max_length=20)
-    motherboard   = models.ForeignKey(motherboard, on_delete= models.CASCADE)
-    aircooler     = models.ForeignKey(aircooler, null=True, blank=True, on_delete= models.CASCADE)
-    watercooler   = models.ForeignKey(watercooler, null=True, blank=True, on_delete= models.CASCADE)
-    cpu           = models.ForeignKey(cpu, on_delete= models.CASCADE)
-    gpu           = models.ForeignKey(gpu, on_delete= models.CASCADE)
-    ram           = models.ForeignKey(ram, on_delete= models.CASCADE)
-    ssd           = models.ForeignKey(ssd, null=True, blank=True, on_delete= models.CASCADE, related_name='ssd1')
-    hdd           = models.ForeignKey(hdd, null=True, blank=True, on_delete= models.CASCADE, related_name='hdd1')
-    psu           = models.ForeignKey(psu, on_delete= models.CASCADE)
-    case          = models.ForeignKey(case, on_delete= models.CASCADE)
 
-    def __str__(self):
-        return f"{self.ID}"
-
-    class Meta:
-        verbose_name = 'Computer'
-        verbose_name_plural = 'Computers'
-
-    # Remove is valid function
-    def is_valid_computer(self):
-        condition = True
-        if gpu.length > case.length:
-            condition = False
-
-        if aircooler.height > case.depth:
-            condition = False
-
-        if cpu.socket != motherboard.socket:
-            condition = False
-
-        ram_capacity = ['4x4', '8x4', '16x4', '32x4']
-        for i in ram_capacity:
-            if (ram.ram_capacity == i) and (motherboard.ram_slots == 2):
-                condition = False
-
-        if (case.size == 'Mini-ITX') and (motherboard.size == 'ATX' or 'Micro-ATX'):
-            condition= False
-
-        return condition
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #                                       ALGORITHM                                       #
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-# Developement to be done on Jupyter Notebooks 
+
 class algorithm:
     def __init__(self, JSON):
         self.budget = int(JSON['budget'])
         self.fps = int(JSON['fps'])
-        #self.resolution = int(JSON['resolution'])
+        self.resolution = int(JSON['resolution'])
         self.gameType = str(JSON['gameType'])
         self.formFactor = str(JSON['formFactor'])
         self.purpose = str(JSON['purpose'])
-        self.theme = JSON['theme'][0]
+        self.theme = JSON['theme']
+        self.rgb = JSON['rgb']
         self.DAYS_ALLOWED = 4  # Number of days allowed to use a part before updating its data using scraper
         self.currentDate = datetime.today()
         self.dateOfUpdate = self.currentDate - timedelta(days=self.DAYS_ALLOWED) # Last day allowed for part use
-        if JSON['theme'][1] == 'RGB':
-            self.rgb = True
-        else:
-            self.rgb = False
 
     ''' Since the algorithm currently serves gamers only '''
     ''' The CPU and GPU should both have the largest share of the budget '''
@@ -643,15 +506,6 @@ class algorithm:
 
     # Yusuf
     def __getCpu(self, budgetPercentage):
-        # All CPUs are firstly filtered by budget from the CPUs table
-        # The formFactor and purpose paramters play a role in deciding which CPU to choose
-        # This is because some CPUs emit too much heat, and consume so much power, hence
-        # they can not be used in mini-ITX or console killer builds for example
-        # So the rule will be to filter out CPUs based on a combination of budget 
-        # and the other paramters, and you can use the formFactor and purpose fields 
-        # in the CPU table to help, for example the i9 is both table top and work machine,
-        # and its also for ATX builds.
-
         budget = (self.budget * budgetPercentage) // 100
         budgetLowerBound = budget - ((budget*15)//100)
         budgetUpperBound = budget + ((budget*15)//100)
@@ -662,7 +516,6 @@ class algorithm:
             rating__lte=4.0).exclude(
             last_modified__lt=self.dateOfUpdate)
 
-
         highest_rating = Cpu.objects.order_by('-rating', '-base_clock')
         lowest_price = Cpu.objects.order_by('current_price')
         lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
@@ -670,12 +523,6 @@ class algorithm:
 
     # Omar
     def __getGpu(self, budgetPercentage):
-        # The GPU is a bit more complicated than the CPU
-        # As there are many parameters involved 
-        # 1) Performance as in resolution, FPS, gametype, and boostclock.
-        # 2) Maximizing GPU performance utilization from motherboard,
-        # for example if the mobo doesn't support PCIe5, there is no need to suggest a PCIe5 GPU
-        # And for that you can use the (supported_resolution, boost_clock, etc) fields
         budget = (self.budget * budgetPercentage)// 100
         HighestPrice = budget + ((budget * 15) // 100)
         LowestPrice = budget - ((budget * 15) // 100)
@@ -691,17 +538,12 @@ class algorithm:
         lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
         return lowPrice_and_highRating
 
-
-    # Omar
     def __getRam(self, budgetPercentage, MOBO, CPU):
-        # Follow the same previous pattern, first filter by budget
-        # Next filter any ram sets that exceed the maximum slot number on the mobo
-        # Then check if the mobo and cpu support DDr5, if so then suggest a DDr5 ram set
-        # If not then filter out anything that is DDr5 and keep the DDr4
         budget = (self.budget * budgetPercentage)// 100
         HighestPrice = budget + ((budget * 15) // 100)
         LowestPrice = budget - ((budget * 15) // 100)
         ram_sets = MOBO.ram_slots
+
         #Todo Filter ram sets that exceed the maximum slot number on the mobo
         rams = ram.objects.filter(
             current_price__gte = LowestPrice).filter(
@@ -718,17 +560,11 @@ class algorithm:
         lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
         return lowPrice_and_highRating
 
-    # Emad
     def __getMobo(self, budgetPercentage, CPU):
-        # Choosing a motherboard is pretty simple 
-        # Firstly filter by budget, then by theme.
-        # Then we filter based on our CPU choice (CPU-socket field), AMD and Intel use different mobos
-        # Finally we filter based on formFactor: ATX, Micro-ATX, or Mini-ITX
-        budget = (self.budget * budgetPercentage) // 100 # Calculating budget from given percentage
+        budget = (self.budget * budgetPercentage) // 100
         budgetLowerBound = budget - ((budget*15)//100)
         budgetUpperBound = budget + ((budget*15)//100)
-        cpuSocket = CPU.socket # String val, either: AM4, LGA1700, LGA1200
-
+        cpuSocket = CPU.socket
         mobo = motherboard.objects.filter(
             socket=cpuSocket).filter(
             current_price__gte=budgetLowerBound).filter(
@@ -770,13 +606,7 @@ class algorithm:
         lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
         return lowPrice_and_highRating
 
-    # Emad
     def __getStorage(self, budgetPercentage, CASE, MOBO):
-            # Follow the same previous pattern, first filter by budget
-        # An SSD must hold the main OS at least, and preferablly be as fast as possible
-        # There for check for the fastest SSD sockets going down, and filter out as you go
-        # You can do so by checking sockets on the motherboard, using relative fields 
-        # At the end filter what's left based on the fastest speed and highest storage
         budget = (self.budget * budgetPercentage) // 100 # Calculating budget from given percentage
         budgetLowerBound = budget - ((budget*15)//100)
         budgetUpperBound = budget + ((budget*15)//100)
@@ -831,15 +661,7 @@ class algorithm:
             lowPrice_and_highRating_hdd = highest_rating_hdd.intersection(lowest_price_hdd).first()
             return [lowPrice_and_highRating_ssd, lowPrice_and_highRating_hdd]
 
-    # Yusuf
     def __getCase(self, budgetPercentage, MOBO, GPU, COOLER):
-        # Obviously, we filter by price/budget firstly 
-        # Then we fitler based on the formfactor (ATX, micro, or mini)
-        # Then we filter cases left to fit the maximum width of the gpu
-        # We also make sure that the cooler fits in the case,
-        # if its an aircooler then we check for height and clearance, 
-        # if its a watercooler, then check that the radiator fits 
-
         # gpu large = case large (only use of relative size)
         # make sure cooler length = case depth
         budget = (self.budget * budgetPercentage) // 100 
@@ -849,23 +671,16 @@ class algorithm:
         Case = case.objects.filter(
             current_price__gte=budgetLowerBound).filter(
             current_price__lte=budgetUpperBound).filter(
-            size = self.formFactor).filter(
-            relativeSize = GPU.relativeSize).filter(
-            length__gt = COOLER.length).exclude(
-            rating__lte=4.0).exclude(
+            size=self.formFactor).filter(
+            length__gt=GPU.length).exclude(
             last_modified__lt=self.dateOfUpdate)
 
         highest_rating = Case.objects.order_by('-rating')
         lowest_price = Case.objects.order_by('current_price')
         lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
         return lowPrice_and_highRating    
-    # Omar
+
     def __getPsu(self, budgetPercentage, CASE, WATTS):
-        # Filter out by budget 
-        # Then filter out based on formFactor (ATX, ITX, etc)
-        # Then filter for the minimum required watts given in the parameter 
-        # Finally go from the highest rating (Platinum) to lowest (Bronze), 
-        # check if there is any psu from the higher ratings, keep it and remove all else
         budget = (self.budget * budgetPercentage)// 100
         HighestPrice = budget + ((budget * 15) // 100)
         LowestPrice = budget - ((budget * 15) // 100)
@@ -953,6 +768,7 @@ class algorithm:
             return[cpu, mobo, cooler, gpu, case, ram, storage, psu]
         except Exception as error:
             return error
+
 
 # Below is an exmaple of a JSON request we will get from the tool's frontend
 jsonExample = {
