@@ -130,3 +130,4 @@ GitHub.sublime-settings
 .history
 /Parts/migrations/
 /Blog/migrations/
+/venv/

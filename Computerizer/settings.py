@@ -20,8 +20,7 @@ sentry_sdk.init(
 dsn="https://7ea21b52dba04f69bd7fe1105e553d58@o4505521897668608.ingest.sentry.io/4505521914970112",
 integrations=[DjangoIntegration()],
 
-# Set traces_sample_rate to 1.0 to capture 100%
-# of transactions for performance monitoring.
+# Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
 # We recommend adjusting this value in production.
 traces_sample_rate=1.0,
 
@@ -35,8 +34,8 @@ send_default_pii=True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-#SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-SECRET_KEY = 'django-insecure-xi-f@u^3n49lg1g6h(ms=a7g=lyy4f0%8n!_#0k37-krbxq1f#'
+# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
