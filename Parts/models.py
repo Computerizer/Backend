@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.postgres import *
 from datetime import datetime, timedelta
 from django.utils import timezone
+from django.core import serializers
+from rest_framework.response import Response
+from django.http import JsonResponse
 
 class manufacturer(models.Model):
     ID                         = models.CharField(primary_key=True, null=False, blank=False, max_length=10)
@@ -314,7 +317,7 @@ class hdd(commoninfo):
 
     capacity          = models.PositiveIntegerField() #in gb, tb values will be altered on the frontend
     speed             = models.PositiveIntegerField(choices=rpm, verbose_name="Speed (rpm)") #in GhZ
-    sata              = models.CharField(choices=sata_connection, verbose_name='SATA Version', null=True, max_length=3)
+    sata              = models.FloatField(choices=sata_connection, verbose_name='SATA Version', null=True, max_length=3)
     size              = models.FloatField(choices=size, null=True)
     rgb               = models.BooleanField()
     power_consumption = models.PositiveIntegerField(null=True)
@@ -454,9 +457,9 @@ class case(commoninfo):
 
 class algorithm:
     def __init__(self, JSON):
-        self.budget = int(JSON['budget'])
+        self.budget = JSON['budget']
         self.fps = int(JSON['fps'])
-        self.resolution = int(JSON['resolution'])
+        self.resolution = (JSON['resolution'])
         self.gameType = str(JSON['gameType'])
         self.formFactor = str(JSON['formFactor'])
         self.purpose = str(JSON['purpose'])
@@ -465,6 +468,7 @@ class algorithm:
         self.DAYS_ALLOWED = 4  # Number of days allowed to use a part before updating its data using scraper
         self.currentDate = datetime.today()
         self.dateOfUpdate = self.currentDate - timedelta(days=self.DAYS_ALLOWED) # Last day allowed for part use
+
 
     ''' Since the algorithm currently serves gamers only '''
     ''' The CPU and GPU should both have the largest share of the budget '''
@@ -489,21 +493,19 @@ class algorithm:
     # If part's specific budget is 200$, create a range of 10% above and below (so range 180 - 220) 
 
     # Yusuf
-    def __getCpu(self, budgetPercentage):
+    def getCpu(self, budgetPercentage):
         budget = (self.budget * budgetPercentage) // 100
         budgetLowerBound = budget - ((budget*15)//100)
         budgetUpperBound = budget + ((budget*15)//100)
 
-        Cpu = cpu.object.filter(
-            current_price__gte=budgetLowerBound).filter(
-            current_price__lte=budgetUpperBound).exclude(
-            rating__lte=4.0).exclude(
-            last_modified__lt=self.dateOfUpdate)
+        Cpu = cpu.objects.filter(newegg_price=94.0)
 
-        highest_rating = Cpu.objects.order_by('-rating', '-base_clock')
-        lowest_price = Cpu.objects.order_by('current_price')
-        lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
-        return lowPrice_and_highRating
+        #highest_rating = Cpu.order_by('-partRating', '-base_clock')
+        #lowest_price = Cpu.order_by('current_price')
+        #lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+        #return lowPrice_and_highRating
+        sd = serializers.serialize('json', Cpu)
+        return JsonResponse(Cpu, safe=False)
 
     # Omar
     def __getGpu(self, budgetPercentage):
@@ -755,7 +757,7 @@ class algorithm:
 
 
 # Below is an exmaple of a JSON request we will get from the tool's frontend
-jsonExample = {
+jsonExample1 = {
     'budget': 4000,
     'fps': 144,
     'resolution': '4k',
