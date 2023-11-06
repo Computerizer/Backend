@@ -109,14 +109,25 @@ WSGI_APPLICATION = 'Computerizer.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 # Using Postgresql db on AWS independant of heroku
 
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+"""
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'computerizer-new-db',
+        'USER': 'computerizeradmin',
+        'PASSWORD': 'Breakfortech_123',
+        'HOST': 'computerizer-postgresql.postgres.database.azure.com',
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation
