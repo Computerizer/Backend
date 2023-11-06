@@ -45,7 +45,17 @@ def algorithm_api(request):
 
 @api_view(['POST'])
 def algorithm_api(request):
-    JSON = request.data
+    JSON = {
+    'budget': 4000,
+    'fps': 144,
+    'resolution': '4k',
+    'gameType': 'AAA',
+    'formFactor': 'ATX',
+    'purpose': 'Table Top',
+    'theme': 'Dark',
+    'RGB': True
+    }
+
     pc = algorithm(JSON)
     data = CPUSerializer(pc.getCpu(19), many=True)
     #customPc = pc.getComputer()

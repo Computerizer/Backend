@@ -553,18 +553,17 @@ class algorithm:
         cpuSocket = CPU.socket
         mobo = motherboard.objects.filter(
             socket=cpuSocket).filter(
-            current_price__gte=budgetLowerBound).filter(
-            current_price__lte=budgetUpperBound).filter(
+            current_price__range=(budgetLowerBound, budgetUpperBound)).filter(
             size=self.formFactor).filter(
             rgb=self.rgb).filter(
             theme=self.theme).exclude(
             rating__lte=4.0).exclude(
             last_modified__lt=self.dateOfUpdate)
 
-        highest_rating = mobo.objects.order_by('-rating')[:5]
-        lowest_price = mobo.objects.order_by('current_price')[:5]
-        lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
-        return lowPrice_and_highRating
+        # highest_rating = mobo.objects.order_by('-rating')[:5]
+        # lowest_price = mobo.objects.order_by('current_price')[:5]
+        # lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+        return mobo
 
     # Yusuf
     def __getCooler(self, budgetPercentage, CPU, MOBO):
