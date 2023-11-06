@@ -9,6 +9,10 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view,permission_classes,authentication_classes
 from json import load
+from django.http import JsonResponse, HttpResponse
+from .serializer import CPUSerializer
+from rest_framework.renderers import JSONRenderer
+
 #####################################################################
 #####################################################################
 
@@ -43,8 +47,9 @@ def algorithm_api(request):
 def algorithm_api(request):
     JSON = request.data
     pc = algorithm(JSON)
+    data = CPUSerializer(pc.getCpu(19), many=True)
     #customPc = pc.getComputer()
-    return Response(pc.getCpu(19))
+    return JsonResponse(data.data, safe=False)
 
 #####################################################################
 #####################################################################

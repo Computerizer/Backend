@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from django.utils import timezone
 from django.core import serializers
 from rest_framework.response import Response
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 
 class manufacturer(models.Model):
     ID                         = models.CharField(primary_key=True, null=False, blank=False, max_length=10)
@@ -498,14 +498,14 @@ class algorithm:
         budgetLowerBound = budget - ((budget*15)//100)
         budgetUpperBound = budget + ((budget*15)//100)
 
-        Cpu = cpu.objects.filter(newegg_price=94.0)
+        Cpu = cpu.objects.filter(newegg_price=71.0)
+        
 
         #highest_rating = Cpu.order_by('-partRating', '-base_clock')
         #lowest_price = Cpu.order_by('current_price')
         #lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
         #return lowPrice_and_highRating
-        sd = serializers.serialize('json', Cpu)
-        return JsonResponse(Cpu, safe=False)
+        return Cpu
 
     # Omar
     def __getGpu(self, budgetPercentage):
