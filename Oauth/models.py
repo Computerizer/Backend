@@ -11,7 +11,7 @@ from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 
 class CustomUser(AbstractUser):
-    profile_pic       = models.ImageField  (upload_to = r'Users/profile-pics',blank=True,default=r'Users/profile-pics/default-profile-pic.jpg')
+    profile_pic       = models.ImageField  (upload_to = r'Users/profile-pics', blank=True, default=r'Users/profile-pics/default-profile-pic.jpg')
     sub_to_newsletter = models.BooleanField(default=True)
     own_pc            = models.BooleanField(default=False) 
 

@@ -121,7 +121,7 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'computerizer-new-db',
+        'NAME': 'computerizer-testing',
         'USER': 'computerizeradmin',
         'PASSWORD': 'Breakfortech_123',
         'HOST': 'computerizer-postgresql.postgres.database.azure.com',
