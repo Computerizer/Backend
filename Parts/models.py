@@ -514,7 +514,6 @@ class caseSerializer(ModelSerializer):
 ############################################
 
 
-
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #                                       ALGORITHM                                       #
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -532,8 +531,9 @@ class algorithm:
         self.rgb = JSON['rgb']
         self.DAYS_ALLOWED = 4  # Number of days allowed to use a part before updating its data using scraper
         self.currentDate = datetime.today()
-        self.dateOfUpdate = self.currentDate - timedelta(days=self.DAYS_ALLOWED) # Last day allowed for part use
-
+        self.dateOfUpdate = self.currentDate - timedelta(days=self.DAYS_ALLOWED)  # Last day allowed for part use
+        self.extra = 0  # Extra budget to be used for other parts if there is saved money from other parts
+        # extra variable to be distributed to other parts
 
     ''' Since the algorithm currently serves gamers only '''
     ''' The CPU and GPU should both have the largest share of the budget '''
@@ -560,17 +560,48 @@ class algorithm:
     # Yusuf
     def getCpu(self, budgetPercentage):
         budget = self.budget * (budgetPercentage / 100)
-        budgetLowerBound = budget - (budget * 0.50)
-
         Cpu = cpu.objects.filter(current_price__lt=budget)
 
         highest_rating = Cpu.order_by('-power_consumption').first()
-        #lowest_price = highest_rating.order_by('-current_price').first()
+        cpu_Price = highest_rating.current_price
+
+        extra = budget - cpu_Price
+        if extra > 0:
+            self.extra += extra
+
         return cpuSerializer(highest_rating, many=False).data
+
+    '''
+        budget = (self.budget * budgetPercentage) // 100
+        budgetLowerBound = budget - ((budget*15)//100)
+        budgetUpperBound = budget + ((budget*15)//100)
+
+        budget = 3500
+        budget = 1500
+        
+        cpu = 550
+        up = 600
+        lb = 500
+        cpu_liomit = 380
+
+        Cpu = cpu.objects.filter(newegg_price=71.0)
+        
+
+        #highest_rating = Cpu.order_by('-partRating', '-base_clock')
+        #lowest_price = Cpu.order_by('current_price')
+        #lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+        #return lowPrice_and_highRating
+        return Cpu
+    '''
 
     # Omar
     def __getGpu(self, budgetPercentage):
-        budget = (self.budget * budgetPercentage)// 100
+        budget = (self.budget * budgetPercentage) // 100
+
+        if self.extra > 0:
+            budget += self.extra
+            self.extra = 0
+
         HighestPrice = budget + ((budget * 15) // 100)
         LowestPrice = budget - ((budget * 15) // 100)
         Gpu = (gpu.objects.filter(
@@ -586,6 +617,7 @@ class algorithm:
         return gpuSerializer(Gpu).data
 
     def __getRam(self, budgetPercentage, MOBO, CPU):
+        # use extra budget from gpu
         budget = (self.budget * budgetPercentage)// 100
         HighestPrice = budget + ((budget * 15) // 100)
         LowestPrice = budget - ((budget * 15) // 100)
@@ -653,6 +685,7 @@ class algorithm:
         return lowPrice_and_highRating
 
     def __getStorage(self, budgetPercentage, CASE, MOBO):
+        # use extra budget from ram
         budget = (self.budget * budgetPercentage) // 100 # Calculating budget from given percentage
         budgetLowerBound = budget - ((budget*15)//100)
         budgetUpperBound = budget + ((budget*15)//100)

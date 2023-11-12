@@ -45,7 +45,7 @@ def algorithm_api(request):
 @api_view(['POST'])
 def algorithm_api(request):
     JSON = {
-    'budget': 1500,
+    'budget': 3500,
     'fps': 144,
     'resolution': '4k',
     'gameType': 'AAA',
@@ -62,3 +62,23 @@ def algorithm_api(request):
 
 #####################################################################
 #####################################################################
+
+
+
+
+1500
+
+225
+
+
+200
+
+25
+
+
+
+
+
+
+
+
