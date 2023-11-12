@@ -5,6 +5,8 @@ from django.utils import timezone
 from django.core import serializers
 from rest_framework.response import Response
 from django.http import JsonResponse, HttpResponse
+from rest_framework.serializers import ModelSerializer, Serializer
+
 
 class manufacturer(models.Model):
     ID                         = models.CharField(primary_key=True, null=False, blank=False, max_length=10)
@@ -450,6 +452,69 @@ class case(commoninfo):
 
 
 
+############################################
+#       Serializers for specific parts     #
+############################################
+class cpuSerializer(ModelSerializer):
+    class Meta:
+        model = cpu
+        fields = '__all__'
+
+class gpuSerializer(ModelSerializer):
+    class Meta:
+        model = gpu
+        fields = '__all__'
+
+class ramSerializer(ModelSerializer):
+    class Meta:
+        model = ram
+        fields = '__all__'
+
+class ssdSerializer(ModelSerializer):
+    class Meta:
+        model = ssd
+        fields = '__all__'
+
+class hddSerializer(ModelSerializer):
+    class Meta:
+        model = hdd
+        fields = '__all__'
+
+class watercoolerSerializer(ModelSerializer):
+    class Meta:
+        model = watercooler
+        fields = '__all__'
+
+class aircoolerSerializer(ModelSerializer):
+    class Meta:
+        model = aircooler
+        fields = '__all__'
+
+class moboSerializer(ModelSerializer):
+    class Meta:
+        model = motherboard
+        fields = '__all__'
+
+class psuSerializer(ModelSerializer):
+    class Meta:
+        model = psu
+        fields = '__all__'
+
+class fanSerializer(ModelSerializer):
+    class Meta:
+        model = fan
+        fields = '__all__'
+
+class caseSerializer(ModelSerializer):
+    class Meta:
+        model = case
+        fields = '__all__'
+
+############################################
+############################################
+
+
+
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #                                       ALGORITHM                                       #
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -478,7 +543,7 @@ class algorithm:
         #Percents in the order: CPU - GPU - MOBO - RAM - STORAGE - COOLER - PSU - CASE
         #The part parameter is to be send as an argument from the calling function(eg:0 is CPU, 2 if RAM)
         # Ensure budget equals to 100
-        partPercentages = [19, 30, 16, 6, 6, 8, 7, 8]
+        partPercentages = [15, 40, 10, 8, 6, 7, 7, 7]
         return partPercentages[part]
 
     #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
@@ -494,35 +559,31 @@ class algorithm:
 
     # Yusuf
     def getCpu(self, budgetPercentage):
-        budget = (self.budget * budgetPercentage) // 100
-        budgetLowerBound = budget - ((budget*15)//100)
-        budgetUpperBound = budget + ((budget*15)//100)
+        budget = self.budget * (budgetPercentage / 100)
+        budgetLowerBound = budget - (budget * 0.50)
 
-        Cpu = cpu.objects.filter(newegg_price=71.0)
-        
+        Cpu = cpu.objects.filter(current_price__lt=budget)
 
-        #highest_rating = Cpu.order_by('-partRating', '-base_clock')
-        #lowest_price = Cpu.order_by('current_price')
-        #lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
-        #return lowPrice_and_highRating
-        return Cpu
+        highest_rating = Cpu.order_by('-power_consumption').first()
+        #lowest_price = highest_rating.order_by('-current_price').first()
+        return cpuSerializer(highest_rating, many=False).data
 
     # Omar
     def __getGpu(self, budgetPercentage):
         budget = (self.budget * budgetPercentage)// 100
         HighestPrice = budget + ((budget * 15) // 100)
         LowestPrice = budget - ((budget * 15) // 100)
-        Gpu = gpu.objects.filter(
+        Gpu = (gpu.objects.filter(
             current_price__gte = LowestPrice).filter(
             current_price__lte=HighestPrice).filter(
             rgb=self.rgb).exclude(
-            rating__lte=4.0).exclude(
-            last_modified__lt=self.dateOfUpdate)
+            rating__lte=4.0))
 
-        highest_rating = Gpu.objects.order_by('-rating', '-base_clock')
-        lowest_price = Gpu.objects.order_by('current_price')
-        lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
-        return lowPrice_and_highRating
+        #highest_rating = Gpu.objects.order_by('-rating', '-base_clock')
+        #lowest_price = Gpu.objects.order_by('current_price')
+        #lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
+        #return lowPrice_and_highRating
+        return gpuSerializer(Gpu).data
 
     def __getRam(self, budgetPercentage, MOBO, CPU):
         budget = (self.budget * budgetPercentage)// 100

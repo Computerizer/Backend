@@ -10,7 +10,6 @@ from rest_framework import status
 from rest_framework.decorators import api_view,permission_classes,authentication_classes
 from json import load
 from django.http import JsonResponse, HttpResponse
-from .serializer import CPUSerializer
 from rest_framework.renderers import JSONRenderer
 
 #####################################################################
@@ -46,20 +45,20 @@ def algorithm_api(request):
 @api_view(['POST'])
 def algorithm_api(request):
     JSON = {
-    'budget': 4000,
+    'budget': 1500,
     'fps': 144,
     'resolution': '4k',
     'gameType': 'AAA',
     'formFactor': 'ATX',
     'purpose': 'Table Top',
     'theme': 'Dark',
-    'RGB': True
+    'rgb': True
     }
 
     pc = algorithm(JSON)
-    data = CPUSerializer(pc.getCpu(19), many=True)
+    data = pc.getCpu(20)
     #customPc = pc.getComputer()
-    return JsonResponse(data.data, safe=False)
+    return JsonResponse(data, safe=False)
 
 #####################################################################
 #####################################################################
