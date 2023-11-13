@@ -569,7 +569,8 @@ class algorithm:
         if extra > 0:
             self.extra += extra
 
-        return cpuSerializer(highest_rating, many=False).data
+        # return cpuSerializer(highest_rating, many=False).data
+        return highest_rating
 
     '''
         budget = (self.budget * budgetPercentage) // 100
@@ -639,24 +640,34 @@ class algorithm:
         lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
         return lowPrice_and_highRating
 
-    def __getMobo(self, budgetPercentage, CPU):
-        budget = (self.budget * budgetPercentage) // 100
-        budgetLowerBound = budget - ((budget*15)//100)
-        budgetUpperBound = budget + ((budget*15)//100)
-        cpuSocket = CPU.socket
-        mobo = motherboard.objects.filter(
-            socket=cpuSocket).filter(
-            current_price__range=(budgetLowerBound, budgetUpperBound)).filter(
-            size=self.formFactor).filter(
-            rgb=self.rgb).filter(
-            theme=self.theme).exclude(
-            rating__lte=4.0).exclude(
-            last_modified__lt=self.dateOfUpdate)
+    def getMobo(self, budgetPercentage, CPU):
+        # budget = (self.budget * budgetPercentage) // 100
+        # budgetLowerBound = budget - ((budget*15)//100)
+        # budgetUpperBound = budget + ((budget*15)//100)
+        # cpuSocket = CPU.socket
+        # mobo = motherboard.objects.filter(
+        #     socket=cpuSocket).filter(
+        #     current_price__range=(budgetLowerBound, budgetUpperBound)).filter(
+        #     size=self.formFactor).filter(
+        #     rgb=self.rgb).filter(
+        #     theme=self.theme).exclude(
+        #     rating__lte=4.0).exclude(
+        #     last_modified__lt=self.dateOfUpdate)
+        budget = self.budget * (budgetPercentage / 100)
+        mobo = motherboard.objects.filter(current_price__lt=budget, socket = CPU.socket, size = self.formFactor, rgb = self.rgb, theme = self.theme, last_modified__lt=self.dateOfUpdate)
 
+        highest_rating = mobo.order_by('-current_price').first()
+        mobo_Price = highest_rating.current_price
+
+        extra = budget - cpu_Price
+        if extra > 0:
+            self.extra += extra
+
+        return moboSerializer(highest_rating, many=False).data
         # highest_rating = mobo.objects.order_by('-rating')[:5]
         # lowest_price = mobo.objects.order_by('current_price')[:5]
         # lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
-        return mobo
+        # return mobo
 
     # Yusuf
     def __getCooler(self, budgetPercentage, CPU, MOBO):

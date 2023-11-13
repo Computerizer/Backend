@@ -42,7 +42,7 @@ def algorithm_api(request):
     return Response({'error message': 'maximum user retries, change parameters'})
 """
 
-@api_view(['POST'])
+@api_view(['GET'])
 def algorithm_api(request):
     JSON = {
     'budget': 3500,
@@ -56,9 +56,10 @@ def algorithm_api(request):
     }
 
     pc = algorithm(JSON)
-    data = pc.getCpu(20)
+    cpu = pc.getCpu(20)
+    mobo = pc.getMobo(10, cpu)
     #customPc = pc.getComputer()
-    return JsonResponse(data, safe=False)
+    return JsonResponse(mobo, safe=False)
 
 #####################################################################
 #####################################################################
