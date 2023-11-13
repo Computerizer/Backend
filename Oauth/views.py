@@ -20,6 +20,8 @@ class Register(APIView):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             account = serializer.save()
+            account.set_password(request.data['password'])
+            account.save()
             token = Token.objects.create(user=account)
             return Response({
                 "response":"User Created Successfully",
