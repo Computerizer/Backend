@@ -54,6 +54,20 @@ class commoninfo(models.Model):
         abstract = True
         app_label = 'Parts'
 
+    def getPossibleSizes(self):
+        # this method can be used in queries(a small gpu can fit in a large case, but small != large) you can check if the size of the gpu in case possible sizes
+        sizes = ['S', "M", "L"]
+        size = self.relativeSize
+
+        return sizes[0:sizes.index(size)+1]
+    
+    def fitInSize(self):
+        # this method gives you all the sizes a specfic part can fit in (small gpu can fit in [large, medium, small] casses)
+        sizes = ['S', "M", "L"]
+        size = self.relativeSize
+
+        return sizes[sizes.index(size):]
+
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -196,6 +210,7 @@ class gpu(commoninfo):
 
     def is_valid_gpu(self):
         pass
+    
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -637,7 +652,7 @@ class algorithm:
         highest_rating = mobo.order_by('-current_price').first()
         mobo_Price = highest_rating.current_price
 
-        extra = budget - cpu_Price
+        extra = budget - mobo_Price
         if extra > 0:
             self.extra += extra
 
@@ -730,24 +745,21 @@ class algorithm:
             lowPrice_and_highRating_hdd = highest_rating_hdd.intersection(lowest_price_hdd).first()
             return [lowPrice_and_highRating_ssd, lowPrice_and_highRating_hdd]
 
-    def __getCase(self, budgetPercentage, MOBO, GPU, COOLER):
+    def getCase(self, budgetPercentage, GPU):
         # gpu large = case large (only use of relative size)
         # make sure cooler length = case depth
-        budget = (self.budget * budgetPercentage) // 100 
-        budgetLowerBound = budget - ((budget*15)//100)
-        budgetUpperBound = budget + ((budget*15)//100)
+        budget = self.budget * (budgetPercentage / 100)
+        Case = case.objects.filter(current_price__lt=budget, relativeSize__in = GPU.fitInSize())
+        #Case = Case.exclude(last_modified__lt=self.dateOfUpdate)
 
-        Case = case.objects.filter(
-            current_price__gte=budgetLowerBound).filter(
-            current_price__lte=budgetUpperBound).filter(
-            size=self.formFactor).filter(
-            length__gt=GPU.length).exclude(
-            last_modified__lt=self.dateOfUpdate)
+        highest_rating = Case.order_by('-current_price').first()
+        case_Price = highest_rating.current_price
 
-        highest_rating = Case.objects.order_by('-rating')
-        lowest_price = Case.objects.order_by('current_price')
-        lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
-        return lowPrice_and_highRating    
+        extra = budget - case_Price
+        if extra > 0:
+            self.extra += extra
+
+        return caseSerializer(highest_rating, many=False).data
 
     def __getPsu(self, budgetPercentage, CASE, WATTS):
         budget = (self.budget * budgetPercentage)// 100
