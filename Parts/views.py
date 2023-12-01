@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
-from .models import algorithm
+from .models import algorithm, cpuSerializer, moboSerializer, ramSerializer, gpuSerializer, psuSerializer
 from django.apps import apps
 from django.http import JsonResponse, HttpResponseForbidden
 from django.http import Http404
@@ -42,10 +42,10 @@ def algorithm_api(request):
     return Response({'error message': 'maximum user retries, change parameters'})
 """
 
-@api_view(['GET'])
+@api_view(['POST'])
 def algorithm_api(request):
     JSON = {
-    'budget': 3500,
+    'budget': 2000,
     'fps': 144,
     'resolution': '4k',
     'gameType': 'AAA',
@@ -56,28 +56,13 @@ def algorithm_api(request):
     }
 
     pc = algorithm(JSON)
-    cpu = pc.getCpu(20)
-    mobo = pc.getMobo(10, cpu)
+    cpu = cpuSerializer(pc.getCpu(20), many=False).data
+    #mobo = pc.getMobo(10, cpu)
     #customPc = pc.getComputer()
-    return JsonResponse(mobo, safe=False)
+    return JsonResponse(cpu, safe=False)
 
 #####################################################################
 #####################################################################
-
-
-
-
-1500
-
-225
-
-
-200
-
-25
-
-
-
 
 
 

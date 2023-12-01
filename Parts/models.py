@@ -543,7 +543,7 @@ class algorithm:
         #Percents in the order: CPU - GPU - MOBO - RAM - STORAGE - COOLER - PSU - CASE
         #The part parameter is to be send as an argument from the calling function(eg:0 is CPU, 2 if RAM)
         # Ensure budget equals to 100
-        partPercentages = [15, 40, 10, 8, 6, 7, 7, 7]
+        partPercentages = [15, 35, 10, 8, 8, 9, 8, 7]
         return partPercentages[part]
 
     #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
@@ -562,7 +562,7 @@ class algorithm:
         budget = self.budget * (budgetPercentage / 100)
         Cpu = cpu.objects.filter(current_price__lt=budget)
 
-        highest_rating = Cpu.order_by('-power_consumption').first()
+        highest_rating = Cpu.order_by('-power_consumption', '-threads').first()
         cpu_Price = highest_rating.current_price
 
         extra = budget - cpu_Price
@@ -572,28 +572,6 @@ class algorithm:
         # return cpuSerializer(highest_rating, many=False).data
         return highest_rating
 
-    '''
-        budget = (self.budget * budgetPercentage) // 100
-        budgetLowerBound = budget - ((budget*15)//100)
-        budgetUpperBound = budget + ((budget*15)//100)
-
-        budget = 3500
-        budget = 1500
-        
-        cpu = 550
-        up = 600
-        lb = 500
-        cpu_liomit = 380
-
-        Cpu = cpu.objects.filter(newegg_price=71.0)
-        
-
-        #highest_rating = Cpu.order_by('-partRating', '-base_clock')
-        #lowest_price = Cpu.order_by('current_price')
-        #lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
-        #return lowPrice_and_highRating
-        return Cpu
-    '''
 
     # Omar
     def __getGpu(self, budgetPercentage):
@@ -698,8 +676,9 @@ class algorithm:
     def __getStorage(self, budgetPercentage, CASE, MOBO):
         # use extra budget from ram
         budget = (self.budget * budgetPercentage) // 100 # Calculating budget from given percentage
-        budgetLowerBound = budget - ((budget*15)//100)
-        budgetUpperBound = budget + ((budget*15)//100)
+
+        
+
 
         ssd_count = 0
         hdd_count = 0

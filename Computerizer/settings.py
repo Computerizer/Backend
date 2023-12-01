@@ -109,7 +109,7 @@ WSGI_APPLICATION = 'Computerizer.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 # Using Postgresql db on AWS independant of heroku
 
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -128,7 +128,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
