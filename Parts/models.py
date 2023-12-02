@@ -572,7 +572,6 @@ class algorithm:
     # If there are parts with the same rating, suggest lowest price 
     # If part's specific budget is 200$, create a range of 10% above and below (so range 180 - 220) 
 
-    # Yusuf
     def getCpu(self, budgetPercentage):
         budget = self.budget * (budgetPercentage / 100)
         Cpu = cpu.objects.filter(current_price__lt=budget)
@@ -588,27 +587,19 @@ class algorithm:
         return highest_rating
 
 
-    # Omar
-    def __getGpu(self, budgetPercentage):
-        budget = (self.budget * budgetPercentage) // 100
+    def getGpu(self, budgetPercentage):
+        budget = self.budget * (budgetPercentage / 100)
 
         if self.extra > 0:
             budget += self.extra
             self.extra = 0
 
-        HighestPrice = budget + ((budget * 15) // 100)
-        LowestPrice = budget - ((budget * 15) // 100)
-        Gpu = (gpu.objects.filter(
-            current_price__gte = LowestPrice).filter(
-            current_price__lte=HighestPrice).filter(
-            rgb=self.rgb).exclude(
-            rating__lte=4.0))
+        Gpu = gpu.objects.filter(
+            current_price__lt = budget).filter(rgb=self.rgb)
 
-        #highest_rating = Gpu.objects.order_by('-rating', '-base_clock')
-        #lowest_price = Gpu.objects.order_by('current_price')
-        #lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
-        #return lowPrice_and_highRating
-        return gpuSerializer(Gpu).data
+        highest_rating = Gpu.order_by('-vram', '-boost_clock').first()
+        return highest_rating
+
 
     def __getRam(self, budgetPercentage, MOBO, CPU):
         # use extra budget from gpu

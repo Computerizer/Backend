@@ -56,10 +56,10 @@ def algorithm_api(request):
     }
 
     pc = algorithm(JSON)
-    cpu = cpuSerializer(pc.getCpu(20), many=False).data
+    gpu = gpuSerializer(pc.getGpu(35), many=False).data
     #mobo = pc.getMobo(10, cpu)
     #customPc = pc.getComputer()
-    return JsonResponse(cpu, safe=False)
+    return JsonResponse(gpu, safe=False)
 
 #####################################################################
 #####################################################################
