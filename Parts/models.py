@@ -62,7 +62,7 @@ class commoninfo(models.Model):
         return sizes[0:sizes.index(size)+1]
     
     def fitInSize(self):
-        # this method gives you all the sizes a specfic part can fit in (small gpu can fit in [large, medium, small] casses)
+        # this method gives you all the sizes a specfic part can fit in (small gpu can fit in [large, medium, small] cases)
         sizes = ['S', "M", "L"]
         size = self.relativeSize
 
@@ -595,7 +595,19 @@ class algorithm:
             self.extra = 0
 
         Gpu = gpu.objects.filter(
-            current_price__lt = budget).filter(rgb=self.rgb)
+            current_price__lte = budget)
+        
+        if self.theme.lower() == 'dark':
+            Gpu = Gpu.filter(theme = 'dark')
+        else:
+            Gpu = Gpu.filter(theme = 'light')
+        
+        if self.formFactor == 'microItx':
+            Gpu = Gpu.filter(
+                fan_count__lte = 2)
+        elif self.formFactor == 'miniItx':
+            Gpu = Gpu.filter(
+                fan_count__lte = 1)
 
         highest_rating = Gpu.order_by('-vram', '-boost_clock').first()
         return highest_rating

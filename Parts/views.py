@@ -45,13 +45,13 @@ def algorithm_api(request):
 @api_view(['POST'])
 def algorithm_api(request):
     JSON = {
-    'budget': 2000,
+    'budget': 1500,
     'fps': 144,
     'resolution': '4k',
     'gameType': 'AAA',
     'formFactor': 'ATX',
     'purpose': 'Table Top',
-    'theme': 'Dark',
+    'theme': 'light',
     'rgb': True
     }
 
