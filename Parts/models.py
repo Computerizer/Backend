@@ -33,22 +33,22 @@ class manufacturer(models.Model):
 
 
 class commoninfo(models.Model):
-    ID                  = models.CharField(primary_key=True, max_length=15)
-    manufacturer        = models.ForeignKey('manufacturer', related_name="%(class)s_related", on_delete=models.CASCADE)
-    name                = models.CharField(max_length=150)
-    relativeSize        = models.CharField(choices=(('S', 'S'), ('M', 'M'), ("L", "L")), null=True, max_length=1)
-    data_added          = models.DateField(auto_now_add=True, null=True)
-    amazon_url          = models.TextField(null=True, blank=True)
-    newegg_url          = models.TextField(null=True, blank=True)
-    #bestbuy_url        = models.TextField(null=True)
-    partRating          = models.FloatField(blank=True, null=True)
-    amazon_price        = models.FloatField(null=True, blank=True)
-    newegg_price        = models.FloatField(null=True, blank=True)
-    #bestbuy_price      = models.FloatField(null=True)
-    previous_price      = models.FloatField(null=True, default=0.0)
-    current_price       = models.FloatField(null=True, blank=True)
-    lowest_Price_Link   = models.URLField(null=True, blank=True)
-    last_modified       = models.DateField(auto_now=True)
+    ID                 = models.CharField(primary_key=True, max_length=15)
+    manufacturer       = models.ForeignKey('manufacturer', related_name="%(class)s_related", on_delete=models.CASCADE)
+    name               = models.CharField(max_length=150)
+    relativeSize       = models.CharField(choices=(('S', 'S'), ('M', 'M'), ("L", "L")), null=True, max_length=1)
+    dateAdded          = models.DateField(auto_now_add=True, null=True)
+    amazonUrl          = models.TextField(null=True, blank=True)
+    neweggUrl          = models.TextField(null=True, blank=True)
+    #bestbuy_url       = models.TextField(null=True)
+    partRating         = models.FloatField(blank=True, null=True)
+    amazonPrice        = models.FloatField(null=True, blank=True)
+    neweggPrice        = models.FloatField(null=True, blank=True)
+    #bestbuy_price     = models.FloatField(null=True)
+    previousPrice      = models.FloatField(null=True, default=0.0)
+    currentPrice       = models.FloatField(null=True, blank=True)
+    lowestPriceUrl     = models.URLField(null=True, blank=True)
+    lastModified       = models.DateField(auto_now=True)
 
     class Meta:
         abstract = True
@@ -229,28 +229,26 @@ class motherboard(commoninfo):
         ('Micro-ATX', 'Micro-ATX'),
         ('Mini-ITX', 'Mini-ITX'),
     )
-    socket               = models.CharField(choices=Sockets, max_length=15, verbose_name='Socket support')
-    size                 = models.CharField(choices=sizes, max_length=15, verbose_name='Size (form factor)')
-    ram_slots            = models.IntegerField(choices=((4, 4), (2, 2)), verbose_name='How many ram slots', null=True)
-    ddr_5_support        = models.BooleanField(verbose_name='Supports DDR5 RAM')
-    ddr_4_support        = models.BooleanField(verbose_name='Supports DDR4 RAM')
-    pcie_version         = models.BooleanField(verbose_name='Which Pcie verison (type only 5 or4)', null=True)
-    wifi                 = models.BooleanField(help_text='Does it allow WIFI connectivity (without a cable)')
-    wifi_6_support       = models.BooleanField(verbose_name='Supports WIFI 6')
-    lan_support          = models.BooleanField(verbose_name='Supports LAN Connectivity')
+    socket               = models.CharField(choices=Sockets, max_length=15, help_text='Socket support')
+    size                 = models.CharField(choices=sizes, max_length=15, help_text='Size (form factor)')
+    ramSlots             = models.IntegerField(choices=((4, 4), (2, 2)), help_text='How many ram slots onboard (usually 4 unless miniItx)', default=4)
+    ddr5                 = models.BooleanField(help_text='Supports DDR5 RAM', default=False)
+    pcie5                = models.BooleanField(help_text='If pcie 4 then false, if pcie 5 then true', default=False)
+    wifi                 = models.BooleanField(help_text='Does it allow WIFI connectivity (without a cable)', default=False)
+    wifi6                = models.BooleanField(help_text='Supports WIFI 6', default=False)
+    lan                  = models.BooleanField(help_text='Supports cable lan connectivity', default=True)
     #fan_headers         = models.PositiveIntegerField()
-    rgb                  = models.BooleanField(help_text="ONLY RGB LIGHT THAT'S PART OF THE MOBO")
     #rgb_headers         = models.PositiveIntegerField()
     #argb_headers        = models.PositiveIntegerField()
-    hdmi_count           = models.PositiveIntegerField()
-    displayport_count    = models.PositiveIntegerField()
-    usbc_count           = models.PositiveIntegerField(verbose_name='USB-C ports count')
-    usb3point2_count     = models.IntegerField(verbose_name='USB3.2 count', null=True)
-    usb_count            = models.IntegerField(verbose_name='USB count', null=True)
-    mdot2_SSD_slots      = models.PositiveIntegerField(verbose_name='Number of M.2 slots')
-    integrated_io_sheild = models.BooleanField(help_text='Does it have a built in cover on io')
-    theme                = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), max_length=6)
-    use_case             = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
+    hdmiCount            = models.PositiveIntegerField()
+    displayport          = models.PositiveIntegerField()
+    usbcCount            = models.PositiveIntegerField(help_text='USB-C ports count', default=1)
+    usbCount             = models.PositiveIntegerField(help_text='USB count', default=2)
+    mdot2                = models.PositiveIntegerField(help_text='Number of M.2 slots', default=1)
+    rgb                  = models.BooleanField(help_text="rgb lights onboard, not headers")
+    ioSheild             = models.BooleanField(help_text='Does it have a built in cover on io (usually found on high end mobos)', default=False)
+    theme                = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), max_length=6, default='dark')
+    useCase              = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15, default='Mid-Range')
 
     def __str__(self):
         return f"{self.name}"
@@ -574,10 +572,10 @@ class algorithm:
 
     def getCpu(self, budgetPercentage):
         budget = self.budget * (budgetPercentage / 100)
-        Cpu = cpu.objects.filter(current_price__lt=budget)
+        Cpu = cpu.objects.filter(currentPrice__lt=budget)
 
         highest_rating = Cpu.order_by('-power_consumption', '-threads').first()
-        cpu_Price = highest_rating.current_price
+        cpu_Price = highest_rating.currentPrice
 
         extra = budget - cpu_Price
         if extra > 0:
@@ -595,7 +593,7 @@ class algorithm:
             self.extra = 0
 
         Gpu = gpu.objects.filter(
-            current_price__lte = budget)
+            currentPrice__lte = budget)
         
         if self.theme.lower() == 'dark':
             Gpu = Gpu.filter(theme = 'dark')
@@ -622,17 +620,17 @@ class algorithm:
 
         #Todo Filter ram sets that exceed the maximum slot number on the mobo
         rams = ram.objects.filter(
-            current_price__gte = LowestPrice).filter(
-            current_price__lte=HighestPrice).exclude(
+            currentPrice__gte = LowestPrice).filter(
+            currentPrice__lte=HighestPrice).exclude(
             rating__lte=4.0).exclude(
-            last_modified__lt=self.dateOfUpdate)
+            lastModified__lt=self.dateOfUpdate)
         if MOBO.ddr_5_support:
             rams = rams.filter(type='DDR5')
         else:
             rams = rams.filter(type='DDR4')
 
         highest_rating = rams.objects.order_by('-rating')[:5]
-        lowest_price = rams.objects.order_by('current_price')[:5]
+        lowest_price = rams.objects.order_by('currentPrice')[:5]
         lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
         return lowPrice_and_highRating
 
@@ -643,17 +641,17 @@ class algorithm:
         # cpuSocket = CPU.socket
         # mobo = motherboard.objects.filter(
         #     socket=cpuSocket).filter(
-        #     current_price__range=(budgetLowerBound, budgetUpperBound)).filter(
+        #     currentPrice__range=(budgetLowerBound, budgetUpperBound)).filter(
         #     size=self.formFactor).filter(
         #     rgb=self.rgb).filter(
         #     theme=self.theme).exclude(
         #     rating__lte=4.0).exclude(
-        #     last_modified__lt=self.dateOfUpdate)
+        #     lastModified__lt=self.dateOfUpdate)
         budget = self.budget * (budgetPercentage / 100)
-        mobo = motherboard.objects.filter(current_price__lt=budget, socket = CPU.socket, size = self.formFactor, rgb = self.rgb, theme = self.theme, last_modified__lt=self.dateOfUpdate)
+        mobo = motherboard.objects.filter(currentPrice__lt=budget, socket = CPU.socket, size = self.formFactor, rgb = self.rgb, theme = self.theme, lastModified__lt=self.dateOfUpdate)
 
-        highest_rating = mobo.order_by('-current_price').first()
-        mobo_Price = highest_rating.current_price
+        highest_rating = mobo.order_by('-currentPrice').first()
+        mobo_Price = highest_rating.currentPrice
 
         extra = budget - mobo_Price
         if extra > 0:
@@ -661,7 +659,7 @@ class algorithm:
 
         return moboSerializer(highest_rating, many=False).data
         # highest_rating = mobo.objects.order_by('-rating')[:5]
-        # lowest_price = mobo.objects.order_by('current_price')[:5]
+        # lowest_price = mobo.objects.order_by('currentPrice')[:5]
         # lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
         # return mobo
 
@@ -679,24 +677,21 @@ class algorithm:
         # currently only using aircoolers
         # Ask user if he prefers air or water cooling
         cooler = aircooler.objects.filter(
-            current_price__gte=budgetLowerBound).filter(
-            current_price__lte=budgetUpperBound).filter(
+            currentPrice__gte=budgetLowerBound).filter(
+            currentPrice__lte=budgetUpperBound).filter(
             size = self.formFactor).filter(
             socket = CPU.socket).exclude(
             rating__lte=4.0).exclude(
-            last_modified__lt=self.dateOfUpdate)
+            lastModified__lt=self.dateOfUpdate)
 
         highest_rating = cooler.objects.order_by('-rating')
-        lowest_price = cooler.objects.order_by('current_price')
+        lowest_price = cooler.objects.order_by('currentPrice')
         lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
         return lowPrice_and_highRating
 
     def __getStorage(self, budgetPercentage, CASE, MOBO):
         # use extra budget from ram
         budget = (self.budget * budgetPercentage) // 100 # Calculating budget from given percentage
-
-        
-
 
         ssd_count = 0
         hdd_count = 0
@@ -713,38 +708,38 @@ class algorithm:
 
         if ssd_count > 0 and hdd_count == 0:
             SSD = ssd.objects.filter(
-                current_price__gte=float(ssd_price - ((ssd_price*15)//100))).filter(
-                current_price__lte=float(ssd_price + ((ssd_price*15)//100))).filter(
+                currentPrice__gte=float(ssd_price - ((ssd_price*15)//100))).filter(
+                currentPrice__lte=float(ssd_price + ((ssd_price*15)//100))).filter(
                 rgb=self.rgb).exclude(
                 rating__lte=4.0).exclude(
-                last_modified__lt=self.dateOfUpdate)
+                lastModified__lt=self.dateOfUpdate)
             
         elif ssd_count > 0  and hdd_count > 0:
             SSD = ssd.objects.filter(
-                current_price__gte=float(ssd_price - ((ssd_price*15)//100))).filter(
-                current_price__lte=float(ssd_price + ((ssd_price*15)//100))).filter(
+                currentPrice__gte=float(ssd_price - ((ssd_price*15)//100))).filter(
+                currentPrice__lte=float(ssd_price + ((ssd_price*15)//100))).filter(
                 rgb=self.rgb).exclude(
                 rating__lte=4.0).exclude(
-                last_modified__lt=self.dateOfUpdate)
+                lastModified__lt=self.dateOfUpdate)
             
             HDD = hdd.objects.filter(
-                current_price__gte=float(hdd_price - ((hdd_price*15)//100))).filter(
-                current_price__lte=float(hdd_price + ((hdd_price*15)//100))).filter(
+                currentPrice__gte=float(hdd_price - ((hdd_price*15)//100))).filter(
+                currentPrice__lte=float(hdd_price + ((hdd_price*15)//100))).filter(
                 rgb=self.rgb).exclude(
                 rating__lte=4.0).exclude(
-                last_modified__lt=self.dateOfUpdate)
+                lastModified__lt=self.dateOfUpdate)
         
         if HDD.count() == 0:
             highest_rating = SSD.objects.order_by('-rating')[:5]
-            lowest_price = SSD.objects.order_by('current_price')[:5]
+            lowest_price = SSD.objects.order_by('currentPrice')[:5]
             lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
             return lowPrice_and_highRating
         else:
             highest_rating_ssd = SSD.objects.order_by('-rating')[:5]
-            lowest_price_ssd = SSD.objects.order_by('current_price')[:5]
+            lowest_price_ssd = SSD.objects.order_by('currentPrice')[:5]
             lowPrice_and_highRating_ssd = highest_rating_ssd.intersection(lowest_price_ssd).first()
             highest_rating_hdd = HDD.objects.order_by('-rating')[:5]
-            lowest_price_hdd = HDD.objects.order_by('current_price')[:5]
+            lowest_price_hdd = HDD.objects.order_by('currentPrice')[:5]
             lowPrice_and_highRating_hdd = highest_rating_hdd.intersection(lowest_price_hdd).first()
             return [lowPrice_and_highRating_ssd, lowPrice_and_highRating_hdd]
 
@@ -752,11 +747,11 @@ class algorithm:
         # gpu large = case large (only use of relative size)
         # make sure cooler length = case depth
         budget = self.budget * (budgetPercentage / 100)
-        Case = case.objects.filter(current_price__lt=budget, relativeSize__in = GPU.fitInSize())
-        #Case = Case.exclude(last_modified__lt=self.dateOfUpdate)
+        Case = case.objects.filter(currentPrice__lt=budget, relativeSize__in = GPU.fitInSize())
+        #Case = Case.exclude(lastModified__lt=self.dateOfUpdate)
 
-        highest_rating = Case.order_by('-current_price').first()
-        case_Price = highest_rating.current_price
+        highest_rating = Case.order_by('-currentPrice').first()
+        case_Price = highest_rating.currentPrice
 
         extra = budget - case_Price
         if extra > 0:
@@ -770,15 +765,15 @@ class algorithm:
         LowestPrice = budget - ((budget * 15) // 100)
         Size = self.JSON['formFactor'][0]
         Psu = psu.objects.filter(
-            current_price__gte = LowestPrice).filter(
-            current_price__lte=HighestPrice).filter(
+            currentPrice__gte = LowestPrice).filter(
+            currentPrice__lte=HighestPrice).filter(
             size = Size).filter(
             wattage__gte = WATTS).exclude(
             rating__lte=4.0).exclude(
-            last_modified__lt=self.dateOfUpdate)
+            lastModified__lt=self.dateOfUpdate)
 
         highest_rating = Psu.objects.order_by('-ratings').order_by('-rating')[:5]
-        lowest_price = Psu.objects.order_by('current_price')[:5]
+        lowest_price = Psu.objects.order_by('currentPrice')[:5]
         lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
         return lowPrice_and_highRating
 
