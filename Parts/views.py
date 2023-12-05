@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
-from .models import algorithm
+from .models import algorithm, cpuSerializer, moboSerializer, ramSerializer, gpuSerializer, psuSerializer
 from django.apps import apps
 from django.http import JsonResponse, HttpResponseForbidden
 from django.http import Http404
@@ -9,6 +9,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view,permission_classes,authentication_classes
 from json import load
+from django.http import JsonResponse, HttpResponse
+from rest_framework.renderers import JSONRenderer
+
 #####################################################################
 #####################################################################
 
@@ -41,10 +44,27 @@ def algorithm_api(request):
 
 @api_view(['POST'])
 def algorithm_api(request):
-    JSON = request.data
+    JSON = {
+    'budget': 1500,
+    'fps': 144,
+    'resolution': '4k',
+    'gameType': 'AAA',
+    'formFactor': 'ATX',
+    'purpose': 'Table Top',
+    'theme': 'light',
+    'rgb': True
+    }
+
     pc = algorithm(JSON)
+    gpu = gpuSerializer(pc.getGpu(35), many=False).data
+    #mobo = pc.getMobo(10, cpu)
     #customPc = pc.getComputer()
-    return Response(pc.getCpu(19))
+    return JsonResponse(gpu, safe=False)
 
 #####################################################################
 #####################################################################
+
+
+
+
+

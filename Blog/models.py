@@ -4,6 +4,7 @@ from django.db import models
 from Oauth.models import CustomUser
 from tinymce.models import HTMLField
 
+
 # Create your models here.
 class Author(models.Model):
     name = models.CharField(max_length=64)
@@ -37,8 +38,8 @@ class Post(models.Model):
     status = models.CharField(choices = status_choices, max_length=15)
     add_date  = models.DateTimeField(auto_now_add=True)
     publish_date  = models.DateTimeField(null=True, blank=True)
-    likes = models.ManyToManyField(CustomUser, related_name='post_likes', blank=True)
-    dislikes = models.ManyToManyField(CustomUser, related_name='post_dislikes', blank=True)
+    #likes = models.ManyToManyField(CustomUser, related_name='post_likes', blank=True)
+    #dislikes = models.ManyToManyField(CustomUser, related_name='post_dislikes', blank=True)
     views = models.PositiveIntegerField(default=0)
 
     def __str__(self):
@@ -53,6 +54,7 @@ class Post(models.Model):
     def get_absolute_url(self):
         return f'post/{self.slug}'
 
+
 class Post_Image(models.Model):
     title= models.CharField(max_length= 60)
     image = models.ImageField(upload_to = r'Blog/media')
@@ -60,6 +62,8 @@ class Post_Image(models.Model):
 
     def __str__(self):
         return f'{self.post.title}: {self.title}'
+    
+
 class Category(models.Model):
     image = models.ImageField(upload_to = r'Blog/media')
     title = models.CharField(max_length = 120)
@@ -98,6 +102,7 @@ class Comment(models.Model):
 
 #     def __str__(self):
 #         return f'{self.post.title}: {self.user}'
+
 
 class LikeComment(models.Model):
 
