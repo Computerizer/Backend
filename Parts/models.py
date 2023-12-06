@@ -36,18 +36,18 @@ class commoninfo(models.Model):
     ID                 = models.CharField(primary_key=True, max_length=15)
     manufacturer       = models.ForeignKey('manufacturer', related_name="%(class)s_related", on_delete=models.CASCADE)
     name               = models.CharField(max_length=150)
-    relativeSize       = models.CharField(choices=(('S', 'S'), ('M', 'M'), ("L", "L")), null=True, max_length=1)
-    dateAdded          = models.DateField(auto_now_add=True, null=True)
+    relativeSize       = models.CharField(choices=(('S', 'S'), ('M', 'M'), ("L", "L")), null=True, max_length=1, default='M')
+    dateAdded          = models.DateField(auto_now_add=True)
     amazonUrl          = models.TextField(null=True, blank=True)
     neweggUrl          = models.TextField(null=True, blank=True)
     #bestbuy_url       = models.TextField(null=True)
-    partRating         = models.FloatField(blank=True, null=True)
+    partRating         = models.FloatField(null=True, blank=True)
     amazonPrice        = models.FloatField(null=True, blank=True)
     neweggPrice        = models.FloatField(null=True, blank=True)
     #bestbuy_price     = models.FloatField(null=True)
     previousPrice      = models.FloatField(null=True, default=0.0)
-    currentPrice       = models.FloatField(null=True, blank=True)
-    lowestPriceUrl     = models.URLField(null=True, blank=True)
+    currentPrice       = models.FloatField(default=0.0, blank=True)
+    lowestPriceUrl     = models.URLField(default='', blank=True)
     lastModified       = models.DateField(auto_now=True)
 
     class Meta:
@@ -81,14 +81,14 @@ class cpu(commoninfo):
     )
     cores               = models.PositiveIntegerField()
     threads             = models.PositiveIntegerField()
-    baseClock           = models.FloatField()
-    boostClock          = models.FloatField()
+    baseClock           = models.FloatField(default=0.0)
+    boostClock          = models.FloatField(default=0.0)
     overclockable       = models.BooleanField()
     socket              = models.CharField(choices=Sockets, max_length=15)
     cooler              = models.BooleanField(help_text='eg: amd ryzen 3600', verbose_name='Comes with cooler')
     powerConsumption   = models.PositiveIntegerField(null=True)
     integratedGraphics = models.BooleanField(null=True)
-    useCase            = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
+    useCase            = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15, default='Mid-Range')
 
     def __str__(self):
         return f"{self.name} ({self.ID})"
@@ -122,15 +122,15 @@ class aircooler(commoninfo):
     socket            = models.CharField(choices=sockets, max_length=15)
     size              = models.CharField(choices=sizes, max_length=10)
     height            = models.FloatField()
-    length             = models.FloatField()
-    numFans          = models.PositiveIntegerField()
-    heatsinksNum     = models.PositiveIntegerField()
-    colorName        = models.CharField(default='Black', max_length=15) #Write the color name corresponding to the Hex value below
-    colorHex         = models.CharField(default='#RRGGBB', max_length=8) #Write the color value as a hex string
+    length            = models.FloatField()
+    numFans           = models.PositiveIntegerField(default=1)
+    heatsinksNum      = models.PositiveIntegerField(default=1)
+    colorName         = models.CharField(default='Black', max_length=15) #Write the color name corresponding to the Hex value below
+    colorHex          = models.CharField(default='#RRGGBB', max_length=8) #Write the color value as a hex string
     rgb               = models.BooleanField()
-    powerConsumption = models.IntegerField(null=True)
+    powerConsumption  = models.IntegerField(null=True)
     theme             = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), verbose_name='Color Theme', max_length=10)
-    useCase          = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
+    useCase           = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15, default='Mid-Range')
 
     def __str__(self):
         return f"{self.name}"
@@ -158,13 +158,13 @@ class watercooler(commoninfo):
 
     socket            = models.CharField(choices=sockets, max_length=20)
     length            = models.FloatField()
-    numFans          = models.PositiveIntegerField()
-    colorName        = models.CharField(default='Black', max_length=15) #Write the color name corresponding to the Hex value below
-    colorHex         = models.CharField(default='#RRGGBB', max_length=8) #Write the color value as a hex string
+    numFans           = models.PositiveIntegerField()
+    colorName         = models.CharField(default='Black', max_length=15) #Write the color name corresponding to the Hex value below
+    colorHex          = models.CharField(default='#RRGGBB', max_length=8) #Write the color value as a hex string
     rgb               = models.BooleanField()
-    powerConsumption = models.PositiveIntegerField(null=True)
+    powerConsumption  = models.PositiveIntegerField(null=True)
     theme             = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), verbose_name='Color Theme', max_length=15)
-    useCase          = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
+    useCase           = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15, default='Mid-Range')
 
     def __str__(self):
         return f"{self.name}"
@@ -184,22 +184,22 @@ class gpu(commoninfo):
     type                 = models.CharField(choices=(('GTX', 'GTX'), ('RTX', 'RTX'), ('Radeon', 'Radeon')), max_length=6)
     length               = models.FloatField(help_text='*in mm - (120, 240, 360, etc)')
     width                = models.FloatField(help_text='*slot width (1, 1.5, 2, 2.5, etc)', null=True)
-    fanCount             = models.IntegerField(choices=((1, 1), (2, 2), (3, 3)))
+    fanCount             = models.IntegerField(choices=((1, 1), (2, 2), (3, 3)), default=2)
     vram                 = models.PositiveIntegerField(verbose_name='Memory (VRAM)')
-    gddrType             = models.CharField(choices=(("GDDR6X", "GDDR6X"), ('GDDR6', 'GDDR6'), ('GDDR5X', 'GDDR5X'), ('GDDR5', 'GDDR5')), max_length=10)
+    gddrType             = models.CharField(choices=(("GDDR6X", "GDDR6X"), ('GDDR6', 'GDDR6'), ('GDDR5X', 'GDDR5X'), ('GDDR5', 'GDDR5')), max_length=10, default='GDDR6')
     cores                = models.IntegerField(null=True, blank=True)
-    baseClock            = models.IntegerField()
-    boostClock           = models.IntegerField()
-    supportedResolution  = models.IntegerField(choices=((1000, 1000), (2000, 2000), (4000, 4000), (5000, 5000), (8000, 8000)), max_length=5)
+    baseClock            = models.IntegerField(default=0)
+    boostClock           = models.IntegerField(default=0)
+    supportedResolution  = models.IntegerField(choices=((1000, 1000), (2000, 2000), (4000, 4000), (5000, 5000), (8000, 8000)), max_length=5, null=True)
     pcie5                = models.BooleanField(null=True) #  gen of either pcie or ddr, then
-    rgb                  = models.BooleanField()
+    rgb                  = models.BooleanField(null=True)
     pinNum               = models.PositiveIntegerField(verbose_name='Pins required', help_text='Number of pins to power the card', null=True)
-    displayportCount     = models.PositiveIntegerField()
-    hdmiCount            = models.PositiveIntegerField()
-    usbcCount            = models.PositiveIntegerField(verbose_name='USB-C ports count', null=True)
+    displayportCount     = models.PositiveIntegerField(default=0)
+    hdmiCount            = models.PositiveIntegerField(default=0)
+    usbcCount            = models.PositiveIntegerField(verbose_name='USB-C ports count', default=0)
     theme                = models.CharField(choices=(('dark', 'dark'), ('light', 'light')), max_length=6)
     powerConsumption     = models.PositiveIntegerField(null=True)
-    useCase              = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
+    useCase              = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15, default='Mid-Range')
 
     def __str__(self):
         return f"{self.name}"
@@ -284,7 +284,7 @@ class ram(commoninfo):
         ('DDR5', 'DDR5')
     )
     capacity          = models.PositiveIntegerField(choices=ram_capacity)
-    dividedCapacity   = models.CharField(choices=(('4x2', '4x2'),('4x4', '4x4'),('8x2', '8x2'),('8x4', '8x4'),('16x2', '16x2'),('16x4', '16x4'),('32x2', '32x2'),('32x4', '32x4'),), help_text='How many sticks to make up total RAM capacity', max_length=10)
+    dividedCapacity   = models.CharField(choices=(('4x2', '4x2'),('4x4', '4x4'),('8x2', '8x2'),('8x4', '8x4'),('16x2', '16x2'),('16x4', '16x4'),('32x2', '32x2'),('32x4', '32x4'),), help_text='How many sticks to make up total RAM capacity', max_length=10, null=True)
     channels          = models.CharField(choices=number_of_channels, max_length=20)
     speed             = models.IntegerField()
     type              = models.CharField(choices=ddr_type, max_length=5)
@@ -294,7 +294,7 @@ class ram(commoninfo):
     colorHex          = models.CharField(default='#RRGGBB', max_length=8)
     powerConsumption  = models.PositiveIntegerField(null=True)
     rgb               = models.BooleanField(default=True, null=True)
-    useCase           = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
+    useCase           = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15, default='Mid-Range')
 
     def __str__(self):
         return f"{self.name}"
@@ -336,7 +336,7 @@ class hdd(commoninfo):
     size              = models.FloatField(choices=size, default=3.5, verbose_name='Size (inches)')
     rgb               = models.BooleanField(default=False, null=True)
     powerConsumption  = models.PositiveIntegerField(default=30)
-    useCase           = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
+    useCase           = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15, default='Mid-Range')
 
     def __str__(self):
         return f"{self.name}"
@@ -352,8 +352,8 @@ class hdd(commoninfo):
 
 class ssd(commoninfo):
     capacity          = models.PositiveIntegerField() #in gb, tb values will be altered on the frontend
-    readSpeed         = models.PositiveIntegerField() #in MbPs
-    writeSpeed        = models.PositiveIntegerField() #in MbPs
+    readSpeed         = models.PositiveIntegerField(default=0) #in MbPs
+    writeSpeed        = models.PositiveIntegerField(default=0) #in MbPs
     mdot2             = models.BooleanField(verbose_name='M.2 Support', default=True)
     sata              = models.BooleanField(verbose_name='SATA Support', default=False)
     pcieGen           = models.PositiveIntegerField(verbose_name='PCIe Generation (3, 3.1, or 4)', default=4)
@@ -399,7 +399,7 @@ class psu(commoninfo):
     size              = models.CharField(choices=mobo_size, max_length=10, default='ATX')
     colorName         = models.CharField(default='Black', max_length=15) #Write the color name corresponding to the Hex value below
     colorHex          = models.CharField(default='#RRGGBB', max_length=8) #Write the color value as a hex string
-    useCase           = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
+    useCase           = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15, default='Mid-Range')
     def __str__(self):
         return f"{self.ID}: {self.name}"
 
@@ -443,9 +443,9 @@ class case(commoninfo):
     moboSupport         = models.CharField(choices=(('ATX', 'ATX'), ('Micro-ATX', 'Micro-ATX'), ('Mini-ITX', 'MiniI-TX')), max_length=10, default='ATX')
     maxGpuLength        = models.FloatField(default=280)
     maxRadiatorSize     = models.FloatField(default=360)
-    rgb                 = models.BooleanField()
-    hasFans             = models.BooleanField()
-    numFans             = models.PositiveIntegerField()
+    rgb                 = models.BooleanField(default=False)
+    hasFans             = models.BooleanField(default=False)
+    numFans             = models.PositiveIntegerField(default=0)
     maxFanNumber        = models.IntegerField(null=True)
     maxFanSize          = models.PositiveIntegerField(null=True)
     io                  = models.TextField(null=True)
