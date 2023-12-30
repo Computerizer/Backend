@@ -37,7 +37,7 @@ class commoninfo(models.Model):
     manufacturer       = models.ForeignKey('manufacturer', related_name="%(class)s_related", on_delete=models.CASCADE)
     name               = models.CharField(max_length=150)
     relativeSize       = models.CharField(choices=(('S', 'S'), ('M', 'M'), ("L", "L")), null=True, max_length=1, default='M')
-    dateAdded          = models.DateField(auto_now_add=True)
+    dateAdded          = models.DateField(auto_now_add=True, null=True)
     amazonUrl          = models.TextField(null=True, blank=True)
     neweggUrl          = models.TextField(null=True, blank=True)
     #bestbuy_url       = models.TextField(null=True)
@@ -693,55 +693,13 @@ class algorithm:
         # use extra budget from ram
         budget = (self.budget * budgetPercentage) // 100 # Calculating budget from given percentage
 
-        ssd_count = 0
-        hdd_count = 0
-        ssd_price = 0
-        hdd_price = 0
-        if (self.formFactor == 'MiniItx') or (self.purpose == 'ConsoleKiller'):
-            ssd_count = 1
-            ssd_price = budget
-        else:
-            ssd_count = 1
-            hdd_count = 1
-            ssd_price = budget * 0.7
-            hdd_price = budget - ssd_price
-
-        if ssd_count > 0 and hdd_count == 0:
-            SSD = ssd.objects.filter(
-                currentPrice__gte=float(ssd_price - ((ssd_price*15)//100))).filter(
-                currentPrice__lte=float(ssd_price + ((ssd_price*15)//100))).filter(
-                rgb=self.rgb).exclude(
-                rating__lte=4.0).exclude(
-                lastModified__lt=self.dateOfUpdate)
-            
-        elif ssd_count > 0  and hdd_count > 0:
-            SSD = ssd.objects.filter(
-                currentPrice__gte=float(ssd_price - ((ssd_price*15)//100))).filter(
-                currentPrice__lte=float(ssd_price + ((ssd_price*15)//100))).filter(
-                rgb=self.rgb).exclude(
-                rating__lte=4.0).exclude(
-                lastModified__lt=self.dateOfUpdate)
-            
-            HDD = hdd.objects.filter(
-                currentPrice__gte=float(hdd_price - ((hdd_price*15)//100))).filter(
-                currentPrice__lte=float(hdd_price + ((hdd_price*15)//100))).filter(
-                rgb=self.rgb).exclude(
-                rating__lte=4.0).exclude(
-                lastModified__lt=self.dateOfUpdate)
+        ssd = ssd.objects.filter(
+            currentPrice__lte = budget)
         
-        if HDD.count() == 0:
-            highest_rating = SSD.objects.order_by('-rating')[:5]
-            lowest_price = SSD.objects.order_by('currentPrice')[:5]
-            lowPrice_and_highRating = highest_rating.intersection(lowest_price).first()
-            return lowPrice_and_highRating
-        else:
-            highest_rating_ssd = SSD.objects.order_by('-rating')[:5]
-            lowest_price_ssd = SSD.objects.order_by('currentPrice')[:5]
-            lowPrice_and_highRating_ssd = highest_rating_ssd.intersection(lowest_price_ssd).first()
-            highest_rating_hdd = HDD.objects.order_by('-rating')[:5]
-            lowest_price_hdd = HDD.objects.order_by('currentPrice')[:5]
-            lowPrice_and_highRating_hdd = highest_rating_hdd.intersection(lowest_price_hdd).first()
-            return [lowPrice_and_highRating_ssd, lowPrice_and_highRating_hdd]
+        ssd = ssd.object.filter()
+
+        highest = ssd.objects.order_by()
+        return highest
 
 
     def getCase(self, budgetPercentage, GPU):
