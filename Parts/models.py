@@ -86,9 +86,9 @@ class cpu(commoninfo):
     overclockable       = models.BooleanField()
     socket              = models.CharField(choices=Sockets, max_length=15)
     cooler              = models.BooleanField(help_text='eg: amd ryzen 3600', verbose_name='Comes with cooler')
-    powerConsumption   = models.PositiveIntegerField(null=True)
-    integratedGraphics = models.BooleanField(null=True)
-    useCase            = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
+    powerConsumption    = models.PositiveIntegerField(null=True)
+    integratedGraphics  = models.BooleanField(null=True)
+    useCase             = models.CharField(choices=(('Budget', 'Budget'), ('Mid-Range', 'Mid-Range'), ('High-end', 'High-end')), max_length=15)
 
     def __str__(self):
         return f"{self.name} ({self.ID})"
