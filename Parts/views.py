@@ -46,14 +46,14 @@ def algorithm_api(request):
 def algorithm_api(request):
 
     data = {
-        "cpu": cpu.objects.get(id=1),
-        "gpu": gpu.objects.get(id=1),
-        "mobo": motherboard.objects.get(id=1),
-        "cooler": aircooler.objects.get(id=1),
-        "ram": ram.objects.get(id=1),
-        "psu": psu.objects.get(id=1),
-        "storage": [ssd.objects.get(id=1), hdd.objects.get(id=2)],
-        "case": case.objects.get(id=1),
+        "cpu": cpu.objects.all[0],
+        "gpu": gpu.objects.all[0],
+        "mobo": motherboard.objects.all[0],
+        "cooler": aircooler.objects.all[0],
+        "ram": ram.objects.all[0],
+        "psu": psu.objects.all[0],
+        "storage": [ssd.objects.all[0], hdd.objects.all[0]],
+        "case": case.objects.all[0],
     }
 
     return JsonResponse(data, safe=False)
