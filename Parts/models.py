@@ -36,7 +36,7 @@ class commoninfo(models.Model):
     ID                 = models.CharField(primary_key=True, max_length=15)
     manufacturer       = models.ForeignKey('manufacturer', related_name="%(class)s_related", on_delete=models.CASCADE)
     name               = models.CharField(max_length=150)
-    relativeSize       = models.CharField(choices=(('S', 'S'), ('M', 'M'), ("L", "L")), null=True, max_length=1, default='M')
+    relativeSize       = models.CharField(choices=((0, 'S'), (1, 'M'), (2, "L")), null=True, max_length=1, default='M')
     dateAdded          = models.DateField(auto_now_add=True, null=True)
     amazonUrl          = models.TextField(null=True, blank=True)
     neweggUrl          = models.TextField(null=True, blank=True)
@@ -115,9 +115,9 @@ class aircooler(commoninfo):
     ]
 
     sizes = (
-        ('ATX', 'ATX'),
-        ('MicroAtx', 'MicroAtx'),
-        ('MiniItx', 'MiniItx')
+        (2, 'ATX'),
+        (1, 'MicroAtx'),
+        (0, 'MiniItx')
     )
     socket            = models.CharField(choices=sockets, max_length=15)
     size              = models.CharField(choices=sizes, max_length=10)
@@ -225,9 +225,9 @@ class motherboard(commoninfo):
     )
 
     sizes = (
-        ('ATX', 'ATX'),
-        ('Micro-ATX', 'Micro-ATX'),
-        ('Mini-ITX', 'Mini-ITX'),
+        (2, 'ATX'),
+        (1, 'Micro-ATX'),
+        (0, 'Mini-ITX'),
     )
     socket               = models.CharField(choices=Sockets, max_length=15, help_text='Socket support')
     size                 = models.CharField(choices=sizes, max_length=15, help_text='Size (form factor)')
@@ -389,9 +389,9 @@ class psu(commoninfo):
     )
 
     mobo_size = (
-        ('ATX', 'ATX'),
-        ('Micro-ATX', 'Micro-ATX'),
-        ('Mini-ITX', 'Mini-ITX')
+        (2, 'ATX'),
+        (1, 'Micro-ATX'),
+        (0, 'Mini-ITX')
     )
     wattage           = models.PositiveIntegerField()
     rating            = models.CharField(choices=ratings, max_length=10, default='Bronze')
@@ -607,7 +607,7 @@ class algorithm:
             Gpu = Gpu.filter(
                 fanCount__lte = 1)
 
-        highest_rating = Gpu.order_by('-vram', '-boostClock ').first()
+        highest_rating = Gpu.order_by('-vram', '-boostClock').first()
         return highest_rating
 
 
@@ -706,9 +706,12 @@ class algorithm:
         # gpu large = case large (only use of relative size)
         # make sure cooler length = case depth
         budget = self.budget * (budgetPercentage / 100)
-        Case = case.objects.filter(currentPrice__lt=budget, relativeSize__in = GPU.fitInSize())
+        Case = case.objects.filter(relativeSize__lte = 3)
         #Case = Case.exclude(lastModified__lt=self.dateOfUpdate)
-
+        try:
+            Case = Case.filter(theme = self.theme)
+        except:
+            print("theme not found")
         highest_rating = Case.order_by('-currentPrice').first()
         case_Price = highest_rating.currentPrice
 
@@ -818,6 +821,6 @@ jsonExample1 = {
     'gameType': 'AAA',
     'formFactor': 'ATX',
     'purpose': 'Table Top',
-    'theme': 'Dark',
+    'theme': 'dark',
     'RGB': True
     }

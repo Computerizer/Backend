@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
-from .models import algorithm, cpuSerializer, moboSerializer, ramSerializer, gpuSerializer, psuSerializer
+from .models import algorithm, cpuSerializer, moboSerializer, ramSerializer, gpuSerializer, psuSerializer, case, cpu, gpu, motherboard, aircooler, ram, psu, ssd, hdd
 from django.apps import apps
 from django.http import JsonResponse, HttpResponseForbidden
 from django.http import Http404
@@ -42,25 +42,41 @@ def algorithm_api(request):
     return Response({'error message': 'maximum user retries, change parameters'})
 """
 
+# @api_view(['GET'])
+# def algorithm_api(request):
+#     JSON = {
+#     'budget': 1500,
+#     'fps': 144,
+#     'resolution': '4k',
+#     'gameType': 'AAA',
+#     'formFactor': 'ATX',
+#     'purpose': 'Table Top',
+#     'theme': 'light',
+#     'rgb': True
+#     }
+
+#     pc = algorithm(JSON)
+#     gpu = pc.getGpu(35)
+#     #mobo = pc.getMobo(10, cpu)
+#     #customPc = pc.getComputer()
+#     case1 = pc.getCase(8, gpu)
+#     return JsonResponse(case1, safe=False)
+
 @api_view(['POST'])
 def algorithm_api(request):
-    JSON = {
-    'budget': 1500,
-    'fps': 144,
-    'resolution': '4k',
-    'gameType': 'AAA',
-    'formFactor': 'ATX',
-    'purpose': 'Table Top',
-    'theme': 'light',
-    'rgb': True
+
+    data = {
+        "cpu": cpu.objects.all[0],
+        "gpu": gpu.objects.all[0],
+        "mobo": motherboard.objects.all[0],
+        "cooler": aircooler.objects.all[0],
+        "ram": ram.objects.all[0],
+        "psu": psu.objects.all[0],
+        "storage": [ssd.objects.all[0], hdd.objects.all[0]],
+        "case": case.objects.all[0],
     }
 
-    pc = algorithm(JSON)
-    gpu = gpuSerializer(pc.getGpu(35), many=False).data
-    #mobo = pc.getMobo(10, cpu)
-    #customPc = pc.getComputer()
-    return JsonResponse(gpu, safe=False)
-
+    return JsonResponse(data, safe=False)
 #####################################################################
 #####################################################################
 
