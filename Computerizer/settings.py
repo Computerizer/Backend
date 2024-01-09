@@ -116,8 +116,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'computerizer-testing',
         'USER': 'computerizeradmin',
-        'PASSWORD': 'Breakfortech_123',
-        'HOST': 'computerizer-postgresql.postgres.database.azure.com',
+        'PASSWORD': os.environ['DB_PASS'],
+        'HOST': os.environ['DB_HOST'],
         'PORT': '5432',
     }
 }
