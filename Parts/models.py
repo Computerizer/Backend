@@ -60,7 +60,7 @@ class commoninfo(models.Model):
         size = self.relativeSize
 
         return sizes[0:sizes.index(size)+1]
-    
+
     def fitInSize(self):
         # this method gives you all the sizes a specfic part can fit in (small gpu can fit in [large, medium, small] cases)
         sizes = ['S', "M", "L"]
