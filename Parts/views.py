@@ -47,17 +47,17 @@ def algorithm_api(request):
 
     try:
         data = {
-            "cpu": cpu.objects.all[0],
-            "gpu": gpu.objects.all[0],
-            "mobo": motherboard.objects.all[0],
-            "cooler": aircooler.objects.all[0],
-            "ram": ram.objects.all[0],
-            "psu": psu.objects.all[0],
-            "storage": [ssd.objects.all[0], hdd.objects.all[0]],
-            "case": case.objects.all[0],
+            "cpu": cpu.objects.all[:1].get(),
+            "gpu": gpu.objects.all[:1].get(),
+            "mobo": motherboard.objects.all[:1].get(),
+            "cooler": aircooler.objects.all[:1].get(),
+            "ram": ram.objects.all[:1].get(),
+            "psu": psu.objects.all[:1].get(),
+            "storage": [ssd.objects.all[:1].get(), hdd.objects.all[:1].get()],
+            "case": case.objects.all[:1].get(),
         }
     except:
-        pass
+        return Response({'error message': 'maximum user retries, change parameters'})
 
     return JsonResponse(data, safe=False)
     #return HttpResponse("Working")
