@@ -48,17 +48,17 @@ def algorithm_api(request):
     try:
         # Get first part of each category
         data = {
-            "CPU": cpu.objects.first().name,
-            "GPU": gpu.objects.first().name,
-            "RAM": ram.objects.first().name,
-            "Motherboard": motherboard.objects.first().name,
-            "Storage": ssd.objects.first().name,
-            "PSU": psu.objects.first().name,
-            "Case": case.objects.first().name,
-            "Cooler": aircooler.objects.first().name,
+            "CPU": cpu.objects.first(),
+            "GPU": gpu.objects.first(),
+            "RAM": ram.objects.first(),
+            "Motherboard": motherboard.objects.first(),
+            "Storage": ssd.objects.first(),
+            "PSU": psu.objects.first(),
+            "Case": case.objects.first(),
+            "Cooler": aircooler.objects.first(),
         }
     except:
-        return Response({'error message': 'maximum user retries, change parameters'})
+        return Response({'error message': 'maximum user retries'})
 
     return JsonResponse(data, safe=False)
     #return HttpResponse("Working")
