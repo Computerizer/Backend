@@ -45,19 +45,6 @@ def algorithm_api(request):
 @api_view(['POST'])
 def algorithm_api(request):
 
-    try:
-        data = {
-            "cpu": cpu.objects.all[0],
-            "gpu": gpu.objects.all[0],
-            "mobo": motherboard.objects.all[0],
-            "cooler": aircooler.objects.all[0],
-            "ram": ram.objects.all[0],
-            "psu": psu.objects.all[0],
-            "storage": [ssd.objects.all[0], hdd.objects.all[0]],
-            "case": case.objects.all[0],
-        }
-    except:
-        pass
 
     #return JsonResponse(data, safe=False)
     return HttpResponse("Working")
