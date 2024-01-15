@@ -42,9 +42,8 @@ def algorithm_api(request):
     return Response({'error message': 'maximum user retries, change parameters'})
 """
 
-@api_view(['GET'])
+@api_view(['POST'])
 def algorithm_api(request):
-
     if request.method == 'POST':
         try:
             # Get first part of each category
@@ -67,7 +66,7 @@ def algorithm_api(request):
                 "Cooler": Cooler
             }
             
-            return Response(data)
+            return Response(data, safe=False)
     
         except:
             return Response({'error message': 'maximum user retries'})
