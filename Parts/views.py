@@ -45,22 +45,23 @@ def algorithm_api(request):
 @api_view(['POST'])
 def algorithm_api(request):
 
-    try:
-        # Get first part of each category
-        data = {
-            "CPU": cpu.objects.get(ID="R34100"),
-            "GPU": gpu.objects.ger(ID="MSIGRRX68"),
-            "RAM": ram.objects.get(ID="GSRJ8x23600"),
-            "Motherboard": motherboard.objects.get(ID="ASUSAM4TUFX570"),
-            "Storage": ssd.objects.get(ID="WDBSN550"),
-            "PSU": psu.objects.get(ID="NZXTC550B"),
-            "Case": case.objects.get(ID="NZXTH5B"),
-            "Cooler": aircooler.objects.get(ID="CMH212BERGB"),
-        }
-    except:
-        return Response({'error message': 'maximum user retries'})
+    if request.method == 'POST':
+        try:
+            # Get first part of each category
+            data = {
+                "CPU": cpu.objects.get(ID="R34100"),
+                "GPU": gpu.objects.ger(ID="MSIGRRX68"),
+                "RAM": ram.objects.get(ID="GSRJ8x23600"),
+                "Motherboard": motherboard.objects.get(ID="ASUSAM4TUFX570"),
+                "Storage": ssd.objects.get(ID="WDBSN550"),
+                "PSU": psu.objects.get(ID="NZXTC550B"),
+                "Case": case.objects.get(ID="NZXTH5B"),
+                "Cooler": aircooler.objects.get(ID="CMH212BERGB"),
+            }
+        except:
+            return Response({'error message': 'maximum user retries'})
 
-    return JsonResponse(data, safe=False)
+        return JsonResponse(data, safe=False)
     #return HttpResponse("Working")
 
 #####################################################################
