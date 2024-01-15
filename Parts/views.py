@@ -47,14 +47,14 @@ def algorithm_api(request):
     if request.method == 'POST':
         try:
             # Get first part of each category
-            Cpu = cpuSerializer(cpu.objects.all()[0], many = False).data
-            Gpu = gpuSerializer(gpu.objects.all()[0], many = False).data
-            Ram = ramSerializer(ram.objects.all()[0], many = False).data
-            MB = moboSerializer(motherboard.objects.all()[0], many = False).data
-            Storage = ssdSerializer(ssd.objects.all()[0], many = False).data
-            Psu = psuSerializer(psu.objects.all()[0], many = False).data
-            Case = caseSerializer(case.objects.all()[0], many = False).data
-            Cooler = aircoolerSerializer(aircooler.objects.all()[0], many = False).data
+            Cpu = cpuSerializer(cpu.objects.all()[:1], many = False).data
+            Gpu = gpuSerializer(gpu.objects.all()[:1], many = False).data
+            Ram = ramSerializer(ram.objects.all()[:1], many = False).data
+            MB = moboSerializer(motherboard.objects.all()[:1], many = False).data
+            Storage = ssdSerializer(ssd.objects.all()[:1], many = False).data
+            Psu = psuSerializer(psu.objects.all()[:1], many = False).data
+            Case = caseSerializer(case.objects.all()[:1], many = False).data
+            Cooler = aircoolerSerializer(aircooler.objects.all()[:1], many = False).data
             data = {
                 "CPU": Cpu,
                 "GPU": Gpu,
@@ -66,8 +66,7 @@ def algorithm_api(request):
                 "Cooler": Cooler
             }
             
-            return Response(data, safe=False)
-    
+            return Response(data)
         except:
             return Response({'error message': 'maximum user retries'})
         #return HttpResponse("Working")
