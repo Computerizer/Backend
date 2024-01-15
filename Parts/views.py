@@ -42,25 +42,36 @@ def algorithm_api(request):
     return Response({'error message': 'maximum user retries, change parameters'})
 """
 
-@api_view(['POST'])
+@api_view(['GET'])
 def algorithm_api(request):
 
     try:
         # Get first part of each category
+        Cpu = cpuSerializer(cpu.objects.all()[0], many = False).data
+        Gpu = gpuSerializer(gpu.objects.all()[0], many = False).data
+        Ram = ramSerializer(ram.objects.all()[0], many = False).data
+        MB = moboSerializer(motherboard.objects.all()[0], many = False).data
+        Storage = ssdSerializer(ssd.objects.all()[0], many = False).data
+        Psu = psuSerializer(psu.objects.all()[0], many = False).data
+        Case = caseSerializer(case.objects.all()[0], many = False).data
+        Cooler = aircoolerSerializer(aircooler.objects.all()[0], many = False).data
         data = {
-            "CPU": cpu.objects.get(ID="R34100"),
-            "GPU": gpu.objects.ger(ID="MSIGRRX68"),
-            "RAM": ram.objects.get(ID="GSRJ8x23600"),
-            "Motherboard": motherboard.objects.get(ID="ASUSAM4TUFX570"),
-            "Storage": ssd.objects.get(ID="WDBSN550"),
-            "PSU": psu.objects.get(ID="NZXTC550B"),
-            "Case": case.objects.get(ID="NZXTH5B"),
-            "Cooler": aircooler.objects.get(ID="CMH212BERGB"),
+            "CPU": Cpu,
+            "GPU": Gpu,
+            "RAM": Ram,
+            "Motherboard": MB,
+            "Storage": Storage,
+            "PSU": Psu,
+            "Case": Case,
+            "Cooler": Cooler
         }
+        
+        return Response(data)
+    
     except:
         return Response({'error message': 'maximum user retries'})
 
-    return JsonResponse(data, safe=False)
+    
     #return HttpResponse("Working")
 
 #####################################################################
