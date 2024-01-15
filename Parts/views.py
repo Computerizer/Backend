@@ -42,6 +42,7 @@ def algorithm_api(request):
     return Response({'error message': 'maximum user retries, change parameters'})
 """
 
+
 @api_view(['POST'])
 def algorithm_api(request):
     if request.method == 'POST':
