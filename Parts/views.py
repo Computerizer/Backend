@@ -67,9 +67,9 @@ def algorithm_api(request):
                 "Cooler": Cooler
             }
             
-            return Response(data)
+            return JsonResponse(data, safe=False)
         except Exception as e:
-            return Response({'error message': e})
+            return HttpResponse(e)
         #return HttpResponse("Working")
 
 #####################################################################
