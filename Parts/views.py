@@ -68,8 +68,8 @@ def algorithm_api(request):
             }
             
             return Response(data)
-        except:
-            return Response({'error message': 'maximum user retries'})
+        except Exception as e:
+            return Response({'error message': e})
         #return HttpResponse("Working")
 
 #####################################################################
