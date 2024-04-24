@@ -18,11 +18,11 @@ class Register(APIView):
     permission_classes = ([AllowAny])
     def post(self,request):
         serializer = UserSerializer(data=request.data)
+        
         if serializer.is_valid():
             account = serializer.save()
-            account.set_password(request.data['password'])
-            account.save()
             token = Token.objects.create(user=account)
+
             return Response({
                 "response":"User Created Successfully",
                 'username': account.username,
@@ -31,6 +31,7 @@ class Register(APIView):
                 'own_pc': account.own_pc,
                 "token": token.key,
                 },status=status.HTTP_201_CREATED)
+        
         return Response({'error':serializer.errors}, status.HTTP_400_BAD_REQUEST)
 
 
@@ -49,7 +50,7 @@ class Login(APIView):
             return Response({"response": "Incorrect Login credentials"})
         
         token, create = Token.objects.get_or_create(user=Account)
-        print(token)
+
         if Account:
             if Account.is_active:
                 data = {}
